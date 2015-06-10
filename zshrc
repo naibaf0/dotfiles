@@ -2,11 +2,9 @@
 export ZSH=~/.oh-my-zsh
 
 
-#=====================================================================
-#
-#   Stuff to do before Zsh config gets sourced
-#
-#=====================================================================
+#==============================================================================
+# Stuff to do before Zsh config gets sourced
+#==============================================================================
 
 #========================
 # Use dircolors
@@ -85,17 +83,17 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # For a full list of active aliases, run `alias`.
 #
 
-#========================
+#==============================================================================
 # Prepend user-specific bin/ paths
-#========================
+#==============================================================================
 if [ -d "${HOME}/.bin" ]
 then
   PATH="${HOME}/.bin:${PATH}"
 fi
 
-#========================
+#==============================================================================
 # Miscellanneous
-#========================
+#==============================================================================
 
 alias grep='grep --color=always -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
@@ -104,29 +102,36 @@ alias free='free -m'                      # show sizes in MB
 alias vp='vim PKGBUILD'
 alias vs='vim SPLITBUILD'
 
-# vim stuff
+#==============================================================================
+# Vim stuff
+#==============================================================================
 export EDITOR=vim
 export DIFF=vimdiff
 export VISUAL=vim
 alias vi=vim
 alias view='vim -R'
 
-#ls
+#==============================================================================
+# Nice ls
+#==============================================================================
 alias ls='ls -FX --group-directories-first --color=always'
-alias lsa='ls -Fa --group-directories-first --color=always'
-alias lsl='ls -Flah --group-directories-first --color=always'
 
-#configurations
+#==============================================================================
+# Configuration-files alias
+#==============================================================================
 alias confvim="vim ~/.configfiles/vimrc"
 alias confgit="vim ~/.configfiles/gitconfig"
 alias confzsh="vim ~/.configfiles/zshrc"
 
-#locations
+#==============================================================================
+# Location alias
+#==============================================================================
 alias uni='cd ~/Documents/University'
+alias workspace='cd ~/workspace'
 
-#========================
+#==============================================================================
 # Create new directory and cd into it
-#========================
+#==============================================================================
 alias md='__make_and_change_directory'
 
 __make_and_change_directory() {
@@ -137,9 +142,9 @@ __make_and_change_directory() {
     done
 }
 
-#========================
+#==============================================================================
 # Extract an archive
-#========================
+#==============================================================================
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -160,21 +165,36 @@ extract () {
   fi
 }
 
-
-
-#=====================================================================
-#
+#==============================================================================
 # Git
-#
-#=====================================================================
-
+#==============================================================================
 alias glg='git lg'
 alias gst='git st'
 
-export DEFAULT_USER=naibafo
+#==============================================================================
+# Useful enter-key
+#==============================================================================
+magic-enter () {
+  if [[ -z $BUFFER ]]; then
+    echo ""
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+      git status
+    else
+      ls
+    fi
+    zle redisplay
+  else
+    zle accept-line
+  fi
+}
+zle -N magic-enter
+bindkey "^M" magic-enter
 
-#fortune 10% chance of printing
+#==============================================================================
+# Fortune 10% chance of printing
+#==============================================================================
 if [ $(( RANDOM % 10)) -eq 0 ]; then
       fortune -an 140 | cowsay
     fi
 
+export DEFAULT_USER=naibafo
