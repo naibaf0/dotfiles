@@ -1,7 +1,7 @@
 My ZSH configuration file
 =========================
 
-Prerequsites
+Prerequisites
 ------------
 
 - ZSH
