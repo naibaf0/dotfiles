@@ -19,9 +19,10 @@ export TERM=xterm-256color
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme
 # each time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
+#ZSH_THEME="avit"
 
-
+# Only load Liquid Prompt in interactive shells, not from a script from scp
+[[ $- = *i* ]] && source ~/Projects/Configuration/liquidprompt/liquidprompt
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -117,16 +118,9 @@ alias view='vim -R'
 alias ls='ls -FX --group-directories-first --color=always'
 
 #==============================================================================
-# Configuration-files alias
-#==============================================================================
-alias confvim="vim ~/.configfiles/vimrc"
-alias confgit="vim ~/.configfiles/gitconfig"
-alias confzsh="vim ~/.configfiles/zshrc"
-
-#==============================================================================
 # Location alias
 #==============================================================================
-alias uni='cd ~/Documents/University'
+alias uni='cd ~/Documents/DHBW'
 alias workspace='cd ~/workspace'
 
 #==============================================================================
@@ -189,6 +183,11 @@ magic-enter () {
 }
 zle -N magic-enter
 bindkey "^M" magic-enter
+
+#==============================================================================
+# thefuck alias
+#==============================================================================
+eval "$(thefuck --alias)"
 
 #==============================================================================
 # Fortune 10% chance of printing
