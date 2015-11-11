@@ -64,7 +64,7 @@ plugins=(git git-extras gitfast themes cp history compleat pip)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/texlive/2015/bin/x86_64-linux:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
