@@ -718,19 +718,6 @@ let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,cpp.h"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" LLVM
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable syntax highlighting for LLVM files. To use, copy
-" utils/vim/llvm.vim to ~/.vim/syntax .
-augroup filetype
- au! BufRead,BufNewFile *.ll set filetype=llvm
-augroup END
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Clang Complete
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
