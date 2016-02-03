@@ -743,40 +743,6 @@ let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,cpp.h"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Clang Complete
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Use Clang Library
-let g:clang_use_library = 1
-
-" Set auto-completion pop-up
-let g:clang_complete_auto = 1
-" Set the behavior of the auto-completion
-let g:clang_auto_select = 0
-" Show clang errors in the quickfix window
-let g:clang_complete_copen = 1
-let g:clang_user_options='|| exit 0'
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" CTags
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" nmap ,t :tab tjump <C-R>=expand("<cword>")<CR><CR>
-" nmap ,g     :tjump <C-R>=expand("<cword>")<CR><CR>
-com Cpptags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ com CCpptags !ctags -R --sort=yes --fields=+iaS --extra=+q
-
-com Ctags !ctags -R --sort=yes --c-kinds=+fmstp --fields=+amS --language-force=C
-
-com Cstags !ctags -R --sort=yes --c#-kinds=+p --fields=+iaS --extra=+q --language-force=C#
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Project Specific Settings
 "
 " Make sure this is always at the end of your vimrc file!
