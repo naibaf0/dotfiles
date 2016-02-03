@@ -9,24 +9,49 @@
 " properly set to work with the Vim-related packages available in Debian. 
 runtime! debian.vim 
 
-"Pathogen
-execute pathogen#infect()
-
 " Disable compatibility mode
 set nocompatible
 
-" Enable syntax highlighting.
-syntax on
 
-" Enable filetype specific plugins and indentation
-filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Vundle
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+syntax off
+filetype plugin indent off
+
+call vundle#begin('~/.vim/vundle')
+
+" Plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'lervag/vimtex'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'Yggdroot/indentLine.git'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " General behavior of Vim
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable syntax highlighting.
+syntax on
+
+" Enable filetype specific plugins and indentation
+filetype plugin indent on
 
 " Set the standard encoding
 set encoding=utf8
@@ -757,11 +782,6 @@ com Cstags !ctags -R --sort=yes --c#-kinds=+p --fields=+iaS --extra=+q --languag
 " Make sure this is always at the end of your vimrc file!
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" include user-specific settings
-if filereadable("~/.vimrc")
- source ~/.vimrc
-endif
 
 " include per-project settings
 if filereadable(".project.vim")
