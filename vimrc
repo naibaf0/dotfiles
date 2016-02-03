@@ -687,19 +687,6 @@ let g:tex_flavor='latex'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" ProVerif
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Syntax highlighting for proverif files (SPI calculus)
-augroup filetype
-  au! BufRead,BufNewFile *.pv set filetype=tpi
-  au FileType tpi source ~/.vim/syntax/tpi.vim
-augroup END
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Make
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
