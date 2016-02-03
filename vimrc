@@ -24,6 +24,8 @@ filetype plugin indent off
 
 call vundle#begin('~/.vim/vundle')
 
+Plugin 'VundleVim/Vundle.vim'
+
 " Plugins
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'derekwyatt/vim-fswitch'
