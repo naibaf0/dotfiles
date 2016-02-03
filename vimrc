@@ -22,7 +22,7 @@ set nocompatible
 syntax off
 filetype plugin indent off
 
-call vundle#begin('~/.vim/vundle')
+call vundle#begin('~/.vim/bundle/Vundle.vim')
 
 Plugin 'VundleVim/Vundle.vim'
 
