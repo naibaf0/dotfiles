@@ -10,7 +10,7 @@ export PROJECTS="${HOME}/projects"
 # Using Antibody for config management
 #==============================================================================
 
-source ./antibody/antibody.zsh
+source ${DOTFILES}/antibody/antibody/antibody.zsh
 
 antibody bundle < "${ZSH}/bundles.txt"
 
