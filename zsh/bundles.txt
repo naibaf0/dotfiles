@@ -1,2 +1,0 @@
-djui/alias-tips
-nojhan/liquidprompt

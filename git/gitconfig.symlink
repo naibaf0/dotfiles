@@ -2,8 +2,8 @@
 #
 # You probably want to change the [user] section here since you are not me.
 [user]
-    name    = AUTHORNAME
-    email   = AUTHOREMAIL
+    name    = Fabian Hinz
+    email   = fabian.hinz@de.clara.net
 [alias]
     co                  = checkout
     count               = shortlog -sn

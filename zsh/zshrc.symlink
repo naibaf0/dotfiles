@@ -1,21 +1,15 @@
-#!/bin/zsh
+#==============================================================================
+# Include the plugin configuration with zgen
+#==============================================================================
+
 
 export DOTFILES="${HOME}/.dotfiles"
 export ZSH="${DOTFILES}/zsh"
-source ${ZSH}/prezto/init.zsh
 
-promptinit
+source "${ZSH}/plugins.zsh"
 
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
-
-#==============================================================================
-# Using Antibody for config management
-#==============================================================================
-
-source ${DOTFILES}/antibody/antibody/antibody.zsh
-
-antibody bundle < "${ZSH}/bundles.txt"
 
 #==============================================================================
 # Stuff to do before Zsh config gets sourced
@@ -26,7 +20,7 @@ antibody bundle < "${ZSH}/bundles.txt"
 #========================
 
 # Specify path to default dircolors
-eval $(dircolors -b "${ZSH}/dircolors-solarized/dircolors.256dark")
+eval $(dircolors -b "${DOTFILES}/zsh/dircolors-solarized/dircolors.256dark")
 
 export TERM=xterm-256color
 
@@ -58,12 +52,6 @@ COMPLETION_WAITING_DOTS="true"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
-
-# Which plugins would you like to load? (plugins can be found in
-# ~/.oh-my-zsh/plugins/*) Custom plugins may be added to
-# ~/.oh-my-zsh/custom/plugins/ Example format: plugins=(rails git
-# textmate ruby lighthouse) per-directory-history
-plugins=(git git-extras gitfast themes cp history compleat pip)
 
 # User configuration
 
@@ -119,7 +107,6 @@ alias ls='ls -FX --group-directories-first --color=always'
 #==============================================================================
 # Location alias
 #==============================================================================
-alias uni='cd ~/Documents/DHBW'
 alias projects='cd ~/projects'
 
 #==============================================================================
@@ -138,7 +125,9 @@ __make_and_change_directory() {
 #==============================================================================
 # Extract an archive
 #==============================================================================
-extract () {
+alias extract='__extract'
+
+__extract_various-archives() {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)        tar xjf $1        ;;
@@ -182,17 +171,5 @@ magic-enter () {
 }
 zle -N magic-enter
 bindkey "^M" magic-enter
-
-#==============================================================================
-# thefuck alias
-#==============================================================================
-eval "$(thefuck --alias)"
-
-#==============================================================================
-# Fortune 10% chance of printing
-#==============================================================================
-if [ $(( RANDOM % 10)) -eq 0 ]; then
-      fortune -an 140 | cowsay
-    fi
 
 export DEFAULT_USER=naibafo

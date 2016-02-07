@@ -6,39 +6,15 @@
 # periodically to make sure you're on the latest and greatest.
 set -x
 
-export ZSH="$HOME/.dotfiles"
+export DOTFILES="$HOME/.dotfiles"
 
-# Install software
-echo "› $ZSH/script/install"
-"$ZSH/script/install"
-
-if [ -n "$ZSH_VERSION" ]; then
-  echo "› antibody update"
-  # shellcheck disable=SC1090
-  . "$ZSH/shellcheck/path.zsh"
-  antibody update
-fi
-
-git submodule init && git submodule update
+git submodule update --init --recursive
 
 cd ~
-ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-ln -s ~/.dotfiles/zsh/zshenv ~/.zshenv
-ln -s ~/.dotfiles/zsh/zpreztorc ~/.zpreztorc
-ln -s ~/.dotfiles/zsh/zlogin ~/.zlogin
-ln -s ~/.dotfiles/zsh/zlogout ~/.zlogout
-ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-#ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-#ln -s ~/.dotiles/git/gitignore ~/.gitignore
-ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/tern/tern-config ~/.tern-config
 vim +PluginInstall +qall
 
 ~/.dotfiles/vim/bundle/YouCompleteMe/install.sh
 #cd ~/.dotfiles/vim/bundle/tern_for_vim && npm install
-
-~/.dotfiles/antibody/install.sh
 
 npm install -g tern
 

@@ -1,8 +1,6 @@
 #!/bin/bash
-#
-# bootstrap installs things.
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")"
 DOTFILES_ROOT=$(pwd -P)
 [ "$1" = "--override-all" ] && OVERRIDE_ALL="true"
 
@@ -32,17 +30,13 @@ setup_gitconfig () {
   if ! [ -f git/gitconfig.symlink ]; then
     info 'setup gitconfig'
 
-    git_credential='cache'
-
     user ' - What is your github author name?'
     read -r -e git_authorname
     user ' - What is your github author email?'
     read -r -e git_authoremail
-
     sed \
       -e "s/AUTHORNAME/$git_authorname/g" \
       -e "s/AUTHOREMAIL/$git_authoremail/g" \
-      -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" \
       git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'gitconfig'
@@ -110,7 +104,6 @@ link_file () {
 install_dotfiles () {
   info 'installing dotfiles'
   local overwrite_all="${OVERRIDE_ALL:-false}" backup_all=false skip_all=false
-  # shellcheck disable=SC2044
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
@@ -122,11 +115,11 @@ install_dotfiles () {
 install_dotfiles
 
 info "installing dependencies"
-if ./dot_update; then
-  success "dependencies installed"
-else
-  fail "error installing dependencies"
-fi
+#if ./dot_update; then
+#  success "dependencies installed"
+#else
+#  fail "error installing dependencies"
+#fi
 
 echo ''
 echo '  All installed!'
