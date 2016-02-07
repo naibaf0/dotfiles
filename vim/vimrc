@@ -647,27 +647,9 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Tag list
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Close_On_Select = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Show_One_File = 1
-let Tlist_Sort_Type = "name"
-let Tlist_WinWidth = 80
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " LaTeX
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" latex is sorted by order
-let Tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections;p:paragraphs'
-au BufReadPre *.tex let Tlist_Sort_Type = "order"
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -679,49 +661,6 @@ set grepprg=grep\ -nH\ $*
 " not being loaded.  The following changes the default filetype back
 " to 'tex':
 let g:tex_flavor='latex'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Make
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Define filetype for Makefiles
-augroup filetype
- au! BufRead,BufNewFile *Makefile* set filetype=make
-augroup END
-
-" In Makefiles don't expand tabs to spaces
-augroup filetype
-  au! FileType make set noexpandtab
-augroup END
-
-" Set the default make program
-set makeprg=make\ -j4
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" C/C++
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-augroup filetype
-  au! BufNewFile,BufRead *.c,*.cpp,*.cc,*.h,*.hpp
-  au BufNewFile,BufRead set tabstop=2
-  au BufNewFile,BufRead set expandtab
-  au BufNewFile,BufRead set softtabstop=2
-  au BufNewFile,BufRead set shiftwidth=2
-  au BufNewFile,BufRead set cindent
-augroup END
-
-"
-" Allows to jump to the alternate file, e.g. the header file for a C
-" file
-"
-let g:alternateNoDefaultAlternate = 1
-let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,cpp.h"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
