@@ -6,39 +6,13 @@ export ZSH="${DOTFILES}/zsh"
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
 
-# all zsh files
-typeset -U config_files
-config_files=(${ZSH}/*/*.zsh)
-
-# load the path file
-for file in ${(M)config_files:#*/path.zsh}; do
-  source "$file"
-done
-
 #==============================================================================
 # Using Antibody for config management
 #==============================================================================
 
 source ./antibody/antibody.zsh
 
-antibody bundle < "${ZSH}/antibody/bundles.txt"
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundles <<EOBUNDLES
-git
-pip
-npm
-
-EOBUNDLES
-
-antigen bundle nojhan/liquidprompt
-antigen theme avit
-
-antigen apply
-
+antibody bundle < "${ZSH}/bundles.txt"
 
 #==============================================================================
 # Stuff to do before Zsh config gets sourced
@@ -49,7 +23,7 @@ antigen apply
 #========================
 
 # Specify path to default dircolors
-eval $(dircolors -b "${HOME}/.configfiles/dircolors-solarized/dircolors.256dark")
+eval $(dircolors -b "${ZSH}/dircolors-solarized/dircolors.256dark")
 
 export TERM=xterm-256color
 
