@@ -2,6 +2,9 @@
 
 export DOTFILES="${HOME}/.dotfiles"
 export ZSH="${DOTFILES}/zsh"
+source ${ZSH}/prezto/init.zsh
+
+promptinit
 
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
