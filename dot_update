@@ -22,7 +22,7 @@ fi
 git submodule init && git submodule update
 
 cd ~
-ln -s ~/.dotiles/zsh/zshrc ~/.zshrc
+ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/zsh/zshenv ~/.zshenv
 ln -s ~/.dotfiles/zsh/zpreztorc ~/.zpreztorc
 ln -s ~/.dotfiles/zsh/zlogin ~/.zlogin
