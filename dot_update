@@ -4,12 +4,9 @@
 #
 # `dot_update` handles installation, updates, things like that. Run it
 # periodically to make sure you're on the latest and greatest.
-export ZSH="$HOME/.dotfiles"
+set -x
 
-# Set OS defaults
-echo "› set OS defaults"
-"$ZSH/osx/set-defaults.sh"
-"$ZSH/linux/set-defaults.sh"
+export ZSH="$HOME/.dotfiles"
 
 # Install software
 echo "› $ZSH/script/install"
@@ -22,9 +19,6 @@ if [ -n "$ZSH_VERSION" ]; then
   antibody update
 fi
 
-
-set -x
-
 git submodule init && git submodule update
 
 cd ~
@@ -35,18 +29,17 @@ ln -s ~/.dotfiles/zsh/zlogin ~/.zlogin
 ln -s ~/.dotfiles/zsh/zlogout ~/.zlogout
 ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-ln -s ~/.dotiles/git/gitignore ~/.gitignore
+#ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+#ln -s ~/.dotiles/git/gitignore ~/.gitignore
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/tern/tern-config ~/.tern-config
 vim +PluginInstall +qall
 
 ~/.dotfiles/vim/bundle/YouCompleteMe/install.sh
-~/.dotfiles/vim/bundle/ctrlp-matcher/install.sh
-cd ~/.dotfiles/vim/bundle/tern_for_vim && npm install
+#cd ~/.dotfiles/vim/bundle/tern_for_vim && npm install
 
 ~/.dotfiles/antibody/install.sh
 
-npm install -g esformatter bunyan tern standard standard-format pure-prompt
+npm install -g tern
 
 exit 1
