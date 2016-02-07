@@ -15,35 +15,6 @@ set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Vundle
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-syntax off
-filetype plugin indent off
-
-call vundle#begin('~/.vim/bundle/Vundle.vim')
-
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs.git'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'lervag/vimtex'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Yggdroot/indentLine.git'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
-
-call vundle#end()
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " General behavior of Vim
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
