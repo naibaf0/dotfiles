@@ -1,5 +1,2 @@
-
 djui/alias-tips
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
 nohjan/liquidprompt

@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Fabian Hinz <hallo@naibafo.de>
 #
 
 # Execute code that does not affect the current session in the background.
@@ -14,10 +15,10 @@
   fi
 } &!
 
-# Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    fortune -s
-    print
-  fi
+
+# Is the Internet on fire?
+if [[ -t 0 || -t 1 ]]; then
+  print 'Is the Internet on fire?\n\n'
+  dig +short txt istheinternetonfire.com | sed -e 's/\\; /\n/' -e 's/"//'g
+  print
 fi
