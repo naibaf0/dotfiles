@@ -122,7 +122,7 @@ install_dotfiles () {
 install_dotfiles
 
 info "installing dependencies"
-if dot_update; then
+if ./dot_update; then
   success "dependencies installed"
 else
   fail "error installing dependencies"
