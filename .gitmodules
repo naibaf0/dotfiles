@@ -5,5 +5,5 @@
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule "dircolors-solarized"]
-	path = dircolors-solarized
+	path = zsh/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
