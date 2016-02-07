@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export DOTFILES="{HOME}/.dotfiles
+export DOTFILES="{HOME}/.dotfiles"
 export ZSH="${DOTFILES}/zsh"
 
 # projects folder 'c [tab]'
