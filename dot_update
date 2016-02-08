@@ -13,8 +13,7 @@ git submodule update --init --recursive
 cd ~
 vim +PluginInstall +qall
 
-~/.dotfiles/vim/bundle/YouCompleteMe/install.sh
-#cd ~/.dotfiles/vim/bundle/tern_for_vim && npm install
+~/.dotfiles/vim/bundle/YouCompleteMe/install.py --tern-completer
 
 npm install -g tern
 

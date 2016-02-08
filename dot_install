@@ -111,15 +111,15 @@ install_dotfiles () {
   done
 }
 
-#setup_gitconfig
+setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
-#if ./dot_update; then
-#  success "dependencies installed"
-#else
-#  fail "error installing dependencies"
-#fi
+if ./dot_update; then
+  success "dependencies installed"
+else
+  fail "error installing dependencies"
+fi
 
 echo ''
 echo '  All installed!'
