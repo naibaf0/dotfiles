@@ -7,6 +7,7 @@
 [alias]
     co                  = checkout
     count               = shortlog -sn
+    count               = shortlog -sn
     g                   = grep --break --heading --line-number
     gi                  = grep --break --heading --line-number -i
     changed             = show --pretty=\"format:\" --name-only

@@ -2,10 +2,15 @@
 # Include the plugin configuration with zgen
 #==============================================================================
 
+#==============================================================================
+# Include the plugin configuration with zgen
+#==============================================================================
+
+source "${ZSH}/plugins.zsh"
+
 export DOTFILES="${HOME}/.dotfiles"
 export ZSH="${DOTFILES}/zsh"
 
-source "${ZSH}/plugins.zsh"
 
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
