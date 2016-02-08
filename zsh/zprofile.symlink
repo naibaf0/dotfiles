@@ -1,25 +1,16 @@
 #
 # Executes commands at login pre-zshrc.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-#
-# Browser
-#
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
 
 #
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
-export PAGER='less'
+export EDITOR='vim'
+export DIFF='vimdiff'
+export VISUAL='vim'
+alias vi=vim
+alias view='vim -R'
 
 #
 # Language

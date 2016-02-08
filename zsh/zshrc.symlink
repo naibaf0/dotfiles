@@ -12,6 +12,9 @@ export ZSH="${DOTFILES}/zsh"
 
 
 source "${ZSH}/plugins.zsh"
+source "${DOTFILES}/zsh/alias.zsh"
+source "${DOTFILES}/zsh/functions.zsh"
+
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
 
@@ -62,9 +65,6 @@ HIST_STAMPS="dd.mm.yyyy"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -85,95 +85,5 @@ then
   PATH="${HOME}/.bin:${PATH}"
 fi
 
-#==============================================================================
-# Miscellanneous
-#==============================================================================
-
-alias grep='grep --color=always -d skip'
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-
-#==============================================================================
-# Vim stuff
-#==============================================================================
-export EDITOR=vim
-export DIFF=vimdiff
-export VISUAL=vim
-alias vi=vim
-alias view='vim -R'
-
-#==============================================================================
-# Nice ls
-#==============================================================================
-alias ls='ls -FX --group-directories-first --color=always'
-
-#==============================================================================
-# Location alias
-#==============================================================================
-alias projects='cd ~/projects'
-
-#==============================================================================
-# Create new directory and cd into it
-#==============================================================================
-alias md='__make_and_change_directory'
-
-__make_and_change_directory() {
-    for v in "$@"
-    do
-        mkdir "$v"
-        cd "$v"
-    done
-}
-
-#==============================================================================
-# Extract an archive
-#==============================================================================
-alias extract='__extract'
-
-__extract_various-archives() {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)        tar xjf $1        ;;
-      *.tar.gz)         tar xzf $1        ;;
-      *.bz2)            bunzip2 $1        ;;
-      *.rar)            unrar x $1        ;;
-      *.gz)             gunzip $1         ;;
-      *.tar)            tar xf $1         ;;
-      *.tbz2)           tar xjf $1        ;;
-      *.tgz)            tar xzf $1        ;;
-      *.zip)            unzip $1          ;;
-      *.Z)              uncompress $1     ;;
-      *)                echo "'$1' cannot be extracted via extract()" ;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-#==============================================================================
-# Git
-#==============================================================================
-alias glg='git lg'
-alias gst='git st'
-
-#==============================================================================
-# Useful enter-key
-#==============================================================================
-magic-enter () {
-  if [[ -z $BUFFER ]]; then
-    echo ""
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-      git status
-    else
-      ls
-    fi
-    zle redisplay
-  else
-    zle accept-line
-  fi
-}
-zle -N magic-enter
-bindkey "^M" magic-enter
 
 export DEFAULT_USER=naibafo
