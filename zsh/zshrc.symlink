@@ -2,7 +2,6 @@
 # Include the plugin configuration with zgen
 #==============================================================================
 
-
 export DOTFILES="${HOME}/.dotfiles"
 export ZSH="${DOTFILES}/zsh"
 
