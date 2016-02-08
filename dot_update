@@ -13,8 +13,8 @@ git submodule update --init --recursive
 cd ~
 vim +PluginInstall +qall
 
+npm install -g tern
 ~/.dotfiles/vim/bundle/YouCompleteMe/install.py --tern-completer
 
-npm install -g tern
 
 exit 1
