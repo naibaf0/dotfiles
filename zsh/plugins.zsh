@@ -10,15 +10,18 @@ if ! zgen saved; then
   # prezto options
   zgen prezto editor key-bindings 'vi'
   zgen prezto ssh identities 'id_rsa'
-  zgen prezto tmux:auto-start local 'yes'
+#  zgen prezto tmux:auto-start local 'yes'
   zgen prezto '*:*' color 'yes'
+  zgen prezto terminal auto-title 'yes'
+  zgen prezto terminal:window-title format '%n@%m: %s'
+  zgen prezto terminal:tab-title format '%m: %s'
 
   # prezto plugins
   zgen prezto
   zgen prezto git
   zgen prezto node
   zgen prezto command-not-found
-  zgen tmux
+  zgen prezto tmux
 
   # plugins
   zgen load djui/alias-tips
