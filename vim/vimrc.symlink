@@ -438,6 +438,9 @@ set relativenumber
 "   <PageDown>     page-down
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use Spacebar as leader key
+let mapleader = "\<Space>"
+
 
 " Alternative Escape key
 inoremap q <Esc>

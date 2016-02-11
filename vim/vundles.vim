@@ -23,6 +23,7 @@ Plugin 'altercation/vim-colors-solarized'
 if has('python')
   Plugin 'Valloric/YouCompleteMe'
 endif
+Plugin 'ternjs/tern_for_vim'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs.git'
