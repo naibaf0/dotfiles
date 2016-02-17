@@ -110,12 +110,9 @@ set sidescrolloff=20
 " the window is reached.
 set sidescroll=35
 
-" Set Wildmenu
-set wildmenu
-
-" Make the wild menu auto complete to the longest substring of all
-" matches
-set wildmode=longest
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -375,6 +372,29 @@ autocmd InsertLeave * :set relativenumber
 
 set relativenumber
 
+function! SwitchToNextBuffer(incr)
+  let help_buffer = (&filetype == 'help')
+  let current = bufnr("%")
+  let last = bufnr("$")
+  let new = current + a:incr
+  while 1
+    if new != 0 && bufexists(new) && ((getbufvar(new, "&filetype") == 'help') == help_buffer)
+      execute ":buffer ".new
+      break
+    else
+      let new = new + a:incr
+      if new < 1
+        let new = last
+      elseif new > last
+        let new = 1
+      endif
+      if new == current
+        break
+      endif
+    endif
+  endwhile
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -462,10 +482,13 @@ inoremap f <C-X><C-F>
 nnoremap <Space> :call NumberToggle()<CR>
 
 " If pressing Tab in Normal Mode, cycle to the next tab.
-nnoremap <silent><special> <Tab> :tabnext<CR>
+nnoremap <silent><special> <Tab> :call SwitchToNextBuffer(1)<CR>
 
 " If pressing Shift+Tab in Normal Mode, cycle to the previous tab.
-nnoremap <silent><special> <S-Tab> :tabprevious<CR>
+nnoremap <silent><special> <S-Tab> :call SwitchToNextBuffer(-1)<CR>
+
+" Print list of buffers and choose by number
+nnoremap <F5> :buffers<CR>:edit #
 
 " Pressing Ctrl+P now has the same behavior aas Ctrl-I had.
 nnoremap <silent><special> <C-P> g,
@@ -490,17 +513,11 @@ nnoremap <special> <F8> :DeleteTrailingWs<CR>
 " Show the list of compiler statements
 nnoremap <special> <F12> :cl<CR>
 
-" If pressing F9 , toggle the tag list plugin window
-map <silent> <F9> :TlistUpdate<CR>:TlistToggle<CR>
-
 " Pressing  ,t  will open the alternate file in a new tab.
 nnoremap <silent> ,t :AT<CR>
 
 " Pressing  ,v  will open the alternate file in a new vertical window.
 nnoremap <silent> ,v :AV<CR>
-
-" Open tag list selection menu
-nnoremap j :tselect <C-R>=expand("<cword>")<CR><CR>
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
