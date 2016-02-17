@@ -19,20 +19,33 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 
+" A color scheme
 Plugin 'altercation/vim-colors-solarized'
+" Autocompletion engine
 if has('python')
   Plugin 'Valloric/YouCompleteMe'
 endif
+" autocompletion for javascript
 Plugin 'ternjs/tern_for_vim'
-Plugin 'derekwyatt/vim-fswitch'
+" snippet engine
+Plugin 'SirVer/ultisnips'
+" snippet collection for popular languages
 Plugin 'honza/vim-snippets'
+" insertion and deletion of brackets, parens and quotes in pairs
 Plugin 'jiangmiao/auto-pairs.git'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'lervag/vimtex'
+" cool commenting features
 Plugin 'scrooloose/nerdcommenter'
+" Filetree inside vim
 Plugin 'scrooloose/nerdtree'
+" git plugin for the filetree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" indentation lines are displayed
 Plugin 'Yggdroot/indentLine.git'
+" javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
+" syntax for javascript libraries
 Plugin 'othree/javascript-libraries-syntax.vim'
 
 call vundle#end()
