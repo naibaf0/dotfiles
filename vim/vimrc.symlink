@@ -510,9 +510,6 @@ cnoremap <special> <F3> <C-R>=strftime('%c')<CR>
 " Remove all trailing whitespaces
 nnoremap <special> <F8> :DeleteTrailingWs<CR><F8>
 
-" Show the list of compiler statements
-nnoremap <special> <F12> :cl<CR>
-
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> # :call VisualSelection('f')<CR>nN
