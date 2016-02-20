@@ -11,10 +11,9 @@ export DOTFILES="$HOME/.dotfiles"
 git submodule update --init --recursive
 
 cd ~
-vim +PluginInstall +qall
+vim +PluginInstall! +qall
 
-npm install -g tern
-~/.dotfiles/vim/bundle/YouCompleteMe/install.py --tern-completer
+~/.dotfiles/vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --gocode-completer
 
 
 exit 1
