@@ -49,5 +49,7 @@ Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 " syntax for javascript libraries
 Plugin 'othree/javascript-libraries-syntax.vim'
+" coffeescript support for vim
+Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
