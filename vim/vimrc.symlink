@@ -14,6 +14,7 @@ set nocompatible
 
 source ~/.dotfiles/vim/vundles.vim
 source ~/.dotfiles/vim/plugins.vim
+source ~/.dotfiles/vim/colors.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -21,11 +22,11 @@ source ~/.dotfiles/vim/plugins.vim
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable syntax highlighting.
-syntax on
-
 " Enable filetype specific plugins and indentation
 filetype plugin indent on
+
+" Enable syntax highlighting.
+syntax on
 
 " Set the standard encoding
 set encoding=utf8
@@ -84,7 +85,7 @@ set textwidth=80
 " A list of file patterns. A file that matches with one of these
 " patterns is ignored when expanding wildcards, completing file or
 " directory names, etc.
-set wildignore+=*.o,*.d,*.obj,*.bak,*.exe,*.aux,*.toc,*.backup
+set wildignore+=*/tmp/,*.so,*.swp,*.zip,*.o,*.d,*.obj,*.bak,*.exe,*.aux,*.toc,*.backup
 
 " Show the cursor line by default
 set cursorline
@@ -214,7 +215,6 @@ set completeopt=menu,menuone,longest,preview
 au CursorMovedI,InsertLeave * if pumvisible() == 0|sil! pclose|endif
 
 
-source ~/.dotfiles/vim/colors.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Vim auto save

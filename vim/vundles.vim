@@ -6,7 +6,7 @@
 
 set nocompatible
 syntax off
-filetype plugin indent off
+filetype off
 
 " runtimepath includes Vundle
 set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
