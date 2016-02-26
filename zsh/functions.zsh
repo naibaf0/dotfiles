@@ -14,9 +14,7 @@ __make_and_change_directory() {
 #==============================================================================
 # Extract an archive
 #==============================================================================
-alias extract='__extract'
-
-__extract_various-archives() {
+extract() {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)        tar xjf $1        ;;
@@ -39,7 +37,7 @@ __extract_various-archives() {
 #==============================================================================
 # Useful enter-key
 #==============================================================================
-magic-enter () {
+__magic-enter () {
   if [[ -z $BUFFER ]]; then
     echo ""
     if git rev-parse --is-inside-work-tree &>/dev/null; then
@@ -52,6 +50,6 @@ magic-enter () {
     zle accept-line
   fi
 }
-zle -N magic-enter
-bindkey "^M" magic-enter
+zle -N __magic-enter
+bindkey "^M" __magic-enter
 

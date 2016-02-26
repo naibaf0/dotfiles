@@ -12,8 +12,8 @@ export ZSH="${DOTFILES}/zsh"
 
 
 source "${ZSH}/plugins.zsh"
-source "${DOTFILES}/zsh/alias.zsh"
 source "${DOTFILES}/zsh/functions.zsh"
+source "${DOTFILES}/zsh/alias.zsh"
 
 # projects folder 'c [tab]'
 export PROJECTS="${HOME}/projects"
