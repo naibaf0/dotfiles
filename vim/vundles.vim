@@ -4,7 +4,7 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible
+" mandatory disabling of syntax and filetype before vundle call
 syntax off
 filetype off
 
@@ -22,9 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
 " A color scheme
 Plugin 'altercation/vim-colors-solarized'
 " Autocompletion engine
-if has('python')
-  Plugin 'Valloric/YouCompleteMe'
-endif
+Plugin 'Valloric/YouCompleteMe'
 " autocompletion for javascript
 Plugin 'ternjs/tern_for_vim'
 " snippet engine
@@ -53,3 +51,10 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
+
+" Enable filetype specific plugins and indentation
+filetype plugin indent on
+
+" Enable syntax highlighting.
+syntax on
+

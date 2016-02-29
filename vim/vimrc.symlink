@@ -22,12 +22,6 @@ source ~/.dotfiles/vim/colors.vim
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable filetype specific plugins and indentation
-filetype plugin indent on
-
-" Enable syntax highlighting.
-syntax on
-
 " Set the standard encoding
 set encoding=utf8
 
