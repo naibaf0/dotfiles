@@ -8,13 +8,11 @@ if ! zgen saved; then
   echo "Creating a zgen save."
 
   # prezto options
-  zgen prezto editor key-bindings 'vi'
+  zgen prezto editor key-bindings 'emacs'
   zgen prezto ssh identities 'id_rsa'
 #  zgen prezto tmux:auto-start local 'yes'
   zgen prezto '*:*' color 'yes'
   zgen prezto terminal auto-title 'yes'
-  zgen prezto terminal:window-title format '%n@%m: %s'
-  zgen prezto terminal:tab-title format '%m: %s'
 
   # prezto plugins
   zgen prezto
@@ -26,7 +24,6 @@ if ! zgen saved; then
   # plugins
   zgen load djui/alias-tips
   zgen load nojhan/liquidprompt
-
   zgen load zsh-users/zsh-syntax-highlighting
 
   zgen save

@@ -6,13 +6,12 @@ set -g default-terminal "screen-256color"
 #set-option -g mouse-select-window on
 
 unbind r
-bind r source-file ~/.tmux.conf; display "tmux reloaded!"
-
+bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
 
 set -g set-titles on
 set -g set-titles-string "[#S] #W.#P@#H"
 
-setw -g mode-keys vi
+#setw -g mode-keys vi
 
 #### COLOUR (Solarized dark)
 
