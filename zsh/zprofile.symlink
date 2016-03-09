@@ -9,8 +9,6 @@
 export EDITOR='vim'
 export DIFF='vimdiff'
 export VISUAL='vim'
-alias vi=vim
-alias view='vim -R'
 
 #
 # Language
@@ -28,9 +26,7 @@ fi
 typeset -gU cdpath fpath mailpath path
 
 # Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
+cdpath+=(~)
 
 # Set the list of directories that Zsh searches for programs.
 path=(
