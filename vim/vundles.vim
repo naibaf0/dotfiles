@@ -42,7 +42,15 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " indentation lines are displayed
 Plugin 'Yggdroot/indentLine.git'
 " Syntax collection
-Plugin 'sheerun/vim-polyglot'
+" Plugin 'sheerun/vim-polyglot'
+" coffeescript support
+Plugin 'kchmck/vim-coffee-script'
+" html5 support
+Plugin 'othree/html5.vim'
+" faster yaml syntax
+Plugin 'stephpy/vim-yaml'
+" json support
+Plugin 'elzr/vim-json'
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 " syntax for javascript libraries

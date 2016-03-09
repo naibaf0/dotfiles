@@ -466,19 +466,19 @@ let mapleader = "\<Space>"
 
 
 " Alternative Escape key
-inoremap q <Esc>
-nnoremap q <Esc>
-vnoremap q <Esc>
-cnoremap q <Esc>
-onoremap q <Esc>
+"inoremap q <Esc>
+"nnoremap q <Esc>
+"vnoremap q <Esc>
+"cnoremap q <Esc>
+"onoremap q <Esc>
 
 " Shortcut for arraging text to 'textwidth'
-noremap w <C-o>gwgw<Enter>
-nnoremap w gwgw
-xnoremap w gw
+"noremap w <C-o>gwgw<Enter>
+"nnoremap w gwgw
+"xnoremap w gw
 
 " Map Vim's file name omni completion to Alt+F
-inoremap f <C-X><C-F>
+"inoremap f <C-X><C-F>
 
 " Map toggle line numbers to <Space>
 nnoremap <Space> :call NumberToggle()<CR>
@@ -503,7 +503,7 @@ nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
 
 " Pressing Alt+N in Normal Mode will go to the command line and print
 " the new tab command.
-nnoremap n <C-W>v<C-W>l:edit <C-D>
+"nnoremap n <C-W>v<C-W>l:edit <C-D>
 
 " Maps the F3 key to insert the current date and time
 inoremap <special> <F3> <C-R>=strftime('%c')<CR>
