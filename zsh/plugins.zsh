@@ -9,6 +9,7 @@ if ! zgen saved; then
 
   # prezto options
   zgen prezto editor key-bindings 'emacs'
+  zgen prezto editor dot-expansion 'yes'
   zgen prezto ssh identities 'id_rsa'
 #  zgen prezto tmux:auto-start local 'yes'
   zgen prezto '*:*' color 'yes'
@@ -25,24 +26,10 @@ if ! zgen saved; then
   zgen load djui/alias-tips
   zgen load nojhan/liquidprompt
   zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-history-substring-search
 
   zgen save
 fi
-
-# Set syntax highlighters.
-# By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'cursor' \
-#   'root'
-#
-# Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
 
 #
 # Terminal
