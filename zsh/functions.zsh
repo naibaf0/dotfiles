@@ -2,7 +2,7 @@
 # weather forecast
 #==============================================================================
 weather() {
-  curl -4 http://wttr.in/$1
+  curl -4 -k https://wttr.in/$1
 }
 
 
