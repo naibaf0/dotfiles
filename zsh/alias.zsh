@@ -13,4 +13,4 @@ alias free='free -m' # show sizes in MB
 #==============================================================================
 # Nice ls
 #==============================================================================
-alias ls='ls -FX --group-directories-first --color=always'
+alias ls='ls -FX --group-directories-first --color=always --human-readable'
