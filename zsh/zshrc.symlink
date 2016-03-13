@@ -15,9 +15,6 @@ source "${ZSH}/plugins.zsh"
 source "${DOTFILES}/zsh/functions.zsh"
 source "${DOTFILES}/zsh/alias.zsh"
 
-# projects folder 'c [tab]'
-export PROJECTS="${HOME}/projects"
-
 #==============================================================================
 # Stuff to do before Zsh config gets sourced
 #==============================================================================
