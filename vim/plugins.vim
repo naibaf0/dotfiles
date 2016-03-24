@@ -35,12 +35,12 @@ let g:NERDTreeIndicatorMapCustom = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
+  if g:ulti_expand_res==0
     if pumvisible()
       return "\<C-n>"
     else
       call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
+      if g:ulti_jump_forwards_res==0
         return "\<TAB>"
       endif
     endif
@@ -63,8 +63,8 @@ let g:indentLine_concealcursor=""
 "
 " CtrlP mappings and Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_map = '<c-p>' "invoke ctrlp with Ctrl+P
-let g:ctrlp_cmd = '<CtrlP>' "default command to invoke CtrlP
+"let g:ctrlp_map="<c-p>"
+"let g:ctrlp_cmd="<CtrlP>"
 
 " 'c' - the directory of the current file
 " 'a' - the directory of the current file unless it is a subdirectory of the cwd
@@ -73,7 +73,4 @@ let g:ctrlp_cmd = '<CtrlP>' "default command to invoke CtrlP
 " 'w' - modifier to 'r': start search from the cwd instead of the current
 "       file's directory
 " 0 or '' - disable the feature
-let g:ctrlp_working_path_mode = 'ra'
-
-
-
+"let g:ctrlp_working_path_mode="ra"
