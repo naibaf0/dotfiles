@@ -58,3 +58,22 @@ let g:UltiSnipsListSnippets="<c-e>"
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_concealcursor=""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" CtrlP mappings and Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<c-p>' "invoke ctrlp with Ctrl+P
+let g:ctrlp_cmd = '<CtrlP>' "default command to invoke CtrlP
+
+" 'c' - the directory of the current file
+" 'a' - the directory of the current file unless it is a subdirectory of the cwd
+" 'r' - the nearest ancestor to the current file that contains one of these
+"       directories or files: .git .hg .svn .bzr _darcs
+" 'w' - modifier to 'r': start search from the cwd instead of the current
+"       file's directory
+" 0 or '' - disable the feature
+let g:ctrlp_working_path_mode = 'ra'
+
+
+

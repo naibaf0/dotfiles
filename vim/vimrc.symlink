@@ -81,6 +81,8 @@ set textwidth=80
 " directory names, etc.
 set wildignore+=*/tmp/,*.so,*.swp,*.zip,*.o,*.d,*.obj,*.bak,*.exe,*.aux,*.toc,*.backup
 
+set wildchar=<Tab> wildmenu wildmode=full
+
 " Show the cursor line by default
 set cursorline
 
@@ -104,8 +106,6 @@ set sidescrolloff=20
 " Set the amount of columns to scroll horizontally, when the end of
 " the window is reached.
 set sidescroll=35
-
-set wildchar=<Tab> wildmenu wildmode=full
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,7 +162,7 @@ set incsearch
 set noignorecase
 
 " When searching, try to be smart about cases
-" set smartcase
+set smartcase
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -500,13 +500,6 @@ nnoremap <silent><special> <C-P> g,
 
 " Pressing Ctrl+N in Normal Mode will toggle the NERDTree Plugin
 nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
-
-" Pressing Alt+N in Normal Mode will go to the command line and print
-" the new tab command.
-"nnoremap n <C-W>v<C-W>l:edit <C-D>
-
-" Maps the F3 key to insert the current date and time
-inoremap <special> <F3> <C-R>=strftime('%c')<CR>
 
 " Maps the F3 key to insert the current date and time
 cnoremap <special> <F3> <C-R>=strftime('%c')<CR>
