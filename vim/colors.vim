@@ -7,7 +7,7 @@
 " When set to "dark", Vim will try to use colors that look good on a
 " dark background. When set to "light", Vim will try to use colors
 " that look good on a light background. Any other value is illegal.
-set background=dark
+set background=light
 
 " Define a cholor scheme
 "
@@ -85,11 +85,11 @@ colorscheme solarized
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Show search results in red with an underline and without background
-hi MatchParen ctermbg=red ctermfg=black guibg=red guifg=black
+"hi MatchParen ctermbg=red ctermfg=black guibg=red guifg=black
 
-hi TabLineSel ctermbg=red
-hi PMenuSel ctermbg=brown
-hi StatusLine ctermfg=brown
-hi StatusLineNC ctermfg=gray
-hi CursorColumn term=reverse ctermbg=1
+"hi TabLineSel ctermbg=red
+"hi PMenuSel ctermbg=brown
+"hi StatusLine ctermfg=brown
+"hi StatusLineNC ctermfg=gray
+"hi CursorColumn term=reverse ctermbg=1
 

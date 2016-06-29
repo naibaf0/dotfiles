@@ -24,7 +24,7 @@ source "${DOTFILES}/zsh/alias.zsh"
 #========================
 
 # Specify path to default dircolors
-eval $(dircolors -b "${DOTFILES}/zsh/dircolors-solarized/dircolors.256dark")
+eval $(dircolors -b "${DOTFILES}/zsh/dircolors-solarized/dircolors.ansi-light")
 
 # export TERM=xterm-256color
 
