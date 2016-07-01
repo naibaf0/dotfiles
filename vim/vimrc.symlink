@@ -12,15 +12,64 @@ runtime! debian.vim
 " Disable compatibility mode
 set nocompatible
 
-source ~/.dotfiles/vim/vundles.vim
-source ~/.dotfiles/vim/plugins.vim
-source ~/.dotfiles/vim/colors.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Install plugins with plug
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin()
+" A color scheme
+Plug 'altercation/vim-colors-solarized'
+" Fuzzy filesearch
+Plug 'ctrlpvim/ctrlp.vim'
+" show git-diff in the sign column
+Plug 'airblade/vim-gitgutter'
+" Autocompletion engine
+Plug 'Valloric/YouCompleteMe'
+" autocompletion for javascript
+Plug 'ternjs/tern_for_vim'
+" snippet engine | collection
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" insertion and deletion of brackets, parens and quotes in pairs
+Plug 'jiangmiao/auto-pairs'
+Plug 'lervag/vimtex'
+" cool commenting features
+Plug 'scrooloose/nerdcommenter'
+" Filetree inside vim
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" git plugin for the filetree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Stylish statusline and themes
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" indentation lines are displayed
+Plug 'Yggdroot/indentLine'
+" html5 support
+Plug 'othree/html5.vim', { 'for': 'html' }
+" faster yaml syntax
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+" json support
+Plug 'elzr/vim-json', { 'for': 'json' }
+" javascript syntax
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+" syntax for javascript libraries
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " General behavior of Vim
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use vim with light color theme
+set background=light
+
+" Use solarized theme
+colorscheme solarized
+
+" vim-airline
+let g:airline_theme='base16_solarized'
+let g:airline#extensions#tabline#enabled = 1
 
 " Set the standard encoding
 set encoding=utf8
@@ -37,12 +86,8 @@ set showtabline=1
 " Show (partial) command in status line
 set showcmd
 
-" Show line numbers.
+" Show line numbers on the side
 set number
-
-" Show the line and column number of the cursor position, seperated by
-" a comma.
-set ruler
 
 " Set whether a line that doesn't fit into a window is wrapped around
 " at the end of the window.
@@ -80,7 +125,6 @@ set textwidth=80
 " patterns is ignored when expanding wildcards, completing file or
 " directory names, etc.
 set wildignore+=*/tmp/,*.so,*.swp,*.zip,*.o,*.d,*.obj,*.bak,*.exe,*.aux,*.toc,*.backup
-
 set wildchar=<Tab> wildmenu wildmode=full
 
 " Show the cursor line by default
@@ -88,7 +132,6 @@ set cursorline
 
 " Make 'word' stop at underscores. Does not affect 'Word'.
 set iskeyword-=_
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -107,39 +150,35 @@ set sidescrolloff=20
 " the window is reached.
 set sidescroll=35
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Indentation rules
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Number of spaces a <TAB> counts for
+" Number of spaces a <Tab> counts for
 set tabstop=2
 
-" Number of spaces that a Tab counts for while performing editing
-" operations.
+" Number of spaces that a <Tab> counts for while performing editing operations.
 set softtabstop=2
 
 " Number of spaces to use for each step of (auto)indent.
 set shiftwidth=2
 
-" When on, a <Tab> in front of a line inserts blanks according to
-" 'shiftwidth'. 'tabstop' is used in other places. A <BS> will delete
-" a 'shiftwidth' wide bunch of space at the start of the line.  What
-" gets inserted (a <Tab> or spaces) depends on the 'expandtab' option.
+" When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'.
+" 'tabstop' is used in other places. A <BS> will delete a 'shiftwidth' wide
+" bunch of space at the start of the line. What gets inserted
+" (a <Tab> or spaces) depends on the 'expandtab' option.
 set smarttab
 
-" Use the appropriate number of spaces to insert a <Tab>.  Spaces are
-" used in indents with the '>' and '<' commands and when 'autoindent'
-" is on. To insert a real tab when 'expandtab' is on, use CTRL-V
-" <Tab>.
+" Use the appropriate number of spaces to insert a <Tab>.  Spaces are used in
+" indents with the '>' and '<' commands and when 'autoindent' is on.
+" To insert a real tab when 'expandtab' is on, use CTRL-V <Tab>.
 set expandtab
 
 " Copy indent from current line when starting a new line (typing <CR>
 " in Insert Mode or when using the "o" or "O" command).
 set autoindent
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -164,7 +203,6 @@ set noignorecase
 " When searching, try to be smart about cases
 set smartcase
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " User-defined folding
@@ -174,17 +212,14 @@ set smartcase
 " Define where to create folds
 set fdm=manual
 
-" Set the number of screen line above which a fold can be displayed
-" closed.
+" Set the number of screen line above which a fold can be displayed closed.
 set fml=5
 
-" Define the maximum nesting of folds (for the 'indent' and 'syntax'
-" methods).
+" Define the maximum nesting of folds (for the 'indent' and 'syntax' methods).
 set fdn=3
 
 " Specify the text displayed for a closed fold.
 "set fdt=
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -198,7 +233,6 @@ set nospell
 " Set languages for spell checking
 set spelllang=en_US
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Vim auto completion
@@ -207,7 +241,6 @@ set spelllang=en_US
 
 set completeopt=menu,menuone,longest,preview
 au CursorMovedI,InsertLeave * if pumvisible() == 0|sil! pclose|endif
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -220,106 +253,6 @@ set autoread
 set autowrite
 set autowriteall
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" User-defined statusline
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"recalculate the long line warning when idle and after saving
-autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
-
-"return a warning for "long lines" where "long" is either &textwidth
-"or 80 (if no &textwidth is set)
-"
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of
-"long lines, y is the median length of the long lines and z is the
-"length of the longest line
-function! StatuslineLongLineWarning()
-    if !exists("b:statusline_long_line_warning")
-        let long_line_lens = s:LongLines()
-
-        if len(long_line_lens) > 0
-            let b:statusline_long_line_warning = "[" .
-                        \ '#' . len(long_line_lens) . "," .
-                        \ 'm' . s:Median(long_line_lens) . "," .
-                        \ '$' . max(long_line_lens) . "]"
-        else
-            let b:statusline_long_line_warning = ""
-        endif
-    endif
-    return b:statusline_long_line_warning
-endfunction
-
-"return a list containing the lengths of the long lines in this buffer
-function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
-    let spaces = repeat(" ", &ts)
-
-    let long_line_lens = []
-
-    let i = 1
-    while i <= line("$")
-        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-        if len > threshold
-            call add(long_line_lens, len)
-        endif
-        let i += 1
-    endwhile
-
-    return long_line_lens
-endfunction
-
-"find the median of the given array of numbers
-function! s:Median(nums)
-    let nums = sort(a:nums)
-    let l = len(nums)
-
-    if l % 2 == 1
-        let i = (l-1) / 2
-        return nums[i]
-    else
-        return (nums[l/2] + nums[(l/2)-1]) / 2
-    endif
-endfunction
-
-"
-" Set statusline
-"
-
-set statusline=
-
-"set statusline+=%#todo#  "switch to todo highlight
-"set statusline+=%F       "full filename
-"set statusline+=%#error# "switch to error highlight
-"set statusline+=%y       "filetype
-"set statusline+=%*       "switch back to normal statusline highlight
-
-set statusline+=%1*\ %n\ %*                     " buffer number
-"set statusline+=%F                              " full filename
-set statusline+=%{expand('%')}                  " relative path of current file
-"set statusline+=%#error#%{expand('%:f')}%*      " last extension
-"set statusline+=%#error#%{expand('%:t:e')}%*    " name of file (without extension)
-"set statusline+=%{fnamemodify(bufname('%'),':h')}/        " relative path
-"set statusline+=%{fnamemodify(bufname('%'),':t:r:s?^\\..*$??')} " filename without last extension
-"set statusline+=%#error#%{fnamemodify(bufname('%'),':t:s?^.*\\.?.?')}%* " last extension
-set statusline+=\ [
-set statusline+=%{strlen(&fenc)?&fenc:'none'},  " file encoding
-set statusline+=%{&ff}                          " file format
-set statusline+=]
-set statusline+=%y                              " filetype
-set statusline+=%h                              " help file flag
-set statusline+=%#error#%m%*                    " modified flag
-set statusline+=%r                              " read-only flag
-"set statusline+=\ \ -\ %{getcwd()}              " print CWD
-set statusline+=%=                              " left/right seperator
-set statusline+=%c,                             " cursor column
-set statusline+=%1*%l%*/%L                      " cursor line/total lines
-set statusline+=\ %P                            " percent through file
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Format options
@@ -330,20 +263,20 @@ set statusline+=\ %P                            " percent through file
 "
 " letter    meaning when present in 'formatoptions'
 " ------    ---------------------------------------
-" c         Auto-wrap comments using textwidth, inserting the current
-"           comment leader automatically.
+" c         Auto-wrap comments using textwidth, inserting the current comment
+" leader automatically.
 " q         Allow formatting of comments with "gq".
 " r         Automatically insert the current comment leader
 "           after hitting <ENTER> in Insert Mode.
 " t         Auto-wrap text using textwidth (doesn't apply to comments).
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set formatoptions=c,q,r
 
+set formatoptions=c,q,r
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" User-defined commands
+" Commands and functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -371,7 +304,6 @@ endfunc
 
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
-
 set relativenumber
 
 function! SwitchToNextBuffer(incr)
@@ -397,6 +329,26 @@ function! SwitchToNextBuffer(incr)
   endwhile
 endfunction
 
+function! SelectionSearch(direction) range
+  let l:saved_reg = @"
+  execute "normal! vgvy"
+
+  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+  if a:direction == 'b'
+    execute "normal ?" . l:pattern . "^M"
+  elseif a:direction == 'f'
+    execute "normal /" . l:pattern . "^M"
+  elseif a:direction == 'gv'
+    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+  elseif a:direction == 'replace'
+    call CmdLine("%s" . '/'. l:pattern . '/')
+  endif
+
+  let @/ = l:pattern
+  let @" = l:saved_reg
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -451,8 +403,7 @@ endfunction
 "   <Down>         Down arrow
 "   <Left>         Left arrow
 "   <Right>        Right arrow
-"   <F1> - <F12>   Function keys 1 to 12
-"   #1, #2..#9,#0  Function keys F1 to F9, F10
+"   <F1> - <F12>   Function keys F1 to F12
 "   <Insert>       Insert
 "   <Del>          Delete
 "   <Home>         Home
@@ -464,39 +415,8 @@ endfunction
 " Use Spacebar as leader key
 let mapleader = "\<Space>"
 
-
-" Alternative Escape key
-"inoremap q <Esc>
-"nnoremap q <Esc>
-"vnoremap q <Esc>
-"cnoremap q <Esc>
-"onoremap q <Esc>
-
-" Shortcut for arraging text to 'textwidth'
-"noremap w <C-o>gwgw<Enter>
-"nnoremap w gwgw
-"xnoremap w gw
-
-" Map Vim's file name omni completion to Alt+F
-"inoremap f <C-X><C-F>
-
-" Map toggle line numbers to <Space>
-nnoremap <Space> :call NumberToggle()<CR>
-
-" If pressing Tab in Normal Mode, cycle to the next tab.
-"nnoremap <silent><special> <Tab> :call SwitchToNextBuffer(1)<CR>
-
-" If pressing Shift+Tab in Normal Mode, cycle to the previous tab.
-"nnoremap <silent><special> <S-Tab> :call SwitchToNextBuffer(-1)<CR>
-
-" show list of buffers and cycle through by <tab>
-nnoremap <F5> :buffers<CR>:edit #
 set wildcharm=<C-Z>
-"nnoremap <F5> :b <C-Z>
 nnoremap <silent> <special> <tab> :b <C-Z>
-
-" Pressing Ctrl+P now has the same behavior aas Ctrl-I had.
-nnoremap <silent><special> <C-P> g,
 
 " Pressing Ctrl+N in Normal Mode will toggle the NERDTree Plugin
 nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
@@ -507,30 +427,10 @@ cnoremap <special> <F3> <C-R>=strftime('%c')<CR>
 " Remove all trailing whitespaces
 nnoremap <special> <F8> :DeleteTrailingWs<CR><F8>
 
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> # :call VisualSelection('f')<CR>nN
+" Pressing * or # in visual mode searches for the current selection
+vnoremap <silent> * :call SelectionSearch('b')<CR>nN
+vnoremap <silent> # :call SelectionSearch('f')<CR>nN
 
-function! VisualSelection(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
-
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -550,12 +450,71 @@ set grepprg=grep\ -nH\ $*
 " to 'tex':
 let g:tex_flavor='latex'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" NERDTree
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" open NERDTree automatically when vim starts up without files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close vim when the only window left open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Project Specific Settings
+" nerdtree-git-plugin configuration
 "
-" Make sure this is always at the end of your vimrc file!
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Ultisnips
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res==0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res==0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" indentLine conflict with vim-json (vim-polyglot)
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_concealcursor=""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Load project specific settings if available
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
