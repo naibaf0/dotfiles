@@ -11,6 +11,9 @@ runtime! debian.vim
 
 " Disable compatibility mode
 set nocompatible
+syntax off
+filetype off
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -25,7 +28,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
 " Autocompletion engine
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['c', 'cpp'] }
 " autocompletion for javascript
 Plug 'ternjs/tern_for_vim'
 " snippet engine | collection
@@ -54,6 +57,10 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " syntax for javascript libraries
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
+
+filetype plugin indent on
+
+syntax on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -124,7 +131,6 @@ set textwidth=80
 " A list of file patterns. A file that matches with one of these
 " patterns is ignored when expanding wildcards, completing file or
 " directory names, etc.
-set wildignore+=*/tmp/,*.so,*.swp,*.zip,*.o,*.d,*.obj,*.bak,*.exe,*.aux,*.toc,*.backup
 set wildchar=<Tab> wildmenu wildmode=full
 
 " Show the cursor line by default
@@ -452,16 +458,39 @@ let g:tex_flavor='latex'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+" CtrlP mappings and Settings
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:ctrlp_map="<c-p>"
+"let g:ctrlp_cmd="<CtrlP>"
+
+" 'c' - the directory of the current file
+" 'a' - the directory of the current file unless it is a subdirectory of the cwd
+" 'r' - the nearest ancestor to the current file that contains one of these
+"       directories or files: .git .hg .svn .bzr _darcs
+" 'w' - modifier to 'r': start search from the cwd instead of the current
+"       file's directory
+" 0 or '' - disable the feature
+let g:ctrlp_working_path_mode="ra"
+
+" exclude files directories
+set wildignore+=*/tmp/*,*/.git/*,*/.svn/*,*/.hg/* "directories
+set wildignore+=*.swp,*.zip,*.bak,*.backup "files
+
+" ignore files in .gitignore
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " NERDTree
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " open NERDTree automatically when vim starts up without files specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" DISABLED because of startup error
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close vim when the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
