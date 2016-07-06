@@ -453,6 +453,10 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
+" Some gitgutter keybindings
+nmap ggn <Plug>GitGutterNextHunk
+nmap ggp <Plug>GitGutterPrevHunk
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " LaTeX
