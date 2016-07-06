@@ -78,13 +78,6 @@ set background=light
 " Use solarized theme
 colorscheme solarized
 
-" vim-airline
-let g:airline_theme='base16_solarized'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ycm#enabled = 1
-
 " Set the standard encoding
 set encoding=utf8
 
@@ -102,6 +95,9 @@ set showcmd
 
 " Show line numbers on the side
 set number
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+set relativenumber
 
 " Set whether a line that doesn't fit into a window is wrapped around
 " at the end of the window.
@@ -260,29 +256,42 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|sil! pclose|endif
 " Vim auto save
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set hidden
+augroup save
+  au!
+  au FocusLost * wall
+augroup END
+set nohidden
+set nobackup
+"set noswapfile
+set nowritebackup
 set autoread
 set autowrite
 set autowriteall
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+" Persistent undo
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set undodir=~/.vim/undo
+set undofile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " Format options
 "
-"
-" This is a sequence of letters which describes how automatic
-" formatting is to be done.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This is a sequence of letters which describes how automatic formatting is to
+" be done.
 "
 " letter    meaning when present in 'formatoptions'
 " ------    ---------------------------------------
 " c         Auto-wrap comments using textwidth, inserting the current comment
-" leader automatically.
+"             leader automatically.
 " q         Allow formatting of comments with "gq".
 " r         Automatically insert the current comment leader
-"           after hitting <ENTER> in Insert Mode.
+"             after hitting <ENTER> in Insert Mode.
 " t         Auto-wrap text using textwidth (doesn't apply to comments).
-"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=c,q,r
@@ -302,10 +311,6 @@ command! Untab2 :%s/\t/  /g
 " Substitute all tabs by four whitespaces
 command! Untab4 :%s/\t/  /g
 
-" Alias to vertically resize the current window
-command! -nargs=+ Say :echo <q-args>
-command! -nargs=1 V :vertical resize <args>
-
 " Switches between absolute and relative line numbers
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -314,33 +319,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
-set relativenumber
-
-function! SwitchToNextBuffer(incr)
-  let help_buffer = (&filetype == 'help')
-  let current = bufnr("%")
-  let last = bufnr("$")
-  let new = current + a:incr
-  while 1
-    if new != 0 && bufexists(new) && ((getbufvar(new, "&filetype") == 'help') == help_buffer)
-      execute ":buffer ".new
-      break
-    else
-      let new = new + a:incr
-      if new < 1
-        let new = last
-      elseif new > last
-        let new = 1
-      endif
-      if new == current
-        break
-      endif
-    endif
-  endwhile
-endfunction
 
 function! SelectionSearch(direction) range
   let l:saved_reg = @"
@@ -367,6 +345,7 @@ endfunction
 "
 " Custom keymaps
 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " {cmd} {attr} {lhs} {rhs}
 "
@@ -426,24 +405,32 @@ endfunction
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use ',' as <leader>
-let mapleader = ","
+let mapleader = "\,"
 let maplocalleader = "\<space>"
 
+" Use Tab to cycle through buffers
 set wildcharm=<C-Z>
-nnoremap <silent> <special> <tab> :b <C-Z>
-
-" Pressing Ctrl+N in Normal Mode will toggle the NERDTree Plugin
-nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
+nnoremap <silent> <special> <tab> :b<C-Z>
 
 " Maps the F3 key to insert the current date and time
 cnoremap <special> <F3> <C-R>=strftime('%c')<CR>
 
+" display undo tree with <F5>
+nnoremap <special> <F5> :GundoToggle<CR>
+
 " Remove all trailing whitespaces
-nnoremap <special> <F8> :DeleteTrailingWs<CR><F8>
+nnoremap <special> <F8> :DeleteTrailingWs<CR>
 
 " Pressing * or # in visual mode searches for the current selection
-vnoremap <silent> * :call SelectionSearch('b')<CR>nN
-vnoremap <silent> # :call SelectionSearch('f')<CR>nN
+vnoremap <silent> * :call SelectionSearch('b')<CR>
+vnoremap <silent> # :call SelectionSearch('f')<CR>
+
+" NERDCommenter Toggle with <C-c>
+nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
+vmap <silent> <C-c> :call NERDComment(1, "toggle")<CR>
+
+" Pressing Ctrl+N in Normal Mode will toggle the NERDTree Plugin
+nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
 
 " Use vim-airline to provide buffer-switching & tab-switching
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -464,29 +451,28 @@ nmap ggp <Plug>GitGutterPrevHunk
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" LaTeX
+" Plugin specific settings
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
+" vim-airline
+"""""""""""""
+let g:airline_theme='base16_solarized'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ycm#enabled = 1
 
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files
-" defaults to 'plaintex' instead of 'tex', which results in vim-latex
-" not being loaded.  The following changes the default filetype back
-" to 'tex':
+" youcompleteme
+"""""""""""""""
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+
+" LaTeX
+"""""""
 let g:tex_flavor='latex'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " CtrlP mappings and Settings
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ctrlp_map="<c-p>"
-"let g:ctrlp_cmd="<CtrlP>"
-
+"""""""""""""""""""""""""""""
 " 'c' - the directory of the current file
 " 'a' - the directory of the current file unless it is a subdirectory of the cwd
 " 'r' - the nearest ancestor to the current file that contains one of these
@@ -503,23 +489,13 @@ set wildignore+=*.swp,*.zip,*.bak,*.backup "files
 " ignore files in .gitignore
 "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " NERDTree
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" open NERDTree automatically when vim starts up without files specified
-" DISABLED because of startup error
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+""""""""""
 " close vim when the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" nerdtree-git-plugin configuration
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nerdtree-git-plugin
+"""""""""""""""""""""
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -532,11 +508,8 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Ultisnips
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res==0
@@ -556,12 +529,9 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-e>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" indentLine conflict with vim-json (vim-polyglot)
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_concealcursor=""
+" indentLine
+""""""""""""
+let g:indentLine_concealcursor="" "necessary for conflict with vim-json
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
