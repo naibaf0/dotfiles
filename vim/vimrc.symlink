@@ -32,11 +32,10 @@ Plug 'sjl/gundo.vim'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['c', 'cpp'] } | Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --terncompleter', 'for': ['c', 'cpp', javascript] }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " Autocompletion engine
 Plug 'Shougo/neocomplete' | Plug 'Shougo/neoinclude.vim' | Plug 'Shougo/neco-syntax'
-" autocompletion for javascript
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' } 
 " snippet engine | collection
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " vim support for go
@@ -510,24 +509,24 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Ultisnips
 """""""""""
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res==0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res==0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
+"function! g:UltiSnips_Complete()
+  "call UltiSnips#ExpandSnippet()
+  "if g:ulti_expand_res==0
+    "if pumvisible()
+      "return "\<C-n>"
+    "else
+      "call UltiSnips#JumpForwards()
+      "if g:ulti_jump_forwards_res==0
+        "return "\<TAB>"
+      "endif
+    "endif
+  "endif
+  "return ""
+"endfunction
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
+"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<c-e>"
 
 " indentLine
 """"""""""""
