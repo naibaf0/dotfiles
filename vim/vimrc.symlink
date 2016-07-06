@@ -23,27 +23,32 @@ filetype off
 call plug#begin()
 " A color scheme
 Plug 'altercation/vim-colors-solarized'
-" Fuzzy filesearch
-Plug 'ctrlpvim/ctrlp.vim'
-" show git-diff in the sign column
-Plug 'airblade/vim-gitgutter'
-" Autocompletion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['c', 'cpp'] }
-" autocompletion for javascript
-Plug 'ternjs/tern_for_vim'
-" snippet engine | collection
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" insertion and deletion of brackets, parens and quotes in pairs
-Plug 'jiangmiao/auto-pairs'
-Plug 'lervag/vimtex'
-" cool commenting features
-Plug 'scrooloose/nerdcommenter'
-" Filetree inside vim
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" git plugin for the filetree
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" show git-diff in the sign column
+Plug 'airblade/vim-gitgutter'
+" Undo visualization
+Plug 'sjl/gundo.vim'
+" Fuzzy filesearch
+Plug 'ctrlpvim/ctrlp.vim'
+" Autocompletion engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['c', 'cpp'] } | Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Autocompletion engine
+Plug 'Shougo/neocomplete' | Plug 'Shougo/neoinclude.vim' | Plug 'Shougo/neco-syntax'
+" autocompletion for javascript
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' } 
+" snippet engine | collection
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" vim support for go
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'  }
+" vim support for LaTeX
+Plug 'lervag/vimtex', { 'for': 'tex'}
+" cool commenting features
+Plug 'scrooloose/nerdcommenter'
+" Filetree inside vim | git plugin for the filetree
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+" insertion and deletion of brackets, parens and quotes in pairs
+Plug 'jiangmiao/auto-pairs'
 " indentation lines are displayed
 Plug 'Yggdroot/indentLine'
 " html5 support
@@ -59,7 +64,6 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
 
 filetype plugin indent on
-
 syntax on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
