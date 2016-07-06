@@ -421,8 +421,9 @@ endfunction
 "   <PageDown>     page-down
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use Spacebar as leader key
-let mapleader = "\<Space>"
+" Use ',' as <leader>
+let mapleader = ","
+let maplocalleader = "\<space>"
 
 set wildcharm=<C-Z>
 nnoremap <silent> <special> <tab> :b <C-Z>
