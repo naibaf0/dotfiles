@@ -2,7 +2,3 @@
     http://vim.wikia.com/wiki/Easier_buffer_switching
     https://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim
     http://codeincomplete.com/posts/2011/2/14/split_windows_and_tabs_in_vim/
-    
-* implement better install process and seperate update process
-* add aliases for updating the setup
-* expand README
