@@ -115,6 +115,9 @@ setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
+zsh/install-zim.sh
+vim/install-vim_plug.sh
+
 if ./dot_update; then
   success "dependencies installed"
 else
