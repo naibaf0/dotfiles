@@ -1,4 +1,4 @@
-Naibafos dotfiles
+Naibaf0s dotfiles
 =================
 
 This directory contains my collection of dotfiles as well as an install and
