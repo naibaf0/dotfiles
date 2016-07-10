@@ -6,5 +6,6 @@
   ],
   "plugins": {
     "node": {}
+    "es_modules": {}
   }
 }
