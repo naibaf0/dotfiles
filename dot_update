@@ -6,14 +6,15 @@
 # periodically to make sure you're on the latest and greatest.
 set -x
 
-export DOTFILES="$HOME/.dotfiles"
-
+cd ~/.dotfiles
+git pull
 git submodule update --init --recursive
 
 cd ~
-vim +PluginInstall! +qall
+vim +PlugUpgrade +qa
+vim +PlugUpdate! +qa
 
-~/.dotfiles/vim/bundle/YouCompleteMe/install.py --clang-completer --tern-completer --gocode-completer
-cd ~/.dotfiles/vim/bundle/tern_for_vim/ npm install
+cd .zim
+git submodule update --init --recursive
 
 exit 1
