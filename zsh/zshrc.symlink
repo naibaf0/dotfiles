@@ -1,53 +1,71 @@
-#==============================================================================
-# Include the plugin configuration with zgen
-#==============================================================================
-
-#==============================================================================
-# Include the plugin configuration with zgen
-#==============================================================================
 
 
-export DOTFILES="${HOME}/.dotfiles"
-export ZSH="${DOTFILES}/zsh"
+#
+# User configuration sourced by interactive shells
+#
 
+# Source zim
+if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
+  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
+fi
 
-source "${ZSH}/plugins.zsh"
-source "${DOTFILES}/zsh/functions.zsh"
-source "${DOTFILES}/zsh/alias.zsh"
-
-#==============================================================================
-# Stuff to do before Zsh config gets sourced
-#==============================================================================
-
-#========================
-# Use dircolors
-#========================
-
-# Specify path to default dircolors
-eval $(dircolors -b "${DOTFILES}/zsh/dircolors-solarized/dircolors.ansi-light")
-
-# export TERM=xterm-256color
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-# User configuration
+#==============================================================================
+# Functions
+#==============================================================================
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# weather forecast
+# ================
+weather() {
+  curl -4 -k https://wttr.in/$1
+}
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/id_rsa"
+# Create new directory and cd into it
+# ===================================
+alias md='__make_and_change_directory'
+
+__make_and_change_directory() {
+    for v in "$@"
+    do
+        mkdir "$v"
+        cd "$v"
+    done
+}
+
+# Useful enter-key
+# ================
+__magic-enter () {
+  if [[ -z $BUFFER ]]; then
+    echo ""
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+      git status
+    else
+      ls
+    fi
+    zle redisplay
+  else
+    zle accept-line
+  fi
+}
+zle -N __magic-enter
+bindkey "^M" __magic-enter
 
 #==============================================================================
-# Bind keyboard shortcuts for zsh-history-substring-search
+# Aliases
 #==============================================================================
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
 
+alias vi=vim
+alias view='vim -R'
+alias grep='nocorrect grep --color=always -d skip'
+alias cp='nocorrect cp -i' # confirm before overwriting something
+alias df='df -h' # human-readable sizes
+alias free='free -m' # show sizes in MB
+alias ls='ls -FX --group-directories-first --color=always --human-readable'
 
 #==============================================================================
 # Prepend user-specific bin/ paths
@@ -56,6 +74,5 @@ if [ -d "${HOME}/.bin" ]
 then
   PATH="${HOME}/.bin:${PATH}"
 fi
-
 
 export DEFAULT_USER=naibafo
