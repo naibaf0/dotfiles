@@ -33,7 +33,8 @@ path=(
 
 # environment
 # ===========
-export GOPATH='${HOME}/projects/go'
+export GOPATH=${HOME}/projects/go
+export PATH=${GOPATH}/bin:${PATH}
 
 # Less
 # ====
