@@ -67,12 +67,4 @@ alias df='df -h' # human-readable sizes
 alias free='free -m' # show sizes in MB
 alias ls='ls -FX --group-directories-first --color=always --human-readable'
 
-#==============================================================================
-# Prepend user-specific bin/ paths
-#==============================================================================
-if [ -d "${HOME}/.bin" ]
-then
-  PATH="${HOME}/.bin:${PATH}"
-fi
-
 export DEFAULT_USER=naibafo

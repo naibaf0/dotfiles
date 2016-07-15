@@ -26,9 +26,14 @@ cdpath+=(~/projects)
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ~/.bin
   /usr/local/{bin,sbin}
   $path
 )
+
+# environment
+# ===========
+export GOPATH='${HOME}/projects/go'
 
 # Less
 # ====
