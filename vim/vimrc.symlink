@@ -459,6 +459,10 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 """""""
 let g:tex_flavor='latex'
 
+" Tagbar
+""""""""
+let g:tagbar_autoclose = 1
+
 " CtrlP mappings and Settings
 """""""""""""""""""""""""""""
 " 'c' - the directory of the current file
