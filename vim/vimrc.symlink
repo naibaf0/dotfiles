@@ -43,6 +43,8 @@ Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'  }
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
 Plug 'scrooloose/syntastic'
+" a tagbar
+Plug 'majutsushi/tagbar'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
@@ -403,8 +405,11 @@ let maplocalleader = "\<space>"
 " display undo tree with <F5>
 nnoremap <special> <F5> :GundoToggle<CR>
 
-" Remove trailing whitespaces with <F8>
-nnoremap <special> <F8> :DeleteTrailingWs<CR>
+" display tagbar with <F8>
+nnoremap <special> <F8> :TagbarToggle<CR>
+
+" Remove trailing whitespaces with <BS>
+nnoremap <special> <BS> :DeleteTrailingWs<CR>
 
 " Pressing * or # in visual mode searches for the current selection
 vnoremap <silent> * :call SelectionSearch('b')<CR>
