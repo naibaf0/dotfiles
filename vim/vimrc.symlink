@@ -14,7 +14,6 @@ set nocompatible
 syntax off
 filetype off
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Install plugins with plug
@@ -255,7 +254,7 @@ augroup save
 augroup END
 set nohidden
 set nobackup
-"set noswapfile
+set noswapfile
 set nowritebackup
 set autoread
 set autowrite
