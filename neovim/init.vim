@@ -26,6 +26,8 @@ Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoInstallBinaries'}
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
 Plug 'scrooloose/syntastic'
+" a tagbar
+Plug 'majutsushi/tagbar'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
@@ -417,12 +419,15 @@ let g:airline_theme='base16_solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#ycm#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 
 " LaTeX
 """""""
 let g:tex_flavor='latex'
+
+" Tagbar
+""""""""
+let g:tagbar_autoclose = 1
 
 " CtrlP mappings and Settings
 """""""""""""""""""""""""""""
