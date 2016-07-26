@@ -22,6 +22,7 @@ Plug 'Shougo/neco-syntax'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " vim support for go
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
@@ -422,6 +423,36 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#syntastic#enabled = 1
+
+" Go
+""""
+" autocompletion
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
+"let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 0
+au FileType go nmap <localleader>r <Plug>(go-run)
+au FileType go nmap <localleader>b <Plug>(go-build)
+au FileType go nmap <localleader>t <Plug>(go-test)
+au FileType go nmap <localleader>c <Plug>(go-coverage)
+au FileType go nmap <localleader>ds <Plug>(go-def-split)
+au FileType go nmap <localleader>dv <Plug>(go-def-vertical)
+au FileType go nmap <localleader>gd <Plug>(go-doc)
+au FileType go nmap <localleader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <localleader>i <Plug>(go-info)
+au FileType go nmap <localleader>e <Plug>(go-rename)
+au FileType go nmap <localleader>rt <Plug>(go-run-tab)
+au FileType go nmap <localleader>rs <Plug>(go-run-split)
+au FileType go nmap <localleader>rv <Plug>(go-run-vertical)
 
 " LaTeX
 """""""
