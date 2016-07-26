@@ -212,6 +212,43 @@ set nospell
 set spelllang=en_US
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 
+" Statusline
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline=
+
+"set statusline=
+"set statusline+=%#todo#  "switch to todo highlight
+"set statusline+=%F       "full filename
+"set statusline+=%#error# "switch to error highlight
+"set statusline+=%y       "filetype
+"set statusline+=%*       "switch back to normal statusline highlight
+"set statusline+=%l       "line number
+
+"set statusline+=%F                                    " full filename
+set statusline+=%{expand('%')}         " relative path of current file
+"set statusline+=%#error#%{expand('%:f')}%*          " last extension
+"set statusline+=%#error#%{expand('%:t:e')}%*        " name of file (without extension)
+"set statusline+=%{fnamemodify(bufname('%'),':h')}/        " relative path
+"set statusline+=%{fnamemodify(bufname('%'),':t:r:s?^\\..*$??')} " filename without last extension
+"set statusline+=%#error#%{fnamemodify(bufname('%'),':t:s?^.*\\.?.?')}%* " last extension
+set statusline+=\ [
+set statusline+=%{strlen(&fenc)?&fenc:'none'},  " file encoding
+set statusline+=%{&ff}                          " file format
+set statusline+=]
+set statusline+=%y                              " filetype
+set statusline+=%h                              " help file flag
+set statusline+=%#error#%m%*                    " modified flag
+set statusline+=%r                              " read-only flag
+""set statusline+=\ \ -\ %{getcwd()}               " print CWD
+set statusline+=%=                              " left/right seperator
+set statusline+=%c,                             " cursor column
+set statusline+=%#error#%l%*/%L              " cursor line/total lines
+set statusline+=\ %P " percent through file
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Format options
 "
