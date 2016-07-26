@@ -1,20 +1,3 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing debian.vim since it alters
-" the value of the 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Disable compatibility mode
-set nocompatible
-syntax off
-filetype off
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Install plugins with plug
@@ -32,14 +15,13 @@ Plug 'sjl/gundo.vim'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer', 'for': ['c', 'cpp', 'javascript', 'python'] }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Autocompletion engine
-Plug 'Shougo/neocomplete' | Plug 'Shougo/neoinclude.vim' | Plug 'Shougo/neco-syntax'
+Plug 'Shougo/deoplete'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-syntax'
 " snippet engine | collection
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " vim support for go
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'  }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoInstallBinaries'}
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
@@ -64,9 +46,6 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
 
-filetype plugin indent on
-syntax on
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " General behavior of Vim
@@ -81,6 +60,9 @@ colorscheme solarized
 
 " Set the standard encoding
 set encoding=utf8
+
+filetype plugin indent on
+syntax on
 
 " Set the height of the command bar
 set cmdheight=1
@@ -237,15 +219,6 @@ set spelllang=en_US
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Vim auto completion
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set completeopt=menu,menuone,longest,preview
-au CursorMovedI,InsertLeave * if pumvisible() == 0|sil! pclose|endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Vim auto save
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -266,7 +239,7 @@ set autowriteall
 " Persistent undo
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set undodir=~/.vim/undo
+set undodir=~/.config/nvim/undo
 set undofile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -446,10 +419,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#ycm#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
-
-" youcompleteme
-"""""""""""""""
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 " LaTeX
 """""""
