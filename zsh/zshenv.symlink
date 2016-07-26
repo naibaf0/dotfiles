@@ -4,7 +4,7 @@
 
 # User specific XDG directories
 export XDG_DATA_HOME=$HOME/.local/share
-export XDG-CONFIG-HOME=$HOME/.config
+export XDG_CONFIG_HOME=$HOME/.config
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
