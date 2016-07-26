@@ -15,7 +15,7 @@ Plug 'sjl/gundo.vim'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
-Plug 'Shougo/deoplete'
+Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 " snippet engine | collection
@@ -376,22 +376,23 @@ endfunction
 let mapleader = "\,"
 let maplocalleader = "\<space>"
 
-" display undo tree with <F5>
-nnoremap <special> <F5> :GundoToggle<CR>
+" show/hide filetree with <F6>
+nnoremap <special> <F6> :NERDTreeToggle<CR>
+" show/hide undo tree with <F7>
+nnoremap <special> <F7> :GundoToggle<CR>
+" show/hide tagbar with <F8>
+nnoremap <special> <F8> :TagbarToggle<CR>
 
-" Remove trailing whitespaces with <F8>
-nnoremap <special> <F8> :DeleteTrailingWs<CR>
+" Remove trailing whitespaces with <BS>
+nnoremap <special> <BS> :DeleteTrailingWs<CR>
+
+" comment/uncomment with <C-c> in normal and visual mode
+nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
+vmap <silent> <C-c> :call NERDComment(1, "toggle")<CR>
 
 " Pressing * or # in visual mode searches for the current selection
 vnoremap <silent> * :call SelectionSearch('b')<CR>
 vnoremap <silent> # :call SelectionSearch('f')<CR>
-
-" NERDCommenter Toggle with <C-c> in normal and visual mode
-nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
-vmap <silent> <C-c> :call NERDComment(1, "toggle")<CR>
-
-" Pressing Ctrl+N in Normal Mode will toggle the NERDTree Plugin
-nnoremap <silent><special> <C-N> :NERDTreeToggle <CR>
 
 " tab switching
 nnoremap <silent><special> <tab> :tabnext<CR>
@@ -405,9 +406,7 @@ nnoremap <silent><special> <leader>- :bprevious<CR>
 nmap ggn <Plug>GitGutterNextHunk
 nmap ggp <Plug>GitGutterPrevHunk
 
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Plugin specific settings
 "
