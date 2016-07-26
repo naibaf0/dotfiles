@@ -21,7 +21,7 @@ Plug 'Shougo/neco-syntax'
 " snippet engine | collection
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " vim support for go
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoInstallBinaries'}
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
@@ -448,7 +448,7 @@ set wildignore+=*.swp,*.zip,*.bak,*.backup "files
 
 " NERDTree
 """"""""""
-" close vim when the only window left open is NERDTree
+" close neovim when the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdtree-git-plugin
@@ -480,7 +480,6 @@ let g:indentLine_concealcursor="" "necessary for conflict with vim-json
 let g:gundo_prefer_python3 = 1
 let g:gundo_width = 30
 "let g:gundo_preview_height = 15
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
