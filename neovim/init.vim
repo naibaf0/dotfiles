@@ -60,11 +60,14 @@ set background=light
 " Use solarized theme
 colorscheme solarized
 
+" activate filetype plugins and indent
+filetype plugin indent on
+
+" Use syntax highlighting
+syntax enable
+
 " Set the standard encoding
 set encoding=utf8
-
-filetype plugin indent on
-syntax on
 
 " Set the height of the command bar
 set cmdheight=1
