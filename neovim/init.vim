@@ -426,8 +426,14 @@ let g:airline#extensions#syntastic#enabled = 1
 
 " deoplete
 """"""""""
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
 set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer', 'ultisnips', 'file/include']
 
 " Go
 """"
@@ -450,14 +456,10 @@ au FileType go nmap <localleader>b <Plug>(go-build)
 au FileType go nmap <localleader>t <Plug>(go-test)
 au FileType go nmap <localleader>c <Plug>(go-coverage)
 au FileType go nmap <localleader>ds <Plug>(go-def-split)
-au FileType go nmap <localleader>dv <Plug>(go-def-vertical)
 au FileType go nmap <localleader>gd <Plug>(go-doc)
-au FileType go nmap <localleader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <localleader>i <Plug>(go-info)
 au FileType go nmap <localleader>e <Plug>(go-rename)
 au FileType go nmap <localleader>rt <Plug>(go-run-tab)
-au FileType go nmap <localleader>rs <Plug>(go-run-split)
-au FileType go nmap <localleader>rv <Plug>(go-run-vertical)
 
 " LaTeX
 """""""
@@ -506,7 +508,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Ultisnips
 """""""""""
-let g:UltiSnipsExpandTrigger = "<c-e>"
+"let g:UltiSnipsExpandTrigger = "<c-e>"
 "let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 "let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
