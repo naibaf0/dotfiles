@@ -424,6 +424,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#syntastic#enabled = 1
 
+" deoplete
+""""""""""
+set completeopt+=noselect
+let g:deoplete#enable_at_startup = 1
+
 " Go
 """"
 " autocompletion
