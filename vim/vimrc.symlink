@@ -14,7 +14,6 @@ set nocompatible
 syntax off
 filetype off
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Install plugins with plug
@@ -23,45 +22,22 @@ filetype off
 call plug#begin()
 " A color scheme
 Plug 'altercation/vim-colors-solarized'
-" Stylish statusline and themes
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
 " Undo visualization
 Plug 'sjl/gundo.vim'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
-" Autocompletion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer', 'for': ['c', 'cpp', 'javascript', 'python'] }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Autocompletion engine
-Plug 'Shougo/neocomplete' | Plug 'Shougo/neoinclude.vim' | Plug 'Shougo/neco-syntax'
-" snippet engine | collection
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" vim support for go
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'  }
-" vim support for LaTeX
-Plug 'lervag/vimtex', { 'for': 'tex'}
-" syntax checker
-Plug 'scrooloose/syntastic'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
 " insertion and deletion of brackets, parens and quotes in pairs
 Plug 'jiangmiao/auto-pairs'
-" indentation lines are displayed
-Plug 'Yggdroot/indentLine'
-" html5 support
-Plug 'othree/html5.vim', { 'for': 'html' }
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
 Plug 'elzr/vim-json', { 'for': 'json' }
-" javascript syntax
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-" syntax for javascript libraries
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
 
 filetype plugin indent on
@@ -237,40 +213,6 @@ set spelllang=en_US
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Vim auto completion
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set completeopt=menu,menuone,longest,preview
-au CursorMovedI,InsertLeave * if pumvisible() == 0|sil! pclose|endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Vim auto save
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup save
-  au!
-  au FocusLost * wall
-augroup END
-set nohidden
-set nobackup
-"set noswapfile
-set nowritebackup
-set autoread
-set autowrite
-set autowriteall
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Persistent undo
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set undodir=~/.vim/undo
-set undofile
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Format options
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -438,23 +380,6 @@ nmap ggp <Plug>GitGutterPrevHunk
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-airline
-"""""""""""""
-let g:airline_theme='base16_solarized'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#ycm#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-
-" youcompleteme
-"""""""""""""""
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-
-" LaTeX
-"""""""
-let g:tex_flavor='latex'
-
 " CtrlP mappings and Settings
 """""""""""""""""""""""""""""
 " 'c' - the directory of the current file
@@ -492,30 +417,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" Ultisnips
-"""""""""""
-let g:UltiSnipsExpandTrigger = "<c-e>"
-"let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
-" indentLine
-""""""""""""
-let g:indentLine_concealcursor="" "necessary for conflict with vim-json
-
 " gundo
 """""""
 let g:gundo_prefer_python3 = 1
 let g:gundo_width = 30
 "let g:gundo_preview_height = 15
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Load project specific settings if available
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" include per-project settings
-if filereadable(".project.vim")
- source .project.vim
-endif
