@@ -1,4 +1,4 @@
-FILE="$HOME/.vim/autoload/plug.vim"
+FILE="$HOME/.config/nvim/autoload/plug.vim"
 
 #!/bin/bash
 if [ ! -f "$FILE" ]; then
