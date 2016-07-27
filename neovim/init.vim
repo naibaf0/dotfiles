@@ -505,7 +505,7 @@ inoremap <expr><C-g>     deoplete#undo_completion()
 " close preview window after completion
 autocmd CompleteDone * pclose!
 
- deoplete sources
+ "deoplete sources
 if !exists('g:deoplete#sources')
   let g:deoplete#sources = {}
 endif
