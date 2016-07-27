@@ -21,9 +21,15 @@ Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
 " snippet engine | collection
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" vim support for go
+" Golang support
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+" Python support
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" C/C++ support
+Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'cpp'] }
+" Javascript support
+Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
@@ -83,7 +89,7 @@ set showtabline=1
 " Show (partial) command in status line
 set showcmd
 
-" Show line numbers on the side
+" Show line numbers on the side, switch between relative and absolute number
 set number
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
@@ -97,13 +103,11 @@ set nowrap
 " at the last character in the line.
 set linebreak
 
-" Makes Vim ask for a confirmation instead of showing an error
-" message.
+" Makes Vim ask for a confirmation instead of showing an error message.
 set confirm
 
 " Show a vertical line at column 80
 set colorcolumn=80
-
 
 " set window sizing
 set winminwidth=20
@@ -114,6 +118,9 @@ set winminheight=7
 " it to a new line.
 " Setting this value to '0' disables this option.
 set textwidth=80
+
+set splitbelow
+set splitright
 
 " autocomplete commands and filepaths in the vim-cl
 set wildchar=<Tab> wildmenu wildmode=full
@@ -179,12 +186,12 @@ set autoindent
 
 " Allow 'search next' to jump back to the beginning of the file if the
 " end was reached (equivalent for 'search previous').
-set nowrapscan
+set wrapscan
 
-" Set whether to highlight matches for previous search patterns.
+" Set to highlight matches for previous search patterns.
 set hlsearch
 
-" While typing a search command, show immediately where the so far
+" While typing a search command, immediately show where the so far
 " typed pattern matches.
 set incsearch
 
@@ -426,75 +433,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#syntastic#enabled = 1
 
-" deoplete
-""""""""""
-" neocomplete like
-set completeopt+=noinsert
-" deoplete.nvim recommend
-set completeopt+=noselect
-" enable deoplete
-let g:deoplete#enable_at_startup = 1
-" Use smartcase.
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_completion_start_length = 3
-" Maximum Number of candidates shown
-let g:deoplete#max_list = 40
-
-" Recommended key-mappings.
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-g>     deoplete#undo_completion()
-
-" close preview window after completion
-autocmd CompleteDone * pclose!
-
-" deoplete sources
-if !exists('g:deoplete#sources')
-  let g:deoplete#sources = {}
-endif
-let g:deoplete#sources._ = ['syntax', 'ultisnips', 'include', 'file/include']
-let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', 'go']
-
-" Go
-""""
-" autocompletion
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-"let g:deoplete#sources#go#use_cache = 1
-"let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
-" vim-go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 0
-au FileType go nmap <localleader>i <Plug>(go-info)
-au FileType go nmap <localleader>d <Plug>(go-def)
-au FileType go nmap <localleader>gd <Plug>(go-doc)
-au FileType go nmap <localleader>r <Plug>(go-run)
-au FileType go nmap <localleader>b <Plug>(go-build)
-au FileType go nmap <localleader>t <Plug>(go-test)
-au FileType go nmap <localleader>c <Plug>(go-coverage)
-au FileType go nmap <localleader>ds <Plug>(go-def-split)
-au FileType go nmap <localleader>e <Plug>(go-rename)
-au FileType go nmap <localleader>rt <Plug>(go-run-tab)
-
-" LaTeX
+" CtrlP
 """""""
-let g:tex_flavor='latex'
-
-" Tagbar
-""""""""
-let g:tagbar_autoclose = 1
-
-" CtrlP mappings and Settings
-"""""""""""""""""""""""""""""
 " 'c' - the directory of the current file
 " 'a' - the directory of the current file unless it is a subdirectory of the cwd
 " 'r' - the nearest ancestor to the current file that contains one of these
@@ -530,21 +470,102 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" gundo
+"""""""
+let g:gundo_prefer_python3 = 1
+let g:gundo_width = 30
+"let g:gundo_preview_height = 15
+
+" Tagbar
+""""""""
+let g:tagbar_autoclose = 1
+
+" deoplete
+""""""""""
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
+" enable deoplete
+let g:deoplete#enable_at_startup = 1
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_completion_start_length = 3
+" Maximum Number of candidates shown
+let g:deoplete#max_list = 40
+
+" Recommended key-mappings.
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-g>     deoplete#undo_completion()
+
+" close preview window after completion
+autocmd CompleteDone * pclose!
+
+ deoplete sources
+if !exists('g:deoplete#sources')
+  let g:deoplete#sources = {}
+endif
+let g:deoplete#sources._ = ['syntax', 'ultisnips', 'include', 'file/include']
+let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', 'go']
+let g:deoplete#sources.python = ['ultisnips', 'syntax', 'include', 'file/include', 'jedi']
+
 " Ultisnips
 """""""""""
 let g:UltiSnipsExpandTrigger = "<c-e>"
 "let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 "let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
+" Go
+""""
+" deoplete-go
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
+"let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 0
+au FileType go nmap <localleader>i <Plug>(go-info)
+au FileType go nmap <localleader>d <Plug>(go-def)
+au FileType go nmap <localleader>gd <Plug>(go-doc)
+au FileType go nmap <localleader>r <Plug>(go-run)
+au FileType go nmap <localleader>b <Plug>(go-build)
+au FileType go nmap <localleader>t <Plug>(go-test)
+au FileType go nmap <localleader>c <Plug>(go-coverage)
+au FileType go nmap <localleader>ds <Plug>(go-def-split)
+au FileType go nmap <localleader>e <Plug>(go-rename)
+au FileType go nmap <localleader>rt <Plug>(go-run-tab)
+
+" C/C++
+"""""""
+	let g:clang_complete_auto = 1
+	let g:clang_auto_select = 0
+	let g:clang_omnicppcomplete_compliance = 0
+	let g:clang_make_default_keymappings = 0
+  "let g:clang_use_library = 1
+
+" Javascript
+""""""""""""
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
+
+" LaTeX
+"""""""
+let g:tex_flavor='latex'
+
 " indentLine
 """"""""""""
 let g:indentLine_concealcursor="" "necessary for conflict with vim-json
-
-" gundo
-"""""""
-let g:gundo_prefer_python3 = 1
-let g:gundo_width = 30
-"let g:gundo_preview_height = 15
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
