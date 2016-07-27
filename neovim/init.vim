@@ -246,7 +246,7 @@ set autowriteall
 " Persistent undo
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set undodir=~/.config/nvim/undo
+set undodir=$HOME/.config/nvim/undo
 set undofile
 set undolevels=500
 

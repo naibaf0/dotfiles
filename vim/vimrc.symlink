@@ -215,7 +215,7 @@ set spelllang=en_US
 " Undo
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set undodir=~/.vim/undo
+set undodir=$HOME/.vim/undo
 set undofile
 set undolevels=500
 
