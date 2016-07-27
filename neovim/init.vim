@@ -10,19 +10,20 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
-" Undo visualization
+" Visual Undo
 Plug 'sjl/gundo.vim'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
+Plug 'Shougo/context_filetype.vim'
 " snippet engine | collection
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " vim support for go
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " syntax checker
@@ -234,7 +235,7 @@ augroup save
 augroup END
 set nohidden
 set nobackup
-"set noswapfile
+set noswapfile
 set nowritebackup
 set autoread
 set autowrite
@@ -430,10 +431,35 @@ let g:airline#extensions#syntastic#enabled = 1
 set completeopt+=noinsert
 " deoplete.nvim recommend
 set completeopt+=noselect
+" enable deoplete
 let g:deoplete#enable_at_startup = 1
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_completion_start_length = 3
+" Maximum Number of candidates shown
+let g:deoplete#max_list = 40
 
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'ultisnips', 'file/include']
+" Recommended key-mappings.
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function() abort
+  "return deoplete#close_popup()."\<CR>"
+"endfunction
+
+autocmd CompleteDone * pclose!
+
+inoremap <expr><C-g>     deoplete#undo_completion()
+
+if !exists('g:deoplete#sources')
+  let g:deoplete#sources = {}
+endif
+let g:deoplete#sources._ = ['syntax', 'ultisnips', 'include', 'file/include']
+let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', 'go']
 
 " Go
 """"
@@ -451,13 +477,14 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 0
+au FileType go nmap <localleader>i <Plug>(go-info)
+au FileType go nmap <localleader>d <Plug>(go-def)
+au FileType go nmap <localleader>gd <Plug>(go-doc)
 au FileType go nmap <localleader>r <Plug>(go-run)
 au FileType go nmap <localleader>b <Plug>(go-build)
 au FileType go nmap <localleader>t <Plug>(go-test)
 au FileType go nmap <localleader>c <Plug>(go-coverage)
 au FileType go nmap <localleader>ds <Plug>(go-def-split)
-au FileType go nmap <localleader>gd <Plug>(go-doc)
-au FileType go nmap <localleader>i <Plug>(go-info)
 au FileType go nmap <localleader>e <Plug>(go-rename)
 au FileType go nmap <localleader>rt <Plug>(go-run-tab)
 
@@ -508,7 +535,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Ultisnips
 """""""""""
-"let g:UltiSnipsExpandTrigger = "<c-e>"
+let g:UltiSnipsExpandTrigger = "<c-e>"
 "let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 "let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
