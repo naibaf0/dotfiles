@@ -84,8 +84,7 @@ set nowrap
 " at the last character in the line.
 set linebreak
 
-" Makes Vim ask for a confirmation instead of showing an error
-" message.
+" Makes Vim ask for a confirmation instead of showing an error message.
 set confirm
 
 " Show a vertical line at column 80
@@ -210,6 +209,15 @@ set nospell
 
 " Set languages for spell checking
 set spelllang=en_US
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 
+" Undo
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set undodir=~/.vim/undo
+set undofile
+set undolevels=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 
@@ -384,8 +392,6 @@ let maplocalleader = "\<space>"
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " show/hide undo tree with <F7>
 nnoremap <special> <F7> :GundoToggle<CR>
-" show/hide tagbar with <F8>
-nnoremap <special> <F8> :TagbarToggle<CR>
 
 " Remove trailing whitespaces with <BS>
 nnoremap <special> <BS> :DeleteTrailingWs<CR>
