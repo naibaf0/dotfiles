@@ -248,6 +248,7 @@ set autowriteall
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undodir=~/.config/nvim/undo
 set undofile
+set undolevels=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -445,16 +446,12 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function() abort
-  "return deoplete#close_popup()."\<CR>"
-"endfunction
-
-autocmd CompleteDone * pclose!
-
 inoremap <expr><C-g>     deoplete#undo_completion()
 
+" close preview window after completion
+autocmd CompleteDone * pclose!
+
+" deoplete sources
 if !exists('g:deoplete#sources')
   let g:deoplete#sources = {}
 endif
@@ -466,7 +463,7 @@ let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', '
 " autocompletion
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 1
+"let g:deoplete#sources#go#use_cache = 1
 "let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
 " vim-go
 let g:go_highlight_functions = 1
