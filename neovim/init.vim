@@ -115,6 +115,7 @@ set winminheight=7
 " Setting this value to '0' disables this option.
 set textwidth=80
 
+" Behaviour when splitting the window
 set splitbelow
 set splitright
 
