@@ -32,8 +32,6 @@ Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'cpp'] }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
-" syntax checker
-Plug 'scrooloose/syntastic'
 " a tagbar
 Plug 'majutsushi/tagbar'
 " cool commenting features
