@@ -497,21 +497,10 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-g>     deoplete#undo_completion()
+inoremap <expr><C-g> deoplete#undo_completion()
 
 " close preview window after completion
 autocmd CompleteDone * pclose!
-
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
- "deoplete sources
-if !exists('g:deoplete#sources')
-  let g:deoplete#sources = {}
-endif
-let g:deoplete#sources._ = ['syntax', 'include', 'file/include']
-let g:deoplete#sources.go = ['syntax', 'include', 'file/include', 'go']
-let g:deoplete#sources.python = ['syntax', 'include', 'file/include', 'jedi']
 
 " neosnippet
 """"""""""""
