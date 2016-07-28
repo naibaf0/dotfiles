@@ -19,7 +19,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-neosnippets'
+Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
