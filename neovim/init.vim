@@ -42,8 +42,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-
 Plug 'jiangmiao/auto-pairs'
 " indentation lines are displayed
 Plug 'Yggdroot/indentLine'
-" html5 support
-Plug 'othree/html5.vim', { 'for': 'html' }
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
