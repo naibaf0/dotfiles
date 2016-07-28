@@ -509,9 +509,9 @@ endif
 if !exists('g:deoplete#sources')
   let g:deoplete#sources = {}
 endif
-let g:deoplete#sources._ = ['syntax', 'ultisnips', 'include', 'file/include']
-let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', 'go']
-let g:deoplete#sources.python = ['ultisnips', 'syntax', 'include', 'file/include', 'jedi']
+let g:deoplete#sources._ = ['syntax', 'include', 'file/include']
+let g:deoplete#sources.go = ['syntax', 'include', 'file/include', 'go']
+let g:deoplete#sources.python = ['syntax', 'include', 'file/include', 'jedi']
 
 " neosnippet
 """"""""""""
