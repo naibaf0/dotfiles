@@ -10,8 +10,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
-" Visual Undo
-Plug 'sjl/gundo.vim'
+" Undotree
+Plug 'mbbill/undotree'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
@@ -388,7 +388,7 @@ let maplocalleader = "\<space>"
 " show/hide filetree with <F6>
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " show/hide undo tree with <F7>
-nnoremap <special> <F7> :GundoToggle<CR>
+nnoremap <special> <F7> :UndotreeToggle<CR>
 " show/hide tagbar with <F8>
 nnoremap <special> <F8> :TagbarToggle<CR>
 
@@ -466,12 +466,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-
-" gundo
-"""""""
-let g:gundo_prefer_python3 = 1
-let g:gundo_width = 30
-"let g:gundo_preview_height = 15
 
 " Tagbar
 """"""""

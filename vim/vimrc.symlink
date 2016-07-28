@@ -24,8 +24,8 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
-" Undo visualization
-Plug 'sjl/gundo.vim'
+" Undotree
+Plug 'mbbill/undotree'
 " Fuzzy filesearch
 Plug 'ctrlpvim/ctrlp.vim'
 " cool commenting features
@@ -391,7 +391,7 @@ let maplocalleader = "\<space>"
 " show/hide filetree with <F6>
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " show/hide undo tree with <F7>
-nnoremap <special> <F7> :GundoToggle<CR>
+nnoremap <special> <F7> :UndotreeToggle<CR>
 
 " Remove trailing whitespaces with <BS>
 nnoremap <special> <BS> :DeleteTrailingWs<CR>
