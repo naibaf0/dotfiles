@@ -19,8 +19,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
-" snippet engine | collection
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-neosnippets'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
@@ -514,11 +513,25 @@ let g:deoplete#sources._ = ['syntax', 'ultisnips', 'include', 'file/include']
 let g:deoplete#sources.go = ['ultisnips', 'syntax', 'include', 'file/include', 'go']
 let g:deoplete#sources.python = ['ultisnips', 'syntax', 'include', 'file/include', 'jedi']
 
-" Ultisnips
-"""""""""""
-let g:UltiSnipsExpandTrigger = "<c-e>"
-"let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+" neosnippet
+""""""""""""
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " Go
 """"
