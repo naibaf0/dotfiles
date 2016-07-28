@@ -21,7 +21,7 @@ Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*'}
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
