@@ -34,8 +34,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-" insertion and deletion of brackets, parens and quotes in pairs
-Plug 'jiangmiao/auto-pairs'
 " indentation lines are displayed
 Plug 'Yggdroot/indentLine'
 " faster yaml syntax
