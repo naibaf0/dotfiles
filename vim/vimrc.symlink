@@ -32,8 +32,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-" insertion and deletion of brackets, parens and quotes in pairs
-Plug 'jiangmiao/auto-pairs'
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
