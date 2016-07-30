@@ -1,7 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Install plugins with plug
-"
+" {{{1 Install plugins with plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 " A color scheme
@@ -51,10 +48,7 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" General behavior of Vim
-"
+" {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use vim with light color theme
@@ -127,10 +121,7 @@ set cursorline
 " Make 'word' stop at underscores. Does not affect 'Word'.
 set iskeyword-=_
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Scrolling properties
-"
+" {{{1 Scrolling properties
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set leading/trailing lines for the cursor when moving vertically.
@@ -144,10 +135,7 @@ set sidescrolloff=20
 " the window is reached.
 set sidescroll=35
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Indentation rules
-"
+" {{{1 Indentation rules
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Number of spaces a <Tab> counts for
@@ -174,10 +162,7 @@ set expandtab
 " in Insert Mode or when using the "o" or "O" command).
 set autoindent
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Search properties
-"
+" {{{1 Search properties
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Allow 'search next' to jump back to the beginning of the file if the
@@ -197,17 +182,14 @@ set noignorecase
 " When searching, try to be smart about cases
 set smartcase
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" User-defined folding
-"
+" {{{1 User-defined folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Define where to create folds
 set fdm=manual
 
 " Set the number of screen line above which a fold can be displayed closed.
-set fml=5
+set fml=3
 
 " Define the maximum nesting of folds (for the 'indent' and 'syntax' methods).
 set fdn=3
@@ -215,10 +197,7 @@ set fdn=3
 " Specify the text displayed for a closed fold.
 "set fdt=
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Spelling
-"
+" {{{1 Spelling
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable spellchecking by default
@@ -227,10 +206,7 @@ set nospell
 " Set languages for spell checking
 set spelllang=en_US
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Vim auto save
-"
+" {{{1 Vim auto save
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup save
   au!
@@ -244,19 +220,13 @@ set autoread
 set autowrite
 set autowriteall
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Persistent undo
-"
+" {{{1 Persistent undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undodir=$HOME/.config/nvim/undo
 set undofile
 set undolevels=500
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Format options
-"
+" {{{1 Format options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This is a sequence of letters which describes how automatic formatting is to
 " be done.
@@ -273,10 +243,7 @@ set undolevels=500
 
 set formatoptions=c,q,r
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Commands and functions
-"
+" {{{1 Commands and functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Delete trailing whitespace and tabs at the end of each line
@@ -318,10 +285,7 @@ function! SelectionSearch(direction) range
   let @" = l:saved_reg
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Custom keymaps
-"
+" {{{1 Custom keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " {cmd} {attr} {lhs} {rhs}
@@ -385,6 +349,9 @@ endfunction
 let mapleader = "\,"
 let maplocalleader = "\<space>"
 
+" escape from terminal :)
+tnoremap <leader><Esc> <C-\><C-n>
+
 " show/hide filetree with <F6>
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " show/hide undo tree with <F7>
@@ -415,14 +382,11 @@ nnoremap <silent><special> <leader>- :bprevious<CR>
 nmap ggn <Plug>GitGutterNextHunk
 nmap ggp <Plug>GitGutterPrevHunk
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Plugin specific settings
-"
+" {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-airline
-"""""""""""""
+" {{{2 vim-airline
+""""""""""""""""""
 let g:airline_theme='base16_solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -430,8 +394,8 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-" CtrlP
-"""""""
+" {{{2 CtrlP
+""""""""""""
 " 'c' - the directory of the current file
 " 'a' - the directory of the current file unless it is a subdirectory of the cwd
 " 'r' - the nearest ancestor to the current file that contains one of these
@@ -448,13 +412,13 @@ set wildignore+=*.swp,*.zip,*.bak,*.backup "files
 " ignore files in .gitignore
 "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" NERDTree
-""""""""""
+" {{{2 NERDTree
+"""""""""""""""
 " close neovim when the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" nerdtree-git-plugin
-"""""""""""""""""""""
+" {{{2 nerdtree-git-plugin
+""""""""""""""""""""""""""
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -467,12 +431,12 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" Tagbar
-""""""""
+" {{{2 Tagbar
+"""""""""""""
 let g:tagbar_autoclose = 1
 
-" deoplete
-""""""""""
+" {{{2 deoplete
+"""""""""""""""
 " neocomplete like
 set completeopt+=noinsert
 " deoplete.nvim recommend
@@ -496,8 +460,8 @@ inoremap <expr><C-g> deoplete#undo_completion()
 " close preview window after completion
 autocmd CompleteDone * pclose!
 
-" neosnippet
-""""""""""""
+" {{{2 neosnippet
+"""""""""""""""""
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -516,8 +480,8 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-" Go
-""""
+" {{{2 Go
+"""""""""
 " deoplete-go
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
@@ -543,34 +507,32 @@ au FileType go nmap <localleader>ds <Plug>(go-def-split)
 au FileType go nmap <localleader>e <Plug>(go-rename)
 au FileType go nmap <localleader>rt <Plug>(go-run-tab)
 
-" C/C++
-"""""""
+" {{{2 C/C++
+""""""""""""
 	let g:clang_complete_auto = 1
 	let g:clang_auto_select = 0
 	let g:clang_omnicppcomplete_compliance = 0
 	let g:clang_make_default_keymappings = 0
   "let g:clang_use_library = 1
 
-" Javascript
-""""""""""""
+" {{{2 Javascript
+"""""""""""""""""
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
 
-" LaTeX
-"""""""
+" {{{2 LaTeX
+" """"""""""
 let g:tex_flavor='latex'
 
-" indentLine
-""""""""""""
+" {{{2 indentLine
+"""""""""""""""""
 let g:indentLine_concealcursor="" "necessary for conflict with vim-json
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Load project specific settings if available
-"
+" {{{1 Load project specific settings if available
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " include per-project settings
 if filereadable(".project.vim")
  source .project.vim
 endif
+" vim:fdm=marker
