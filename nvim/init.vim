@@ -34,8 +34,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-" indentation lines are displayed
-Plug 'Yggdroot/indentLine'
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
@@ -521,10 +519,6 @@ let g:tern_show_signature_in_pum = 0  " This do disable full signature type on a
 " {{{2 LaTeX
 " """"""""""
 let g:tex_flavor='latex'
-
-" {{{2 indentLine
-"""""""""""""""""
-let g:indentLine_concealcursor="" "necessary for conflict with vim-json
 
 " {{{1 Load project specific settings if available
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
