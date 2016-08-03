@@ -348,6 +348,10 @@ let maplocalleader = "\<space>"
 " escape from terminal :)
 tnoremap <leader><Esc> <C-\><C-n>
 
+" only press < and > once in normal mode indent
+nnoremap < <<
+nnoremap > >>
+
 " show/hide filetree with <F6>
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " show/hide undo tree with <F7>
