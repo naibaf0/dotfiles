@@ -386,13 +386,16 @@ endfunction
 let mapleader = "\,"
 let maplocalleader = "\<space>"
 
-" show/hide filetree with <F6>
-nnoremap <special> <F6> :NERDTreeToggle<CR>
-" show/hide undo tree with <F7>
-nnoremap <special> <F7> :UndotreeToggle<CR>
+" single pressing < or > for indents in normal mode
+nnoremap < <<
+nnoremap > >>
 
-" Remove trailing whitespaces with <BS>
-nnoremap <special> <BS> :DeleteTrailingWs<CR>
+" <F2>: Remove trailing whitespaces
+nnoremap <special> <F2> :DeleteTrailingWs<CR>
+" <F6>: show/hide filetree
+nnoremap <special> <F6> :NERDTreeToggle<CR>
+" <F7>: show/hide undo tree
+nnoremap <special> <F7> :UndotreeToggle<CR>
 
 " comment/uncomment with <C-c> in normal and visual mode
 nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>

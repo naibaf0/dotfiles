@@ -34,6 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Shougo/neopairs.vim'
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
@@ -352,15 +353,14 @@ tnoremap <leader><Esc> <C-\><C-n>
 nnoremap < <<
 nnoremap > >>
 
-" show/hide filetree with <F6>
+" <F2>: remove trailing whitespaces
+nnoremap <special> <F2> :DeleteTrailingWs<CR>
+" <F6>: show/hide filetree
 nnoremap <special> <F6> :NERDTreeToggle<CR>
-" show/hide undo tree with <F7>
+" <F7>: show/hide undo tree
 nnoremap <special> <F7> :UndotreeToggle<CR>
-" show/hide tagbar with <F8>
+" <F8>: show/hide tagbar
 nnoremap <special> <F8> :TagbarToggle<CR>
-
-" Remove trailing whitespaces with <BS>
-nnoremap <special> <BS> :DeleteTrailingWs<CR>
 
 " comment/uncomment with <C-c> in normal and visual mode
 nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
