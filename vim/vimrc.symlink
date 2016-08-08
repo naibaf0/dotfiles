@@ -461,9 +461,3 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-
-" gundo
-"""""""
-let g:gundo_prefer_python3 = 1
-let g:gundo_width = 30
-"let g:gundo_preview_height = 15
