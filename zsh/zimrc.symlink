@@ -24,7 +24,7 @@ zmodules=(directory environment git history input utility archive ssh custom \
 #
 
 # Set your desired prompt here
-zprompt_theme='liquidprompt'
+zprompt_theme='minimal'
 
 #
 # Completion
