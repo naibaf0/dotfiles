@@ -405,6 +405,10 @@ let g:airline#extensions#branch#enabled = 1
 " 0 or '' - disable the feature
 let g:ctrlp_working_path_mode="ra"
 
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " exclude files directories
 set wildignore+=*/tmp/*,*/.git/*,*/.svn/*,*/.hg/* "directories
 set wildignore+=*.swp,*.zip,*.bak,*.backup "files
