@@ -12,7 +12,7 @@ bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
 set -g base-index 1
 
 set -g set-titles on
-set -g set-titles-string "[#S] #W.#P@#H"
+set -g set-titles-string "#W@#H"
 
 #setw -g mode-keys vi
 
