@@ -194,14 +194,31 @@ set fdn=3
 " Specify the text displayed for a closed fold.
 "set fdt=
 
-" {{{1 Spelling
+" {{{1 Spell checking
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Disable spellchecking by default
-set nospell
+function! ToggleSpell()
+  if (&spell == 1)
+    setlocal nospell
+    echo "spell: off"
+  else
+    setlocal spell
+    echo "spell: on"
+  endif
+endfunction
 
 " Set languages for spell checking
-set spelllang=en_US
+set spelllang=en_gb
+
+function! ToggleSpellLang()
+  if (&spelllang == 'en_gb')
+    set spelllang=de_de
+    echo "spelllang: DE"
+  else
+    set spelllang=en_gb
+    echo "spelllang: EN"
+  endif
+endfunction
 
 " {{{1 Vim auto save
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -353,8 +370,10 @@ tnoremap <leader><Esc> <C-\><C-n>
 nnoremap < <<
 nnoremap > >>
 
-" <F2>: remove trailing whitespaces
-nnoremap <special> <F2> :DeleteTrailingWs<CR>
+" <F2>: toggle spell checker on and off
+nnoremap <special> <F2> :call ToggleSpell()<CR>
+" <F3>: switch spell checker language from English to German and vice versa
+nnoremap <special> <F3> :call ToggleSpellLang()<CR>
 " <F6>: show/hide filetree
 nnoremap <special> <F6> :NERDTreeToggle<CR>
 " <F7>: show/hide undo tree
