@@ -370,6 +370,12 @@ tnoremap <leader><Esc> <C-\><C-n>
 nnoremap < <<
 nnoremap > >>
 
+" convenient mappings for system clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
 " <F2>: toggle spell checker on and off
 nnoremap <special> <F2> :call ToggleSpell()<CR>
 " <F3>: switch spell checker language from English to German and vice versa
