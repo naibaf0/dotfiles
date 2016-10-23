@@ -76,7 +76,7 @@ zssh_ids=(id_rsa)
 #
 
 # Set (optional) pacman front-end.
-#zpacman_frontend='powerpill'
+zpacman_frontend='powerpill'
 
 # Load any helper scripts as defined here
-#zpacman_helper=(aur)
+zpacman_helper=(aur)
