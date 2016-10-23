@@ -9,6 +9,6 @@ Installation
 
 ```bash
 cd ~
-git clone --recursive https://github.com/naibaf0/dotfiles .dotfiles
+git clone https://github.com/naibaf0/dotfiles .dotfiles
 ./.dotfiles/dot_install.sh
 ```
