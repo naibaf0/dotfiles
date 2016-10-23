@@ -173,7 +173,7 @@ set hlsearch
 set incsearch
 
 " Ignore the case when searching
-set noignorecase
+set ignorecase
 
 " When searching, try to be smart about cases
 set smartcase

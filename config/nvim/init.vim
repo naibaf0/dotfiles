@@ -174,7 +174,7 @@ set hlsearch
 set incsearch
 
 " Ignore the case when searching
-set noignorecase
+set ignorecase
 
 " When searching, try to be smart about cases
 set smartcase
@@ -369,6 +369,12 @@ tnoremap <leader><Esc> <C-\><C-n>
 " only press < and > once in normal mode indent
 nnoremap < <<
 nnoremap > >>
+
+" convenient mappings for system clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 
 " <F2>: toggle spell checker on and off
 nnoremap <special> <F2> :call ToggleSpell()<CR>
