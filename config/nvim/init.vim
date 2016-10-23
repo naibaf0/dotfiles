@@ -49,7 +49,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use vim with light color theme
-set background=light
+set background=dark
 
 " Use solarized theme
 colorscheme solarized
