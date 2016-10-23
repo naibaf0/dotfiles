@@ -1,0 +1,21 @@
+library: ~/.config/beets/library.db #default location for library
+directory: ~/Music #music folder directory
+import:
+  write: yes #metadata tags are written to files
+  copy: yes #copy files into the library
+  move: no
+  log: ~/.config/beets/import.log
+
+
+asciify_paths: yes #alle Paths in ascii machen
+threaded: no #langsamer, keine threads
+
+per_disc_numbering: yes
+paths:
+  default: $albumartist/$album%aunique{}/$disc-$track $title
+  comp: Compilation/$album%aunique{}/$disc-$track $title
+
+plugins: embedart fetchart
+
+embedart:
+  compare_threshold: 50
