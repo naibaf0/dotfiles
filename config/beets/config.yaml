@@ -17,7 +17,7 @@ import:
   copy: yes #copy files into the library
   move: no
   resume: ask
-  incremental: yes
+  incremental: no
   log: ~/Music/import.log
 
 
