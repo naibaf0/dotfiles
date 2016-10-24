@@ -22,7 +22,7 @@ import:
 
 
 asciify_paths: yes #alle Paths in ascii machen
-threaded: yyes
+threaded: yes
 original_date: yes #tagge Alben mit dem originalen Erscheinungsdatum 
 per_disc_numbering: yes
 
@@ -36,4 +36,5 @@ paths:
 plugins: fromfilename embedart fetchart
 
 embedart:
-  ifempty: true
+  ifempty: yes
+
