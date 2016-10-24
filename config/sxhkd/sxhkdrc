@@ -20,12 +20,15 @@ super + Escape
 
 XF86AudioRaiseVolume
   exec pulseaudio-ctl up
+  # amixer -c 1 sset Master 5%+
 
 XF86AudioLowerVolume
   exec pulseaudio-ctl down
+  # amixer -c 1 sset Master 5%-
 
 XF86AudioMute
   exec pulseaudio-ctl mute
+  # amixer -c 1 sset Master toggle
 
 #
 # Playback control for MPD
