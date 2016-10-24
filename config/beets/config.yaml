@@ -36,4 +36,4 @@ paths:
 plugins: fromfilename embedart fetchart
 
 embedart:
-  compare_threshold: 50
+  ifempty: true
