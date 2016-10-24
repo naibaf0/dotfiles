@@ -15,6 +15,19 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 #
+# Volume keys
+#
+
+XF86AudioRaiseVolume
+  exec pulseaudio-ctl up
+
+XF86AudioLowerVolume
+  exec pulseaudio-ctl down
+
+XF86AudioMute
+  exec pulseaudio-ctl mute
+
+#
 # bspwm hotkeys
 #
 
