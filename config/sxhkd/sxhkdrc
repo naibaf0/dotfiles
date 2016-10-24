@@ -28,6 +28,19 @@ XF86AudioMute
   exec pulseaudio-ctl mute
 
 #
+# Playback control for MPD
+#
+
+XF86AudioPlay
+  exec mpc toggle
+
+XF86AudioNext
+  exec mpc next
+
+XF86AudioPrev
+  exec mpc prev
+
+#
 # bspwm hotkeys
 #
 
