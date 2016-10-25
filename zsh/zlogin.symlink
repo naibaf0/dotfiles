@@ -60,8 +60,8 @@
 
 # Is the Internet on fire?
 # ========================
-if [[ -t 0 || -t 1 ]]; then
-  print 'Is the Internet on fire?\n\n'
-  dig +short txt istheinternetonfire.com | sed -e 's/\\; /\n/' -e 's/"//'g
-  print
-fi
+#if [[ -t 0 || -t 1 ]]; then
+  #print 'Is the Internet on fire?\n\n'
+  #dig +short txt istheinternetonfire.com | sed -e 's/\\; /\n/' -e 's/"//'g
+  #print
+#fi

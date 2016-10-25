@@ -20,10 +20,6 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-# Set the the list of directories that cd searches.
-cdpath+=(~)
-cdpath+=(~/projects)
-
 # Set the list of directories that Zsh searches for programs.
 path=(
   ~/.bin
@@ -31,8 +27,6 @@ path=(
   $path
 )
 
-# environment
-# ===========
 export GOPATH=${HOME}/projects/go
 export PATH=${GOPATH}/bin:${PATH}
 
