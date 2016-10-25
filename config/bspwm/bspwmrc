@@ -1,6 +1,17 @@
-#! /bin/sh
+#!/bin/zsh
 
 sxhkd &
+
+ws1=1 #Home
+ws2=2 #Browse
+ws3=3
+ws4=4
+ws5=5
+ws6=6
+ws7=7
+ws8=8
+ws9=9
+ws10=10
 
 bspc config border_width          0
 bspc config window_gap            10
@@ -12,12 +23,15 @@ bspc config gapless_monocle       true
 bspc config focus_by_distance     true
 bspc config history_aware_focus   true
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7 $ws8 $ws9 $ws10
+
+bspc desktop $ws2 -l monocle
 
 bspc rule -a Gimp desktop=^8 state=floating follow=on
 bspc rule -a Firefox desktop=^2
 bspc rule -a Thunderbird desktop=^5
 bspc rule -a mplayer state=floating
+bspc rule -a VirtualBox state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
