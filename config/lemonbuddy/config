@@ -40,30 +40,44 @@ modules-left = bspwm
 modules-center = mpd
 modules-right = wifi wired volume battery date powermenu
 
-tray-position = left
+tray-position = right
 
 wm-restack = bspwm
 
 
 [module/bspwm]
 type = internal/bspwm
+
+; ws-icon-[0-9]+ = label;icon
+ws-icon-0 = desktop;
+ws-icon-1 = browse;
+ws-icon-2 = code;
+ws-icon-3 = edit;
+ws-icon-4 = cli;
+ws-icon-5 = media;
+ws-icon-6 = communicate;
+;ws-icon-8 = 8
+;ws-icon-9 = 9
+;ws-icon-10 = 10
 ws-icon-default = x
 
-label-active = o %index%
+format = <label-state> <label-mode>
+
+label-active = %index%: %icon%
 label-active-background = #ee333333
 label-active-underline= #cc333333
-label-active-padding = 2
+label-active-padding = 1
 
-label-occupied = %{O-1}⏺%{O-1} %index%
-label-occupied-padding = 2
+label-occupied = %index%: %icon%
+label-occupied-padding = 1
 
-label-urgent = ! %index%
-label-urgent-background = #bd2c40
-label-urgent-padding = 2
+label-urgent = %index%: %icon%
+label-urgent-background = #e60053
+label-urgent-padding = 1
 
-label-empty = x %index%
-label-empty-foreground = #444
-label-empty-padding = 2
+label-empty = %index%: %icon%
+label-empty-foreground = #666
+label-empty-padding = 1
 
 
 [module/wifi]
@@ -100,9 +114,9 @@ interval = 5
 
 [module/volume]
 type = internal/volume
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 9
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+;headphone-id = 9
 
 format-volume = <ramp-volume>
 
@@ -153,7 +167,7 @@ type = internal/mpd
 host = localhost
 port = 6600
 
-format-online = <label-time>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
 format-online-background = #ee333333
 format-online-underline = #cc333333
 format-online-padding = 3
@@ -164,7 +178,7 @@ format-online-padding = 3
 ;label-offline = mpd is off
 
 label-song =  %artist% - %title%
-label-song-maxlen = 20
+label-song-maxlen = 45
 label-song-ellipsis = true
 
 icon-prev = 

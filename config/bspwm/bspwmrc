@@ -2,13 +2,13 @@
 
 sxhkd &
 
-ws1=1 #Home
-ws2=2 #Browse
-ws3=3
-ws4=4
-ws5=5
-ws6=6
-ws7=7
+ws1=desktop
+ws2=browse
+ws3=code
+ws4=edit
+ws5=cli
+ws6=media
+ws7=communicate
 ws8=8
 ws9=9
 ws10=10
@@ -23,7 +23,7 @@ bspc config gapless_monocle       true
 bspc config focus_by_distance     true
 bspc config history_aware_focus   true
 
-bspc monitor -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7 $ws8 $ws9 $ws10
+bspc monitor -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
 
 bspc desktop $ws2 -l monocle
 
@@ -37,7 +37,7 @@ bspc rule -a Screenkey manage=off
 
 compton -b &
 feh --bg-scale ~/Pictures/Wallpapers/0134.jpg &
-xss-lock -- i3lock -n -i ~/Pictures/Wallpapers/0030.jpg&
+xss-lock -- i3lock -n -i ~/Pictures/0030.png &
 $HOME/.config/lemonbuddy/launch.sh
 xrdb ~/.Xresources
 
