@@ -57,7 +57,7 @@ visualizer_fifo_path = /tmp/audio.fifo
 ## are some problems with it.
 ##
 #
-visualizer_output_name = Visualizer feed
+visualizer_output_name = fifo
 #
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
