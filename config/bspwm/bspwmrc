@@ -27,10 +27,10 @@ bspc monitor -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
 
 bspc desktop $ws2 -l monocle
 
-bspc rule -a Gimp desktop=^8 state=floating follow=on
 bspc rule -a Firefox desktop=^2
-bspc rule -a Thunderbird desktop=^5
-bspc rule -a mplayer state=floating
+bspc rule -a Gimp desktop=^4 state=floating follow=on
+bspc rule -a mplayer desktop=^6 state=floating
+bspc rule -a Thunderbird desktop=^7
 bspc rule -a VirtualBox state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
