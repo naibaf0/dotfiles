@@ -23,7 +23,9 @@ bspc config gapless_monocle       true
 bspc config focus_by_distance     true
 bspc config history_aware_focus   true
 
-bspc monitor -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
+bspc monitor LVDS -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
+bspc monitor HDMI-0 -d $ws9
+bspc monitor VGA-0 -d $ws0
 
 bspc desktop $ws2 -l monocle
 
