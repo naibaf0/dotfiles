@@ -41,11 +41,11 @@ XF86AudioMute
 XF86AudioPlay
   exec mpc toggle
 
-XF86AudioNext
-  exec mpc next
+XF86AudioStop
+  exec mpc stop
 
-XF86AudioPrev
-  exec mpc prev
+XF86Audio{Prev,Next}
+  exec mpc {prev,next}
 
 #
 # bspwm hotkeys
