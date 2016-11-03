@@ -141,9 +141,13 @@ full-at = 98
 battery = BAT1
 adapter = ACAD
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = %{F#666}  <label-full>
+label-charging = %{F#c6e600}+%percentage%
+label-discharging = %{F#e60053}-%percentage%
+label-full = %{F#666}AC
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
 
 ramp-capacity-0 = %{F#e60053}
 ramp-capacity-1 = 
