@@ -28,7 +28,7 @@ spacing = 1
 lineheight = 2
 padding-left = 0
 padding-right = 2
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 2
 
 font-0 = hack:size=9;1
