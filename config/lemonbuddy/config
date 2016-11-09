@@ -116,11 +116,11 @@ interval = 5
 type = internal/volume
 ;speaker-mixer = Speaker
 ;headphone-mixer = Headphone
-;headphone-id = 9
+;headphone-id = 14
 
-format-volume = <ramp-volume>
+format-volume = <ramp-volume> <label-volume>
 
-label-volume = VOL
+label-volume = %percentage%
 label-volume-foreground = ${BAR.foreground}
 
 label-muted = 
@@ -130,7 +130,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-;ramp-headphones-0 = 
+ramp-headphones-0 = 
 ;ramp-headphones-1 = 
 
 
@@ -141,9 +141,9 @@ full-at = 98
 battery = BAT1
 adapter = ACAD
 
-label-charging = %{F#c6e600}+%percentage%
+label-charging = %{F#c6e600} %percentage%
 label-discharging = %{F#e60053}-%percentage%
-label-full = %{F#666}AC
+label-full = %{F#666}
 
 format-charging = <label-charging>
 format-discharging = <label-discharging>
