@@ -210,37 +210,40 @@ label-open = 
 label-close = 
 label-separator = /
 
-menu-0-0 = 
+menu-0-0 = 
 menu-0-0-foreground = #e60053
-menu-0-0-exec = i3lock -n -i ~/Pictures/0030.png &
+menu-0-0-exec = menu-open-1
 
-menu-0-1 = 
+menu-0-1 = 
 menu-0-1-foreground = #e60053
-menu-0-1-exec = bspc quit -1
+menu-0-1-exec = menu-open-2
 
-menu-0-2 = 
+menu-0-2 = 
 menu-0-2-foreground = #e60053
-menu-0-2-exec = menu-open-1
+menu-0-2-exec = menu-open-3
 
-menu-0-3 = 
-menu-0-3-foreground = #e60053
-menu-0-3-exec = menu-open-2
-
-menu-1-0 = 
+menu-1-0 = 
 menu-1-0-foreground = #e60053
-menu-1-0-exec = shutdown -r now
+menu-1-0-exec = bspc quit -l
 
 menu-1-1 = 
 menu-1-1-foreground = #e60053
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = 
+menu-2-0 = 
 menu-2-0-foreground = #e60053
-menu-2-0-exec = shutdown -h now
+menu-2-0-exec = shutdown -r now
 
 menu-2-1 = 
 menu-2-1-foreground = #e60053
 menu-2-1-exec = menu-open-0
 
+menu-3-0 = 
+menu-3-0-foreground = #e60053
+menu-3-0-exec = shutdown -h now
+
+menu-3-1 = 
+menu-3-1-foreground = #e60053
+menu-3-1-exec = menu-open-0
 
 ; vim:ft=dosini
