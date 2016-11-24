@@ -108,7 +108,6 @@ label-connected = %{T3}%local_ip%%{T-}
 [module/date]
 type = internal/date
 date = %%{F#666}%{F#cc} %Y-%m-%d %%{F#666}%%{F#cc} %H:%M
-date-alt = %%{F#666}%{F#cc} %Y-%m-%d %%{F#666}%%{F#cc} %H:%M:%S
 interval = 5
 
 
