@@ -10,7 +10,7 @@ super + space
 	rofi -show run
 
 # lock the screen
-super + alt + l
+ctrl + alt + l
   xset s activate
 
 # make sxhkd reload its configuration files:
