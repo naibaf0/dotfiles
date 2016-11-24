@@ -42,7 +42,7 @@ compton -b &
 udiskie -q &
 feh --bg-scale ~/Pictures/Wallpapers/0134.jpg &
 xss-lock -- i3lock -n -i ~/Pictures/0030.png &
-$HOME/.config/lemonbuddy/launch.sh
+$HOME/.config/polybar/launch.sh
 xrdb ~/.Xresources
 
 dropbox start &

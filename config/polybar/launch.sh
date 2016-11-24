@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 # Terminate already running instances of the bar
-killall -q lemonbuddy
+killall -q polybar
 
 # Wait for the processes to shut down
-while pgrep -x lemonbuddy >/dev/null; do sleep 1; done
+while pgrep -x polybar >/dev/null; do sleep 1; done
 
 
 # Launch the bar
-lemonbuddy main -q &
+polybar main -q &
 
 echo "Launched the main bar ..."
