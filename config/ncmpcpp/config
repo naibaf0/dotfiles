@@ -47,7 +47,6 @@ visualizer_fifo_path = /tmp/audio.fifo
 # visualization and sound as currently there
 # are some problems with it.
 
-
 visualizer_output_name = fifo
 
 
