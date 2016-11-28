@@ -206,7 +206,7 @@ label-time-foreground = #77
 type = custom/script
 exec = ~/.bin/getpacmanupdates
 format-padding = 0
-interval = 1000
+interval = 360
 
 
 [module/powermenu]
