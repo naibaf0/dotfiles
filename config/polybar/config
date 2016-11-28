@@ -38,7 +38,7 @@ font-1 = FontAwesome:size=10;0
 
 modules-left = bspwm
 modules-center = mpd
-modules-right = wifi wired volume battery date powermenu
+modules-right = wifi wired updates volume battery date powermenu
 
 tray-position = right
 
@@ -200,6 +200,13 @@ toggle-on-foreground = #e60053
 toggle-off-foreground = #66
 
 label-time-foreground = #77
+
+
+[module/updates]
+type = custom/script
+exec = ~/.bin/getpacmanupdates
+format-padding = 0
+interval = 1000
 
 
 [module/powermenu]
