@@ -7,7 +7,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -show run
+	rofi -show drun
 
 # lock the screen
 ctrl + alt + l
