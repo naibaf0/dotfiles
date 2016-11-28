@@ -1,0 +1,8 @@
+! rofi
+rofi.padding: 200
+rofi.fullscreen: true
+rofi.terminal: termite
+rofi.font: Hack 28
+rofi.color-window: rgb:1d1f21, rgb:1d1f21, #1d1f21
+rofi.color-normal: rgb:F6F9FF, #4A5466, rgb:F6F9FF, rgb:F6F9FF, #b7672d
+rofi.separator-style: none
