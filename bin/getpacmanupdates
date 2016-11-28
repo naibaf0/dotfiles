@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Get number of available updates for pacman
+
+upd=' '
+upd+=$(checkupdates | wc -l)
+echo $upd
