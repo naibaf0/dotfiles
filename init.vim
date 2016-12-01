@@ -19,7 +19,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+Plug 'zchee/deoplete-go', {'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
@@ -103,7 +103,7 @@ set winminheight=7
 " Set the maximum width of text that is being inserted without breaking
 " it to a new line.
 " Setting this value to '0' disables this option.
-set textwidth=80
+set textwidth=0
 
 " Behaviour when splitting the window
 set splitbelow
@@ -126,11 +126,11 @@ set scrolloff=7
 
 " Set leading/trailing columns for the cursor when moving
 " horizontally.
-set sidescrolloff=20
+set sidescrolloff=7
 
 " Set the amount of columns to scroll horizontally, when the end of
 " the window is reached.
-set sidescroll=35
+set sidescroll=20
 
 " {{{1 Indentation rules
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
