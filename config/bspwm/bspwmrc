@@ -15,7 +15,7 @@ ws10=10
 
 bspc config border_width          2
 bspc config window_gap            5
-bspc config top_padding           28
+bspc config top_padding           30
 
 bspc config split_ratio           0.52
 bspc config single_monocle        true
@@ -28,15 +28,17 @@ bspc config pointer_follows_focus false
 bspc config click_to_focus        true
 bspc config adaptive_raise        true
 
-bspc monitor LVDS -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
-bspc monitor HDMI-0 -d $ws9
-bspc monitor VGA-0 -d $ws0
+bspc monitor eDP1 -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
+bspc monitor DP1 -d $ws0
+bspc monitor DP2
+bspc monitor HDMI1 -d $ws9
 
 bspc desktop $ws2 -l monocle
 
 bspc rule -a Firefox desktop=^2
-bspc rule -a Gimp desktop=^4 state=floating follow=on
-bspc rule -a mplayer desktop=^6 state=floating
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a mplayer state=floating
+bspc rule -a lxappearance state=floating
 bspc rule -a Thunderbird desktop=^7
 bspc rule -a VirtualBox state=floating
 bspc rule -a Kupfer.py focus=on
@@ -45,7 +47,7 @@ bspc rule -a Screenkey manage=off
 compton -b &
 udiskie -q &
 feh --bg-scale ~/Pictures/Wallpapers/0134.jpg &
-xss-lock -- i3lock -n -i ~/Pictures/0030.png &
+xss-lock -- physlock -sm &
 $HOME/.config/polybar/launch.sh
 xrdb ~/.Xresources
 
