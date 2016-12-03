@@ -33,12 +33,10 @@ module-margin-right = 2
 
 font-0 = hack:size=10;1
 font-1 = FontAwesome:size=10;0
-;font-1 = siji:pixelsize=10;0
-;font-2 = unifont:size=6;-1
 
 modules-left = bspwm
 modules-center = mpd
-modules-right = wifi wired updates volume battery date powermenu
+modules-right = updates wifi wired volume battery date powermenu
 
 tray-position = right
 
@@ -140,7 +138,7 @@ full-at = 98
 battery = BAT1
 adapter = ACAD
 
-label-charging = %{F#c6e600} %percentage%
+label-charging = %{F#c6e600}%percentage%
 label-discharging = %{F#e60053}-%percentage%
 label-full = %{F#666}
 
@@ -205,7 +203,7 @@ label-time-foreground = #77
 [module/updates]
 type = custom/script
 exec = ~/.bin/getpacmanupdates
-format-padding = 0
+format-foreground = #c6e600
 interval = 360
 
 
