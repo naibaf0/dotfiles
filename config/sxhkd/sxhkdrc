@@ -19,7 +19,7 @@ super + Escape
 
 # Screenshot
 Print
-  scrot '%Y%m%d_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'
+  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 
 # Audio Fn-keys
