@@ -4,8 +4,9 @@ Naibaf0s dotfiles
 This directory contains my collection of dotfiles as well as an install and
 update script.
 
-Installation
+Installation 
 ============
+**This script hasn't been kept up to date with the rest of the repository**
 
 ```bash
 cd ~
