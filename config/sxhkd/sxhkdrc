@@ -22,8 +22,14 @@ Print
   scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 
-# Audio Fn-keys
+# Fn-keys
 ###############
+
+XF86MonBrightnessUp
+  exec xbacklight + 10
+
+XF86MonBrightnessDown
+  exec xbacklight - 10
 
 XF86AudioRaiseVolume
   exec pulseaudio-ctl up
