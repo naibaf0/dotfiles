@@ -11,7 +11,7 @@ ws6=media
 ws7=communicate
 ws8=8
 ws9=9
-ws10=10
+ws0=0
 
 bspc config border_width          2
 bspc config window_gap            5
