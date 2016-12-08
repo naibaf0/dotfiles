@@ -36,10 +36,11 @@ bspc monitor HDMI1 -d $ws9
 bspc desktop $ws2 -l monocle
 
 bspc rule -a Firefox desktop=^2
+bspc rule -a Spotify desktop=^6
+bspc rule -a Thunderbird desktop=^7
 bspc rule -a Gimp state=floating follow=on
 bspc rule -a mplayer state=floating
 bspc rule -a lxappearance state=floating
-bspc rule -a Thunderbird desktop=^7
 bspc rule -a VirtualBox state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
