@@ -1,21 +1,21 @@
 !------------------------------------------------------------------------------
 ! Rofi
 !------------------------------------------------------------------------------
-rofi.padding: 200
+rofi.padding: 400
 rofi.fullscreen: true
 rofi.terminal: termite
-rofi.font: Hack 28
-! Color theme (Arc)
-!------------------
+rofi.font: Hack 30
+! Color theme
+!------------
 ! Use extended color scheme
 rofi.color-enabled:                  true
 ! Color scheme for normal row
-rofi.color-normal:                   #ffffff,#525d76,#f5f5f5,#5294e2,#ffffff
+rofi.color-normal:	argb:aa073642, #cb4b16, argb:aa073642, #002b37, #dc322f
 ! Color scheme for urgent row
-rofi.color-urgent:                   #ffffff,#dc322f,#f5f5f5,#5294e2,#dc322f
+rofi.color-urgent:	argb:aa073642, #da4281, argb:aa073642, #002b37, #da4281
 ! Color scheme for active row
-rofi.color-active:                   #ffffff,#c2cad0,#f5f5f5,#5294e2,#c2cad0
+rofi.color-active:	argb:aa073642, #008ed4, argb:aa073642, #002b37, #008ed4
 ! Color scheme window
-rofi.color-window:                   #ffffff,#f5f5f5
+rofi.color-window:	argb:ee073642,argb:ff002b37
 ! Separator style (none, dash, solid)
-rofi.separator-style: solid
+rofi.separator-style:	dash
