@@ -13,7 +13,6 @@ brightnessLevel=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
 maxBrightness=$(($(cat /sys/class/backlight/intel_backlight/max_brightness)/10))
 
 brightness=`echo $brightnessLevel / $maxBrightness | bc`
-echo $brightness
 
 color1="#F7E599'>"
 color2="#F7E081'>"
