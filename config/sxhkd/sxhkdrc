@@ -26,10 +26,10 @@ Print
 ###############
 
 XF86MonBrightnessUp
-  exec changebacklight up
+  exec changebrightness up
 
 XF86MonBrightnessDown
-  exec changebacklight down
+  exec changebrightness down
 
 XF86AudioRaiseVolume
   exec pulseaudio-ctl up
