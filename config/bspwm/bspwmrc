@@ -51,5 +51,3 @@ feh --bg-scale ~/Pictures/Wallpapers/0083.jpg &
 xss-lock -- physlock -sm &
 $HOME/.config/polybar/launch.sh
 xrdb ~/.Xresources
-
-dropbox start &
