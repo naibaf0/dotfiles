@@ -9,7 +9,7 @@
 
 [bar/main]
 monitor = eDP1
-dock = true
+dock = false
 width = 100%
 height = 30
 offset-x = 0
