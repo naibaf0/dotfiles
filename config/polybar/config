@@ -8,7 +8,7 @@
 ;=====================================================
 
 [bar/main]
-monitor = eDP1
+;monitor = eDP1
 dock = false
 width = 100%
 height = 30
@@ -134,8 +134,8 @@ ramp-headphones-0 = 
 type = internal/battery
 full-at = 98
 
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
 
 label-charging = %{F#c6e600}%percentage%
 label-discharging = %{F#e60053}-%percentage%
