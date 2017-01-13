@@ -8,34 +8,38 @@
 ;=====================================================
 
 [bar/main]
-;monitor = eDP1
-dock = false
+;monitor = LVDS1
+;monitor-fallback = HDMI3
+override-redirect = false
+bottom = false
+
 width = 100%
 height = 30
+
 offset-x = 0
 offset-y = 0
 
-bottom = false
-
 background = #ee222222
 foreground = #ccfafafa
-linecolor = #666
+
+line-size   = 1
+line-color  = #666
 
 border-bottom = 1
 border-bottom-color = #333
 
 spacing = 1
 lineheight = 2
-padding-left = 0
-padding-right = 2
+padding-left = 1
+padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = hack:size=10;1
-font-1 = FontAwesome:size=10;0
+font-0 = hack:size=10
+font-1 = FontAwesome:size=10
 
 modules-left = bspwm
-modules-center = mpd
+modules-center =
 modules-right = updates wifi wired volume battery date powermenu
 
 tray-position = right
@@ -43,23 +47,58 @@ tray-position = right
 wm-restack = bspwm
 
 
+[global/wm]
+; Adjust the _NET_WM_STRUT_PARTIAL top value
+;   Used for top aligned bars
+margin-bottom = 0
+
+; Adjust the _NET_WM_STRUT_PARTIAL bottom value
+;   Used for bottom aligned bars
+margin-top = 0
+
+
+[settings]
+; The throttle settings lets the eventloop swallow up til X events
+; if they happen within Y millisecond after first event was received.
+; This is done to prevent flood of update event.
+;
+; For example if 5 modules emit an update event at the same time, we really
+; just care about the last one. But if we wait too long for events to swallow
+; the bar would appear sluggish so we continue if timeout
+; expires or limit is reached.
+throttle-output = 5
+throttle-output-for = 10
+
+; Time in milliseconds that the input handler will wait between processing events
+throttle-input-for = 30
+
+; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
+screenchange-reload = true
+
+
 [module/bspwm]
 type = internal/bspwm
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
 
 ; ws-icon-[0-9]+ = label;icon
 ws-icon-0 = desktop;
 ws-icon-1 = browse;
-ws-icon-2 = code;
-ws-icon-3 = edit;
-ws-icon-4 = cli;
-ws-icon-5 = media;
-ws-icon-6 = communicate;
+ws-icon-2 = edit;
+ws-icon-3 = media;
+ws-icon-4 = communicate;
+ws-icon-5 = code;
+ws-icon-6 = cli;
+;ws-icon-7 = 7
 ;ws-icon-8 = 8
 ;ws-icon-9 = 9
-;ws-icon-10 = 10
 ws-icon-default = x
 
-format = <label-state> <label-mode>
+format = <label-monitor><label-state>
+
+label-monitor = %name%
 
 label-active = %index%: %icon%
 label-active-background = #ee333333
