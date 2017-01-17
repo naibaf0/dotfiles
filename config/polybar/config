@@ -6,6 +6,26 @@
 ;   The README contains alot of information
 ;
 ;=====================================================
+[colors]
+bg      = #ee2b2b2b
+black   = #2b2b2b
+grey    = #5a647e
+silver  = #e6e1dc
+white   = #f9f7f3
+red     = #da4939
+green   = #a5c261
+yellow  = #ffc66d
+blue    = #6d9cbe
+purple  = #b6b3eb
+teal    = #519f50
+extra1  = #f9f7f3
+extra2  = #cc7833
+extra3  = #bc9458
+extra4  = #272935
+extra5  = #3a4055
+extra6  = #d4cfc9
+extra7  = #f4f1ed
+
 
 [bar/main]
 monitor = eDP1
@@ -20,14 +40,14 @@ height = 30
 offset-x = 0
 offset-y = 0
 
-background = #ee222222
-foreground = #ccfafafa
+background = ${colors.bg}
+foreground = ${colors.teal}
 
-line-size   = 1
-line-color  = #666
+line-size   = 2
+line-color  = ${colors.extra5}
 
 border-bottom = 1
-border-bottom-color = #333
+border-bottom-color = ${colors.extra4}
 
 spacing = 1
 lineheight = 2
@@ -37,7 +57,7 @@ module-margin-left = 0
 module-margin-right = 2
 
 font-0 = hack:size=10
-font-1 = FontAwesome:size=10
+font-1 = FontAwesome:size=11;-1
 
 modules-left = bspwm
 modules-center =
@@ -84,7 +104,7 @@ pin-workspaces = false
 enable-click = true
 enable-scroll = false
 
-; ws-icon-[0-9]+ = label;icon
+;ws-icon-[0-9]+ = label;icon
 ws-icon-0 = desktop;
 ws-icon-1 = browse;
 ws-icon-2 = edit;
@@ -102,19 +122,19 @@ format = <label-monitor><label-state>
 label-monitor = %name%
 
 label-focused = %index%: %icon%
-label-focused-background = #ee333333
-label-focused-underline= #cc333333
+label-focused-background = ${colors.extra5}
+label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
 label-occupied = %index%: %icon%
 label-occupied-padding = 1
 
 label-urgent = %index%: %icon%
-label-urgent-background = #e60053
+label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = %index%: %icon%
-label-empty-foreground = #666
+label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
 
@@ -125,12 +145,7 @@ interval = 3.0
 ;udspeed-minwidth = 3
 
 format-connected = <label-connected>
-label-connected =  %essid%
-;label-connected =  %essid% %{F#66}%local_ip%
-;label-connected = %{F#666}%{F#cc} %upspeed% %{F#666}%{F#cc} %downspeed%
-;label-connected = %{O-6 F#666}%{O2 F#cc}%downspeed%
-;label-disconnected = %{F#666}%{F#cc} not connected
-label-disconnected-foreground = #66
+label-connected =  %essid:0:10:...%
 
 
 [module/wired]
@@ -138,14 +153,12 @@ type = internal/network
 interface = net0
 interval = 3.0
 
-label-connected = %{T3}%local_ip%%{T-}
-;label-disconnected = %{T3}Not connected%{T-}
-;label-disconnected-foreground = #66
+label-connected = %local_ip%
 
 
 [module/date]
 type = internal/date
-date = %%{F#666}%{F#cc} %Y-%m-%d %%{F#666}%%{F#cc} %H:%M
+date = %%{F#5a647e}%{F#cc} %Y-%m-%d %%{F#5a647e}%%{F#cc} %H:%M
 interval = 5
 
 
@@ -157,13 +170,13 @@ type = internal/volume
 
 mapping = true
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume><label-volume>
 
-label-volume = %percentage%
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 
-label-muted-foreground = #666
+label-muted-foreground = ${colors.grey}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -176,31 +189,26 @@ ramp-headphones-0 = 
 type = internal/battery
 full-at = 98
 
-battery = BAT0
-adapter = AC
+battery = BAT1
+adapter = ACAD
 
-label-charging = %{F#c6e600}%percentage%
-label-discharging = %{F#e60053}-%percentage%
-label-full = %{F#666}
+label-charging = %percentage%%
+label-charging-foreground = ${colors.green}
+label-discharging = -%percentage%%
+label-discharging-foreground = ${colors.red}
+label-full = 
+label-full-foreground = ${colors.grey}
 
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 format-full = <label-full>
 
-ramp-capacity-0 = %{F#e60053}
+ramp-capacity-0 = %{F#da4939}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = #666
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = #666
-animation-charging-framerate = 750
+ramp-capacity-4 = %{F#5a647e}
+ramp-capacity-foreground = ${colors.teal}
 
 
 [module/mpd]
@@ -210,8 +218,8 @@ host = localhost
 port = 6600
 
 format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
-format-online-background = #ee333333
-format-online-underline = #cc333333
+format-online-background = ${colors.extra5}
+format-online-underline = ${colors.extra4}
 format-online-padding = 3
 
 ;format-offline = <label-offline>
@@ -235,7 +243,7 @@ icon-random = 
 icon-repeat = 
 icon-repeatone = 
 
-toggle-on-foreground = #e60053
+toggle-on-foreground = ${colors.red}
 toggle-off-foreground = #66
 
 label-time-foreground = #77
@@ -244,7 +252,7 @@ label-time-foreground = #77
 [module/updates]
 type = custom/script
 exec = ~/.bin/getpacmanupdates
-format-foreground = #c6e600
+format-foreground = ${colors.yellow}
 interval = 360
 
 
@@ -256,39 +264,39 @@ label-close = 
 label-separator = /
 
 menu-0-0 = 
-menu-0-0-foreground = #e60053
+menu-0-0-foreground = ${colors.red}
 menu-0-0-exec = menu-open-1
 
 menu-0-1 = 
-menu-0-1-foreground = #e60053
+menu-0-1-foreground = ${colors.red}
 menu-0-1-exec = menu-open-2
 
 menu-0-2 = 
-menu-0-2-foreground = #e60053
+menu-0-2-foreground = ${colors.red}
 menu-0-2-exec = menu-open-3
 
 menu-1-0 = 
-menu-1-0-foreground = #e60053
+menu-1-0-foreground = ${colors.red}
 menu-1-0-exec = bspc quit
 
 menu-1-1 = 
-menu-1-1-foreground = #e60053
+menu-1-1-foreground = ${colors.red}
 menu-1-1-exec = menu-open-0
 
 menu-2-0 = 
-menu-2-0-foreground = #e60053
+menu-2-0-foreground = ${colors.red}
 menu-2-0-exec = shutdown -r now
 
 menu-2-1 = 
-menu-2-1-foreground = #e60053
+menu-2-1-foreground = ${colors.red}
 menu-2-1-exec = menu-open-0
 
 menu-3-0 = 
-menu-3-0-foreground = #e60053
+menu-3-0-foreground = ${colors.red}
 menu-3-0-exec = shutdown -h now
 
 menu-3-1 = 
-menu-3-1-foreground = #e60053
+menu-3-1-foreground = ${colors.red}
 menu-3-1-exec = menu-open-0
 
 ; vim:ft=dosini
