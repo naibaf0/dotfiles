@@ -32,16 +32,13 @@ XF86MonBrightnessDown
   exec changebrightness down
 
 XF86AudioRaiseVolume
-  exec pulseaudio-ctl up
-  #amixer set Master 5%+
+  amixer sset Master 5%+
 
 XF86AudioLowerVolume
-  exec pulseaudio-ctl down
-   #amixer -c 1 sset Master 5%-
+   amixer sset Master 5%-
 
 XF86AudioMute
-  exec pulseaudio-ctl mute
-  #amixer set Master toggle
+  amixer set Master toggle
 
 XF86AudioPlay
   exec mpc toggle
