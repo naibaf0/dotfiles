@@ -1,8 +1,8 @@
-" {{{1 Install plugins with plug
+" {{1 Install plugins with plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 " A color scheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " show git-diff in the sign column
@@ -47,12 +47,14 @@ call plug#end()
 
 " {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Set background-color
 set background=dark
 
+" Set colorspace
+let base16colorspace=256
+
 " Set colorscheme
-colorscheme solarized
+colorscheme base16-railscasts
 
 " activate filetype plugins and indent
 filetype plugin indent on
@@ -91,9 +93,6 @@ set linebreak
 
 " Makes Vim ask for a confirmation instead of showing an error message.
 set confirm
-
-" Show a vertical line at column 80
-set colorcolumn=80
 
 " set window sizing
 set winminwidth=20
@@ -412,7 +411,7 @@ nmap ggp <Plug>GitGutterPrevHunk
 
 " {{{2 vim-airline
 """"""""""""""""""
-let g:airline_theme='base16_solarized'
+let g:airline_theme='base16_railscast'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
