@@ -21,7 +21,7 @@ filetype off
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 " A color scheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 " show git-diff in the sign column
 Plug 'airblade/vim-gitgutter'
 " Undotree
@@ -47,11 +47,14 @@ syntax on
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use vim with light color theme
+" Set background-color
 set background=dark
 
-" Use solarized theme
-colorscheme solarized
+" Set colorspace
+let base16colorspace=256
+
+" Set colorscheme
+colorscheme base16-railscasts
 
 " Set the standard encoding
 set encoding=utf8
