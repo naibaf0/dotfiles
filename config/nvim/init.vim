@@ -48,10 +48,10 @@ call plug#end()
 " {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use vim with light color theme
+" Set background-color
 set background=dark
 
-" Use solarized theme
+" Set colorscheme
 colorscheme solarized
 
 " activate filetype plugins and indent
