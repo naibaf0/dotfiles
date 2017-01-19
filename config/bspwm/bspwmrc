@@ -47,7 +47,7 @@ bspc rule -a Screenkey manage=off
 
 compton -b &
 udiskie -q &
-feh --bg-scale ~/Pictures/Wallpapers/0083.jpg &
+feh --bg-scale ~/Pictures/Wallpapers/0061.jpg &
 xss-lock -- physlock -sm &
 $HOME/.config/polybar/launch.sh
 xrdb ~/.Xresources
