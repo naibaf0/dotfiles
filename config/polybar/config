@@ -28,9 +28,9 @@ extra7  = #f4f1ed
 
 
 [bar/main]
-monitor = eDP1
-;monitor = LVDS1
-;monitor-fallback = HDMI3
+;monitor = eDP1
+monitor = LVDS1
+monitor-fallback = HDMI3
 override-redirect = false
 bottom = false
 
@@ -191,8 +191,8 @@ ramp-headphones-0 = 
 type = internal/battery
 full-at = 98
 
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
 
 label-charging = %percentage%%
 label-charging-foreground = ${colors.yellow}
