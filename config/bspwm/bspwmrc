@@ -50,7 +50,7 @@ bspc rule -a lxappearance state=floating
 bspc rule -a VirtualBox state=floating
 
 xrdb ~/.Xresources
-feh --bg-scale ~/Pictures/Wallpapers/0040.jpg &
+feh --bg-fill --recursive ~/Pictures/Wallpapers/0040.jpg &
 compton -b &
 $HOME/.config/polybar/launch.sh
 udiskie -q &
