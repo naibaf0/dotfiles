@@ -9,6 +9,10 @@ super + Return
 super + space
 	rofi -show drun
 
+# window switcher
+super + alt + space
+	rofi -show window
+
 # lock the screen
 ctrl + alt + l
   xset s activate
