@@ -8,9 +8,6 @@ set -g default-terminal "screen-256color"
 unbind r
 bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
 
-# the first window number is 1
-set -g base-index 1
-
 set -g set-titles on
 set -g set-titles-string "#W@#H"
 
