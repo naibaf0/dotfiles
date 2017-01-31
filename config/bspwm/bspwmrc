@@ -15,20 +15,20 @@ ws0=0
 
 bspc config border_width          2
 bspc config window_gap            5
-bspc config top_padding           30
 
 MONITORS=$(xrandr -q | grep "*" | wc -l)
 
 if [ "$MONITORS" -eq 2 ]; then
-  xrandr --output HDMI3  --primary --auto --output HDMI2 --auto --right-of HDMI3
-  bspc monitor HDMI3 -d $ws1 $ws2 $ws3 $ws6 $ws7
-  bspc monitor HDMI2 -d $ws4 $ws5
+  xrandr --output HDMI2  --primary --auto --output HDMI3 --auto --right-of HDMI2
+  bspc monitor HDMI2 -d $ws1 $ws2 $ws3 $ws6 $ws7
+  bspc monitor HDMI3 -d $ws4 $ws5
   bspc monitor LVDS1 -r
+  bspc monitor HDMI2 -s HDMI3
 elif [ "$MONITORS" -eq 1 ]; then
   xrandr --output LVDS1 --primary --auto
   bspc monitor LVDS1 -d $ws1 $ws2 $ws3 $ws6 $ws7 $ws4 $ws5
-  bspc monitor HDMI3 -r
   bspc monitor HDMI2 -r
+  bspc monitor HDMI3 -r
 fi
 
 bspc config split_ratio           0.52
