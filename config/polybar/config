@@ -30,7 +30,7 @@ extra7  = #f4f1ed
 [bar/main]
 ;monitor = eDP1
 monitor = LVDS1
-monitor-fallback = HDMI3
+monitor-fallback = HDMI2
 override-redirect = false
 bottom = false
 
@@ -56,8 +56,8 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = hack:size=10
-font-1 = FontAwesome:size=11;-1
+font-0 = hack:size=10;2
+font-1 = FontAwesome:size=11;2
 
 modules-left = bspwm
 modules-center =
@@ -75,7 +75,7 @@ margin-bottom = 0
 
 ; Adjust the _NET_WM_STRUT_PARTIAL bottom value
 ;   Used for bottom aligned bars
-margin-top = 0
+margin-top = 30
 
 
 [settings]
