@@ -29,6 +29,7 @@ Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
+Plug 'neomake/neomake'
 " a tagbar
 Plug 'majutsushi/tagbar'
 " cool commenting features
@@ -489,6 +490,10 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" {{{2 Neomake
+""""""""""""""
+autocmd! BufWritePost * Neomake
 
 " {{{2 deoplete
 """""""""""""""
