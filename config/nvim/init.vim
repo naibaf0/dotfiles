@@ -24,7 +24,7 @@ Plug 'zchee/deoplete-go', {'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
-Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'cpp'] }
+Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 " Javascript support
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 " vim support for LaTeX
@@ -568,11 +568,9 @@ au FileType go nmap <localleader>rt <Plug>(go-run-tab)
 
 " {{{2 C/C++
 """"""""""""
-	let g:clang_complete_auto = 1
-	let g:clang_auto_select = 0
-	let g:clang_omnicppcomplete_compliance = 0
-	let g:clang_make_default_keymappings = 0
-  "let g:clang_use_library = 1
+" deoplete-clang
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 
 " {{{2 Javascript
 """""""""""""""""
