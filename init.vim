@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
@@ -34,7 +35,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Shougo/neopairs.vim'
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
@@ -534,6 +534,10 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" {{{2 neopairs
+"""""""""""""""
+let g:neopairs#enable = 1
 
 " {{{2 Go
 """""""""
