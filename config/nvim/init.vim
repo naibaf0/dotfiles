@@ -509,6 +509,9 @@ let g:deoplete#auto_completion_start_length = 3
 " Maximum Number of candidates shown
 let g:deoplete#max_list = 40
 
+call deoplete#custom#set('_', 'converters',
+  \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
+
 " Recommended key-mappings.
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
