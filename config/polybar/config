@@ -29,8 +29,8 @@ extra7  = #f4f1ed
 
 [bar/main]
 ;monitor = eDP1
-monitor = LVDS-1
-monitor-fallback = HDMI-2
+monitor = LVDS1
+monitor-fallback = HDMI2
 override-redirect = false
 bottom = false
 
@@ -105,19 +105,17 @@ enable-click = true
 enable-scroll = false
 
 ;ws-icon-[0-9]+ = label;icon
-ws-icon-0 = desktop;
+ws-icon-0 = home;
 ws-icon-1 = chat;
 ws-icon-2 = mail;
-ws-icon-1 = browse;
-ws-icon-2 = edit;
-ws-icon-3 = media;
-ws-icon-4 = communicate;
+ws-icon-3 = browse;
+ws-icon-4 = edit;
 ws-icon-5 = code;
 ws-icon-6 = cli;
-;ws-icon-7 = 7
-;ws-icon-8 = 8
-;ws-icon-9 = 9
-ws-icon-default = x
+ws-icon-7 = media;
+;ws-icon-8 = 9
+;ws-icon-9 = 0
+ws-icon-default = 
 
 format = <label-monitor><label-state>
 
