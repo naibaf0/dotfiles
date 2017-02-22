@@ -56,8 +56,9 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = hack:size=10
+font-0 = robotomono:size=11;0
 font-1 = FontAwesome:size=11;-1
+font-2 = roboto:size=11;0
 
 modules-left = bspwm
 modules-center =
@@ -145,7 +146,8 @@ interval = 3.0
 ;udspeed-minwidth = 3
 
 format-connected = <label-connected>
-label-connected =  %essid:0:10:...%
+label-connected =  %essid:0:15:...%
+label-connected-font = 3
 
 
 [module/wired]
@@ -154,6 +156,7 @@ interface = net0
 interval = 3.0
 
 label-connected = %local_ip%
+label-connected-font = 3
 
 
 [module/date]
@@ -232,6 +235,7 @@ format-online-padding = 3
 label-song =  %artist% - %title%
 label-song-maxlen = 45
 label-song-ellipsis = true
+label-song-font = 3
 
 icon-prev = 
 icon-seekb = 
