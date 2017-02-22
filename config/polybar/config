@@ -71,7 +71,7 @@ wm-restack = bspwm
 [global/wm]
 ; Adjust the _NET_WM_STRUT_PARTIAL top value
 ;   Used for top aligned bars
-margin-bottom = 0
+margin-bottom = 30
 
 ; Adjust the _NET_WM_STRUT_PARTIAL bottom value
 ;   Used for bottom aligned bars
