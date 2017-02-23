@@ -56,8 +56,9 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = hack:size=10;2
+font-0 = robotomono:size=11;2
 font-1 = FontAwesome:size=11;2
+font-2 = roboto:size=11;2
 
 modules-left = bspwm
 modules-center =
@@ -75,7 +76,7 @@ margin-bottom = 0
 
 ; Adjust the _NET_WM_STRUT_PARTIAL bottom value
 ;   Used for bottom aligned bars
-margin-top = 30
+margin-top = 0
 
 
 [settings]
@@ -119,7 +120,10 @@ ws-icon-default = 
 
 format = <label-monitor><label-state>
 
+label-font = 3
+
 label-monitor = %name%
+label-monitor-font = 3
 
 label-focused = %index%: %icon%
 label-focused-background = ${colors.extra5}
@@ -146,6 +150,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 label-connected =  %essid:0:10:...%
+label-connected-font = 3
 
 
 [module/wired]
@@ -154,6 +159,7 @@ interface = net0
 interval = 3.0
 
 label-connected = %local_ip%
+label-connected-font = 3
 
 
 [module/date]
@@ -232,6 +238,7 @@ format-online-padding = 3
 label-song =  %artist% - %title%
 label-song-maxlen = 45
 label-song-ellipsis = true
+label-song-font = 3
 
 icon-prev = 
 icon-seekb = 
@@ -264,6 +271,7 @@ type = custom/menu
 label-open = 
 label-close = 
 label-separator = /
+label-separator-font = 3
 
 menu-0-0 = 
 menu-0-0-foreground = ${colors.yellow}
