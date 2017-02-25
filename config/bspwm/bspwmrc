@@ -16,7 +16,7 @@ ws0=0
 bspc config border_width          2
 bspc config window_gap            5
 
-MONITORS=$(xrandr -q | grep "*" | wc -l)
+MONITORS=$(xrandr -q | grep -c "*")
 
 if [ "$MONITORS" -eq 3 ]; then
   xrandr --output HDMI2  --primary --auto --output HDMI3 --auto --right-of HDMI2 --output LVDS1 --auto --left-of HDMI2
