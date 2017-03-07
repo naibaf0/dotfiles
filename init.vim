@@ -118,6 +118,10 @@ set cursorline
 " Make 'word' stop at underscores. Does not affect 'Word'.
 set iskeyword-=_
 
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 " {{{1 Scrolling properties
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
