@@ -6,12 +6,12 @@ ws1=home
 ws2=chat
 ws3=mail
 ws4=browse
-ws5=edit
-ws6=code
-ws7=cli
-ws8=media
-ws9=9
-ws0=0
+ws5=music
+ws6=edit
+ws7=code
+ws8=cli
+ws9=media
+ws0=browsebig
 
 bspc config border_width          2
 bspc config window_gap            5
@@ -19,20 +19,18 @@ bspc config window_gap            5
 MONITORS=$(xrandr -q | grep -c "*")
 
 if [ "$MONITORS" -eq 3 ]; then
-  xrandr --output HDMI2  --primary --auto --output HDMI3 --auto --right-of HDMI2 --output LVDS1 --auto --left-of HDMI2
+  xrandr --output DP2  --primary --auto --output HDMI3 --auto --right-of DP2 --output LVDS1 --auto --left-of DP2
   bspc monitor LVDS1 -d $ws1 $ws2 $ws3
-  bspc monitor HDMI2 -d $ws4 $ws6 $ws8
+  bspc monitor DP2 -d $ws4 $ws6 $ws8
   bspc monitor HDMI3 -d $ws5 $ws7
 elif [ "$MONITORS" -eq 2 ]; then
-  xrandr --output HDMI2  --primary --auto --output HDMI3 --auto --right-of HDMI2
-  bspc monitor HDMI2 -d $ws1 $ws2 $ws3 $ws4 $ws5
-  bspc monitor HDMI3 -d $ws6 $ws7 $ws8
-  bspc monitor HDMI2 -s HDMI3
-  bspc monitor LVDS1 -r
+  xrandr --output DP2  --primary --auto --output LVDS1 --auto --left-of DP2
+  bspc monitor LVDS1 -d $ws1 $ws2 $ws3 $ws4
+  bspc monitor DP2 -d $ws5 $ws6 $ws7 $ws8 $ws9 $ws0
 elif [ "$MONITORS" -eq 1 ]; then
   xrandr --output LVDS1 --primary --auto
-  bspc monitor LVDS1 -d $ws1 $ws2 $ws3 $ws6 $ws7 $ws4 $ws5
-  bspc monitor HDMI2 -r
+  bspc monitor LVDS1 -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7 $ws8 $ws9 $ws0
+  bspc monitor DP2 -r
   bspc monitor HDMI3 -r
 fi
 
@@ -47,7 +45,6 @@ bspc config pointer_follows_focus false
 bspc config click_to_focus        true
 bspc config adaptive_raise        true
 
-bspc rule -a Firefox desktop=$ws4
 bspc rule -a rocket.chat desktop=$ws2
 bspc rule -a Thunderbird desktop=$ws3
 bspc rule -a lxappearance state=floating
