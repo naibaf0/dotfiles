@@ -30,7 +30,7 @@ extra7  = #f4f1ed
 [bar/main]
 ;monitor = eDP1
 monitor = LVDS1
-monitor-fallback = HDMI2
+monitor-fallback = DP2
 override-redirect = false
 bottom = false
 
@@ -56,9 +56,9 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = robotomono:size=11;2
+font-0 = "Overpass Mono:size=11;2"
 font-1 = FontAwesome:size=11;2
-font-2 = roboto:size=11;2
+font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
 modules-center =
@@ -110,12 +110,12 @@ ws-icon-0 = home;
 ws-icon-1 = chat;
 ws-icon-2 = mail;
 ws-icon-3 = browse;
-ws-icon-4 = edit;
-ws-icon-5 = code;
-ws-icon-6 = cli;
-ws-icon-7 = media;
-;ws-icon-8 = 9
-;ws-icon-9 = 0
+ws-icon-4 = music;
+ws-icon-5 = edit;
+ws-icon-6 = code;
+ws-icon-7 = cli;
+ws-icon-8 = media;
+ws-icon-9 = browsebig;
 ws-icon-default = 
 
 format = <label-monitor><label-state>
@@ -125,19 +125,19 @@ label-font = 3
 label-monitor = %name%
 label-monitor-font = 3
 
-label-focused = %index%: %icon%
+label-focused = %icon%
 label-focused-background = ${colors.extra5}
 label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
-label-occupied = %index%: %icon%
+label-occupied = %icon%
 label-occupied-padding = 1
 
-label-urgent = %index%: %icon%
+label-urgent = %icon%
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = %index%: %icon%
+label-empty = %icon%
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
