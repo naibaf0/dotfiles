@@ -56,8 +56,9 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = hack:size=10
-font-1 = FontAwesome:size=11;-1
+font-0 = "Overpass Mono:size=11;2"
+font-1 = FontAwesome:size=11;2
+font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
 modules-center =
@@ -105,35 +106,38 @@ enable-click = true
 enable-scroll = false
 
 ;ws-icon-[0-9]+ = label;icon
-ws-icon-0 = desktop;
-ws-icon-1 = browse;
-ws-icon-2 = edit;
-ws-icon-3 = media;
-ws-icon-4 = communicate;
-ws-icon-5 = code;
-ws-icon-6 = cli;
-;ws-icon-7 = 7
-;ws-icon-8 = 8
-;ws-icon-9 = 9
-ws-icon-default = x
+ws-icon-0 = home;
+ws-icon-1 = chat;
+ws-icon-2 = mail;
+ws-icon-3 = browse;
+ws-icon-4 = music;
+ws-icon-5 = edit;
+ws-icon-6 = code;
+ws-icon-7 = cli;
+ws-icon-8 = media;
+ws-icon-9 = browsebig;
+ws-icon-default = 
 
 format = <label-monitor><label-state>
 
-label-monitor = %name%
+label-font = 3
 
-label-focused = %index%: %icon%
+label-monitor = %name%
+label-monitor-font = 3
+
+label-focused = %icon%
 label-focused-background = ${colors.extra5}
 label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
-label-occupied = %index%: %icon%
+label-occupied = %icon%
 label-occupied-padding = 1
 
-label-urgent = %index%: %icon%
+label-urgent = %icon%
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = %index%: %icon%
+label-empty = %icon%
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
@@ -145,7 +149,8 @@ interval = 3.0
 ;udspeed-minwidth = 3
 
 format-connected = <label-connected>
-label-connected =  %essid:0:10:...%
+label-connected =  %essid:0:15:...%
+label-connected-font = 3
 
 
 [module/wired]
@@ -154,6 +159,7 @@ interface = net0
 interval = 3.0
 
 label-connected = %local_ip%
+label-connected-font = 3
 
 
 [module/date]
@@ -232,6 +238,7 @@ format-online-padding = 3
 label-song =  %artist% - %title%
 label-song-maxlen = 45
 label-song-ellipsis = true
+label-song-font = 3
 
 icon-prev = 
 icon-seekb = 

@@ -2,20 +2,21 @@
 
 sxhkd &
 
-ws1=desktop
-ws2=browse
-ws3=code
-ws4=edit
-ws5=cli
-ws6=media
-ws7=communicate
-ws8=8
-ws9=9
-ws0=0
+ws1=home
+ws2=chat
+ws3=mail
+ws4=browse
+ws5=music
+ws6=edit
+ws7=code
+ws8=cli
+ws9=media
+ws0=browsebig
 
 bspc config border_width          2
 bspc config window_gap            5
-bspc config top_padding           30
+
+bspc monitor eDP1 -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7 $ws8 $ws9 $ws0
 
 bspc config split_ratio           0.52
 bspc config single_monocle        true
@@ -28,26 +29,16 @@ bspc config pointer_follows_focus false
 bspc config click_to_focus        true
 bspc config adaptive_raise        true
 
-bspc monitor eDP1 -d $ws1 $ws2 $ws3 $ws4 $ws5 $ws6 $ws7
-bspc monitor DP1 -d $ws0
-bspc monitor DP2
-bspc monitor HDMI1 -d $ws9
-
-bspc desktop $ws2 -l monocle
-
-bspc rule -a Firefox desktop=^2
-bspc rule -a Spotify desktop=^6
-bspc rule -a Thunderbird desktop=^7
+bspc rule -a Spotify desktop=$ws5
+bspc rule -a Thunderbird desktop=$ws3
 bspc rule -a Gimp state=floating follow=on
-bspc rule -a mplayer state=floating
+bspc rule -a mpv state=floating desktop=$ws9
 bspc rule -a lxappearance state=floating
 bspc rule -a VirtualBox state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
-compton -b &
-udiskie -q &
-feh --bg-scale ~/Pictures/Wallpapers/0061.jpg &
-xss-lock -- physlock -sm &
-$HOME/.config/polybar/launch.sh
 xrdb ~/.Xresources
+feh --bg-fill --recursive ~/Pictures/Wallpapers/0061.jpg &
+compton -b &
+$HOME/.config/polybar/launch.sh
+udiskie -q &
+xss-lock -- physlock -sm &

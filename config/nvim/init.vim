@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
@@ -23,18 +24,18 @@ Plug 'zchee/deoplete-go', {'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
-Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'cpp'] }
+Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 " Javascript support
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 " vim support for LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex'}
+Plug 'neomake/neomake'
 " a tagbar
 Plug 'majutsushi/tagbar'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Shougo/neopairs.vim'
 " faster yaml syntax
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " json support
@@ -116,6 +117,10 @@ set cursorline
 
 " Make 'word' stop at underscores. Does not affect 'Word'.
 set iskeyword-=_
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
 " {{{1 Scrolling properties
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -490,6 +495,10 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" {{{2 Neomake
+""""""""""""""
+autocmd! BufWritePost * Neomake
+
 " {{{2 deoplete
 """""""""""""""
 " neocomplete like
@@ -503,6 +512,9 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#auto_completion_start_length = 3
 " Maximum Number of candidates shown
 let g:deoplete#max_list = 40
+
+call deoplete#custom#set('_', 'converters',
+  \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
 
 " Recommended key-mappings.
 " <TAB>: completion.
@@ -535,6 +547,10 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+" {{{2 neopairs
+"""""""""""""""
+let g:neopairs#enable = 1
+
 " {{{2 Go
 """""""""
 " deoplete-go
@@ -564,11 +580,9 @@ au FileType go nmap <localleader>rt <Plug>(go-run-tab)
 
 " {{{2 C/C++
 """"""""""""
-	let g:clang_complete_auto = 1
-	let g:clang_auto_select = 0
-	let g:clang_omnicppcomplete_compliance = 0
-	let g:clang_make_default_keymappings = 0
-  "let g:clang_use_library = 1
+" deoplete-clang
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 
 " {{{2 Javascript
 """""""""""""""""
