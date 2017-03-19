@@ -28,7 +28,7 @@ extra7  = #f4f1ed
 
 
 [bar/main]
-monitor = eDP1
+monitor = eDP-1
 ;monitor = LVDS1
 ;monitor-fallback = HDMI3
 override-redirect = false
@@ -57,7 +57,7 @@ module-margin-left = 0
 module-margin-right = 2
 
 font-0 = "Overpass Mono:size=11;2"
-font-1 = FontAwesome:size=11;2
+font-1 = "FontAwesome:size=11;2"
 font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
@@ -95,7 +95,7 @@ throttle-output-for = 10
 throttle-input-for = 30
 
 ; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
-screenchange-reload = true
+screenchange-reload = false
 
 
 [module/bspwm]
@@ -176,7 +176,7 @@ type = internal/volume
 ;headphone-mixer = Headphone
 ;headphone-id = 28
 
-mapping = true
+mapping = false
 
 format-volume = <ramp-volume><label-volume>
 
