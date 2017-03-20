@@ -1,5 +1,5 @@
 [global]
-    font = "Overpass Mono 12"
+    font = "Overpass Mono 10"
     markup = full
     format = "<b>%s</b> %p\n%b"
     sort = yes
