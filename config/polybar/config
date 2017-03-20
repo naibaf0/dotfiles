@@ -61,7 +61,7 @@ font-1 = "FontAwesome:size=11;2"
 font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
-modules-center =
+modules-center = mpd
 modules-right = updates wifi wired volume battery date powermenu
 
 tray-position = right
