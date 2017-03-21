@@ -33,8 +33,11 @@ paths:
   albumtype:soundtrack: Soundtracks/$album/$disc-$track $title
 
 
-plugins: fromfilename embedart fetchart
+plugins:  fromfilename embedart fetchart mpdstats mpdupdate
 
 embedart:
   ifempty: yes
 
+mpd:
+  host: localhost
+  port: 6600
