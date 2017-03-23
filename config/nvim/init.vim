@@ -403,10 +403,6 @@ vnoremap <silent> # :call SelectionSearch('f')<CR>
 nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
-" buffer switching
-nnoremap <silent><special> <leader>+ :bnext<CR>
-nnoremap <silent><special> <leader>- :bprevious<CR>
-
 " Some gitgutter keybindings
 nmap ggn <Plug>GitGutterNextHunk
 nmap ggp <Plug>GitGutterPrevHunk
@@ -419,8 +415,7 @@ nmap ggp <Plug>GitGutterPrevHunk
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
