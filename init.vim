@@ -5,8 +5,9 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-" show git-diff in the sign column
-Plug 'airblade/vim-gitgutter'
+" Git
+Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
+Plug 'tpope/vim-fugitive'
 " Undotree
 Plug 'mbbill/undotree'
 " Fuzzy filesearch
