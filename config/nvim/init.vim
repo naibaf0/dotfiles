@@ -411,7 +411,7 @@ nnoremap ggn <Plug>GitGutterNextHunk
 nnoremap ggp <Plug>GitGutterPrevHunk
 nnoremap <silent><Leader>gs :Gstatus<CR>
 nnoremap <silent><Leader>gc :Gcommit<CR>
-nnoremap <silent><Leader>gp :Gpush<CR>
+nmap <silent><Leader>gp :Gpush<CR>
 nnoremap <silent><Leader>gd :Gdiff<CR>
 nnoremap <silent><Leader>gb :Gblame<CR>
 
