@@ -385,11 +385,11 @@ nnoremap <special> <F2> :call ToggleSpell()<CR>
 " <F3>: switch spell checker language from English to German and vice versa
 nnoremap <special> <F3> :call ToggleSpellLang()<CR>
 " <F6>: show/hide filetree
-nnoremap <special> <F6> :NERDTreeToggle<CR>
+nnoremap <silent><special> <F6> :NERDTreeToggle<CR>
 " <F7>: show/hide undo tree
-nnoremap <special> <F7> :UndotreeToggle<CR>
+nnoremap <silent><special> <F7> :UndotreeToggle<CR>
 " <F8>: show/hide tagbar
-nnoremap <special> <F8> :TagbarToggle<CR>
+nnoremap <silent><special> <F8> :TagbarToggle<CR>
 
 " comment/uncomment with <C-c> in normal and visual mode
 nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
