@@ -405,8 +405,15 @@ nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
 " Some gitgutter keybindings
-nmap ggn <Plug>GitGutterNextHunk
-nmap ggp <Plug>GitGutterPrevHunk
+
+" Git keybindings
+nnoremap ggn <Plug>GitGutterNextHunk
+nnoremap ggp <Plug>GitGutterPrevHunk
+nnoremap <silent><Leader>gs :Gstatus<CR>
+nnoremap <silent><Leader>gc :Gcommit<CR>
+nnoremap <silent><Leader>gp :Gpush<CR>
+nnoremap <silent><Leader>gd :Gdiff<CR>
+nnoremap <silent><Leader>gb :Gblame<CR>
 
 " {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
