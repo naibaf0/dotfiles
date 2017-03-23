@@ -5,8 +5,9 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-" show git-diff in the sign column
-Plug 'airblade/vim-gitgutter'
+" Git
+Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
+Plug 'tpope/vim-fugitive'
 " Undotree
 Plug 'mbbill/undotree'
 " Fuzzy filesearch
@@ -385,11 +386,11 @@ nnoremap <special> <F2> :call ToggleSpell()<CR>
 " <F3>: switch spell checker language from English to German and vice versa
 nnoremap <special> <F3> :call ToggleSpellLang()<CR>
 " <F6>: show/hide filetree
-nnoremap <special> <F6> :NERDTreeToggle<CR>
+nnoremap <silent><special> <F6> :NERDTreeToggle<CR>
 " <F7>: show/hide undo tree
-nnoremap <special> <F7> :UndotreeToggle<CR>
+nnoremap <silent><special> <F7> :UndotreeToggle<CR>
 " <F8>: show/hide tagbar
-nnoremap <special> <F8> :TagbarToggle<CR>
+nnoremap <silent><special> <F8> :TagbarToggle<CR>
 
 " comment/uncomment with <C-c> in normal and visual mode
 nmap <silent> <C-c> :call NERDComment(0, "toggle")<CR>
@@ -404,8 +405,15 @@ nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
 " Some gitgutter keybindings
+
+" Git keybindings
 nmap ggn <Plug>GitGutterNextHunk
 nmap ggp <Plug>GitGutterPrevHunk
+nmap <silent><Leader>gs :Gstatus<CR>
+nmap <silent><Leader>gc :Gcommit<CR>
+nmap <silent><Leader>gp :Gpush<CR>
+nmap <silent><Leader>gd :Gdiff<CR>
+nmap <silent><Leader>gb :Gblame<CR>
 
 " {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
