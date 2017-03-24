@@ -34,6 +34,8 @@ monitor-fallback = DP2
 override-redirect = false
 bottom = false
 
+fixed-center = true
+
 width = 100%
 height = 30
 
@@ -46,25 +48,26 @@ foreground = ${colors.blue}
 line-size   = 2
 line-color  = ${colors.extra5}
 
-border-bottom = 1
+border-bottom-size = 1
 border-bottom-color = ${colors.extra4}
 
-spacing = 1
-lineheight = 2
-padding-left = 1
-padding-right = 1
-module-margin-left = 0
-module-margin-right = 2
+padding = 1
+module-margin-left = 1
+module-margin-right = 1
 
 font-0 = "Overpass Mono:size=11;2"
 font-1 = "FontAwesome:size=11;2"
 font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
-modules-center = mpd
+modules-center =
 modules-right = updates wifi wired volume battery date powermenu
 
+dim-value = 1.0
+
 tray-position = right
+tray-detached = false
+tray-transparent = false
 
 wm-restack = bspwm
 
@@ -95,13 +98,14 @@ throttle-output-for = 10
 throttle-input-for = 30
 
 ; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
-screenchange-reload = false
+screenchange-reload = true
 
 
 [module/bspwm]
 type = internal/bspwm
 
 pin-workspaces = false
+inline-mode = false
 enable-click = true
 enable-scroll = false
 
@@ -118,7 +122,7 @@ ws-icon-8 = media;
 ws-icon-9 = browsebig;
 ws-icon-default = 
 
-format = <label-monitor><label-state>
+format = <label-state>
 
 label-font = 3
 
@@ -127,6 +131,7 @@ label-monitor-font = 3
 
 label-focused = %icon%
 label-focused-background = ${colors.extra5}
+label-focused-overline= ${colors.extra4}
 label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
@@ -176,7 +181,7 @@ type = internal/volume
 ;headphone-mixer = Headphone
 ;headphone-id = 28
 
-mapping = false
+mapping = true
 
 format-volume = <ramp-volume><label-volume>
 
