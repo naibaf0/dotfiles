@@ -17,6 +17,10 @@ super + alt + space
 ctrl + alt + l
   xset s activate
 
+# toggle compton
+ctrl + alt + c
+  exec compton_toggle
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
