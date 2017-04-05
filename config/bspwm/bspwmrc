@@ -43,6 +43,7 @@ xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
 feh --bg-fill --recursive ~/Pictures/Wallpapers/0061.jpg &
 compton -b &
+redshift -c ~/.dotfiles/config/redshift.conf &
 $HOME/.config/polybar/launch.sh
 udiskie -q &
 xss-lock -- physlock -sm &
