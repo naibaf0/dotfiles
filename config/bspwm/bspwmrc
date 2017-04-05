@@ -39,6 +39,7 @@ bspc rule -a Gimp state=floating follow=on
 bspc rule -a lxappearance state=floating
 bspc rule -a VirtualBox state=floating
 
+xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
 feh --bg-fill --recursive ~/Pictures/Wallpapers/0061.jpg &
 compton -b &
