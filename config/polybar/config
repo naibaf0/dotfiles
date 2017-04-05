@@ -265,8 +265,9 @@ label-time-foreground = #77
 
 [module/updates]
 type = custom/script
-exec = ~/.bin/getpacmanupdates
+exec = .config/polybar/display_updates.sh
 format-foreground = ${colors.yellow}
+format-font = 3
 interval = 360
 
 
