@@ -4,10 +4,10 @@ RSFILE=${RSFILE:-/tmp/naibafo/rsFile}
 
 if [ -e $RSFILE ]; then
     redshift -c ~/.dotfiles/config/redshift.conf &
-    notify-send "Redshift enabled"
+    notify-send "Redshift" "<i>enabled</i>" -i redshift-status-on
     rm $RSFILE
 else
     echo $ "dummytext" >> $RSFILE
     ps -ef | grep "redshift -c ${HOME}/.dotfiles/config/redshift.conf" | grep -v grep | awk '{print $2}' | xargs kill
-    notify-send "Redshift disabled"
+    notify-send "Redshift" "<i>disabled</i>" -i redshift-status-off
 fi
