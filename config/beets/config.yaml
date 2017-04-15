@@ -33,7 +33,7 @@ paths:
   albumtype:soundtrack: Soundtracks/$album/$disc-$track $title
 
 
-plugins:  fromfilename embedart fetchart mpdstats mpdupdate
+plugins:  fromfilename embedart fetchart mpdstats
 
 embedart:
   ifempty: yes
