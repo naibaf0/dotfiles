@@ -50,13 +50,13 @@ call plug#end()
 " {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set background-color
-set background=dark
+set background=light
 
 " Set colorspace
 let base16colorspace=256
 
 " Set colorscheme
-colorscheme base16-railscasts
+colorscheme base16-summerfruit-light
 
 " activate filetype plugins and indent
 filetype plugin indent on
