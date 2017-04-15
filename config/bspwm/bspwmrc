@@ -41,7 +41,7 @@ bspc rule -a VirtualBox state=floating
 
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
-feh --bg-fill --recursive ~/Pictures/Wallpapers/0061.jpg &
+feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg &
 compton -b &
 redshift -c ~/.dotfiles/config/redshift.conf &
 $HOME/.config/polybar/launch.sh
