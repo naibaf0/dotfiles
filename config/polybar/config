@@ -7,24 +7,26 @@
 ;
 ;=====================================================
 [colors]
-bg      = #dd2b2b2b
-black   = #2b2b2b
-grey    = #5a647e
-silver  = #e6e1dc
-white   = #f9f7f3
-red     = #da4939
-green   = #a5c261
-yellow  = #ffc66d
-blue    = #6d9cbe
-purple  = #b6b3eb
-teal    = #519f50
-extra1  = #f9f7f3
-extra2  = #cc7833
-extra3  = #bc9458
-extra4  = #272935
-extra5  = #3a4055
-extra6  = #d4cfc9
-extra7  = #f4f1ed
+background = #aaffffff
+foreground = #ad00a1
+
+black   = #FFFFFF
+gray    = #B0B0B0
+silver  = #101010
+white   = #202020
+red     = #FF0086
+green   = #00C918
+yellow  = #ABA800
+blue    = #3777E6
+purple  = #AD00A1
+teal    = #1FAAAA
+extra1  = #202020
+extra2  = #FD8900
+extra3  = #CC6633
+extra4  = #E0E0E0
+extra5  = #D0D0D0
+extra6  = #000000
+extra7  = #151515
 
 
 [bar/main]
@@ -42,8 +44,8 @@ height = 30
 offset-x = 0
 offset-y = 0
 
-background = ${colors.bg}
-foreground = ${colors.blue}
+background = ${colors.background}
+foreground = ${colors.purple}
 
 line-size   = 2
 line-color  = ${colors.extra5}
@@ -60,8 +62,8 @@ font-1 = "FontAwesome:size=11;2"
 font-2 = "Overpass:size=11;2"
 
 modules-left = bspwm
-modules-center =
-modules-right = updates wifi wired volume battery date powermenu
+modules-center = date
+modules-right =  updates wifi wired volume battery powermenu
 
 dim-value = 1.0
 
@@ -123,8 +125,7 @@ ws-icon-9 = browsebig;
 ws-icon-default = 
 
 format = <label-state>
-
-label-font = 3
+format-font = 3
 
 label-monitor = %name%
 label-monitor-font = 3
@@ -136,6 +137,7 @@ label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
 label-occupied = %icon%
+label-occupied-background = ${colors.background}
 label-occupied-padding = 1
 
 label-urgent = %icon%
@@ -143,7 +145,8 @@ label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = %icon%
-label-empty-foreground = ${colors.grey}
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.gray}
 label-empty-padding = 1
 
 
@@ -154,22 +157,31 @@ interval = 3.0
 ;udspeed-minwidth = 3
 
 format-connected = <label-connected>
-label-connected =  %essid:0:10:...%
-label-connected-font = 3
+format-connected-background = ${colors.background}
+format-connected-font = 3
+format-connected-padding = 1
 
+label-connected =  %essid:0:15:...%
 
 [module/wired]
 type = internal/network
 interface = net0
 interval = 3.0
 
-label-connected = %local_ip%
-label-connected-font = 3
+format-connected-background = ${colors.background}
+format-connected-font = 3
+format-connected-padding = 1
 
+label-connected = %local_ip%
 
 [module/date]
 type = internal/date
+
+format-background = ${colors.background}
+format-padding = 1
+
 label = %{F#5a647e}%{F-} %date% %{F#5a647e}%{F-} %time%
+
 date = %Y-%m-%d
 time = %H:%M
 interval = 5
@@ -184,12 +196,17 @@ type = internal/volume
 mapping = true
 
 format-volume = <ramp-volume><label-volume>
+format-volume-background = ${colors.background}
+format-volume-foreground = ${root.foreground}
+format-volume-padding = 1
 
 label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
+
+format-muted-background = ${colors.background}
+format-muted-foreground = ${colors.gray}
+format-muted-padding = 1
 
 label-muted = 
-label-muted-foreground = ${colors.grey}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -205,16 +222,26 @@ full-at = 98
 battery = BAT0
 adapter = AC
 
-label-charging = %percentage%%
-label-charging-foreground = ${colors.yellow}
-label-discharging = -%percentage%%
-label-discharging-foreground = ${colors.red}
+format-full = <label-full>
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.gray}
+format-full-padding = 1
+
 label-full = 
-label-full-foreground = ${colors.grey}
 
 format-charging = <label-charging>
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.yellow}
+format-charging-padding = 1
+
+label-charging = %percentage%%
+
 format-discharging = <label-discharging>
-format-full = <label-full>
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.red}
+format-discharging-padding = 1
+
+label-discharging = -%percentage%%
 
 ramp-capacity-0 = %{F#da4939}
 ramp-capacity-1 = 
@@ -265,14 +292,22 @@ label-time-foreground = #77
 
 [module/updates]
 type = custom/script
-exec = .config/polybar/display_updates.sh
+exec = ~/.config/polybar/display_updates.sh
+format = <label>
+format-background = ${colors.background}
 format-foreground = ${colors.yellow}
-format-font = 3
-interval = 360
+format-padding = 1
+
+label = %output%
+
+interval = 90
 
 
 [module/powermenu]
 type = custom/menu
+
+format-background = ${colors.background}
+format-padding = 1
 
 label-open = 
 label-close = 

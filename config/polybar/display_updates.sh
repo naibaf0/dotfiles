@@ -2,10 +2,12 @@
 
 # Display the number of available updates in pacman and the AUR
 
-pacman=$(checkupdates | wc -l)
+pac=$(checkupdates | wc -l)
 aur=$(checkupdates-aur | wc -l)
 
-updates=$((pacman + aur))
+updates=$((pac + aur))
 if [ "$updates" -gt 0 ]; then
-  echo "($pacman  $aur)"
+  echo "($pac  $aur)"
+else
+  echo ""
 fi
