@@ -27,9 +27,14 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 " Javascript support
-Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-" vim support for LaTeX
+Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" LaTeX support
 Plug 'lervag/vimtex', { 'for': 'tex'}
+" Linting 
 Plug 'neomake/neomake'
 " a tagbar
 Plug 'majutsushi/tagbar'
@@ -37,14 +42,10 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-" faster yaml syntax
+" YAML support
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
-" json support
+" JSON support
 Plug 'elzr/vim-json', { 'for': 'json' }
-" javascript syntax
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-" syntax for javascript libraries
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 call plug#end()
 
 " {{{1 General behavior of Vim
@@ -528,6 +529,12 @@ let g:deoplete#auto_completion_start_length = 3
 " Maximum Number of candidates shown
 let g:deoplete#max_list = 40
 
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
 call deoplete#custom#set('_', 'converters',
   \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
 
@@ -603,6 +610,12 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 """""""""""""""""
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs']
+
 
 " {{{2 LaTeX
 " """"""""""

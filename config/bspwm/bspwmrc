@@ -35,9 +35,10 @@ bspc rule -a mpv state=floating desktop=$ws9
 
 bspc rule -a pavucontrol state=floating
 bspc rule -a keepassxc state=floating
-bspc rule -a Gimp state=floating follow=on
+bspc rule -a Gimp-2.8 state=floating follow=on
 bspc rule -a lxappearance state=floating
 bspc rule -a VirtualBox state=floating
+bspc rule -a galculator state=floating
 
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
@@ -47,3 +48,4 @@ redshift -c ~/.dotfiles/config/redshift.conf &
 $HOME/.config/polybar/launch.sh
 udiskie -q &
 xss-lock -- physlock -sm &
+dropbox-cli start &
