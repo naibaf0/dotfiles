@@ -48,4 +48,3 @@ redshift -c ~/.dotfiles/config/redshift.conf &
 $HOME/.config/polybar/launch.sh
 udiskie -q &
 xss-lock -- physlock -sm &
-dropbox-cli start &
