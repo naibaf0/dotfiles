@@ -103,11 +103,11 @@ throttle-input-for = 30
 screenchange-reload = true
 
 
-[module/bspwm]
-type = internal/bspwm
+[module/i3]
+type = internal/i3
 
 pin-workspaces = false
-inline-mode = false
+index-sort = false
 enable-click = true
 enable-scroll = false
 
@@ -124,8 +124,12 @@ ws-icon-8 = media;
 ws-icon-9 = browsebig;
 ws-icon-default = 
 
-format = <label-state>
+format = <label-state> <label-mode>
 format-font = 3
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
 
 label-monitor = %name%
 label-monitor-font = 3
