@@ -61,7 +61,7 @@ font-0 = "Overpass Mono:size=11;2"
 font-1 = "FontAwesome:size=11;2"
 font-2 = "Overpass:size=11;2"
 
-modules-left = bspwm
+modules-left = i3
 modules-center = date
 modules-right =  updates wifi wired volume battery powermenu
 
@@ -71,7 +71,7 @@ tray-position = right
 tray-detached = false
 tray-transparent = false
 
-wm-restack = bspwm
+wm-restack = i3
 
 
 [global/wm]
@@ -107,7 +107,7 @@ screenchange-reload = true
 type = internal/i3
 
 pin-workspaces = false
-index-sort = false
+index-sort = true
 enable-click = true
 enable-scroll = false
 
@@ -131,27 +131,24 @@ label-mode = %mode%
 label-mode-padding = 2
 label-mode-background = #e60053
 
-label-monitor = %name%
-label-monitor-font = 3
-
 label-focused = %icon%
 label-focused-background = ${colors.extra5}
 label-focused-overline= ${colors.extra4}
 label-focused-underline= ${colors.extra4}
 label-focused-padding = 1
 
-label-occupied = %icon%
-label-occupied-background = ${colors.background}
-label-occupied-padding = 1
+label-unfocused = %icon%
+label-unfocused-background = ${colors.background}
+label-unfocused-padding = 1
 
 label-urgent = %icon%
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = %icon%
-label-empty-background = ${colors.background}
-label-empty-foreground = ${colors.gray}
-label-empty-padding = 1
+label-visible = %icon%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.gray}
+label-visible-padding = 1
 
 
 [module/wifi]
