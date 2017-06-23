@@ -18,16 +18,16 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'zchee/deoplete-go', {'do': 'make' }
+Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 " Javascript support
-Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do' : 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
@@ -551,6 +551,9 @@ autocmd CompleteDone * pclose!
 
 " {{{2 neosnippet
 """""""""""""""""
+"use vim-snippets as well
+let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
+
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
