@@ -62,6 +62,18 @@ __magic-enter () {
 zle -N __magic-enter
 bindkey "^M" __magic-enter
 
+# Fix for zim ssh config completion #46
+# =====================================
+n=()
+if [[ -r ~/.ssh/config ]]; then
+  h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+fi
+if [[ $#h -gt 0 ]]; then
+  zstyle ':completion:*:ssh:*' hosts $h
+  zstyle ':completion:*:slogin:*' hosts $h
+  zstyle ':completion:*:rsync:*' hosts $h
+fi
+
 #==============================================================================
 # Aliases
 #==============================================================================
