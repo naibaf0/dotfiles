@@ -188,7 +188,7 @@ for_window [class="mpv"] floating enable
 # workspace assignments
 assign [class="Slack"] $ws2
 assign [class="Thunderbird"] $ws3
-assign [class="Spotify"] $ws5
+assign [class="Spotify"] $ws4
 assign [class="Firefox"] $ws10
 assign [class="Chromium"] $ws10
 assign [class="^.*qutebrowser"] $ws10
