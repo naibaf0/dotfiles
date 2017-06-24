@@ -145,8 +145,8 @@ label-mode-background = #e60053
 
 label-focused = %icon%
 ;label-focused-foreground = ${colors.green}
-label-focused-background = ${colors.extra5}
-label-focused-underline= ${colors.gray}
+label-focused-background = ${colors.gray}
+label-focused-underline= ${colors.extra5}
 label-focused-padding = 1
 
 label-unfocused = %icon%
@@ -160,7 +160,7 @@ label-urgent-underline = ${colors.purple}
 label-urgent-padding = 1
 
 label-visible = %icon%
-label-visible-background = ${colors.gray}
+label-visible-background = ${colors.extra5}
 ;label-visible-foreground = ${colors.blue}
 label-visible-padding = 1
 
@@ -328,40 +328,28 @@ label-open = 
 label-close = 
 label-separator = /
 
-menu-0-0 = 
+menu-0-0 = 
 menu-0-0-foreground = ${colors.yellow}
 menu-0-0-exec = menu-open-1
 
-menu-0-1 = 
+menu-0-1 = 
 menu-0-1-foreground = ${colors.yellow}
 menu-0-1-exec = menu-open-2
 
-menu-0-2 = 
-menu-0-2-foreground = ${colors.yellow}
-menu-0-2-exec = menu-open-3
-
-menu-1-0 = 
+menu-1-0 = 
 menu-1-0-foreground = ${colors.green}
-menu-1-0-exec = bspc quit
+menu-1-0-exec = shutdown -r now
 
 menu-1-1 = 
 menu-1-1-foreground = ${colors.red}
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = 
+menu-2-0 = 
 menu-2-0-foreground = ${colors.green}
-menu-2-0-exec = shutdown -r now
+menu-2-0-exec = shutdown -h now
 
 menu-2-1 = 
 menu-2-1-foreground = ${colors.red}
 menu-2-1-exec = menu-open-0
-
-menu-3-0 = 
-menu-3-0-foreground = ${colors.green}
-menu-3-0-exec = shutdown -h now
-
-menu-3-1 = 
-menu-3-1-foreground = ${colors.red}
-menu-3-1-exec = menu-open-0
 
 ; vim:ft=dosini
