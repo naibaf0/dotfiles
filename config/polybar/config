@@ -122,18 +122,19 @@ pin-workspaces = false
 index-sort = true
 enable-click = true
 enable-scroll = false
+fuzzy-match = true
 
 ;ws-icon-[0-9]+ = label;icon
 ws-icon-0 = home;
 ws-icon-1 = chat;
 ws-icon-2 = mail;
-ws-icon-3 = browse;
-ws-icon-4 = music;
-ws-icon-5 = edit;
-ws-icon-6 = code;
-ws-icon-7 = cli;
-ws-icon-8 = media;
-ws-icon-9 = browsebig;
+ws-icon-3 = music;
+ws-icon-4 = media;
+ws-icon-5 = browse;
+;ws-icon-5 = edit;
+;ws-icon-6 = code;
+;ws-icon-7 = cli;
+;ws-icon-8 = media;
 ws-icon-default = 
 
 format = <label-state> <label-mode>
