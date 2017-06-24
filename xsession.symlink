@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Variables
+export TERMINAL="termite"
+export BROWSER="firefox"
+
+#export FREETYPE_PROPERTIES="truetype:interpreter-version=40"
+
+# Autostart
+# Ctrl + Alt + backspace to kill the X server
+setxkbmap -option terminate:ctrl_alt_bksp
+
+xsetroot -cursor_name left_ptr
+
+#xset r rate 150 50
+#xset m 0 0
+#xset +dpms
+#xset dpms 0 0 60
+
+redshift-gtk &
+thunar --daemon &
+compton -b
