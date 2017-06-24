@@ -7,26 +7,41 @@
 ;
 ;=====================================================
 [colors]
-background = #aaffffff
-foreground = #ad00a1
+bg = #CC202020
+fg = #B0B0B0
 
-black   = #FFFFFF
-gray    = #B0B0B0
-silver  = #101010
-white   = #202020
+black   = #151515
+;base00
+extra4  = #202020
+;base01
+extra5  = #303030
+;base02
+gray    = #505050
+;base03
+extra6  = #B0B0B0
+;base04
+silver  = #D0D0D0
+;base05
+extra7  = #E0E0E0
+;base06
+white   = #FFFFFF
+;base07
 red     = #FF0086
-green   = #00C918
-yellow  = #ABA800
-blue    = #3777E6
-purple  = #AD00A1
-teal    = #1FAAAA
-extra1  = #202020
+;base08
 extra2  = #FD8900
+;base09
+yellow  = #ABA800
+;base0A
+green   = #00C918
+;base0B
+teal    = #1FAAAA
+;base0C
+blue    = #3777E6
+;base0D
+purple  = #AD00A1
+;base0E
 extra3  = #CC6633
-extra4  = #E0E0E0
-extra5  = #D0D0D0
-extra6  = #000000
-extra7  = #151515
+;base0F
 
 
 [bar/main]
@@ -44,14 +59,11 @@ height = 30
 offset-x = 0
 offset-y = 0
 
-background = ${colors.background}
-foreground = ${colors.purple}
+background = ${colors.bg}
+foreground = ${colors.fg}
 
-line-size   = 2
-line-color  = ${colors.extra5}
-
-border-bottom-size = 1
-border-bottom-color = ${colors.extra4}
+line-size   = 4
+line-color  = ${colors.gray}
 
 padding = 1
 module-margin-left = 1
@@ -132,22 +144,24 @@ label-mode-padding = 2
 label-mode-background = #e60053
 
 label-focused = %icon%
+;label-focused-foreground = ${colors.green}
 label-focused-background = ${colors.extra5}
-label-focused-overline= ${colors.extra4}
-label-focused-underline= ${colors.extra4}
+label-focused-underline= ${colors.gray}
 label-focused-padding = 1
 
 label-unfocused = %icon%
-label-unfocused-background = ${colors.background}
+;label-unfocused-foreground = ${colors.extra5}
 label-unfocused-padding = 1
 
 label-urgent = %icon%
+label-urgent-foreground = ${colors.blue}
 label-urgent-background = ${colors.red}
+label-urgent-underline = ${colors.purple}
 label-urgent-padding = 1
 
 label-visible = %icon%
-label-visible-background = ${colors.background}
-label-visible-foreground = ${colors.gray}
+label-visible-background = ${colors.gray}
+;label-visible-foreground = ${colors.blue}
 label-visible-padding = 1
 
 
@@ -158,7 +172,7 @@ interval = 3.0
 ;udspeed-minwidth = 3
 
 format-connected = <label-connected>
-format-connected-background = ${colors.background}
+format-connected-background = ${colors.bg}
 format-connected-font = 3
 format-connected-padding = 1
 
@@ -169,7 +183,7 @@ type = internal/network
 interface = net0
 interval = 3.0
 
-format-connected-background = ${colors.background}
+format-connected-background = ${colors.bg}
 format-connected-font = 3
 format-connected-padding = 1
 
@@ -178,10 +192,10 @@ label-connected = %local_ip%
 [module/date]
 type = internal/date
 
-format-background = ${colors.background}
+format-background = ${colors.bg}
 format-padding = 1
 
-label = %{F#5a647e}%{F-} %date% %{F#5a647e}%{F-} %time%
+label = %{F#505050}%{F-} %date% %{F#505050}%{F-} %time%
 
 date = %Y-%m-%d
 time = %H:%M
@@ -197,13 +211,13 @@ type = internal/volume
 mapping = true
 
 format-volume = <ramp-volume><label-volume>
-format-volume-background = ${colors.background}
-format-volume-foreground = ${root.foreground}
+format-volume-background = ${colors.bg}
+format-volume-foreground = ${colors.fg}
 format-volume-padding = 1
 
 label-volume = %percentage%%
 
-format-muted-background = ${colors.background}
+format-muted-background = ${colors.bg}
 format-muted-foreground = ${colors.gray}
 format-muted-padding = 1
 
@@ -224,21 +238,21 @@ battery = BAT1
 adapter = ACAD
 
 format-full = <label-full>
-format-full-background = ${colors.background}
+format-full-background = ${colors.bg}
 format-full-foreground = ${colors.gray}
 format-full-padding = 1
 
 label-full = 
 
 format-charging = <label-charging>
-format-charging-background = ${colors.background}
+format-charging-background = ${colors.bg}
 format-charging-foreground = ${colors.yellow}
 format-charging-padding = 1
 
 label-charging = %percentage%%
 
 format-discharging = <label-discharging>
-format-discharging-background = ${colors.background}
+format-discharging-background = ${colors.bg}
 format-discharging-foreground = ${colors.red}
 format-discharging-padding = 1
 
@@ -295,7 +309,7 @@ label-time-foreground = #77
 type = custom/script
 exec = ~/.config/polybar/display_updates.sh
 format = <label>
-format-background = ${colors.background}
+format-background = ${colors.bg}
 format-foreground = ${colors.yellow}
 format-padding = 1
 
@@ -307,7 +321,7 @@ interval = 90
 [module/powermenu]
 type = custom/menu
 
-format-background = ${colors.background}
+format-background = ${colors.bg}
 format-padding = 1
 
 label-open = 
