@@ -21,8 +21,8 @@
     padding = 8
     horizontal_padding = 8
     separator_color = auto
-    startup_notification = false
-    dmenu = /usr/bin/dmenu -p dunst:
+    startup_notification = true
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 100
@@ -35,7 +35,7 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+grave
+    history = ctrl+dead_circumflex
     context = ctrl+shift+period
 
 [base16_low]

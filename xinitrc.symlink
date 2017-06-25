@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Executed by startx (run your window manager from here)
+#
+
+# Run system shell scripts
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+	for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+		[ -x "$f" ] && . "$f"
+	done
+ 	unset f
+fi
+
+# Run user xsession shell script
+script="$HOME/.xsession"
+if [ -x "$script" -a ! -d "$script" ]; then
+    . "$script"
+fi
+
+if [ -s ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+if [ -s ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
+
+session=${1:-i3}
+
+export XSESSION=$session
+
+case $session in
+  i3|i3wm     ) exec i3;;
+  xfce|xfce4	) exec startxfce4;;
+    # No known session, try to run it as command
+  *           ) exec $1;;
+esac
