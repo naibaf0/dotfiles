@@ -138,7 +138,6 @@ ws-icon-5 = browse;
 ws-icon-default = 
 
 format = <label-state> <label-mode>
-format-font = 3
 
 label-mode = %mode%
 label-mode-padding = 2
@@ -174,7 +173,6 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-background = ${colors.bg}
-format-connected-font = 3
 format-connected-padding = 1
 
 label-connected =  %essid:0:15:...%
@@ -185,7 +183,6 @@ interface = net0
 interval = 3.0
 
 format-connected-background = ${colors.bg}
-format-connected-font = 3
 format-connected-padding = 1
 
 label-connected = %local_ip%
@@ -269,45 +266,6 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = %{F#5a647e}
 ramp-capacity-foreground = ${colors.teal}
-
-
-[module/mpd]
-type = internal/mpd
-
-host = localhost
-port = 6600
-
-format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
-format-online-background = ${colors.extra5}
-format-online-underline = ${colors.extra4}
-format-online-padding = 3
-
-;format-offline = <label-offline>
-;format-offline-foreground = #66
-
-;label-offline = mpd is off
-
-label-song =  %artist% - %title%
-label-song-maxlen = 45
-label-song-ellipsis = true
-label-song-font = 3
-
-icon-prev = 
-icon-seekb = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-icon-seekf = 
-
-icon-random = 
-icon-repeat = 
-icon-repeatone = 
-
-toggle-on-foreground = ${colors.red}
-toggle-off-foreground = #66
-
-label-time-foreground = #77
 
 
 [module/updates]
