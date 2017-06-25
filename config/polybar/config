@@ -250,14 +250,14 @@ format-charging-background = ${colors.bg}
 format-charging-foreground = ${colors.yellow}
 format-charging-padding = 1
 
-label-charging =  %percentage%%
+label-charging = %percentage%%
 
 format-discharging = <label-discharging>
 format-discharging-background = ${colors.bg}
 format-discharging-foreground = ${colors.red}
 format-discharging-padding = 1
 
-label-discharging = - %percentage%%
+label-discharging = -%percentage%%
 
 ramp-capacity-0 = %{F#da4939}
 ramp-capacity-1 = 
