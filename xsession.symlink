@@ -17,6 +17,6 @@ xsetroot -cursor_name left_ptr
 #xset +dpms
 #xset dpms 0 0 60
 
-redshift-gtk &
+redshift &
 thunar --daemon &
 compton -b
