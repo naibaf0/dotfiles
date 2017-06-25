@@ -215,7 +215,7 @@ type = internal/volume
 
 mapping = true
 
-format-volume = <ramp-volume><label-volume>
+format-volume = <ramp-volume> <label-volume>
 format-volume-background = ${colors.bg}
 format-volume-foreground = ${colors.fg}
 format-volume-padding = 1
