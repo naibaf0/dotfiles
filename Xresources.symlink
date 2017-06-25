@@ -4,18 +4,21 @@
 rofi.lines: 10
 rofi.fullscreen: false
 rofi.terminal: termite
+rofi.ssh-client: ssh
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.font: Mononoki 20
 ! Color theme
 !------------
 ! Use extended color scheme
 rofi.color-enabled: true
+! bg fg bg-alt hl-bg hl-fg
 ! Color scheme for normal row
-rofi.color-normal:	argb:aaffffff, #ad00a1, argb:aae0e0e0, #d0d0d0, #ad00a1
+rofi.color-normal:	argb:bb202020, #e0e0e0, argb:bb151515, #3777e6, #e0e0e0
 ! Color scheme for urgent row
-rofi.color-urgent:	argb:aaffffff, #b0b0b0, argb:aae0e0e0, #b0b0b0, #ad00a1
+rofi.color-urgent:	argb:bb202020, #ff0086, argb:bb151515, #ff0086, #ad00a1
 ! Color scheme for active row
-rofi.color-active:	argb:aaffffff, #aba800, argb:aae0e0e0, #519f50, #a5c261
-! Color scheme window
-rofi.color-window:	argb:00fffff, argb:aaffffff
+rofi.color-active:	argb:bb202020, #00c918, argb:bb151515, #00c918, #ad00a1
+! Color scheme window (bg, border, seperator)
+rofi.color-window:	argb:bb151515, argb:bbffffff
 ! Separator style (none, dash, solid)
-rofi.separator-style:	dash
+rofi.separator-style:	solid
