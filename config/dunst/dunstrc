@@ -35,7 +35,7 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+grave
+    history = ctrl+dead_circumflex
     context = ctrl+shift+period
 
 [base16_low]
