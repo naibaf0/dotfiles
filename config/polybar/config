@@ -25,7 +25,7 @@ silver  = #D0D0D0
 extra7  = #E0E0E0
 ;base06
 white   = #FFFFFF
-;base07
+
 red     = #FF0086
 ;base08
 extra2  = #FD8900
@@ -45,7 +45,7 @@ extra3  = #CC6633
 
 
 [bar/main]
-monitor = eDP-1
+monitor = ${env:MONITOR:eDP-1}
 ;monitor = LVDS1
 ;monitor-fallback = HDMI3
 override-redirect = false
@@ -69,9 +69,9 @@ padding = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Overpass Mono:size=11;2"
+font-0 = "Overpass Mono:size=12;0"
 font-1 = "FontAwesome:size=11;2"
-font-2 = "Overpass:size=11;2"
+font-2 = "Overpass:size=12;0"
 
 modules-left = i3
 modules-center = date
@@ -198,9 +198,13 @@ format-padding = 1
 
 label = %{F#505050}%{F-} %date% %{F#505050}%{F-} %time%
 
-date = %Y-%m-%d
+date = %a %b %d
 time = %H:%M
-interval = 5
+
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+interval = 1
 
 
 [module/volume]
@@ -326,31 +330,35 @@ format-background = ${colors.bg}
 format-padding = 1
 
 label-open = 
-label-close = 
-label-separator = /
+label-close = cancel
+label-close-foreground = ${colors.red}
+label-open-padding-right = 1
+label-close-padding-right = 1
 
-menu-0-0 = 
+menu-0-0 = 
 menu-0-0-foreground = ${colors.yellow}
-menu-0-0-exec = menu-open-1
+menu-0-0-exec = xset s activate
+menu-0-0-padding-right = 1
 
-menu-0-1 = 
+menu-0-1 = 
 menu-0-1-foreground = ${colors.yellow}
-menu-0-1-exec = menu-open-2
+menu-0-1-exec = menu-open-1
+menu-0-1-padding-right = 1
 
-menu-1-0 = 
+menu-0-2 = 
+menu-0-2-foreground = ${colors.yellow}
+menu-0-2-exec = menu-open-2
+menu-0-2-padding-right = 1
+
+menu-1-0 = reboot?
 menu-1-0-foreground = ${colors.green}
 menu-1-0-exec = shutdown -r now
+menu-1-0-padding-right = 1
 
-menu-1-1 = 
-menu-1-1-foreground = ${colors.red}
-menu-1-1-exec = menu-open-0
-
-menu-2-0 = 
+menu-2-0 = power off?
 menu-2-0-foreground = ${colors.green}
 menu-2-0-exec = shutdown -h now
+menu-2-0-padding-right = 1
 
-menu-2-1 = 
-menu-2-1-foreground = ${colors.red}
-menu-2-1-exec = menu-open-0
 
 ; vim:ft=dosini
