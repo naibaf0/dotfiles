@@ -9,10 +9,10 @@ set $mod Mod4
 font pango:Overpass 10
 
 # thin borders
+new_window pixel 4
 hide_edge_borders both
 
 # gaps
-new_window pixel 4
 gaps inner 10
 smart_gaps on
 
@@ -27,6 +27,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+s exec rofi -show ssh 
 
 # change focus
 bindsym $mod+h focus left
@@ -34,23 +35,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# move to another monitor
+bindsym $mod+Shift+Ctrl+h move workspace to output left
+bindsym $mod+Shift+Ctrl+j move workspace to output down
+bindsym $mod+Shift+Ctrl+k move workspace to output up
+bindsym $mod+Shift+Ctrl+l move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -194,6 +189,7 @@ assign [class="Chromium"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
 # key-bindings
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
@@ -216,6 +212,7 @@ bindsym XF86MonBrightnessDown exec light -U 10 && notify-send -u low \"   $('
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id dunst
 exec --no-startup-id udiskie -q
 exec --no-startup-id xss-lock -- physlock -sm
 exec --no-startup-id dropbox-cli start
