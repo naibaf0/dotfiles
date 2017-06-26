@@ -18,5 +18,5 @@ xsetroot -cursor_name left_ptr
 #xset dpms 0 0 60
 
 redshift &
-thunar --daemon &
+pcmanfm -d &
 compton -b
