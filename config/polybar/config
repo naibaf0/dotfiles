@@ -78,9 +78,9 @@ modules-right =  updates wifi wired pavolume battery powermenu
 
 dim-value = 1.0
 
-tray-position = right
-tray-detached = false
-tray-transparent = false
+;tray-position = right
+;tray-detached = false
+;tray-transparent = false
 
 wm-restack = i3
 
