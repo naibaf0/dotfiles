@@ -143,7 +143,6 @@ label-mode-padding = 2
 label-mode-background = #e60053
 
 label-focused = %icon%
-;label-focused-foreground = ${colors.green}
 label-focused-background = ${colors.gray}
 label-focused-underline= ${colors.extra5}
 label-focused-padding = 1
@@ -160,7 +159,7 @@ label-urgent-padding = 1
 
 label-visible = %icon%
 label-visible-background = ${colors.extra5}
-;label-visible-foreground = ${colors.blue}
+label-visible-underline = ${colors.gray}
 label-visible-padding = 1
 
 

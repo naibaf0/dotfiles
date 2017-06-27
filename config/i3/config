@@ -194,6 +194,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="keepassxc"] floating enable
+for_window [class="Xarchiver"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
 
@@ -231,12 +232,12 @@ bindsym XF86AudioPrev exec mpc previous
 bindsym XF86MonBrightnessUp exec changebrightness up
 bindsym XF86MonBrightnessDown exec changebrightness down
 
-#bindsym $mod+f exec thunar
+bindsym $mod+n exec pcmanfm
 
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id udiskie -q
+#exec --no-startup-id udiskie -q
 exec --no-startup-id xss-lock -- physlock -sm
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
