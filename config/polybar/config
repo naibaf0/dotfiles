@@ -295,7 +295,6 @@ scroll-down = ~/.config/polybar/pavolume.sh --down
 type = custom/menu
 
 format-background = ${colors.bg}
-format-padding = 1
 
 label-open = 
 label-close = cancel

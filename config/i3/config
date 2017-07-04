@@ -237,7 +237,6 @@ bindsym $mod+n exec pcmanfm
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec --no-startup-id udiskie -q
-exec --no-startup-id xss-lock -- physlock -sm
+exec --no-startup-id xss-lock -- i3lock
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
