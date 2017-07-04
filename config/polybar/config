@@ -232,7 +232,7 @@ ramp-headphones-0 = 
 
 [module/battery]
 type = internal/battery
-full-at = 98
+full-at = 97
 
 battery = BAT0
 adapter = AC
@@ -273,7 +273,7 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 format = <label>
 format-background = ${colors.bg}
 format-foreground = ${colors.yellow}
-format-padding = 1
+;format-padding = 1
 
 label = %output%
 
@@ -299,7 +299,6 @@ format-background = ${colors.bg}
 label-open = 
 label-close = cancel
 label-close-foreground = ${colors.red}
-label-open-padding-right = 1
 label-close-padding-right = 1
 
 menu-0-0 = 

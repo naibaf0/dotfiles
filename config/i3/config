@@ -145,8 +145,8 @@ bindsym $mod+r mode "resize"
 # Set the shortcuts and what they do
 set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
 mode "$mode_display" {
-    bindsym v exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1, mode "default"
-    bindsym h exec --no-startup-id xrandr --output DP-2 --auto --right-of eDP-1, mode "default"
+    bindsym v exec --no-startup-id xrandr --output DP-1 --auto --right-of LVDS1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output DP-2 --auto --right-of LVDS1, mode "default"
     bindsym x exec --no-startup-id xrandr --output DP-1 --auto --off, mode "default"
     bindsym y exec --no-startup-id xrandr --output DP-2 --auto --off, mode "default"
 
@@ -235,8 +235,7 @@ bindsym XF86MonBrightnessDown exec changebrightness down
 bindsym $mod+n exec pcmanfm
 
 # startup
-exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg
+exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0083.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock -- i3lock
-exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
