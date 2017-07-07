@@ -24,8 +24,7 @@ zmodules=(directory environment git history input utility meta archive ssh custo
 #
 
 # Set your desired prompt here
-zprompt_theme='pure'
-PURE_CMD_MAX_EXEC_TIME=1
+zprompt_theme='lean'
 
 #
 # Completion
