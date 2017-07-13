@@ -6,7 +6,14 @@
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 
-# Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprofile"
+# EDITORS
+export EDITOR='nvim'
+export DIFF='nvim -d'
+export VISUAL='nvim'
+export PAGER='less'
+
+# Language
+# ========
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
 fi
