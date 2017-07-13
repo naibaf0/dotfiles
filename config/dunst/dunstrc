@@ -1,5 +1,7 @@
 [global]
     font = "Overpass Mono 10"
+    frame_width = 2
+    frame_color = "#6d9cbe"
     markup = full
     format = "<b>%s</b> %p\n%b"
     sort = yes
@@ -27,10 +29,6 @@
     icon_position = left
     max_icon_size = 100
     icon_folders = /usr/share/icons/la-capitaine-icon-theme/status/scalable-light/:/usr/share/icons/la-capitaine-icon-theme/devices/scalable-light/:/usr/share/icons/la-capitaine-icon-theme/actions/22x22-light/
-
-[frame]
-    width = 2
-    color = "#6d9cbe"
 
 [shortcuts]
     close = ctrl+space
