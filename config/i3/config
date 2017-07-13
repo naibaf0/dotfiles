@@ -1,6 +1,4 @@
 # i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 
@@ -143,12 +141,14 @@ bindsym $mod+r mode "resize"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+set $mode_display Ext Screen: (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF X: (r) Redshift, (c) Compton
 mode "$mode_display" {
     bindsym v exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1, mode "default"
     bindsym h exec --no-startup-id xrandr --output DP-2 --auto --right-of eDP-1, mode "default"
     bindsym x exec --no-startup-id xrandr --output DP-1 --auto --off, mode "default"
     bindsym y exec --no-startup-id xrandr --output DP-2 --auto --off, mode "default"
+    bindsym r exec --no-startup-id redshift_toggle, mode "default"
+    bindsym c exec --no-startup-id compton_toggle, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -209,9 +209,8 @@ assign [class="^.*qutebrowser"] $ws10
 
 # key-bindings
 
-bindsym $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym $mod+c exec --no-startup-id  compton_toggle
-#bindsym $mod+r exec --no-startup-id  redshift_toggle
+bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 bindsym $mod+period exec xset s activate
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
