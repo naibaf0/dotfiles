@@ -232,8 +232,8 @@ ramp-headphones-0 = 
 type = internal/battery
 full-at = 97
 
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
 
 format-full = <label-full>
 format-full-background = ${colors.bg}
