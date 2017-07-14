@@ -86,4 +86,7 @@ alias df='df -h' # human-readable sizes
 alias free='free -m' # show sizes in MB
 alias ls='ls -FX --group-directories-first --color=always --human-readable'
 
+# Bloody typos...
+alias glcoud=gcloud
+
 export DEFAULT_USER=naibafo
