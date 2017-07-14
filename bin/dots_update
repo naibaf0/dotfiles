@@ -1,0 +1,26 @@
+#!/bin/zsh
+#
+# `dots_update` executes provided update options for the dotfiles
+
+echo "\n==> Updating dotfiles ...\n"
+
+cd ~/.dotfiles
+git pull
+wait
+
+echo "\nUpdating Neovim Plugins ...\n"
+
+cd ~
+nvim +PlugUpgrade +PlugUpdate! +qa &
+wait
+
+echo "\nUpdating ZIM ...\n"
+
+cd ${HOME}/.zim
+git remote update -p
+git merge --ff-only @\{u\}
+git submodule update --init --recursive
+
+wait
+
+exit 1

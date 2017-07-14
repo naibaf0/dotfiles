@@ -17,6 +17,6 @@ xsetroot -cursor_name left_ptr
 #xset +dpms
 #xset dpms 0 0 60
 
-redshift -c ~/.dotfiles/config/redshift.conf &
+redshift -c ~/.config/redshift.conf &
 pcmanfm -d &
 compton -b
