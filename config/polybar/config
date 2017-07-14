@@ -45,7 +45,7 @@ extra3  = #CC6633
 
 
 [bar/main]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:LVDS1}
 override-redirect = false
 bottom = false
 
