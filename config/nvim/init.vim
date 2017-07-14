@@ -5,12 +5,14 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-" Git
+" Git integration
 Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
 Plug 'tpope/vim-fugitive'
 " Undotree
 Plug 'mbbill/undotree'
 " Fuzzy filesearch
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
