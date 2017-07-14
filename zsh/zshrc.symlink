@@ -3,9 +3,14 @@
 #
 
 # Source zim
-if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
-  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-fi
+[[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]] && source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
+
+# Source autocompletion and keybindings for fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Source autocompletion for gcloud and kubectl if available
+[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source "/opt/google-cloud-sdk/completion.zsh.inc"
+[ -n "$(which kubectl  2>/dev/null)" ] && source <(kubectl completion zsh)
 
 
 # Uncomment the following line if you want to change the command execution time
@@ -20,7 +25,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Set the the list of directories that cd searches.
 cdpath+=(~)
 cdpath+=(~/projects)
-
 
 #==============================================================================
 # Functions
@@ -85,5 +89,3 @@ alias cp='nocorrect cp -i' # confirm before overwriting something
 alias df='df -h' # human-readable sizes
 alias free='free -m' # show sizes in MB
 alias ls='ls -FX --group-directories-first --color=always --human-readable'
-
-export DEFAULT_USER=naibafo
