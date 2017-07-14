@@ -234,7 +234,7 @@ bindsym XF86MonBrightnessDown exec changebrightness down
 bindsym $mod+n exec pcmanfm
 
 # startup
-exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0107.jpg
+exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0083.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
 exec --no-startup-id dropbox-cli start
