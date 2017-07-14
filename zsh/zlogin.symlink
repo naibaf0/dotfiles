@@ -46,7 +46,15 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 
 # The following code helps us by optimizing the existing framework.
 # This includes zcompile, zcompdump, etc.
-#
+
+# Source autocompletion for glcoud and kubectl if available
+if [ -f /opt/google-cloud-sdk/completion.zsh.inc ]; then
+  source "/opt/google-cloud-sdk/completion.zsh.inc"
+fi
+
+if [ -n "$(which kubectl  2>/dev/null)" ]; then
+    source <(kubectl completion zsh)  # setup autocomplete in zsh
+fi
 
 (
   # Function to determine the need of a zcompile. If the .zwc file
