@@ -1,15 +1,15 @@
 #!/bin/bash
 
-CMPFILE=${CMPFILE:-/tmp/cmpFile}
+CMPFILE=${CMPFILE:-/tmp/${USER}/cmpFile}
 
 if [ -e $CMPFILE ]; then
     compton -b &
     sleep 1
-    notify-send "Compton enabled"
+    notify-send "Compton" "<i>enabled</i>"
     rm $CMPFILE
 else
     echo $ "dummytext" >> $CMPFILE
     ps -ef | grep "compton -b" | grep -v grep | awk '{print $2}' | xargs kill
     sleep 1
-    notify-send "Compton disabled"
+    notify-send "Compton" "<i>disabled</i>"
 fi
