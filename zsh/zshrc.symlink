@@ -1,51 +1,35 @@
-#
-# User configuration sourced by interactive shells
-#
+#============================================
+# Configuration sourced by interactive shells
+#============================================
 
 # Source zim
+# ==========
 [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]] && source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 
-# Source autocompletion and keybindings for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Source autocompletion for gcloud and kubectl if available
-[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source "/opt/google-cloud-sdk/completion.zsh.inc"
-[ -n "$(which kubectl  2>/dev/null)" ] && source <(kubectl completion zsh)
-
+# Source fzf
+# ==========
+if [ -f ~/.fzf.zsh ];then
+  source ~/.fzf.zsh
+  export FZF_DEFAULT_COMMAND='ag -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-#==============================================================================
-# Paths
-#==============================================================================
+# cdpath
+# ======
 
 # Set the the list of directories that cd searches.
 cdpath+=(~)
 cdpath+=(~/projects)
 
-#==============================================================================
-# Functions
-#==============================================================================
-
 # weather forecast
 # ================
 weather() {
   curl -4 -k https://wttr.in/$1
-}
-
-# Create new directory and cd into it
-# ===================================
-alias md='__make_and_change_directory'
-
-__make_and_change_directory() {
-    for v in "$@"
-    do
-        mkdir "$v"
-        cd "$v"
-    done
 }
 
 # Useful enter-key
@@ -78,10 +62,8 @@ if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:rsync:*' hosts $h
 fi
 
-#==============================================================================
 # Aliases
-#==============================================================================
-
+# =======
 alias vi=vim
 alias view='nvim -R'
 alias grep='nocorrect grep --color=always -d skip'
