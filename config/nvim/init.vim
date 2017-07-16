@@ -416,7 +416,7 @@ nmap <silent><Leader>gd :Gdiff<CR>
 nmap <silent><Leader>gb :Gblame<CR>
 
 " fzf
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>o :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>a :Ag<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
