@@ -13,7 +13,6 @@ Plug 'mbbill/undotree'
 " Fuzzy filesearch
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
@@ -407,9 +406,7 @@ vnoremap <silent> # :call SelectionSearch('f')<CR>
 nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
-" Some gitgutter keybindings
-
-" Git keybindings
+" Git
 nmap ggn <Plug>GitGutterNextHunk
 nmap ggp <Plug>GitGutterPrevHunk
 nmap <silent><Leader>gs :Gstatus<CR>
@@ -417,6 +414,14 @@ nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
 nmap <silent><Leader>gd :Gdiff<CR>
 nmap <silent><Leader>gb :Gblame<CR>
+
+" fzf
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>a :Ag<CR>
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
 
 " {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -441,27 +446,46 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
-" {{{2 CtrlP
-""""""""""""
-" 'c' - the directory of the current file
-" 'a' - the directory of the current file unless it is a subdirectory of the cwd
-" 'r' - the nearest ancestor to the current file that contains one of these
-"       directories or files: .git .hg .svn .bzr _darcs
-" 'w' - modifier to 'r': start search from the cwd instead of the current
-"       file's directory
-" 0 or '' - disable the feature
-let g:ctrlp_working_path_mode="ra"
+" {{{2 fzf
+""""""""""
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~25%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+"let g:fzf_layout = { 'window': 'enew' }
+"let g:fzf_layout = { 'window': '-tabnew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " exclude files directories
 set wildignore+=*/tmp/*,*/.git/*,*/.svn/*,*/.hg/* "directories
 set wildignore+=*.swp,*.zip,*.bak,*.backup "files
-
-" ignore files in .gitignore
-"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " {{{2 NERDTree
 """""""""""""""
@@ -641,11 +665,4 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
 
-" {{{1 Load project specific settings if available
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" include per-project settings
-if filereadable(".project.vim")
- source .project.vim
-endif
 " vim:fdm=marker
