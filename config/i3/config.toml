@@ -29,7 +29,7 @@ block = "sound"
 
 [[block]]
 block = "battery"
-device = 1
+device = 0
 interval = 10
 
 [[block]]

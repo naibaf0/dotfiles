@@ -25,7 +25,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+Shift+s exec rofi -show ssh
+bindsym $mod+Shift+s exec rofi -show ssh 
 
 # change focus
 bindsym $mod+h focus left
