@@ -48,13 +48,13 @@ syntax on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set background-color
-set background=light
+set background=dark
 
 " Set colorspace
 let base16colorspace=256
 
 " Set colorscheme
-colorscheme base16-summerfruit-light
+colorscheme base16-oceanicnext
 
 " Set the standard encoding
 set encoding=utf8

@@ -7,7 +7,7 @@ aur=$(checkupdates-aur | wc -l)
 
 updates=$((pac + aur))
 if [ "$updates" -gt 0 ]; then
-  echo "($pac  $aur)"
+  echo " ($pac;$aur)"
 else
   echo ""
 fi
