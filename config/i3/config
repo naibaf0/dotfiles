@@ -25,7 +25,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+Shift+s exec rofi -show ssh 
+bindsym $mod+Shift+s exec rofi -show ssh
 
 # change focus
 bindsym $mod+h focus left
@@ -71,16 +71,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1:home"
-set $ws2 "2:chat"
-set $ws3 "3:mail"
-set $ws4 "4:music"
-set $ws5 "5:media"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10:browse"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+#  
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -163,14 +164,31 @@ bindsym $mod+x mode "$mode_display"
 #
 # You can use these variables anywhere in the i3 configuration file.
 
-set $base00 #FFFFFF
-set $base01 #E0E0E0
-set $base02 #D0D0D0
-set $base03 #B0B0B0
-set $base04 #000000
-set $base05 #101010
-set $base06 #151515
-set $base07 #202020
+#set_from_resource $base00 i3wm.color0   #FFFFFF
+#set_from_resource $base01 i3wm.color18  #E0E0E0
+#set_from_resource $base02 i3wm.color19  #D0D0D0
+#set_from_resource $base03 i3wm.color8   #B0B0B0
+#set_from_resource $base04 i3wm.color20  #000000
+#set_from_resource $base05 i3wm.color7   #101010
+#set_from_resource $base06 i3wm.color21  #151515
+#set_from_resource $base07 i3wm.color15  #202020
+#set_from_resource $base08 i3wm.color1   #FF0086
+#set_from_resource $base09 i3wm.color16  #FD8900
+#set_from_resource $base0A i3wm.color3   #ABA800
+#set_from_resource $base0B i3wm.color2   #00C918
+#set_from_resource $base0C i3wm.color6   #1FAAAA
+#set_from_resource $base0D i3wm.color4   #3777E6
+#set_from_resource $base0E i3wm.color5   #AD00A1
+#set_from_resource $base0F i3wm.color17  #CC6633
+
+set $base00 #151515
+set $base01 #202020
+set $base02 #303030
+set $base03 #505050
+set $base04 #B0B0B0
+set $base05 #D0D0D0
+set $base06 #E0E0E0
+set $base07 #FFFFFF
 set $base08 #FF0086
 set $base09 #FD8900
 set $base0A #ABA800
@@ -188,6 +206,28 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background $base07
+
+bar {
+  status_command i3status-rs ~/.config/i3/config.toml
+  position top
+  tray_output none
+  strip_workspace_numbers yes
+
+  colors {
+    background $base00
+    separator  $base01
+    statusline $base04
+
+    # State             Border  BG      Text
+    focused_workspace   $base05 $base0D $base00
+    active_workspace    $base05 $base03 $base00
+    inactive_workspace  $base03 $base01 $base05
+    urgent_workspace    $base08 $base08 $base00
+    binding_mode        $base00 $base0A $base00
+  }
+  font pango:Overpass Mono 11
+  font pango:FontAwesome 11
+}
 
 # default floating
 for_window [window_role="pop-up"] floating enable
@@ -235,7 +275,7 @@ bindsym $mod+n exec pcmanfm
 
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0083.jpg
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
