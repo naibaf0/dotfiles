@@ -14,6 +14,11 @@ if [ -f ~/.fzf.zsh ];then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
+# Gcloud & kubectl
+# ================
+[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
+[ -n "$(which kubectl  2>/dev/null)" ] && source <(kubectl completion zsh)
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
