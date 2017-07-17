@@ -28,7 +28,7 @@
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 100
-    icon_folders = /usr/share/icons/la-capitaine-icon-theme/status/scalable-light/:/usr/share/icons/la-capitaine-icon-theme/devices/scalable-light/:/usr/share/icons/la-capitaine-icon-theme/actions/22x22-light/
+    icon_folders = /usr/share/icons/la-capitaine-icon-theme/status/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme/devices/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/
 
 [shortcuts]
     close = ctrl+space
@@ -38,18 +38,18 @@
 
 [base16_low]
     msg_urgency = low
-    background = "#E0E0E0"
-    foreground = "#B0B0B0"
+    background = "#343D46"
+    foreground = "#65737E"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#D0D0D0"
-    foreground = "#101010"
+    background = "#4F5B66"
+    foreground = "#C0C5CE"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#FF0086"
-    foreground = "#151515"
+    background = "#EC5f67"
+    foreground = "#CDD3DE"
 
 [urgency_low]
     timeout = 5

@@ -7,18 +7,22 @@ set $mod Mod4
 font pango:Overpass 10
 
 # thin borders
-new_window pixel 4
+new_window pixel 3
 hide_edge_borders both
 
 # gaps
 gaps inner 10
 smart_gaps on
 
+workspace_auto_back_and_forth yes
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
+# start a file browser
+bindsym $mod+n exec pcmanfm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -94,6 +98,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -115,6 +120,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -138,11 +144,9 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 ## Manual management of external displays
-# Set the shortcuts and what they do
 set $mode_display Ext Screen: (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF X: (r) Redshift, (c) Compton
+bindsym $mod+x mode "$mode_display"
 mode "$mode_display" {
     bindsym v exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1, mode "default"
     bindsym h exec --no-startup-id xrandr --output DP-2 --auto --right-of eDP-1, mode "default"
@@ -155,48 +159,41 @@ mode "$mode_display" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-# Declare here the shortcut to bring the display selection menu
-bindsym $mod+x mode "$mode_display"
 
+## Power options
+set $mode_power Power: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
+bindsym Mod1+Control+l mode "$mode_power"
+mode "$mode_power" {
+    bindsym l mode "default", exec --no-startup-id $HOME/.config/i3/i3exit lock
+    bindsym e mode "default", exec --no-startup-id $HOME/.config/i3/i3exit logout
+    bindsym s mode "default", exec --no-startup-id $HOME/.config/i3/i3exit suspend
+    bindsym r mode "default", exec --no-startup-id $HOME/.config/i3/i3exit reboot
+    bindsym p mode "default", exec --no-startup-id $HOME/.config/i3/i3exit shutdown
 
-## Base16 Summerfruit Light
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+## Base16 Oceanic Next
 # Author: Christopher Corley (http://christop.club/)
-#
-# You can use these variables anywhere in the i3 configuration file.
 
-#set_from_resource $base00 i3wm.color0   #FFFFFF
-#set_from_resource $base01 i3wm.color18  #E0E0E0
-#set_from_resource $base02 i3wm.color19  #D0D0D0
-#set_from_resource $base03 i3wm.color8   #B0B0B0
-#set_from_resource $base04 i3wm.color20  #000000
-#set_from_resource $base05 i3wm.color7   #101010
-#set_from_resource $base06 i3wm.color21  #151515
-#set_from_resource $base07 i3wm.color15  #202020
-#set_from_resource $base08 i3wm.color1   #FF0086
-#set_from_resource $base09 i3wm.color16  #FD8900
-#set_from_resource $base0A i3wm.color3   #ABA800
-#set_from_resource $base0B i3wm.color2   #00C918
-#set_from_resource $base0C i3wm.color6   #1FAAAA
-#set_from_resource $base0D i3wm.color4   #3777E6
-#set_from_resource $base0E i3wm.color5   #AD00A1
-#set_from_resource $base0F i3wm.color17  #CC6633
-
-set $base00 #151515
-set $base01 #202020
-set $base02 #303030
-set $base03 #505050
-set $base04 #B0B0B0
-set $base05 #D0D0D0
-set $base06 #E0E0E0
-set $base07 #FFFFFF
-set $base08 #FF0086
-set $base09 #FD8900
-set $base0A #ABA800
-set $base0B #00C918
-set $base0C #1FAAAA
-set $base0D #3777E6
-set $base0E #AD00A1
-set $base0F #CC6633
+set $base00 #1B2B34
+set $base01 #343D46
+set $base02 #4F5B66
+set $base03 #65737E
+set $base04 #A7ADBA
+set $base05 #C0C5CE
+set $base06 #CDD3DE
+set $base07 #D8DEE9
+set $base08 #EC5f67
+set $base09 #F99157
+set $base0A #FAC863
+set $base0B #99C794
+set $base0C #5FB3B3
+set $base0D #6699CC
+set $base0E #C594C5
+set $base0F #AB7967
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -208,10 +205,12 @@ client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background $base07
 
 bar {
-  status_command i3status-rs ~/.config/i3/config.toml
+  status_command i3blocks
   position top
   tray_output none
   strip_workspace_numbers yes
+
+  font pango:Overpass Mono, FontAwesome 11
 
   colors {
     background $base00
@@ -225,12 +224,16 @@ bar {
     urgent_workspace    $base08 $base08 $base00
     binding_mode        $base00 $base0A $base00
   }
-  font pango:Overpass Mono 11
-  font pango:FontAwesome 11
 }
 
 # default floating
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="keepassxc"] floating enable
@@ -247,35 +250,30 @@ assign [class="Firefox"] $ws10
 assign [class="Chromium"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
-# key-bindings
-
+# screenshots
 bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+# lock screen
 bindsym $mod+period exec xset s activate
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
-
+# audio player control
 #bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPause exec playerctl play-pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
-
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc previous
-
-bindsym XF86MonBrightnessUp exec changebrightness up
-bindsym XF86MonBrightnessDown exec changebrightness down
-
-bindsym $mod+n exec pcmanfm
+# brightness
+#bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
+#bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0083.jpg
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst

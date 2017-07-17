@@ -35,6 +35,8 @@ Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " LaTeX support
 Plug 'lervag/vimtex', { 'for': 'tex'}
+" Text Filtering/Alignment | Markdown
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 " Linting 
 Plug 'neomake/neomake'
 " a tagbar
@@ -52,13 +54,13 @@ call plug#end()
 " {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set background-color
-set background=light
+set background=dark
 
 " Set colorspace
 let base16colorspace=256
 
 " Set colorscheme
-colorscheme base16-summerfruit-light
+colorscheme base16-oceanicnext
 
 " activate filetype plugins and indent
 filetype plugin indent on
@@ -418,7 +420,7 @@ nmap <silent><Leader>gb :Gblame<CR>
 " fzf
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>a :Ag<CR>
+nnoremap \ :Ag<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
@@ -664,5 +666,18 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
+
+" {{{2 Markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_new_list_item_indent = 0
+
+" prevent vim-markdown from inserting asterisks on wrapping line. 
+" https://github.com/plasticboy/vim-markdown/issues/232
+" FIXME its far from perfect, since no ai seems to take place
+autocmd FileType markdown 
+    \ set formatoptions-=q |
+    \ set formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*\[-*+]\\s\\+
 
 " vim:fdm=marker
