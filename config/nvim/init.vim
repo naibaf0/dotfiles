@@ -672,6 +672,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal = 0
 
 " prevent vim-markdown from inserting asterisks on wrapping line. 
 " https://github.com/plasticboy/vim-markdown/issues/232
