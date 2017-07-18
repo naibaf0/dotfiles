@@ -273,7 +273,7 @@ bindsym XF86AudioPrev exec mpc previous
 #bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
-exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0083.jpg
+exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0121.jpg
 exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
