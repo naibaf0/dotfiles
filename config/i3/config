@@ -14,7 +14,7 @@ set $ws9 "9:"
 set $ws10 "10:"
 #  
 
-set $monitor_base "eDP-1"
+set $monitor_base "LVDS1"
 
 workspace $ws1 output $monitor_base
 workspace $ws2 output $monitor_base
