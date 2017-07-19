@@ -2,6 +2,25 @@
 
 set $mod Mod4
 
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+#  
+
+set $monitor_base "eDP-1"
+
+workspace $ws1 output $monitor_base
+workspace $ws2 output $monitor_base
+workspace $ws3 output $monitor_base
+workspace $ws4 output $monitor_base
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Overpass 10
@@ -74,18 +93,6 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
-#  
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
