@@ -416,6 +416,7 @@ nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
 nmap <silent><Leader>gd :Gdiff<CR>
 nmap <silent><Leader>gb :Gblame<CR>
+nmap <silent><Leader>gl :Commits<CR>
 
 " fzf
 nnoremap <leader>o :Files<CR>
