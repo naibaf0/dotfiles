@@ -559,6 +559,8 @@ let g:deoplete#auto_completion_start_length = 3
 let g:deoplete#max_list = 40
 
 let g:deoplete#omni#functions = {}
+let g:deoplete#sources = {}
+
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
   \ 'jspc#omni'
@@ -609,9 +611,11 @@ let g:neopairs#enable = 1
 """""""""
 " deoplete-go
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 1
-"let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
+let g:deoplete#sources#go#use_cache = 0
+let g:deoplete#sources['go'] = ['file', 'neosnippet', 'go', 'buffer', 'syntax']
+"let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -645,8 +649,7 @@ let g:tern_show_signature_in_pum = 0  " This do disable full signature type on a
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs', 'buffer', 'syntax']
 
 
 " {{{2 LaTeX
