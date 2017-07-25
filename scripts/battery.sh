@@ -8,11 +8,11 @@ percent=`echo $acpi | cut -d, -f2 | sed 's/\%//g'`
 time=`echo $acpi | cut -d, -f3 | cut -d: --fields=1,2`
 
 if [ "$status" == "Discharging" ]; then
-  text='-'"$percent"'% ('"$time"')'
+  text='- '"$percent"'% ('"$time"')'
 elif [ "$status" == "Charging" ]; then
-  text=''"$percent"'% ('"$time"')'
+  text=' '"$percent"'% ('"$time"')'
 elif [ "$status" == "Full" ]; then
-  text=''"$percent"'%'
+  text=' '"$percent"'%'
 else
   text='Error parsing battery from acpi'
 fi
