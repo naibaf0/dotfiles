@@ -91,8 +91,9 @@ signal=4
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+command=echo "`date +'%a %d %b'` <b>`date +'%T'`</b> "
+interval=1
+markup=pango
 
 # OpenVPN support
 #
