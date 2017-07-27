@@ -12,7 +12,7 @@ if [ "$status" == "Discharging" ]; then
 elif [ "$status" == "Charging" ]; then
   text=' '"$percent"'% ('"$time"')'
 elif [ "$status" == "Full" ]; then
-  text=' '"$percent"'%'
+  text=' '
 else
   text='Error parsing battery from acpi'
 fi
