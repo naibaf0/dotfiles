@@ -153,8 +153,8 @@ mode "resize" {
 set $mode_display Ext Screen: (v) VGA ON, (w) Workstation, (x) VGA OFF, (y) Workstation OFF X: (r) Redshift, (c) Compton
 bindsym $mod+x mode "$mode_display"
 mode "$mode_display" {
-    bindsym v exec --no-startup-id xrandr --output DP1 --auto --right-of LVDS1, mode "default"
-    bindsym w exec --no-startup-id xrandr --output DP2 --auto --right-of LVDS1, mode "default"
+    bindsym v exec --no-startup-id xrandr --output DP1 --auto --right-of LVDS1, mode "default" & ./.fehbg
+    bindsym w exec --no-startup-id xrandr --output DP2 --auto --right-of LVDS1, mode "default" & ./.fehbg
     bindsym x exec --no-startup-id xrandr --output DP1 --auto --off, mode "default"
     bindsym y exec --no-startup-id xrandr --output DP2 --auto --off, mode "default"
     bindsym r exec --no-startup-id redshift_toggle, mode "default"
