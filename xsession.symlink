@@ -12,6 +12,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 
 xsetroot -cursor_name left_ptr
 
+xset -b
+
 #xset r rate 150 50
 #xset m 0 0
 #xset +dpms

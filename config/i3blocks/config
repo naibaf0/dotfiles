@@ -63,7 +63,7 @@ interval=10
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[temperature -w 55 -c 65]
+[temperature -w 65 -c 75]
 label=
 interval=10
 

@@ -14,7 +14,7 @@ set $ws9 "9:"
 set $ws10 "10:"
 #  
 
-set $monitor_base "eDP-1"
+set $monitor_base "LVDS1"
 
 workspace $ws1 output $monitor_base
 workspace $ws2 output $monitor_base
@@ -150,13 +150,13 @@ mode "resize" {
 }
 
 ## Manual management of external displays
-set $mode_display Ext Screen: (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF X: (r) Redshift, (c) Compton
+set $mode_display Ext Screen: (v) VGA ON, (w) Workstation, (x) VGA OFF, (y) Workstation OFF X: (r) Redshift, (c) Compton
 bindsym $mod+x mode "$mode_display"
 mode "$mode_display" {
-    bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1 & ~/.fehbg
-    bindsym h mode "default", exec --no-startup-id xrandr --output DP-2 --auto --right-of eDP-1 & ~/.fehbg
-    bindsym x mode "default", exec --no-startup-id xrandr --output DP-1 --auto --off
-    bindsym y mode "default", exec --no-startup-id xrandr --output DP-2 --auto --off
+    bindsym v mode "default", exec --no-startup-id xrandr --output DP1 --auto --right-of LVDS1 & ~/.fehbg
+    bindsym h mode "default", exec --no-startup-id xrandr --output DP2 --auto --right-of LVDS1 & ~/.fehbg
+    bindsym x mode "default", exec --no-startup-id xrandr --output DP1 --auto --off
+    bindsym y mode "default", exec --no-startup-id xrandr --output DP2 --auto --off
     bindsym r mode "default", exec --no-startup-id redshift_toggle
     bindsym c mode "default", exec --no-startup-id compton_toggle
 
