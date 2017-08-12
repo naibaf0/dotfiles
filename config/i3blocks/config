@@ -83,16 +83,17 @@ signal=10
 #
 # The battery instance defaults to 0.
 [battery]
-#label=BAT
-label=⚡
-#instance=1
+command=$HOME/.dotfiles/scripts/battery.sh
 interval=30
+signal=4
+#instance=1
 
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+command=echo "`date +'%a %d %b'` <b>`date +'%T'`</b> "
+interval=1
+markup=pango
 
 # OpenVPN support
 #

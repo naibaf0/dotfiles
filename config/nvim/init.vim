@@ -19,6 +19,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -82,6 +83,9 @@ set showtabline=1
 
 " Show (partial) command in status line
 set showcmd
+
+" Don't show mode in status line (visible in airline)
+set noshowmode
 
 " Show line numbers on the side, switch between relative and absolute number
 set number
@@ -416,6 +420,7 @@ nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
 nmap <silent><Leader>gd :Gdiff<CR>
 nmap <silent><Leader>gb :Gblame<CR>
+nmap <silent><Leader>gl :Commits<CR>
 
 " fzf
 nnoremap <leader>o :Files<CR>
@@ -549,21 +554,23 @@ autocmd! BufWritePost * Neomake
 set completeopt+=noinsert
 " deoplete.nvim recommend
 set completeopt+=noselect
+" restrict height of completion popup
+set pumheight=20
 " enable deoplete
 let g:deoplete#enable_at_startup = 1
 " Use smartcase.
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#auto_completion_start_length = 3
-" Maximum Number of candidates shown
-let g:deoplete#max_list = 40
 
 let g:deoplete#omni#functions = {}
+let g:deoplete#sources = {}
+
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
   \ 'jspc#omni'
 \]
 
-call deoplete#custom#set('_', 'converters',
+call deoplete#custom#source('_', 'converters',
   \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
 
 " Recommended key-mappings.
@@ -572,6 +579,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 inoremap <expr><C-g> deoplete#undo_completion()
 
 " close preview window after completion
@@ -608,9 +620,11 @@ let g:neopairs#enable = 1
 """""""""
 " deoplete-go
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 1
-"let g:deoplete#sources#go#json_directory = '/path/to/data_dir'
+let g:deoplete#sources#go#use_cache = 0
+let g:deoplete#sources['go'] = ['file', 'neosnippet', 'go', 'buffer', 'syntax']
+"let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -644,8 +658,7 @@ let g:tern_show_signature_in_pum = 0  " This do disable full signature type on a
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs', 'buffer', 'syntax']
 
 
 " {{{2 LaTeX
@@ -672,6 +685,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal = 0
 
 " prevent vim-markdown from inserting asterisks on wrapping line. 
 " https://github.com/plasticboy/vim-markdown/issues/232
