@@ -55,12 +55,6 @@ visualizer_output_name = fifo
 visualizer_in_stereo = yes
 
 
-# Multiply received samples by given value. Very
-# useful for proper visualization of quiet music.
-
-#visualizer_sample_multiplier = 1
-
-
 # Note: Below parameter defines how often ncmpcpp
 # has to "synchronize" visualizer and audio outputs.
 # 30 seconds is optimal value, but if you experience
@@ -195,6 +189,14 @@ alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 
+#current_item_prefix = $(yellow)$r
+
+#current_item_suffix = $/r$(end)
+
+#current_item_inactive_column_prefix = $(white)$r
+
+#current_item_inactive_column_suffix = $/r$(end)
+
 #now_playing_prefix = $b
 
 now_playing_suffix = $/b
@@ -290,7 +292,7 @@ song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)
 
 # Note: Possible display modes: classic, columns.
 
-#playlist_display_mode = columns
+playlist_display_mode = columns
 
 browser_display_mode = columns
 
@@ -299,6 +301,8 @@ search_engine_display_mode = columns
 playlist_editor_display_mode = columns
 
 #discard_colors_if_item_is_selected = yes
+
+#show_duplicate_tags = true
 
 incremental_seeking = yes
 
@@ -315,8 +319,6 @@ centered_cursor = no
 # be used to build 'empty' part of progressbar.
 
 progressbar_look = ■■□
-
-progressbar_boldness = yes
 
 # Available values: database, playlist.
 
@@ -350,6 +352,8 @@ header_text_scrolling = yes
 
 #lines_scrolled = 2
 
+#lyrics_fetchers = lyricwiki, azlyrics, genius, sing365, lyricsmania, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
+
 #follow_now_playing_lyrics = no
 
 #fetch_lyrics_for_current_song_in_background = no
@@ -359,8 +363,6 @@ header_text_scrolling = yes
 #generate_win32_compatible_filenames = yes
 
 #allow_for_physical_item_deletion = no
-
-
 # Note: If you set this variable, ncmpcpp will try to
 # get info from last.fm in language you set and if it
 # fails, it will fall back to english. Otherwise it will
@@ -423,12 +425,17 @@ display_bitrate = yes
 
 #regular_expressions = perl
 
+# Note: if below is enabled, ncmpcpp will ignore leading "The" word while
+# sorting items in browser, tags in media library, etc.
 
-# Note: If below is enabled, ncmpcpp will ignore leading
-# "The" word while sorting items in browser, tags in
-# media library, etc.
+ignore_leading_the = yes
 
-#ignore_leading_the = no
+
+# Note: if below is enabled, ncmpcpp will ignore diacritics while searching and
+# filtering lists. This takes an effect only if boost was compiled with ICU
+# support.
+
+#ignore_diacritics = no
 
 #block_search_constraints_change_if_items_found = yes
 
@@ -445,7 +452,6 @@ display_bitrate = yes
 #media_library_sort_by_mtime = no
 
 #enable_window_title = yes
-
 
 # Note: You can choose default search mode for search
 # engine. Available modes are:
@@ -466,25 +472,35 @@ external_editor = vim
 
 use_console_editor = yes
 
-##### colors definitions #####
+#### colors definitions #####
 
-# It is possible to set a background color by setting a color
-# value "<foreground>_<background>", e.g. red_black will set
-# foregound color to red and background color to black.
+# It is possible to set a background color by setting a color value
+# "<foreground>_<background>", e.g. red_black will set foregound color to red
+# and background color to black.
 
-# In addition, for terminals that support 256 colors it
-# is possible to set one of them by using a number in range
-# [1, 256] instead of color name, e.g. numerical value
-# corresponding to red_black is 2_1. To find out if the
-# terminal supports 256 colors, run ncmpcpp and check out
-# the bottom of the help screen for list of available colors
-# and their numerical values.
+# In addition, for terminals that support 256 colors it is possible to set one
+# of them by using a number in range [1, 256] instead of color name,
+# e.g. numerical value corresponding to red_black is 2_1. To find out if the
+# terminal supports 256 colors, run ncmpcpp and check out the bottom of the
+# help screen for list of available colors and their numerical values.
 
-# Note: due to technical limitations of ncurses, if 256 colors
-# are used, it is possible to either use only the colors with
-# default background color, or all pairs from 1_1 up to 254_127,
-# depending on the ncurses version used.
+# What is more, there are two special values for the background color:
+# "transparent" and "current". The first one explicitly sets the background to
+# be transparent, while the second one allows you to preserve current
+# background color and change only the foreground one. It's used implicitly
+# when background color is not specified.
 
+# Moreover, it is possible to attach format information to selected color
+# variables by appending to their end a colon followed by one or more format
+# flags, e.g. black:b or red:ur. The following variables support this syntax:
+# visualizer_color, color1, color2, empty_tag_color, volume_color,
+# state_line_color, state_flags_color, progressbar_color,
+# progressbar_elapsed_color, player_state_color, statusbar_time_color,
+# alternative_ui_separator_color.
+
+# Note: due to technical limitations of older ncurses version, if 256 colors
+# are used there is a possibility that you'll be able to use only colors with
+# transparent background.
 
 #colors_enabled = yes
 
@@ -496,7 +512,7 @@ use_console_editor = yes
 
 #state_line_color = default
 
-#state_flags_color = default
+#state_flags_color = default:b
 
 #main_window_color = yellow
 
@@ -504,17 +520,17 @@ use_console_editor = yes
 
 #color2 = green
 
-#main_window_highlight_color = yellow
+#progressbar_color = black:b
 
-#progressbar_color = black
-
-#progressbar_elapsed_color = green
+#progressbar_elapsed_color = green:b
 
 #statusbar_color = default
 
-#alternative_ui_separator_color = black
+#statusbar_time_color = default:b
 
-#active_column_color = red
+#player_state_color = default:b
+
+#alternative_ui_separator_color = black:b
 
 #window_border_color = green
 
