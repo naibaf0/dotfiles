@@ -40,6 +40,8 @@ Plug 'lervag/vimtex', { 'for': 'tex'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 " Linting 
 Plug 'neomake/neomake'
+" Tag management
+Plug 'ludovicchabant/vim-gutentags'
 " a tagbar
 Plug 'majutsushi/tagbar'
 " cool commenting features
