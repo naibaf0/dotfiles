@@ -11,7 +11,14 @@ wait
 echo "\nUpdating Neovim Plugins ...\n"
 
 cd ~
-nvim +PlugUpgrade +PlugUpdate! +qa &
+nvim +PlugUpgrade +PlugInstall +PlugUpdate! +qa &
+wait
+
+echo "\nUpdating Go Meta Binaries ...\n"
+
+cd /tmp
+touch tmpfile.go
+nvim +GoUpdateBinaries +qa &
 wait
 
 echo "\nUpdating ZIM ...\n"
