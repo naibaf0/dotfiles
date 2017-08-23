@@ -33,7 +33,6 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do' : 'n
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " LaTeX support
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " Text Filtering/Alignment | Markdown
@@ -564,13 +563,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#auto_completion_start_length = 3
 
-let g:deoplete#omni#functions = {}
 let g:deoplete#sources = {}
-
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#functions = {}
 
 call deoplete#custom#source('_', 'converters',
   \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
@@ -659,15 +654,17 @@ let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
+let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
 
 let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs', 'buffer', 'syntax']
 
 
 " {{{2 LaTeX
 " """"""""""
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
 let g:deoplete#omni#input_patterns.tex = '\\(?:'
       \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
       \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
