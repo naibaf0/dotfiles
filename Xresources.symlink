@@ -67,7 +67,7 @@ rofi.fullscreen: false
 rofi.terminal: termite
 rofi.ssh-client: ssh
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
-rofi.font: Mononoki 20
+rofi.font: Fantasque Sans Mono 20
 ! Color theme
 !------------
 ! Use extended color scheme
