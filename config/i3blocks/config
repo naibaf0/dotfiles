@@ -49,7 +49,7 @@ signal=10
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [wireless]
-label=  
+label=
 command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r)"
 interval=2
 separator=false
