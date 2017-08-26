@@ -50,13 +50,9 @@ signal=10
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [wireless]
 label=
-command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r)"
-interval=2
-separator=false
-
-[wifi]
 instance=wifi0
-interval=10
+command=$HOME/.dotfiles/scripts/wireless.sh
+interval=2
 
 # Temperature
 #
