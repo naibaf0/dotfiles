@@ -215,7 +215,7 @@ bar {
   tray_output none
   strip_workspace_numbers yes
 
-  font pango:Overpass Mono, FontAwesome 11
+  font pango:Fantasque Sans Mono, FontAwesome 11
 
   colors {
     background $base00
