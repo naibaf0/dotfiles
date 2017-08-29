@@ -8,16 +8,17 @@ INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 ESSID=$(iwgetid -r)
 QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
-echo $ESSID $QUALITY%
-echo $ESSID $QUALITY%
+full_text="$ESSID ($QUALITY%)"
+short_text="$ESSID"
+
+echo $full_text
+echo $short_text
 
 # color
-if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
-elif [[ $QUALITY -lt 80 ]]; then
-    echo "#FFF600"
+if [[ $QUALITY -lt 80 ]]; then
+    echo "#FAC863" #color03/base0A
 elif [[ $QUALITY -lt 60 ]]; then
-    echo "#FFAE00"
+    echo "#F99157" #color16/base09
 elif [[ $QUALITY -lt 40 ]]; then
-    echo "#FF0000"
+    echo "#EC5f67" #color01/base08
 fi
