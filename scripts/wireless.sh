@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source `dirname $0`/colors.sh
+
 INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 
 [[ ! -d /sys/class/net/${INTERFACE}/wireless ]] ||
@@ -16,9 +18,9 @@ echo $short_text
 
 # color
 if [[ $QUALITY -lt 80 ]]; then
-    echo "#FAC863" #color03/base0A
+    echo $color3 #color3/base0A
 elif [[ $QUALITY -lt 60 ]]; then
-    echo "#F99157" #color16/base09
+    echo $color16 #color16/base09
 elif [[ $QUALITY -lt 40 ]]; then
-    echo "#EC5f67" #color01/base08
+    echo $color1 #color1/base08
 fi
