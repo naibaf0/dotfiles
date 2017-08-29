@@ -50,7 +50,7 @@ elif [ "$status" == "Discharging" ] && [ "$percent" -gt "40" ]; then
   echo $color16 #color16/base09
 elif [ "$status" == "Discharging" ] && [ "$percent" -gt "10" ]; then
   echo $color1 #color1/base08
-else
+elif [ "$status" == "Discharging" ]; then
   exit 33
 fi
 
