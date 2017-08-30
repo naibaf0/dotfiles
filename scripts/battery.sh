@@ -10,8 +10,8 @@ percent=`echo $acpi | cut -d, -f2 | sed 's/\%//g'`
 time=`echo $acpi | cut -d, -f3 | cut -d: --fields=1,2`
 
 if [ "$status" == "Full" ]; then
-  full_text=' '
-  short_text=' '
+  full_text=' '
+  short_text=' '
 else
   if [ "$status" == "Discharging" ] || [ "$status" == "Charging" ]; then
     if [ "$percent" -gt "90" ]; then
