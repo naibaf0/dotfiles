@@ -4,8 +4,10 @@
 
 # Source zim
 # ==========
-[[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]] && source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-unsetopt EXTENDED_GLOB #set by directory module of zim, make some commands unusable
+
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+[ -s ${ZIM_HOME}/init.zsh ] && source ${ZIM_HOME}/init.zsh
 
 # Source fzf
 # ==========
