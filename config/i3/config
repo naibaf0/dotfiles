@@ -245,6 +245,7 @@ for_window [class="keepassxc"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="VirtualBox"] floating enable
 
 # workspace assignments
 assign [class="Slack"] $ws2
