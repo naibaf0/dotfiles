@@ -154,9 +154,9 @@ set $mode_display Ext Screen: (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
 bindsym $mod+x mode "$mode_display"
 mode "$mode_display" {
     bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1 & ~/.fehbg
-    bindsym h mode "default", exec --no-startup-id xrandr --output DP-2 --auto --right-of eDP-1 & ~/.fehbg
+    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1 & ~/.fehbg
     bindsym x mode "default", exec --no-startup-id xrandr --output DP-1 --auto --off
-    bindsym y mode "default", exec --no-startup-id xrandr --output DP-2 --auto --off
+    bindsym y mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --off
     bindsym r mode "default", exec --no-startup-id redshift_toggle
     bindsym c mode "default", exec --no-startup-id compton_toggle
 
