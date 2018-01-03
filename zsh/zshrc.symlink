@@ -1,13 +1,14 @@
-#============================================
-# Configuration sourced by interactive shells
-#============================================
 
-# Source zim
-# ==========
 
+#
+# User configuration sourced by interactive shells
+#
+
+# Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
-[ -s ${ZIM_HOME}/init.zsh ] && source ${ZIM_HOME}/init.zsh
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # Source fzf
 # ==========
@@ -64,6 +65,10 @@ if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:slogin:*' hosts $h
   zstyle ':completion:*:rsync:*' hosts $h
 fi
+
+zsh_stats () {
+fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
+}
 
 # Aliases
 # =======
