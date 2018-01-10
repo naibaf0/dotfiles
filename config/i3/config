@@ -215,7 +215,7 @@ bar {
   tray_output none
   strip_workspace_numbers yes
 
-  font pango:Fantasque Sans Mono, FontAwesome 11
+  font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
 
   colors {
     background $base00
@@ -230,6 +230,9 @@ bar {
     binding_mode        $base00 $base0A $base00
   }
 }
+
+#temp
+for_window [workspace=$ws5] floating enable
 
 # default floating
 for_window [window_role="pop-up"] floating enable
