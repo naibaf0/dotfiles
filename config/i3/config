@@ -255,8 +255,8 @@ assign [class="Slack"] $ws2
 assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
-assign [class="Firefox"] $ws10
-assign [class="Chromium"] $ws10
+assign [class="Lollypop"] $ws4
+assign [window_role="browser"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
 # screenshots
