@@ -64,10 +64,12 @@ Xft.hintstyle:              hintslight
 !------------------------------------------------------------------------------
 rofi.lines: 10
 rofi.fullscreen: false
+rofi.modi: drun,combi,ssh
 rofi.terminal: termite
 rofi.ssh-client: ssh
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.font: Fantasque Sans Mono 20
+rofi.show-icons: true
 ! Color theme
 !------------
 ! Use extended color scheme

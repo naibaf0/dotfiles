@@ -2,9 +2,9 @@
 
 # Variables
 export TERMINAL="termite"
-export BROWSER="firefox"
+export BROWSER="firefox-nightly"
 
-#export FREETYPE_PROPERTIES="truetype:interpreter-version=40"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Autostart
 # Ctrl + Alt + backspace to kill the X server

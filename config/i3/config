@@ -215,7 +215,7 @@ bar {
   tray_output none
   strip_workspace_numbers yes
 
-  font pango:Fantasque Sans Mono, FontAwesome 11
+  font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
 
   colors {
     background $base00
@@ -231,6 +231,9 @@ bar {
   }
 }
 
+#temp
+for_window [workspace=$ws5] floating enable
+
 # default floating
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -245,14 +248,15 @@ for_window [class="keepassxc"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="VirtualBox"] floating enable
 
 # workspace assignments
 assign [class="Slack"] $ws2
 assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
-assign [class="Firefox"] $ws10
-assign [class="Chromium"] $ws10
+assign [class="Lollypop"] $ws4
+assign [window_role="browser"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
 # screenshots
