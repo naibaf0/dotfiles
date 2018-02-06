@@ -32,3 +32,5 @@ set notification-fg             "#1B2B34"
 set recolor-keephue             "true"
 
 # Rest of your configs go here:
+
+set selection-clipboard         clipboard
