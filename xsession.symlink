@@ -2,7 +2,7 @@
 
 # Variables
 export TERMINAL="termite"
-export BROWSER="firefox-nightly"
+export BROWSER="firefox-beta"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
