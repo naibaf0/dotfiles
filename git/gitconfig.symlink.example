@@ -10,7 +10,6 @@
     g                   = grep --break --heading --line-number
     gi                  = grep --break --heading --line-number -i
     changed             = show --pretty=\"format:\" --name-only
-    sync                = !zsh -ic git-sync
     cp-branch-name      = !git rev-parse --abbrev-ref HEAD | pbcopy
     delete-local-merged = !zsh -ic git-delete-local-merged
     add-upstream        = !zsh -ic \"add-upstream $*\"
@@ -29,24 +28,22 @@
     autocrlf          = input
     whitespace        = trailing-space,space-before-tab
     precomposeunicode = true
+[push]
+    default = simple
 [apply]
     whitespace = nowarn
 [help]
     autocorrect = 1
 [merge]
-    tool = diffmerge
-[mergetool "diffmerge"]
-    cmd           = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-    trustExitCode = true
-    keepBackup    = false
+  tool = vimdiff
+  conflictstyle =diff3
+[mergetool]
+  prompt = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff]
-    tool = diffmerge
-[difftool "diffmerge"]
-    cmd = diffmerge $LOCAL $REMOTE
+  tool = vimdiff
 [difftool]
-    prompt = false
-[grep]
-    extendRegexp = true
-    lineNumber   = true
-[push]
-    default = simple
+  prompt = false
+[difftool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
