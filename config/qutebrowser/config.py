@@ -412,7 +412,7 @@ c.colors.tabs.selected.odd.fg = base16['base06']
 
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
-# c.completion.height = '40%'
+c.completion.height = '40%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -759,7 +759,7 @@ c.colors.tabs.selected.odd.fg = base16['base06']
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['termite', '-e', "nvim {file} -c 'normal {line}G{column0}l'"]
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -804,7 +804,7 @@ c.colors.tabs.selected.odd.fg = base16['base06']
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
-# c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.monospace = '"Fantasque Sans Mono", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 
 ## Font used for prompts.
 ## Type: Font
@@ -832,7 +832,7 @@ c.colors.tabs.selected.odd.fg = base16['base06']
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
-# c.fonts.web.family.sans_serif = ''
+c.fonts.web.family.sans_serif = '"Overpass", "sans-serif"'
 
 ## Font family for serif fonts.
 ## Type: FontFamily
