@@ -5,22 +5,22 @@
 
 ## Colors of the oceanic-next base16 colorscheme.
 base16 = {
-    'base00': '#1b2b34',
-    'base01': '#343d46',
-    'base02': '#4f5b66',
-    'base03': '#65737e',
-    'base04': '#a7adba',
-    'base05': '#c0c5ce',
-    'base06': '#cdd3de',
-    'base07': '#d8dee9',
-    'base08': '#ec5f67',
-    'base09': '#f99157',
-    'base0A': '#fac863',
-    'base0B': '#99c794',
-    'base0C': '#5fb3b3',
-    'base0D': '#6699cc',
-    'base0E': '#c594c5',
-    'base0F': '#ab7967'
+    'base00': '#1b2b34', # Default Background
+    'base01': '#343d46', # Lighter Background
+    'base02': '#4f5b66', # Selection Background
+    'base03': '#65737e', # 
+    'base04': '#a7adba', # Dark Foreground
+    'base05': '#c0c5ce', # Default Foreground
+    'base06': '#cdd3de', # Light Foreground
+    'base07': '#d8dee9', # Light Foreground
+    'base08': '#ec5f67', # Red
+    'base09': '#f99157', # Orange
+    'base0A': '#fac863', # Yellow
+    'base0B': '#99c794', # Green
+    'base0C': '#5fb3b3', # Cyan
+    'base0D': '#6699cc', # Blue
+    'base0E': '#c594c5', # 
+    'base0F': '#ab7967'  #
 }
 
 ## This is here so configs done via the GUI are still loaded.
@@ -127,7 +127,7 @@ c.colors.downloads.bar.bg = base16['base00']
 
 ## Background color for downloads with errors.
 ## Type: QtColor
-c.colors.downloads.error.bg = base16['base0A']
+c.colors.downloads.error.bg = base16['base08']
 
 ## Foreground color for downloads with errors.
 ## Type: QtColor
@@ -194,11 +194,11 @@ c.colors.keyhint.suffix.fg = base16['base08']
 
 ## Background color of an error message.
 ## Type: QssColor
-c.colors.messages.error.bg = base16['base0A']
+c.colors.messages.error.bg = base16['base08']
 
 ## Border color of an error message.
 ## Type: QssColor
-c.colors.messages.error.border = base16['base0A']
+c.colors.messages.error.border = base16['base08']
 
 ## Foreground color of an error message.
 ## Type: QssColor
@@ -314,7 +314,7 @@ c.colors.statusbar.progress.bg = base16['base05']
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-c.colors.statusbar.url.error.fg = base16['base0A']
+c.colors.statusbar.url.error.fg = base16['base08']
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
@@ -336,7 +336,7 @@ c.colors.statusbar.url.success.https.fg = base16['base05']
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
-c.colors.statusbar.url.warn.fg = base16['base08']
+c.colors.statusbar.url.warn.fg = base16['base09']
 
 ## Background color of the tab bar.
 ## Type: QtColor
@@ -352,7 +352,7 @@ c.colors.tabs.even.fg = base16['base05']
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
-c.colors.tabs.indicator.error = base16['base0A']
+c.colors.tabs.indicator.error = base16['base08']
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
@@ -533,7 +533,7 @@ c.completion.height = '40%'
 
 ## Value to send in the `Accept-Language` header.
 ## Type: String
-# c.content.headers.accept_language = 'en-US,en'
+c.content.headers.accept_language = 'en-US,en-GB,en,de-DE,de'
 
 ## Custom headers for qutebrowser HTTP requests.
 ## Type: Dict
@@ -658,7 +658,7 @@ c.completion.height = '40%'
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-# c.content.pdfjs = False
+c.content.pdfjs = True
 
 ## Enable plugins in Web pages.
 ## Type: Bool
@@ -1060,7 +1060,7 @@ c.fonts.web.family.sans_serif = '"Overpass", "sans-serif"'
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
 ## Type: Bool
-# c.scrolling.smooth = False
+c.scrolling.smooth = True
 
 ## When to find text on a page case-insensitively.
 ## Type: String
@@ -1132,7 +1132,7 @@ c.fonts.web.family.sans_serif = '"Overpass", "sans-serif"'
 ##   - tr-TR: Turkish (Turkey)
 ##   - uk-UA: Ukrainian (Ukraine)
 ##   - vi-VN: Vietnamese (Viet Nam)
-c.spellcheck.languages = ['de-DE','en-GB']
+c.spellcheck.languages = ['de-DE','en-GB','en-US']
 
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
@@ -1345,7 +1345,7 @@ c.spellcheck.languages = ['de-DE','en-GB']
 
 ## Hide the window decoration when using wayland.
 ## Type: Bool
-# c.window.hide_wayland_decoration = False
+c.window.hide_wayland_decoration = True
 
 ## Format to use for the window title. The same placeholders like for
 ## `tabs.title.format` are defined.
