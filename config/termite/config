@@ -14,7 +14,7 @@ scrollback_lines = 10000
 search_wrap = true
 cursor_blink = off
 cursor_shape = block
-browser = firefox
+browser = firefox-beta
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
