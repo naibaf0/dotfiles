@@ -385,10 +385,8 @@ nnoremap < <<
 nnoremap > >>
 
 " convenient mappings for system clipboard
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 " <F2>: toggle spell checker on and off
 nnoremap <special> <F2> :call ToggleSpell()<CR>
@@ -414,8 +412,8 @@ nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
 " Git
-nmap ggn <Plug>GitGutterNextHunk
-nmap ggp <Plug>GitGutterPrevHunk
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
 nmap <silent><Leader>gs :Gstatus<CR>
 nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
