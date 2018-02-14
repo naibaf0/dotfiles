@@ -412,8 +412,8 @@ nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
 " Git
-nmap ggn <Plug>GitGutterNextHunk
-nmap ggp <Plug>GitGutterPrevHunk
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
 nmap <silent><Leader>gs :Gstatus<CR>
 nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
