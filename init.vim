@@ -385,10 +385,8 @@ nnoremap < <<
 nnoremap > >>
 
 " convenient mappings for system clipboard
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 " <F2>: toggle spell checker on and off
 nnoremap <special> <F2> :call ToggleSpell()<CR>
