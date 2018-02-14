@@ -18,10 +18,18 @@ if [ -f ~/.fzf.zsh ];then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-# Gcloud & kubectl
-# ================
+# gcloud sdk path and autocompletion
+# ==================================
+[ -f /opt/google-cloud-sdk/path.zsh.inc ] && source /opt/google-cloud-sdk/path.zsh.inc
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
-[ -n "$(which kubectl  2>/dev/null)" ] && source <(kubectl completion zsh)
+
+# kubectl autocompletion
+# ======================
+[ -n "$(which kubectl 2>/dev/null)" ] && eval "$(kubectl completion zsh)"
+
+# direnv hook
+# ===========
+[ -n "$(which direnv 2>/dev/null)" ] && eval "$(direnv hook zsh)"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
