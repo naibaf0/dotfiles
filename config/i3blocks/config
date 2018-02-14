@@ -39,8 +39,9 @@ urgent=true
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 [mediaplayer]
+command=$HOME/.dotfiles/scripts/mediaplayer
 label=
-#instance=spotify
+instance=mpv
 interval=5
 signal=10
 
