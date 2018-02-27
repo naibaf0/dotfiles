@@ -2,7 +2,8 @@
 # User configuration sourced by interactive shells
 #
 
-# Use powerlevel9k
+# Use and configure powerlevel9k
+# ==============================
 DEFAULT_USER="fabianhinz"
 POWERLEVEL9K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
 
@@ -40,6 +41,9 @@ fi
 # ===========
 [ -n "$(which direnv 2>/dev/null)" ] && eval "$(direnv hook zsh)"
 
+
+setopt ignoreeof # ignore ctrl+d
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
@@ -74,6 +78,11 @@ __magic-enter () {
 zle -N __magic-enter
 bindkey "^M" __magic-enter
 
+# send notification when program terminates
+function notify() {
+    $*; notify-send --urgency=critical "Task completed." "Executed '$*'.\nreturn code: $?"
+  }
+
 # Fix for zim ssh config completion #46
 # =====================================
 n=()
@@ -92,12 +101,19 @@ fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/c
 
 # Aliases
 # =======
-alias vi=vim
+# Neovim
 alias view='nvim -R'
+alias nvsu='sudo -E nvim'
+# Files
 alias grep='nocorrect grep --color=always -d skip'
 alias cp='nocorrect cp -i' # confirm before overwriting something
 alias df='df -h' # human-readable sizes
+alias du='du -h'
 alias free='free -m' # show sizes in MB
-alias ls='ls -FX --group-directories-first --color=always --human-readable'
-#typos...
-alias glcoud=gcloud
+alias ls='ls -FXh --group-directories-first --color=always --time-style=+"%Y-%m-%d %H:%M"'
+
+# Zathura
+alias zathura='zathura --fork > /dev/null 2>&1'
+alias z='zathura'
+
+alias lsblk='lsblk -o SIZE,NAME,VENDOR,MODEL,LABEL,FSTYPE,RO,TYPE,MOUNTPOINT,UUID'

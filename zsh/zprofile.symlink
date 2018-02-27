@@ -33,7 +33,7 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-# pacaur, yaourt, makepkg: use powerpill instead of pacman
+# for aur-helpers (z.B. trizen): use powerpill instead of pacman if available
 if which powerpill > /dev/null 2>&1; then
   pacman -Q powerpill >& /dev/null && export PACMAN=/usr/bin/powerpill
 fi
