@@ -1,0 +1,319 @@
+# i3 config file (v4)
+
+### Variables
+#
+# Logo key. Mod1 - Alt, Mod4 - Win
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term termite
+# Your preferred application launcher
+set $menu dmenu_run
+# Workspace names
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+#  
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/Pictures/Wallpapers/0121.jpg fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Input configuration
+#
+# Example configuration:
+#
+   input "2:7:SynPS/2_Synaptics_TouchPad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+  #set $monitor_base "eDP-1"
+
+#workspace $ws1 output $monitor_base
+#workspace $ws2 output $monitor_base
+#workspace $ws3 output $monitor_base
+#workspace $ws4 output $monitor_base
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Overpass 10
+
+# thin borders
+new_window pixel 3
+hide_edge_borders both
+
+# gaps
+gaps inner 10
+smart_gaps on
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+# start a file browser
+bindsym $mod+n exec pcmanfm
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+s exec rofi -show ssh 
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# move to another monitor
+bindsym $mod+Shift+Ctrl+$left move workspace to output left
+bindsym $mod+Shift+Ctrl+$down move workspace to output down
+bindsym $mod+Shift+Ctrl+$up move workspace to output up
+bindsym $mod+Shift+Ctrl+$right move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+b splith
+
+# split in vertical orientation
+bindsym $mod+v splitv
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit sway
+bindsym $mod+Shift+e exit
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # left will shrink the containers width.
+    # right will grow the containers width.
+    # up will shrink the containers height.
+    # down will grow the containers height.
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $down resize grow height 10 px or 10 ppt
+    bindsym $up resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+## Power options
+set $mode_power Power: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
+mode "$mode_power" {
+    bindsym l mode "default", exec --no-startup-id $HOME/.config/i3/i3exit lock
+    bindsym e mode "default", exec --no-startup-id $HOME/.config/i3/i3exit logout
+    bindsym s mode "default", exec --no-startup-id $HOME/.config/i3/i3exit suspend
+    bindsym r mode "default", exec --no-startup-id $HOME/.config/i3/i3exit reboot
+    bindsym p mode "default", exec --no-startup-id $HOME/.config/i3/i3exit shutdown
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym Mod1+Control+l mode "$mode_power"
+
+## Base16 Oceanic Next
+# Author: Christopher Corley (http://christop.club/)
+
+set $base00 #1B2B34
+set $base01 #343D46
+set $base02 #4F5B66
+set $base03 #65737E
+set $base04 #A7ADBA
+set $base05 #C0C5CE
+set $base06 #CDD3DE
+set $base07 #D8DEE9
+set $base08 #EC5f67
+set $base09 #F99157
+set $base0A #FAC863
+set $base0B #99C794
+set $base0C #5FB3B3
+set $base0D #6699CC
+set $base0E #C594C5
+set $base0F #AB7967
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background $base07
+
+bar {
+  status_command i3blocks
+  position top
+  tray_output none
+  strip_workspace_numbers yes
+
+  font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
+
+  colors {
+    background $base00
+    separator  $base01
+    statusline $base04
+
+    # State             Border  BG      Text
+    focused_workspace   $base05 $base0D $base00
+    active_workspace    $base05 $base03 $base00
+    inactive_workspace  $base03 $base01 $base05
+    urgent_workspace    $base08 $base08 $base00
+    binding_mode        $base00 $base0A $base00
+  }
+}
+
+# default floating
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="keepassxc"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="VirtualBox"] floating enable
+
+# workspace assignments
+assign [class="Slack"] $ws2
+assign [class="Rocket.Chat+"] $ws2
+assign [class="Thunderbird"] $ws3
+assign [class="Spotify"] $ws4
+assign [class="Lollypop"] $ws4
+assign [window_role="browser"] $ws10
+assign [class="^.*qutebrowser"] $ws10
+
+# screenshots
+bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+# lock screen
+bindsym $mod+period exec xset s activate
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
+# audio player control
+#bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc previous
+# brightness
+#bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
+#bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
+
+# startup
+exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
+exec --no-startup-id dropbox-cli start
+exec --no-startup-id dunst
+
+include /etc/sway/config.d/*
