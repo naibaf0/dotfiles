@@ -545,7 +545,15 @@ let g:tagbar_type_go = {
 
 " {{{2 Neomake
 """"""""""""""
-autocmd! BufWritePost * Neomake
+function! MyOnBattery()
+  return readfile('/sys/class/power_supply/ACAD/online') == ['0']
+endfunction
+
+if MyOnBattery()
+  call neomake#configure#automake('w')
+else
+  call neomake#configure#automake('nw', 1000)
+endif
 
 " {{{2 deoplete
 """""""""""""""
