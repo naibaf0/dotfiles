@@ -546,7 +546,7 @@ let g:tagbar_type_go = {
 " {{{2 Neomake
 """"""""""""""
 function! MyOnBattery()
-  return readfile('/sys/class/power_supply/ACAD/online') == ['0']
+  return readfile('/sys/class/power_supply/AC/online') == ['0']
 endfunction
 
 if MyOnBattery()
