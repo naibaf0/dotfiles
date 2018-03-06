@@ -70,7 +70,7 @@ interval=10
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-label=
+command=$HOME/.dotfiles/scripts/volume.sh
 instance=Master
 #instance=PCM
 interval=once
