@@ -5,7 +5,7 @@
 # Use and configure powerlevel9k
 # ==============================
 DEFAULT_USER="naibafo"
-POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context root_indicator dir vcs)
