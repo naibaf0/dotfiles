@@ -118,3 +118,6 @@ alias zathura='zathura --fork > /dev/null 2>&1'
 alias z='zathura'
 
 alias lsblk='lsblk -o SIZE,NAME,VENDOR,MODEL,LABEL,FSTYPE,RO,TYPE,MOUNTPOINT,UUID'
+
+# Kubernetes
+alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
