@@ -330,6 +330,9 @@ bindsym XF86AudioPrev exec mpc previous
 #bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 #bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
+# call indicator in i3blocks
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0121.jpg
 exec --no-startup-id xss-lock -- ~/.dotfiles/scripts/lock.sh
