@@ -22,7 +22,7 @@ zmodules=(directory environment git history input utility meta archive ssh custo
 #
 
 # Set your desired prompt here
-zprompt_theme='powerlevel9k'
+zprompt_theme='lean'
 
 #
 # Completion
