@@ -110,6 +110,9 @@ set winminwidth=20
 set winheight=7
 set winminheight=7
 
+" Show a vertical lign at column 80
+set colorcolumn=80
+
 " Set the maximum width of text that is being inserted without breaking
 " it to a new line.
 " Setting this value to '0' disables this option.
