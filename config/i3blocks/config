@@ -37,7 +37,6 @@ signal=11
 command=$HOME/.dotfiles/scripts/updates.sh
 interval=60
 signal=3
-urgent=true
 
 # Generic media player support
 #
