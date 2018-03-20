@@ -13,6 +13,8 @@ Plug 'mbbill/undotree'
 " Fuzzy filesearch
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Multiple Cursors (like sublime)
+Plug 'terryma/vim-multiple-cursors'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
@@ -557,6 +559,16 @@ if MyOnBattery()
 else
   call neomake#configure#automake('nw', 1000)
 endif
+
+" {{{2 Multiple Cursors
+"""""""""""""""""""""""
+" disable autocomplete when using multiple cursors
+function g:Multiple_cursors_before()
+ let g:deoplete#disable_auto_complete = 1
+endfunction
+function g:Multiple_cursors_after()
+ let g:deoplete#disable_auto_complete = 0
+endfunction
 
 " {{{2 deoplete
 """""""""""""""
