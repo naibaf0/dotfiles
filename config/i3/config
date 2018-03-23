@@ -61,7 +61,6 @@ smart_gaps on
 
     # start rofi (a program launcher)
     bindsym $mod+d exec rofi -show drun
-    bindsym $mod+Shift+s exec rofi -show ssh 
     # start your launcher
     #bindsym $mod+d exec $menu
 
