@@ -201,8 +201,8 @@ bindsym $mod+r mode "resize"
 ## Manual management of external displays
 set $mode_display Ext Screen: (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF X: (r) Redshift, (c) Compton
 mode "$mode_display" {
-    bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --right-of eDP-1 & ~/.fehbg
-    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1 & ~/.fehbg
+    bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --left-of eDP-1 & ~/.fehbg
+    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1 & ~/.fehbg
     bindsym x mode "default", exec --no-startup-id xrandr --output DP-1 --auto --off
     bindsym y mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --off
     bindsym r mode "default", exec --no-startup-id redshift_toggle
@@ -333,6 +333,6 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # startup
 exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0121.jpg
-exec --no-startup-id xss-lock -- ~/.dotfiles/i3/lock.sh
+exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
