@@ -9,12 +9,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = FantasqueSansMono Nerd Font 13
+font = FantasqueSansMono 13
 scrollback_lines = 10000
 search_wrap = true
 cursor_blink = off
 cursor_shape = block
-browser = firefox-beta
+browser = firefox
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
