@@ -1343,9 +1343,9 @@ c.spellcheck.languages = ['de-DE','en-GB','en-US']
 ## Type: List of String
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 
-## Hide the window decoration when using wayland.
+## Hide the window decoration.
 ## Type: Bool
-c.window.hide_wayland_decoration = True
+c.window.hide_decoration = True
 
 ## Format to use for the window title. The same placeholders like for
 ## `tabs.title.format` are defined.
