@@ -440,6 +440,9 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
+" goyo (writing mode)
+nmap <silent><leader>w :Goyo<CR>
+
 " {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -463,6 +466,18 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
+" {{{2 goyo
+"""""""""""
+function! s:goyo_enter()
+  set ei=InsertEnter,InsertLeave
+endfunction
+
+function! s:goyo_leave()
+  set ei=
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " {{{2 fzf
 """"""""""
 " This is the default extra key bindings
