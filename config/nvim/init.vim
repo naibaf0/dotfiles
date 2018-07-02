@@ -5,6 +5,8 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Distraction-free writing mode
+Plug 'junegunn/goyo.vim'
 " Git integration
 Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
 Plug 'tpope/vim-fugitive'
@@ -47,6 +49,10 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
+" Surrounding text with elements (brackets, tags, ..)
+Plug 'tpope/vim-surround'
+" Autoclose stuff like brackets etc
+Plug 'Townk/vim-autoclose'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
 " YAML support
