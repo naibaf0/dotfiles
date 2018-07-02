@@ -10,7 +10,7 @@
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
 zmodules=(directory environment git history input utility meta archive ssh custom \
-          syntax-highlighting history-substring-search prompt completion)
+          prompt completion syntax-highlighting history-substring-search)
 
 
 ###################
@@ -38,7 +38,7 @@ zprompt_theme='lean'
 
 # Uncomment to enable spelling correction prompt for commands. See:
 # http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
-setopt CORRECT
+#setopt CORRECT
 
 # Set custom spelling correction prompt
 #SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
