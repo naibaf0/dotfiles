@@ -36,11 +36,6 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-# for aur-helpers (z.B. trizen): use powerpill instead of pacman if available
-if which powerpill > /dev/null 2>&1; then
-  pacman -Q powerpill >& /dev/null && export PACMAN=/usr/bin/powerpill
-fi
-
 # Temporary Files
 # ===============
 
@@ -50,11 +45,3 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
-
-# Is the Internet on fire?
-# ========================
-if [[ -t 0 || -t 1 ]]; then
-  print '\nIs the Internet on fire?\n========================\n\n'
-  dig +short txt istheinternetonfire.com | sed -e 's/\\; /\n/' -e 's/"//'g
-  print
-fi
