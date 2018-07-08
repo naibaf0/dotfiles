@@ -5,15 +5,6 @@
 # Use and configure powerlevel9k
 # ==============================
 DEFAULT_USER="naibafo"
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=10
 
 # Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
