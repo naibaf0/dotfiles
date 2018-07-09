@@ -720,6 +720,29 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
+let g:vimtex_syntax_minted = [
+      \ {
+      \   'lang' : 'c',
+      \ },
+      \ {
+      \   'lang' : 'go',
+      \ },
+      \ {
+      \   'lang' : 'cpp',
+      \   'environments' : ['cppcode', 'cppcode_test'],
+      \ },
+      \ {
+      \   'lang' : 'bash',
+      \   'syntax' : 'sh'
+      \ },
+      \ {
+      \   'lang' : 'python',
+      \   'ignore' : [
+      \     'pythonEscape',
+      \     'pythonBEscape',
+      \     ],
+      \ }
+\]
 
 " {{{2 Markdown
 let g:vim_markdown_folding_disabled = 1
