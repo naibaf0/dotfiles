@@ -52,7 +52,7 @@ smart_gaps on
     bindsym $mod+Shift+q kill
 
     # start rofi (a program launcher)
-    bindsym $mod+d exec rofi -show drun
+    bindsym $mod+d exec rofi -show drun -theme base16-dracula
     # start your launcher
     #bindsym $mod+d exec $menu
 
@@ -196,10 +196,10 @@ set $mode_display Ext Screen: (v|x) VGA [ON|OFF], (h|y) HDMI [ON|OFF], (w|m) WOR
 mode "$mode_display" {
     bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --left-of eDP-1 & ~/.fehbg
     bindsym h mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1 & ~/.fehbg
-    bindsym w mode "default", exec --no-startup-id xrandr --output DP-2-1 --auto --primary --output eDP-1 --off & ~/.fehbg
+    bindsym w mode "default", exec --no-startup-id xrandr --output DP-2 --auto --primary --output eDP-1 --off & ~/.fehbg
     bindsym x mode "default", exec --no-startup-id xrandr --output DP-1 --auto --off
     bindsym y mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --off
-    bindsym m mode "default", exec --no-startup-id xrandr --output DP-2-1 --off --output eDP-1 --auto --primary & ~/.fehbg
+    bindsym m mode "default", exec --no-startup-id xrandr --output DP-2 --off --output eDP-1 --auto --primary & ~/.fehbg
     bindsym r mode "default", exec --no-startup-id redshift_toggle
     bindsym c mode "default", exec --no-startup-id compton_toggle
 
@@ -224,25 +224,25 @@ mode "$mode_power" {
 }
 bindsym Mod1+Control+l mode "$mode_power"
 
-## Base16 Oceanic Next
-# Author: Christopher Corley (http://christop.club/)
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
-set $base00 #1B2B34
-set $base01 #343D46
-set $base02 #4F5B66
-set $base03 #65737E
-set $base04 #A7ADBA
-set $base05 #C0C5CE
-set $base06 #CDD3DE
-set $base07 #D8DEE9
-set $base08 #EC5f67
-set $base09 #F99157
-set $base0A #FAC863
-set $base0B #99C794
-set $base0C #5FB3B3
-set $base0D #6699CC
-set $base0E #C594C5
-set $base0F #AB7967
+set $base00 #282936
+set $base01 #3a3c4e
+set $base02 #626483
+set $base03 #4d4f68
+set $base04 #62d6e8
+set $base05 #e9e9f4
+set $base06 #f1f2f8
+set $base07 #f7f7fb
+set $base08 #ea51b2
+set $base09 #b45bcf
+set $base0A #ebff87
+set $base0B #00f769
+set $base0C #a1efe4
+set $base0D #62d6e8
+set $base0E #b45bcf
+set $base0F #00f769
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -290,7 +290,7 @@ for_window [class="keepassxc"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="VirtualBox"] floating enable
+#for_window [class="VirtualBox"] floating enable
 
 # workspace assignments
 assign [class="Slack"] $ws2
@@ -327,7 +327,10 @@ bindsym XF86AudioPrev exec mpc previous
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # startup
-exec_always --no-startup-id feh --bg-fill --recursive ~/Pictures/Wallpapers/0121.jpg
+exec --no-startup-id ./.fehbg
+exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id compton -b
 exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
+exec --no-startup-id pcmanfm -d
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst

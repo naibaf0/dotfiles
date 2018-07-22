@@ -3,25 +3,106 @@
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
 
-## Colors of the oceanic-next base16 colorscheme.
-base16 = {
-    'base00': '#1b2b34', # Default Background
-    'base01': '#343d46', # Lighter Background
-    'base02': '#4f5b66', # Selection Background
-    'base03': '#65737e', # 
-    'base04': '#a7adba', # Dark Foreground
-    'base05': '#c0c5ce', # Default Foreground
-    'base06': '#cdd3de', # Light Foreground
-    'base07': '#d8dee9', # Light Foreground
-    'base08': '#ec5f67', # Red
-    'base09': '#f99157', # Orange
-    'base0A': '#fac863', # Yellow
-    'base0B': '#99c794', # Green
-    'base0C': '#5fb3b3', # Cyan
-    'base0D': '#6699cc', # Blue
-    'base0E': '#c594c5', # 
-    'base0F': '#ab7967'  #
-}
+
+# base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
+# Base16 qutebrowser template by theova
+# Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+
+
+base00 = "#282936"
+base01 = "#3a3c4e"
+base02 = "#626483"
+base03 = "#4d4f68"
+base04 = "#62d6e8"
+base05 = "#e9e9f4"
+base06 = "#f1f2f8"
+base07 = "#f7f7fb"
+base08 = "#ea51b2"
+base09 = "#b45bcf"
+base0A = "#ebff87"
+base0B = "#00f769"
+base0C = "#a1efe4"
+base0D = "#62d6e8"
+base0E = "#b45bcf"
+base0F = "#00f769"
+
+
+# set qutebrowser colors
+c.colors.completion.category.bg = base00
+c.colors.completion.category.border.bottom= base00
+c.colors.completion.category.border.top= base00
+c.colors.completion.category.fg = base0A
+c.colors.completion.fg = base05
+c.colors.completion.item.selected.bg = base0A
+c.colors.completion.item.selected.border.bottom = base0A
+c.colors.completion.item.selected.border.top = base0A
+c.colors.completion.item.selected.fg = base01
+c.colors.completion.match.fg = base0B
+c.colors.completion.odd.bg = base03
+c.colors.completion.even.bg = base00
+c.colors.completion.scrollbar.bg = base00
+c.colors.completion.scrollbar.fg = base05
+c.colors.downloads.bar.bg = base00
+c.colors.downloads.error.fg = base08
+c.colors.downloads.start.bg = base0D
+c.colors.downloads.start.fg = base00
+c.colors.downloads.stop.bg = base0C
+c.colors.downloads.stop.fg = base00
+c.colors.hints.bg = base0A
+c.colors.hints.fg = base00
+c.colors.hints.match.fg = base05
+c.colors.keyhint.bg = base00
+c.colors.keyhint.fg = base05
+c.colors.keyhint.suffix.fg = base05
+c.colors.messages.error.fg = base00
+c.colors.messages.error.bg = base08
+c.colors.messages.error.border = base08
+c.colors.messages.info.bg = base00
+c.colors.messages.info.border = base00
+c.colors.messages.info.fg = base05
+c.colors.messages.warning.bg = base0E
+c.colors.messages.warning.border = base0E
+c.colors.messages.warning.fg = base00
+c.colors.prompts.bg = base00 
+c.colors.prompts.border = base00 
+c.colors.prompts.fg = base05 
+c.colors.prompts.selected.bg = base0A 
+c.colors.statusbar.caret.bg = base0E
+c.colors.statusbar.caret.fg = base00
+c.colors.statusbar.caret.selection.bg = base0D
+c.colors.statusbar.caret.selection.fg = base00
+c.colors.statusbar.command.bg = base00
+c.colors.statusbar.command.fg = base05
+c.colors.statusbar.command.private.bg = base00
+c.colors.statusbar.command.private.fg = base05
+c.colors.statusbar.insert.bg = base0D
+c.colors.statusbar.insert.fg = base00
+c.colors.statusbar.normal.bg = base00
+c.colors.statusbar.normal.fg = base0B
+c.colors.statusbar.passthrough.bg = base0C
+c.colors.statusbar.passthrough.fg = base00
+c.colors.statusbar.private.bg = base03
+c.colors.statusbar.private.fg = base00
+c.colors.statusbar.progress.bg = base0D
+c.colors.statusbar.url.error.fg = base08
+c.colors.statusbar.url.fg = base05
+c.colors.statusbar.url.hover.fg = base05
+c.colors.statusbar.url.success.http.fg = base0C
+c.colors.statusbar.url.success.https.fg =base0B 
+c.colors.statusbar.url.warn.fg = base0E
+c.colors.tabs.bar.bg = base00
+c.colors.tabs.even.bg = base00
+c.colors.tabs.even.fg = base05
+c.colors.tabs.indicator.error = base08
+c.colors.tabs.indicator.start = base0D
+c.colors.tabs.indicator.stop = base0C
+c.colors.tabs.odd.bg = base03
+c.colors.tabs.odd.fg = base05
+c.colors.tabs.selected.even.bg = base05
+c.colors.tabs.selected.even.fg = base00
+c.colors.tabs.selected.odd.bg = base05
+c.colors.tabs.selected.odd.fg = base00
+# c.colors.webpage.bg = base00
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
@@ -63,342 +144,6 @@ c.backend = 'webengine'
 ## the mapping is ignored.
 ## Type: Dict
 # c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
-
-## Background color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.bg = base16['base00']
-
-## Bottom border color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.border.bottom = base16['base00']
-
-## Top border color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.border.top = base16['base00']
-
-## Foreground color of completion widget category headers.
-## Type: QtColor
-c.colors.completion.category.fg = base16['base07']
-
-## Background color of the completion widget for even rows.
-## Type: QssColor
-c.colors.completion.even.bg = base16['base01']
-
-## Text color of the completion widget. May be a single color to use for
-## all columns or a list of three colors, one for each column.
-## Type: List of QtColor, or QtColor
-c.colors.completion.fg = [base16['base05'], base16['base05'], base16['base05']]
-
-## Background color of the selected completion item.
-## Type: QssColor
-c.colors.completion.item.selected.bg = base16['base0C']
-
-## Bottom border color of the selected completion item.
-## Type: QssColor
-c.colors.completion.item.selected.border.bottom = base16['base0C']
-
-## Top border color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.item.selected.border.top = base16['base0C']
-
-## Foreground color of the selected completion item.
-## Type: QtColor
-c.colors.completion.item.selected.fg = base16['base07']
-
-## Foreground color of the matched text in the completion.
-## Type: QssColor
-c.colors.completion.match.fg = base16['base06']
-
-## Background color of the completion widget for odd rows.
-## Type: QssColor
-c.colors.completion.odd.bg = base16['base01']
-
-## Color of the scrollbar in the completion view.
-## Type: QssColor
-c.colors.completion.scrollbar.bg = base16['base05']
-
-## Color of the scrollbar handle in the completion view.
-## Type: QssColor
-c.colors.completion.scrollbar.fg = base16['base06']
-
-## Background color for the download bar.
-## Type: QssColor
-c.colors.downloads.bar.bg = base16['base00']
-
-## Background color for downloads with errors.
-## Type: QtColor
-c.colors.downloads.error.bg = base16['base08']
-
-## Foreground color for downloads with errors.
-## Type: QtColor
-c.colors.downloads.error.fg = base16['base07']
-
-## Color gradient start for download backgrounds.
-## Type: QtColor
-# c.colors.downloads.start.bg = '#0000aa'
-
-## Color gradient start for download text.
-## Type: QtColor
-c.colors.downloads.start.fg = base16['base07']
-
-## Color gradient stop for download backgrounds.
-## Type: QtColor
-# c.colors.downloads.stop.bg = '#00aa00'
-
-## Color gradient end for download text.
-## Type: QtColor
-# c.colors.downloads.stop.fg = base16['base07']
-
-## Color gradient interpolation system for download backgrounds.
-## Type: ColorSystem
-## Valid values:
-##   - rgb: Interpolate in the RGB color system.
-##   - hsv: Interpolate in the HSV color system.
-##   - hsl: Interpolate in the HSL color system.
-##   - none: Don't show a gradient.
-# c.colors.downloads.system.bg = 'rgb'
-
-## Color gradient interpolation system for download text.
-## Type: ColorSystem
-## Valid values:
-##   - rgb: Interpolate in the RGB color system.
-##   - hsv: Interpolate in the HSV color system.
-##   - hsl: Interpolate in the HSL color system.
-##   - none: Don't show a gradient.
-# c.colors.downloads.system.fg = 'rgb'
-
-## Background color for hints. Note that you can use a `rgba(...)` value
-## for transparency.
-## Type: QssColor
-c.colors.hints.bg = base16['base0C']
-
-## Font color for hints.
-## Type: QssColor
-c.colors.hints.fg = base16['base07']
-
-## Font color for the matched part of hints.
-## Type: QssColor
-c.colors.hints.match.fg = base16['base05']
-
-## Background color of the keyhint widget.
-## Type: QssColor
-# c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
-
-## Text color for the keyhint widget.
-## Type: QssColor
-c.colors.keyhint.fg = base16['base07']
-
-## Highlight color for keys to complete the current keychain.
-## Type: QssColor
-c.colors.keyhint.suffix.fg = base16['base08']
-
-## Background color of an error message.
-## Type: QssColor
-c.colors.messages.error.bg = base16['base08']
-
-## Border color of an error message.
-## Type: QssColor
-c.colors.messages.error.border = base16['base08']
-
-## Foreground color of an error message.
-## Type: QssColor
-c.colors.messages.error.fg = base16['base07']
-
-## Background color of an info message.
-## Type: QssColor
-c.colors.messages.info.bg = base16['base00']
-
-## Border color of an info message.
-## Type: QssColor
-c.colors.messages.info.border = base16['base00']
-
-## Foreground color of an info message.
-## Type: QssColor
-c.colors.messages.info.fg = base16['base07']
-
-## Background color of a warning message.
-## Type: QssColor
-c.colors.messages.warning.bg = base16['base09']
-
-## Border color of a warning message.
-## Type: QssColor
-c.colors.messages.warning.border = base16['base09']
-
-## Foreground color of a warning message.
-## Type: QssColor
-c.colors.messages.warning.fg = base16['base07']
-
-## Background color for prompts.
-## Type: QssColor
-c.colors.prompts.bg = base16['base01']
-
-## Border used around UI elements in prompts.
-## Type: String
-c.colors.prompts.border = '1px solid ' + base16['base07']
-
-## Foreground color for prompts.
-## Type: QssColor
-c.colors.prompts.fg = base16['base07']
-
-## Background color for the selected item in filename prompts.
-## Type: QssColor
-c.colors.prompts.selected.bg = base16['base02']
-
-## Background color of the statusbar in caret mode.
-## Type: QssColor
-c.colors.statusbar.caret.bg = base16['base0D']
-
-## Foreground color of the statusbar in caret mode.
-## Type: QssColor
-c.colors.statusbar.caret.fg = base16['base05']
-
-## Background color of the statusbar in caret mode with a selection.
-## Type: QssColor
-c.colors.statusbar.caret.selection.bg = base16['base0C']
-
-## Foreground color of the statusbar in caret mode with a selection.
-## Type: QssColor
-c.colors.statusbar.caret.selection.fg = base16['base05']
-
-## Background color of the statusbar in command mode.
-## Type: QssColor
-c.colors.statusbar.command.bg = base16['base00']
-
-## Foreground color of the statusbar in command mode.
-## Type: QssColor
-c.colors.statusbar.command.fg = base16['base05']
-
-## Background color of the statusbar in private browsing + command mode.
-## Type: QssColor
-c.colors.statusbar.command.private.bg = base16['base02']
-
-## Foreground color of the statusbar in private browsing + command mode.
-## Type: QssColor
-c.colors.statusbar.command.private.fg = base16['base07']
-
-## Background color of the statusbar in insert mode.
-## Type: QssColor
-c.colors.statusbar.insert.bg = base16['base01']
-
-## Foreground color of the statusbar in insert mode.
-## Type: QssColor
-c.colors.statusbar.insert.fg = base16['base05']
-
-## Background color of the statusbar.
-## Type: QssColor
-c.colors.statusbar.normal.bg = base16['base00']
-
-## Foreground color of the statusbar.
-## Type: QssColor
-c.colors.statusbar.normal.fg = base16['base05']
-
-## Background color of the statusbar in passthrough mode.
-## Type: QssColor
-c.colors.statusbar.passthrough.bg = base16['base01']
-
-## Foreground color of the statusbar in passthrough mode.
-## Type: QssColor
-c.colors.statusbar.passthrough.fg = base16['base05']
-
-## Background color of the statusbar in private browsing mode.
-## Type: QssColor
-c.colors.statusbar.private.bg = base16['base02']
-
-## Foreground color of the statusbar in private browsing mode.
-## Type: QssColor
-c.colors.statusbar.private.fg = base16['base07']
-
-## Background color of the progress bar.
-## Type: QssColor
-c.colors.statusbar.progress.bg = base16['base05']
-
-## Foreground color of the URL in the statusbar on error.
-## Type: QssColor
-c.colors.statusbar.url.error.fg = base16['base08']
-
-## Default foreground color of the URL in the statusbar.
-## Type: QssColor
-c.colors.statusbar.url.fg = base16['base05']
-
-## Foreground color of the URL in the statusbar for hovered links.
-## Type: QssColor
-c.colors.statusbar.url.hover.fg = base16['base06']
-
-## Foreground color of the URL in the statusbar on successful load
-## (http).
-## Type: QssColor
-c.colors.statusbar.url.success.http.fg = base16['base05']
-
-## Foreground color of the URL in the statusbar on successful load
-## (https).
-## Type: QssColor
-c.colors.statusbar.url.success.https.fg = base16['base05']
-
-## Foreground color of the URL in the statusbar when there's a warning.
-## Type: QssColor
-c.colors.statusbar.url.warn.fg = base16['base09']
-
-## Background color of the tab bar.
-## Type: QtColor
-# c.colors.tabs.bar.bg = '#555555'
-
-## Background color of unselected even tabs.
-## Type: QtColor
-c.colors.tabs.even.bg = base16['base01']
-
-## Foreground color of unselected even tabs.
-## Type: QtColor
-c.colors.tabs.even.fg = base16['base05']
-
-## Color for the tab indicator on errors.
-## Type: QtColor
-c.colors.tabs.indicator.error = base16['base08']
-
-## Color gradient start for the tab indicator.
-## Type: QtColor
-c.colors.tabs.indicator.start = base16['base0C']
-
-## Color gradient end for the tab indicator.
-## Type: QtColor
-c.colors.tabs.indicator.stop = base16['base09']
-
-## Color gradient interpolation system for the tab indicator.
-## Type: ColorSystem
-## Valid values:
-##   - rgb: Interpolate in the RGB color system.
-##   - hsv: Interpolate in the HSV color system.
-##   - hsl: Interpolate in the HSL color system.
-##   - none: Don't show a gradient.
-# c.colors.tabs.indicator.system = 'rgb'
-
-## Background color of unselected odd tabs.
-## Type: QtColor
-c.colors.tabs.odd.bg = base16['base00']
-
-## Foreground color of unselected odd tabs.
-## Type: QtColor
-c.colors.tabs.odd.fg = base16['base05']
-
-## Background color of selected even tabs.
-## Type: QtColor
-c.colors.tabs.selected.even.bg = base16['base0C']
-
-## Foreground color of selected even tabs.
-## Type: QtColor
-c.colors.tabs.selected.even.fg = base16['base06']
-
-## Background color of selected odd tabs.
-## Type: QtColor
-c.colors.tabs.selected.odd.bg = base16['base0C']
-
-## Foreground color of selected odd tabs.
-## Type: QtColor
-c.colors.tabs.selected.odd.fg = base16['base06']
-
-## Background color for webpages if unset (or empty to use the theme's
-## color).
-## Type: QtColor
-# c.colors.webpage.bg = 'white'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited

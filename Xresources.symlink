@@ -1,25 +1,26 @@
-! Base16 Oceanic Next
+! Base16 Dracula
+! Scheme: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
-#define base00 #1B2B34
-#define base01 #343D46
-#define base02 #4F5B66
-#define base03 #65737E
-#define base04 #A7ADBA
-#define base05 #C0C5CE
-#define base06 #CDD3DE
-#define base07 #D8DEE9
-#define base08 #EC5F67
-#define base09 #F99157
-#define base0A #FAC863
-#define base0B #99C794
-#define base0C #5FB3B3
-#define base0D #6699CC
-#define base0E #C594C5
-#define base0F #AB7967
+#define base00 #282936
+#define base01 #3a3c4e
+#define base02 #4d4f68
+#define base03 #626483
+#define base04 #62d6e8
+#define base05 #e9e9f4
+#define base06 #f1f2f8
+#define base07 #f7f7fb
+#define base08 #ea51b2
+#define base09 #b45bcf
+#define base0A #00f769
+#define base0B #ebff87
+#define base0C #a1efe4
+#define base0D #62d6e8
+#define base0E #b45bcf
+#define base0F #00f769
 
-*.foreground:   base05
-*.background:   [90]base00
-*.cursorColor:  base05
+*foreground:   base05
+*background:   [90]base00
+*cursorColor:  base05
 
 *color0:       base00
 *color1:       base08
@@ -71,18 +72,3 @@ rofi.ssh-client: ssh
 rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
 rofi.font: Fantasque Sans Mono 20
 rofi.show-icons: true
-! Color theme
-!------------
-! Use extended color scheme
-rofi.color-enabled: true
-! bg fg bg-alt hl-bg hl-fg
-! Color scheme for normal row
-rofi.color-normal:	argb:bb343D46, #C0C5CE, argb:bb1B2B34, #6699CC, #C0C5CE
-! Color scheme for urgent row
-rofi.color-urgent:	argb:bb343D46, #EC5F67, argb:bb1B2B34, #EC5F67, #C594C5
-! Color scheme for active row
-rofi.color-active:	argb:bb343D46, #99C794, argb:bb1B2B34, #99C794, #C594C5
-! Color scheme window (bg, border, seperator)
-rofi.color-window:	argb:bb1B2B34, argb:bbD8DEE9
-! Separator style (none, dash, solid)
-rofi.separator-style:	solid

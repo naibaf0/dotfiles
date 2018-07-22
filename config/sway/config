@@ -33,6 +33,9 @@ set $ws10 "10:"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg $HOME/Pictures/Wallpapers/0121.jpg fill
+
+output DP-2 scale 2
+output DP-2 resolution 3480x2160 position 0,e
 #
 # Example configuration:
 #
@@ -73,7 +76,7 @@ smart_gaps on
     bindsym $mod+Shift+q kill
 
     # start rofi (a program launcher)
-    bindsym $mod+d exec rofi -show drun
+    bindsym $mod+d exec rofi -show drun -theme base16-dracula
     # start your launcher
     #bindsym $mod+d exec $menu
 
@@ -230,25 +233,25 @@ mode "$mode_power" {
 }
 bindsym Mod1+Control+l mode "$mode_power"
 
-## Base16 Oceanic Next
-# Author: Christopher Corley (http://christop.club/)
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
-set $base00 #1B2B34
-set $base01 #343D46
-set $base02 #4F5B66
-set $base03 #65737E
-set $base04 #A7ADBA
-set $base05 #C0C5CE
-set $base06 #CDD3DE
-set $base07 #D8DEE9
-set $base08 #EC5f67
-set $base09 #F99157
-set $base0A #FAC863
-set $base0B #99C794
-set $base0C #5FB3B3
-set $base0D #6699CC
-set $base0E #C594C5
-set $base0F #AB7967
+set $base00 #282936
+set $base01 #3a3c4e
+set $base02 #626483
+set $base03 #4d4f68
+set $base04 #62d6e8
+set $base05 #e9e9f4
+set $base06 #f1f2f8
+set $base07 #f7f7fb
+set $base08 #ea51b2
+set $base09 #b45bcf
+set $base0A #ebff87
+set $base0B #00f769
+set $base0C #a1efe4
+set $base0D #62d6e8
+set $base0E #b45bcf
+set $base0F #00f769
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -340,5 +343,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 #exec --no-startup-id xss-lock -- ~/.dotfiles/config/sway/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
+exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id pcmanfm -d
 
 include /etc/sway/config.d/*
