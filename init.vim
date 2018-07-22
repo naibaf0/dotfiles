@@ -70,7 +70,7 @@ set background=dark
 let base16colorspace=256
 
 " Set colorscheme
-colorscheme base16-oceanicnext
+colorscheme base16-dracula
 
 " activate filetype plugins and indent
 filetype plugin indent on
