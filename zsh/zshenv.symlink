@@ -7,9 +7,9 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 
 # EDITORS
-export EDITOR='vim'
+export EDITOR='nvim'
 export DIFF='nvim -d'
-export VISUAL='nvim'
+export VISUAL='nvim -R'
 export PAGER='less'
 
 # Language

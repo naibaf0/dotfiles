@@ -5,19 +5,43 @@
 # Initialize zim
 [[ -s ${ZIM_HOME}/login_init.zsh ]] && source ${ZIM_HOME}/login_init.zsh
 
-# Source autocompletion for glcoud and kubectl if available
-if [ -f /opt/google-cloud-sdk/completion.zsh.inc ]; then
-  source "/opt/google-cloud-sdk/completion.zsh.inc"
+# Paths
+# =====
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  ~/.bin
+  ~/.local/{bin,sbin}
+  /usr/local/{bin,sbin}
+  $path
+)
+
+export GOPATH=${HOME}/projects/go
+export PATH=${GOPATH}/bin:${PATH}
+
+# Less
+# ====
+
+# Set the default Less options.
+# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+# Remove -X and -F (exit if the content fits on one screen) to enable it.
+export LESS='-g -i -M -R -S -w -z-4'
+
+# Set the Less input preprocessor.
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
+  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-if [ -n "$(which kubectl  2>/dev/null)" ]; then
-    source <(kubectl completion zsh)  # setup autocomplete in zsh
+# Temporary Files
+# ===============
+
+if [[ ! -d "$TMPDIR" ]]; then
+  export TMPDIR="/tmp/$LOGNAME"
+  mkdir -p -m 700 "$TMPDIR"
 fi
 
-# Is the Internet on fire?
-# ========================
-if [[ -t 0 || -t 1 ]]; then
-  print '\nIs the Internet on fire?\n========================\n\n'
-  dig +short txt istheinternetonfire.com | sed -e 's/\\; /\n/' -e 's/"//'g
-  print
-fi
+TMPPREFIX="${TMPDIR%/}/zsh"

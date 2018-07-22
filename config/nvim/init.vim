@@ -5,6 +5,8 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Distraction-free writing mode
+Plug 'junegunn/goyo.vim'
 " Git integration
 Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
 Plug 'tpope/vim-fugitive'
@@ -13,6 +15,8 @@ Plug 'mbbill/undotree'
 " Fuzzy filesearch
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Multiple Cursors (like sublime)
+Plug 'terryma/vim-multiple-cursors'
 " Autocompletion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
@@ -45,6 +49,10 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 " cool commenting features
 Plug 'scrooloose/nerdcommenter'
+" Surrounding text with elements (brackets, tags, ..)
+Plug 'tpope/vim-surround'
+" Autoclose stuff like brackets etc
+Plug 'Townk/vim-autoclose'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
 " YAML support
@@ -109,6 +117,9 @@ set confirm
 set winminwidth=20
 set winheight=7
 set winminheight=7
+
+" Show a vertical lign at column 80
+set colorcolumn=80
 
 " Set the maximum width of text that is being inserted without breaking
 " it to a new line.
@@ -385,10 +396,8 @@ nnoremap < <<
 nnoremap > >>
 
 " convenient mappings for system clipboard
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 " <F2>: toggle spell checker on and off
 nnoremap <special> <F2> :call ToggleSpell()<CR>
@@ -414,8 +423,8 @@ nnoremap <silent><special> <tab> :tabnext<CR>
 nnoremap <silent><special> <s-tab> :tabprev<CR>
 
 " Git
-nmap ggn <Plug>GitGutterNextHunk
-nmap ggp <Plug>GitGutterPrevHunk
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
 nmap <silent><Leader>gs :Gstatus<CR>
 nmap <silent><Leader>gc :Gcommit<CR>
 nmap <silent><Leader>gp :Gpush<CR>
@@ -430,6 +439,9 @@ nnoremap \ :Ag<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+" goyo (writing mode)
+nmap <silent><leader>w :Goyo<CR>
 
 " {{{1 Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,6 +466,18 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
+" {{{2 goyo
+"""""""""""
+function! s:goyo_enter()
+  set ei=InsertEnter,InsertLeave
+endfunction
+
+function! s:goyo_leave()
+  set ei=
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " {{{2 fzf
 """"""""""
 " This is the default extra key bindings
@@ -547,7 +571,25 @@ let g:tagbar_type_go = {
 
 " {{{2 Neomake
 """"""""""""""
-autocmd! BufWritePost * Neomake
+function! MyOnBattery()
+  return readfile('/sys/class/power_supply/AC/online') == ['0']
+endfunction
+
+if MyOnBattery()
+  call neomake#configure#automake('w')
+else
+  call neomake#configure#automake('nw', 1000)
+endif
+
+" {{{2 Multiple Cursors
+"""""""""""""""""""""""
+" disable autocomplete when using multiple cursors
+function g:Multiple_cursors_before()
+ let g:deoplete#disable_auto_complete = 1
+endfunction
+function g:Multiple_cursors_after()
+ let g:deoplete#disable_auto_complete = 0
+endfunction
 
 " {{{2 deoplete
 """""""""""""""
@@ -678,6 +720,29 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
+let g:vimtex_syntax_minted = [
+      \ {
+      \   'lang' : 'c',
+      \ },
+      \ {
+      \   'lang' : 'go',
+      \ },
+      \ {
+      \   'lang' : 'cpp',
+      \   'environments' : ['cppcode', 'cppcode_test'],
+      \ },
+      \ {
+      \   'lang' : 'bash',
+      \   'syntax' : 'sh'
+      \ },
+      \ {
+      \   'lang' : 'python',
+      \   'ignore' : [
+      \     'pythonEscape',
+      \     'pythonBEscape',
+      \     ],
+      \ }
+\]
 
 " {{{2 Markdown
 let g:vim_markdown_folding_disabled = 1

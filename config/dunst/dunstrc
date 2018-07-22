@@ -28,7 +28,7 @@
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 100
-    icon_folders = /usr/share/icons/la-capitaine-icon-theme/status/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme/devices/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme/actions/22x22-dark/
+    icon_folders = /usr/share/icons/la-capitaine-icon-theme-0.5.0/status/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme-0.5.0/devices/scalable-dark/:/usr/share/icons/la-capitaine-icon-theme-0.5.0/actions/22x22-dark/
 
 [shortcuts]
     close = ctrl+space

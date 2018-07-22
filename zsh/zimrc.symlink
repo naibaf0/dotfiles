@@ -9,8 +9,8 @@
 # Select what modules you would like enabled.
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
-zmodules=(directory environment git history input utility meta archive ssh custom \
-          syntax-highlighting history-substring-search prompt completion)
+zmodules=(directory environment git git-info history input utility meta archive ssh custom \
+          prompt completion syntax-highlighting history-substring-search)
 
 
 ###################
@@ -28,17 +28,20 @@ zprompt_theme='lean'
 # Completion
 #
 
-# set an optional host-specific filename for the completion cache file
-# if none is provided, the default '.zcompdump' is used.
+# Set an optional host-specific filename for the completion cache file. If none
+# is provided, the default '.zcompdump' is used.
 #zcompdump_file=".zcompdump-${HOST}-${ZSH_VERSION}"
 
 #
 # Utility
 #
 
-# Uncomment to enable command correction prompts
-# See: http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
-setopt CORRECT
+# Uncomment to enable spelling correction prompt for commands. See:
+# http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
+#setopt CORRECT
+
+# Set custom spelling correction prompt
+#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
 #
 # Environment
@@ -55,8 +58,11 @@ ztermtitle='%n@%m:%~'
 # Input
 #
 
-# Uncomment to enable double-dot expansion.
-# This appends '../' to your input for each '.' you type after an initial '..'
+# Set to vi or emacs
+zinput_mode='emacs'
+
+# Uncomment to enable double-dot expansion. This appends '../' to your input for
+# each '.' you type after an initial '..'
 #zdouble_dot_expand='true'
 
 #
@@ -84,7 +90,7 @@ zssh_ids=(id_rsa)
 #
 
 # Set (optional) pacman front-end.
-zpacman_frontend='powerpill'
+#zpacman_frontend='powerpill'
 
 # Load any helper scripts as defined here
 zpacman_helper=(aur)

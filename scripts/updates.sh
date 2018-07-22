@@ -2,12 +2,20 @@
 
 # Display the number of available updates in pacman and the AUR
 
-pac=$(checkupdates | wc -l)
-aur=$(checkupdates-aur | wc -l)
+source `dirname $0`/colors.sh
 
-updates=$((pac + aur))
+if [ "$BLOCK_BUTTON" = "3" ]; then
+  $TERMINAL --name="update_installer" -e "yay -Syu"
+fi
+
+pac=$(checkupdates | wc -l)
+aur=$(yay -Pn --aur)
+
+updates=$((pac+aur))
 if [ "$updates" -gt 0 ]; then
-  echo " ($pac;$aur)"
+  echo " <b>$updates</b>"
+  echo " <b>$updates</b>"
+  echo $color1 #red
 else
   echo ""
 fi
