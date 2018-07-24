@@ -1,6 +1,6 @@
 " {{1 Install plugins with plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 " A color scheme
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
