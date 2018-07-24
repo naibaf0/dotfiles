@@ -52,7 +52,7 @@ smart_gaps on
     bindsym $mod+Shift+q kill
 
     # start rofi (a program launcher)
-    bindsym $mod+d exec rofi -show drun -theme base16-dracula
+    bindsym $mod+d exec rofi -show drun
     # start your launcher
     #bindsym $mod+d exec $menu
 
