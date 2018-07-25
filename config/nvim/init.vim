@@ -1,6 +1,6 @@
 " {{1 Install plugins with plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 " A color scheme
 Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
@@ -26,7 +26,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -631,7 +631,7 @@ autocmd CompleteDone * pclose!
 " {{{2 neosnippet
 """""""""""""""""
 "use vim-snippets as well
-let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.local/share/nvim/plugged/vim-snippets/snippets'
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
