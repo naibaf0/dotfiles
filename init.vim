@@ -12,8 +12,7 @@ Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
 Plug 'tpope/vim-fugitive'
 " Undotree
 Plug 'mbbill/undotree'
-" Fuzzy filesearch
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" integrate fzf
 Plug 'junegunn/fzf.vim'
 " Multiple Cursors (like sublime)
 Plug 'terryma/vim-multiple-cursors'
@@ -488,11 +487,12 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'down': '~40%' }
 
 " In Neovim, you can set up fzf window using a Vim command
-"let g:fzf_layout = { 'window': 'enew' }
-"let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
