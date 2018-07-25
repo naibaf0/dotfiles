@@ -305,7 +305,7 @@ assign [class="^.*qutebrowser"] $ws10
 bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 # lock screen
-bindsym $mod+period exec xset s activate
+bindsym $mod+dead_circumflex exec xset s activate
 # volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
@@ -328,8 +328,6 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # startup
 exec --no-startup-id ./.fehbg
-exec --no-startup-id redshift -c ~/.config/redshift.conf
-exec --no-startup-id compton -b
 exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
 exec --no-startup-id pcmanfm -d
 exec --no-startup-id dropbox-cli start
