@@ -12,8 +12,9 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 # Source fzf
 # ==========
-if [ -f ~/.fzf.zsh ];then
-  source ~/.fzf.zsh
+if type fzf > /dev/null; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
   export FZF_DEFAULT_COMMAND='ag -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   __gen_fzf_default_opts() {
