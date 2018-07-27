@@ -3,39 +3,39 @@
 # 16 color space
 
 # Black, Gray, Silver, White
-color0="#1B2B34"
-color8="#65737E"
-color7="#C0C5CE"
-color1="#D8DEE9"
+color0="#282936"
+color8="#4d4f68"
+color7="#e9e9f4"
+color15="#f7f7fb"
 
 # Red
-color1="#EC5f67"
-color9="#EC5f67"
+color1="#ea51b2"
+color9="#ea51b2"
 
 # Green
-color2="#99C794"
-color10="#99C794"
+color2="#00f769"
+color10="#00f769"
 
 # Yellow
-color3="#FAC863"
-color11="#FAC863"
+color3="#ebff87"
+color11="#ebff87"
 
 # Blue
-color4="#6699CC"
-color12="#6699CC"
+color4="#62d6e8"
+color12="#62d6e8"
 
 # Purple
-color5="#C594C5"
-color13="#C594C5"
+color5="#b45bcf"
+color13="#b45bcf"
 
 # Teal
-color6="#5FB3B3"
-color14="#5FB3B3"
+color6="#a1efe4"
+color14="#a1efe4"
 
 # Extra colors
-color16="#F99157"
-color17="#AB7967"
-color18="#343D46"
-color19="#4F5B66"
-color20="#A7ADBA"
-color21="#CDD3DE"
+color16="#b45bcf"
+color17="#00f769"
+color18="#3a3c4e"
+color19="#626483"
+color20="#62d6e8"
+color21="#f1f2f8"
