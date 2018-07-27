@@ -6,7 +6,7 @@ Plug 'chriskempson/base16-vim'
 " Stylish statusline and themes
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Distraction-free writing mode
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Git integration
 Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
 Plug 'tpope/vim-fugitive'
