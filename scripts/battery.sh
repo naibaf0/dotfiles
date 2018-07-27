@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source `dirname $0`/colors.sh
+source `realpath $0 | xargs dirname`/colors.sh
 
 bat_number="${BLOCK_INSTANCE:-0}"
 
