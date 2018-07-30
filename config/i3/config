@@ -335,5 +335,4 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # startup
 exec --no-startup-id ./.fehbg
 exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
-exec --no-startup-id pcmanfm -d
 exec --no-startup-id dunst
