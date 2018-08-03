@@ -32,7 +32,6 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " C/C++ support
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 " Javascript support
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do' : 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
@@ -54,8 +53,6 @@ Plug 'tpope/vim-surround'
 Plug 'Townk/vim-autoclose'
 " Filetree inside vim | git plugin for the filetree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-" YAML support
-Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 " JSON support
 Plug 'elzr/vim-json', { 'for': 'json' }
 call plug#end()
@@ -692,10 +689,6 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 
 " {{{2 Javascript
 """""""""""""""""
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
 let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
