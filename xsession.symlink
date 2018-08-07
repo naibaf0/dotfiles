@@ -11,13 +11,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # Ctrl + Alt + backspace to kill the X server
 setxkbmap -option terminate:ctrl_alt_bksp
 
-xsetroot -cursor_name left_ptr
-
-#xset r rate 150 50
-#xset m 0 0
-#xset +dpms
-#xset dpms 0 0 60
-
 redshift -c ~/.config/redshift.conf &
 pcmanfm -d &
 compton -b
+
+xsetroot -cursor_name left_ptr
