@@ -415,8 +415,8 @@ vnoremap <silent> * :call SelectionSearch('b')<CR>
 vnoremap <silent> # :call SelectionSearch('f')<CR>
 
 " tab switching
-nnoremap <silent><special> <tab> :tabnext<CR>
-nnoremap <silent><special> <s-tab> :tabprev<CR>
+nnoremap <silent><special> <tab> :bnext<CR>
+nnoremap <silent><special> <s-tab> :bprev<CR>
 
 " Git
 nmap <Leader>hn <Plug>GitGutterNextHunk
@@ -729,6 +729,12 @@ let g:vimtex_syntax_minted = [
       \   'syntax' : 'sh'
       \ },
       \ {
+      \   'lang' : 'yaml',
+      \ },
+      \ {
+      \   'lang' : 'json',
+      \ },
+      \ {
       \   'lang' : 'python',
       \   'ignore' : [
       \     'pythonEscape',
@@ -741,14 +747,7 @@ let g:vimtex_syntax_minted = [
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_conceal = 0
-
-" prevent vim-markdown from inserting asterisks on wrapping line. 
-" https://github.com/plasticboy/vim-markdown/issues/232
-" FIXME its far from perfect, since no ai seems to take place
-autocmd FileType markdown 
-    \ set formatoptions-=q |
-    \ set formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*\[-*+]\\s\\+
 
 " vim:fdm=marker
