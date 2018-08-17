@@ -2,8 +2,6 @@
 # User configuration sourced by interactive shells
 #
 
-DEFAULT_USER="naibafo"
-
 # Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 

@@ -9,7 +9,7 @@ if [ -e $CMPFILE ]; then
     rm $CMPFILE
 else
     echo $ "dummytext" >> $CMPFILE
-    ps -ef | grep "compton -b" | grep -v grep | awk '{print $2}' | xargs kill
+    pgrep -f "compton -b" | xargs kill
     sleep 1
     notify-send "Compton" "<i>disabled</i>"
 fi
