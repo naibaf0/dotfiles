@@ -8,6 +8,6 @@ if [ -e $RSFILE ]; then
     rm $RSFILE
 else
     echo $ "dummytext" >> $RSFILE
-    ps -ef | grep "redshift -c ${HOME}/.config/redshift.conf" | grep -v grep | awk '{print $2}' | xargs kill
+    pgrep -f "redshift -c ~/.config/redshift.conf" | xargs kill
     notify-send "Redshift" "<i>disabled</i>" -i redshift-status-off
 fi
