@@ -387,6 +387,11 @@ let maplocalleader = "\<space>"
 " escape from terminal :)
 tnoremap <leader><Esc> <C-\><C-n>
 
+" Escape key alternative
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+
 " only press < and > once in normal mode indent
 nnoremap < <<
 nnoremap > >>
@@ -658,9 +663,7 @@ let g:neopairs#enable = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 0
-let g:deoplete#sources['go'] = ['file', 'neosnippet', 'go', 'buffer', 'syntax']
-"let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
+let g:deoplete#sources['go'] = ['neosnippet', 'go', 'buffer', 'syntax', 'file']
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
