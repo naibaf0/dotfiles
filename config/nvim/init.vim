@@ -25,7 +25,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -387,6 +387,11 @@ let maplocalleader = "\<space>"
 " escape from terminal :)
 tnoremap <leader><Esc> <C-\><C-n>
 
+" Escape key alternative
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+
 " only press < and > once in normal mode indent
 nnoremap < <<
 nnoremap > >>
@@ -444,6 +449,7 @@ nmap <silent><leader>w :Goyo<CR>
 
 " {{{2 vim-airline
 """"""""""""""""""
+" TODO use dracula theme
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -658,9 +664,7 @@ let g:neopairs#enable = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 0
-let g:deoplete#sources['go'] = ['file', 'neosnippet', 'go', 'buffer', 'syntax']
-"let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
+let g:deoplete#sources['go'] = ['neosnippet', 'go', 'buffer', 'syntax', 'file']
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
