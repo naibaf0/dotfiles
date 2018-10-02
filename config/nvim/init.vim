@@ -25,7 +25,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
