@@ -1,8 +1,8 @@
 [global]
     font = "Overpass Mono 10"
     frame_width = 2
-    frame_color = "#e9e9f4"
-    separator_color = "#e9e9f4"
+    frame_color = "#ff00ff"
+    separator_color = "#ff00ff"
     markup = full
     format = "<b>%s</b> %p\n%b"
     sort = yes
@@ -37,28 +37,19 @@
     history = ctrl+dead_circumflex
     context = ctrl+shift+period
 
-[base16_low]
-    msg_urgency = low
-    background = "#3a3c4e"
-    foreground = "#4d4f68"
-
-[base16_normal]
-    msg_urgency = normal
-    background = "#626483"
-    foreground = "#e9e9f4"
-
-[base16_critical]
-    msg_urgency = critical
-    background = "#ea51b2"
-    foreground = "#f1f2f8"
-
 [urgency_low]
+    background = "#282a36"
+    foreground = "#f8f8f2"
     timeout = 5
 
 [urgency_normal]
+    background = "#282a36"
+    foreground = "#f8f8f2"
     timeout = 10
 
 [urgency_critical]
+    background = "#282a36"
+    foreground = "#ff5555"
     timeout = 0
 
 # vim: ft=cfg

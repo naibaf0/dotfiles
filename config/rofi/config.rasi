@@ -158,7 +158,7 @@ configuration {
     lightbg:                     rgba ( 58, 60, 78, 80 % );
     selected-active-foreground:  @background;
     alternate-active-background: @lightbg;
-    background:                  rgba ( 40, 41, 54, 80 % );
+    background:                  rgba ( 40, 42, 54, 80 % );
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
     lightfg:                     rgba ( 241, 242, 248, 80 % );
@@ -169,7 +169,7 @@ configuration {
     urgent-background:           @background;
     selected-urgent-background:  @red;
     alternate-urgent-foreground: @red;
-    background-color:            rgba ( 40, 41, 54, 0 % );
+    background-color:            rgba ( 40, 42, 54, 0 % );
     alternate-active-foreground: @blue;
     active-background:           @background;
     selected-active-background:  @blue;

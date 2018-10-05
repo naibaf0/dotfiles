@@ -1,7 +1,7 @@
 # Base16 Dracula
 # Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
-set default-bg                  "#282936"
+set default-bg                  "#282a36"
 set default-fg                  "#3a3c4e"
 
 set statusbar-fg                "#62d6e8"

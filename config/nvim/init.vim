@@ -2,9 +2,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/plugged')
 " A color scheme
-Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Stylish statusline and themes
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 " Distraction-free writing mode
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Git integration
@@ -25,7 +25,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 " Python support
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -59,20 +59,16 @@ call plug#end()
 
 " {{{1 General behavior of Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set background-color
-set background=dark
-
-" Set colorspace
-let base16colorspace=256
-
-" Set colorscheme
-colorscheme base16-dracula
-
 " activate filetype plugins and indent
 filetype plugin indent on
 
 " Use syntax highlighting
 syntax enable
+
+" Set colorscheme
+colorscheme dracula
+" Force GUI colors in terminals
+set termguicolors
 
 " Set the standard encoding
 set encoding=utf8
@@ -449,13 +445,17 @@ nmap <silent><leader>w :Goyo<CR>
 
 " {{{2 vim-airline
 """"""""""""""""""
-" TODO use dracula theme
-let g:airline_theme='base16'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {
+        \ 'readonly': '⛔',
+        \}
+endif
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
