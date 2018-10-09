@@ -17,7 +17,7 @@ if type fzf > /dev/null; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   __gen_fzf_default_opts() {
 
-    local color00='#282936'
+    local color00='#282a36'
     local color01='#3a3c4e'
     local color02='#626483'
     local color03='#4d4f68'
@@ -94,23 +94,7 @@ bindkey "^M" __magic-enter
 
 # send notification when program terminates
 function notify() {
-    $*; notify-send --urgency=critical "Task completed." "Executed '$*'.\nreturn code: $?"
-  }
-
-# Fix for zim ssh config completion #46
-# =====================================
-n=()
-if [[ -r ~/.ssh/config ]]; then
-  h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
-fi
-if [[ $#h -gt 0 ]]; then
-  zstyle ':completion:*:ssh:*' hosts $h
-  zstyle ':completion:*:slogin:*' hosts $h
-  zstyle ':completion:*:rsync:*' hosts $h
-fi
-
-zsh_stats () {
-fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
+  $*; notify-send --urgency=critical "Task completed." "Executed '$*'.\nreturn code: $?"
 }
 
 # Aliases
