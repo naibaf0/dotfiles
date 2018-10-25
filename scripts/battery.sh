@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-source `realpath $0 | xargs dirname`/colors.sh
+source `realpath "$0" | xargs dirname`/colors.sh
 
 bat_number="${BLOCK_INSTANCE:-0}"
 
-acpi=`acpi -b | grep 'Battery '"$bat_number" | sed 's/\ //g'`
-status=`echo $acpi | cut -d, -f1 | cut -d: -f2`
-percent=`echo $acpi | cut -d, -f2 | sed 's/\%//g'`
-time=`echo $acpi | cut -d, -f3 | cut -d: --fields=1,2`
+acpi=$(acpi -b | grep 'Battery '"$bat_number" | sed 's/\ //g')
+status=$(echo "$acpi" | cut -d, -f1 | cut -d: -f2)
+percent=$(echo "$acpi" | cut -d, -f2 | sed 's/\%//g')
+time=$(echo "$acpi" | cut -d, -f3 | cut -d: --fields=1,2)
 
 if [ "$status" == "Full" ]; then
   full_text=' '
