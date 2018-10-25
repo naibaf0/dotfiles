@@ -16,32 +16,50 @@ set $right l
 # Your preferred terminal emulator
 set $term termite
 # Your preferred application launcher
-set $menu dmenu_run
+# Note: it's recommended that you pass the final command to sway
+set $menu dmenu_path | dmenu | xargs swaymsg exec
 # Give the workspaces names, or rather symbols
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
+set $ws8 8:
+set $ws9 9:
+set $ws10 10:
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/Wallpapers/0121.jpg fill
+# Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
+output * bg $HOME/Pictures/4k Wallpapers/wallhaven-170258.jpg fill
 
-output DP-2 scale 2
-output DP-2 resolution 3480x2160 position 0,e
+output DP-2 {
+  scale 1.5
+  resolution 3480x2160
+  position 0,0
+}
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle \
+    timeout 300 '~/.config/sway/lock.sh' \
+    timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+    before-sleep '~/.config/sway/lock.sh'
+
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 600 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 #
@@ -59,7 +77,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
 # thin borders
 new_window pixel 3
-hide_edge_borders both
+hide_edge_borders smart
 
 # gaps
 gaps inner 10
@@ -90,8 +108,11 @@ smart_gaps on
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # exit sway (logs you out of your wayland session)
-    bindsym $mod+Shift+e exit
+    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+Shift+r restart
+
+    # exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -201,16 +222,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10 px
-    bindsym $down resize grow height 10 px
-    bindsym $up resize shrink height 10 px
-    bindsym $right resize grow width 10 px
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
 
     # ditto, with arrow keys
-    bindsym Left resize shrink width 10 px
-    bindsym Down resize grow height 10 px
-    bindsym Up resize shrink height 10 px
-    bindsym Right resize grow width 10 px
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
 
     # return to default mode
     bindsym Return mode "default"
@@ -219,10 +240,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ## Power options
-set $mode_power Power: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
+set $mode_power Power: (l) lock, (s) suspend, (r) reboot, (p) shutdown
 mode "$mode_power" {
     bindsym l mode "default", exec --no-startup-id $HOME/.config/i3/i3exit lock
-    bindsym e mode "default", exec --no-startup-id $HOME/.config/i3/i3exit logout
     bindsym s mode "default", exec --no-startup-id $HOME/.config/i3/i3exit suspend
     bindsym r mode "default", exec --no-startup-id $HOME/.config/i3/i3exit reboot
     bindsym p mode "default", exec --no-startup-id $HOME/.config/i3/i3exit shutdown
@@ -233,10 +253,7 @@ mode "$mode_power" {
 }
 bindsym Mod1+Control+l mode "$mode_power"
 
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
-
-set $base00 #282936
+set $base00 #282a36
 set $base01 #3a3c4e
 set $base02 #626483
 set $base03 #4d4f68
@@ -267,9 +284,8 @@ client.background $base07
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-  status_command i3blocks
   position top
-  tray_output none
+  status_command i3blocks
   strip_workspace_numbers yes
 
   font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
@@ -310,31 +326,31 @@ assign [class="Slack"] $ws2
 assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
-assign [class="Lollypop"] $ws4
+assign [class="Cantata"] $ws4
 assign [window_role="browser"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
 # screenshots
-bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+p exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+bindsym --release $mod+shift+p exec --no-startup-id slurp | grim -g - ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
 # lock screen
-bindsym $mod+period exec --no-startup-id ~/.dotfiles/config/sway/lock.sh
+bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/config/sway/lock.sh
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
+bindsym --locked XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
 # audio player control
-#bindsym XF86AudioPlay exec playerctl play-pause
-#bindsym XF86AudioPause exec playerctl play-pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioPause exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc previous
+#bindsym --locked XF86AudioPlay exec playerctl play-pause
+#bindsym --locked XF86AudioPause exec playerctl play-pause
+#bindsym --locked XF86AudioNext exec playerctl next
+#bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioPlay exec mpc toggle
+bindsym --locked XF86AudioPause exec mpc toggle
+bindsym --locked XF86AudioNext exec mpc next
+bindsym --locked XF86AudioPrev exec mpc previous
 # brightness
-#bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
-#bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
+bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # call indicator in i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks

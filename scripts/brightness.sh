@@ -2,17 +2,17 @@
 
 # Increase/decrease backlight with notification
 
-if [ "$1" == "up" ]; then
- 	xbacklight -inc 10
+if [ "$1" = "up" ]; then
+ 	brightnessctl set +10%
 else
-	if [ "$1" == "down" ]; then
- 		xbacklight -dec 10
+	if [ "$1" = "down" ]; then
+ 	  brightnessctl set -10%
 	fi
 fi
 brightnessLevel=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
 maxBrightness=$(($(cat /sys/class/backlight/intel_backlight/max_brightness)/10))
 
-brightness=`echo $brightnessLevel / $maxBrightness | bc`
+brightness=$(echo "$brightnessLevel" / "$maxBrightness" | bc)
 
 color1="#F7E599'>"
 color2="#F7E081'>"
