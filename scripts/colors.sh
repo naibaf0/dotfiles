@@ -3,7 +3,7 @@
 # 16 color space
 
 # Black, Gray, Silver, White
-color0="#282936"
+color0="#282a36"
 color8="#4d4f68"
 color7="#e9e9f4"
 color15="#f7f7fb"
