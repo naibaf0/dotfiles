@@ -33,7 +33,7 @@ set $ws10 10:
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
-output * bg $HOME/Pictures/4k Wallpapers/wallhaven-170258.jpg fill
+output * bg $HOME/Pictures/Wallpapers/wallhaven-170258.jpg fill
 
 output DP-2 {
   scale 1.5
