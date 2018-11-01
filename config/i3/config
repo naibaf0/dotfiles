@@ -203,9 +203,9 @@ bindsym $mod+r mode "resize"
 set $mode_display (v|x) VGA [ON|OFF], (w|y) Workstation [ON|OFF], (r) Redshift, (c) Compton
 mode "$mode_display" {
     bindsym v mode "default", exec --no-startup-id xrandr --output DP1 --auto --right-of LVDS1 & ~/.fehbg
-    bindsym w mode "default", exec --no-startup-id xrandr --output DP2 --auto --right-of LVDS1 & ~/.fehbg
+    bindsym w mode "default", exec --no-startup-id xrandr --output DP3 --auto --right-of LVDS1 & ~/.fehbg
     bindsym x mode "default", exec --no-startup-id xrandr --output DP1 --auto --off
-    bindsym y mode "default", exec --no-startup-id xrandr --output DP2 --auto --off
+    bindsym y mode "default", exec --no-startup-id xrandr --output DP3 --auto --off
     bindsym r mode "default", exec --no-startup-id redshift_toggle
     bindsym c mode "default", exec --no-startup-id compton_toggle
 
