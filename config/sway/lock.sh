@@ -12,7 +12,8 @@ physlock -l # prevent tty switching
 # -n --no-fork
 # -e --no-empty-passwords
 # -f --failed-attempts
-swaylock -n -e -i $IMAGE 
+# Do not use image until a seperate screenshot for each output is created
+swaylock -n -e
 
 physlock -L # reenable tty switching
 killall -SIGUSR2 dunst # resume notification demon
