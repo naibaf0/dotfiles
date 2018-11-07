@@ -4,9 +4,9 @@
     // "height": 30, // Waybar height
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "battery#bat0", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -23,6 +23,9 @@
     //         "default": ""
     //     }
     // },
+    "sway/mode": {
+        "format": "{}"
+    },
     "sway/window": {
         "max-length": 50
     },
@@ -36,8 +39,13 @@
         "format": "{}% "
     },
     "battery": {
+        // "warning": 30, // Default value: 30
+        // "critical": 15, // Default value: 15
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat1": {
+        "bat": "BAT1"
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
@@ -57,7 +65,8 @@
             "portable": "",
             "car": "",
             "default": ["", ""]
-        }
+        },
+        "on-click": "pavucontrol"
     },
     "custom/spotify": {
         "format": " {}",

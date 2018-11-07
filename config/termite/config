@@ -29,22 +29,54 @@ cursor_foreground = #282A36
 background        = rgba(40, 42, 54, 0.9)
 highlight         = #44475A
 
-color0           = #21222C
-color1           = #FF5555
-color2           = #50FA7B
-color3           = #F1FA8C
-color4           = #BD93F9
-color5           = #FF79C6
-color6           = #8BE9FD
-color7           = #F8F8F2
-color8           = #6272A4
-color9           = #FF6E6E
-color10          = #69FF94
-color11          = #FFFFA5
-color12          = #D6ACFF
-color13          = #FF92DF
-color14          = #A4FFFF
-color15          = #FFFFFF
+# black
+color0  = #000000
+color8  = #4d4d4d
+
+# red
+color1  = #ff5555
+color9  = #ff6e67
+
+# green
+color2  = #50fa7b
+color10 = #5af78e
+
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
+
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
+
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
+
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
+
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
+
+#color0           = #21222C
+#color1           = #FF5555
+#color2           = #50FA7B
+#color3           = #F1FA8C
+#color4           = #BD93F9
+#color5           = #FF79C6
+#color6           = #8BE9FD
+#color7           = #F8F8F2
+#color8           = #6272A4
+#color9           = #FF6E6E
+#color10          = #69FF94
+#color11          = #FFFFA5
+#color12          = #D6ACFF
+#color13          = #FF92DF
+#color14          = #A4FFFF
+#color15          = #FFFFFF
 
 [hints]
 font             = FantasqueSansMono 10
