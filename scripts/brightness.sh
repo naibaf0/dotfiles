@@ -3,10 +3,10 @@
 # Increase/decrease backlight with notification
 
 if [ "$1" = "up" ]; then
- 	brightnessctl set +10%
+ 	light -A 10
 else
 	if [ "$1" = "down" ]; then
- 	  brightnessctl set -10%
+ 	  light -U 10
 	fi
 fi
 brightnessLevel=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
