@@ -26,14 +26,14 @@ col="<span color='"
 end="</span>"
 
 case $brightness in
-        1)      notify-send "Brightness:" "$col$color1■$end▢▢▢▢▢▢▢▢▢";;
-        2)      notify-send "Brightness:" "$col$color1■■$end▢▢▢▢▢▢▢▢";;
-        3)      notify-send "Brightness:" "$col$color2■■■$end▢▢▢▢▢▢▢";;
-        4)      notify-send "Brightness:" "$col$color2■■■■$end▢▢▢▢▢▢";;
-        5)      notify-send "Brightness:" "$col$color3■■■■■$end▢▢▢▢▢";;
-        6)      notify-send "Brightness:" "$col$color3■■■■■■$end▢▢▢▢";;
-        7)      notify-send "Brightness:" "$col$color4■■■■■■■$end▢▢▢";;
-        8)      notify-send "Brightness:" "$col$color4■■■■■■■■$end▢▢";;
-        9)      notify-send "Brightness:" "$col$color5■■■■■■■■■$end▢";;
-       10)      notify-send "Brightness:" "$col$color5■■■■■■■■■■$end";;
+        1)      notify-send -t 300 "Brightness:" "$col$color1■$end▢▢▢▢▢▢▢▢▢";;
+        2)      notify-send -t 300 "Brightness:" "$col$color1■■$end▢▢▢▢▢▢▢▢";;
+        3)      notify-send -t 300 "Brightness:" "$col$color2■■■$end▢▢▢▢▢▢▢";;
+        4)      notify-send -t 300 "Brightness:" "$col$color2■■■■$end▢▢▢▢▢▢";;
+        5)      notify-send -t 300 "Brightness:" "$col$color3■■■■■$end▢▢▢▢▢";;
+        6)      notify-send -t 300 "Brightness:" "$col$color3■■■■■■$end▢▢▢▢";;
+        7)      notify-send -t 300 "Brightness:" "$col$color4■■■■■■■$end▢▢▢";;
+        8)      notify-send -t 300 "Brightness:" "$col$color4■■■■■■■■$end▢▢";;
+        9)      notify-send -t 300 "Brightness:" "$col$color5■■■■■■■■■$end▢";;
+       10)      notify-send -t 300 "Brightness:" "$col$color5■■■■■■■■■■$end";;
 esac
