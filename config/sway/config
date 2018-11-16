@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term termite
+set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
@@ -30,7 +30,7 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
-# 
+#             
 
 ### Output configuration
 #
@@ -72,6 +72,7 @@ input * {
     xkb_variant nodeadkeys
     xkb_options caps:escape
     xkb_options grp:alt_shift_toggle
+    xkb_numlock enabled
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
@@ -347,13 +348,17 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [instance="update_installer"] floating enable
 
+
+
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="keepassxc"] floating enable
-for_window [class="Xarchiver"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="VirtualBox"] floating enable
+
+# Native Wayland
+for_window [app_id="xarchiver"] floating enable
 
 # workspace assignments
 assign [class="Slack"] $ws2
@@ -386,10 +391,6 @@ bindsym --locked XF86AudioPrev exec mpc previous
 bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
-
-# call indicator in i3blocks
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-
 # startup
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
@@ -400,8 +401,9 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula-master'
-  gsettings set $gnome-schema icon-theme 'la-capitaine-icon-theme'
+  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.2'
   #gsettings set $gnome-schema cursor-theme 'elementary'
 }
 
+include ~/.config/sway/`hostname`
 include /etc/sway/config.d/*
