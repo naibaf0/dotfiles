@@ -9,7 +9,7 @@
 # Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
 
-base00 = "#282936"
+base00 = "#282a36"
 base01 = "#3a3c4e"
 base02 = "#626483"
 base03 = "#4d4f68"
@@ -784,12 +784,12 @@ c.fonts.web.family.sans_serif = '"Overpass", "sans-serif"'
 ## environment variable and is useful to force using the XCB plugin when
 ## running QtWebEngine on Wayland.
 ## Type: String
-# c.qt.force_platform = 'xcb'
+c.qt.force_platform = 'wayland'
 
 ## Force software rendering for QtWebEngine. This is needed for
 ## QtWebEngine to work with Nouveau drivers.
 ## Type: Bool
-# c.qt.force_software_rendering = 'chromium'
+c.qt.force_software_rendering = 'chromium'
 
 ## Turn on Qt HighDPI scaling. This is equivalent to setting
 ## QT_AUTO_SCREEN_SCALE_FACTOR=1 in the environment. It's off by default

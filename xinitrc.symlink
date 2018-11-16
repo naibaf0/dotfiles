@@ -25,6 +25,8 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
+./.bin/display_conf_toggle
+
 session=${1:-i3}
 
 export XSESSION=$session

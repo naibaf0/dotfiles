@@ -3,18 +3,15 @@ width=320
 padding=8
 margin=4
 border-size=2
-border-color=#ff00ff
+border-color=#bd93f9
 default-timeout=5000
 
 # Only for desktop, ignored when no such output exists
-output=DP-1
-
-background-color=#666666
-text-color=#FFFFFF
+#output=DP-1
 
 [urgency=low]
 background-color=#282a36
-text-color=#f8f8f2
+text-color=#bfbfbf
 
 [urgency=normal]
 background-color=#282a36

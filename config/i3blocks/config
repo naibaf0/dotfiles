@@ -28,11 +28,6 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[keyindicator]
-instance=CAPS
-interval=once
-signal=11
-
 [updates]
 command=$HOME/.dotfiles/scripts/updates.sh
 interval=60

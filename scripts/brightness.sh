@@ -3,10 +3,10 @@
 # Increase/decrease backlight with notification
 
 if [ "$1" = "up" ]; then
- 	brightnessctl set +10%
+ 	light -A 10
 else
 	if [ "$1" = "down" ]; then
- 	  brightnessctl set -10%
+ 	  light -U 10
 	fi
 fi
 brightnessLevel=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
@@ -26,14 +26,14 @@ col="<span color='"
 end="</span>"
 
 case $brightness in
-        1)      notify-send "Brightness:" "$col$color1■$end▢▢▢▢▢▢▢▢▢";;
-        2)      notify-send "Brightness:" "$col$color1■■$end▢▢▢▢▢▢▢▢";;
-        3)      notify-send "Brightness:" "$col$color2■■■$end▢▢▢▢▢▢▢";;
-        4)      notify-send "Brightness:" "$col$color2■■■■$end▢▢▢▢▢▢";;
-        5)      notify-send "Brightness:" "$col$color3■■■■■$end▢▢▢▢▢";;
-        6)      notify-send "Brightness:" "$col$color3■■■■■■$end▢▢▢▢";;
-        7)      notify-send "Brightness:" "$col$color4■■■■■■■$end▢▢▢";;
-        8)      notify-send "Brightness:" "$col$color4■■■■■■■■$end▢▢";;
-        9)      notify-send "Brightness:" "$col$color5■■■■■■■■■$end▢";;
-       10)      notify-send "Brightness:" "$col$color5■■■■■■■■■■$end";;
+        1)      notify-send -t 300 "Brightness:" "$col$color1■$end▢▢▢▢▢▢▢▢▢";;
+        2)      notify-send -t 300 "Brightness:" "$col$color1■■$end▢▢▢▢▢▢▢▢";;
+        3)      notify-send -t 300 "Brightness:" "$col$color2■■■$end▢▢▢▢▢▢▢";;
+        4)      notify-send -t 300 "Brightness:" "$col$color2■■■■$end▢▢▢▢▢▢";;
+        5)      notify-send -t 300 "Brightness:" "$col$color3■■■■■$end▢▢▢▢▢";;
+        6)      notify-send -t 300 "Brightness:" "$col$color3■■■■■■$end▢▢▢▢";;
+        7)      notify-send -t 300 "Brightness:" "$col$color4■■■■■■■$end▢▢▢";;
+        8)      notify-send -t 300 "Brightness:" "$col$color4■■■■■■■■$end▢▢";;
+        9)      notify-send -t 300 "Brightness:" "$col$color5■■■■■■■■■$end▢";;
+       10)      notify-send -t 300 "Brightness:" "$col$color5■■■■■■■■■■$end";;
 esac

@@ -1,19 +1,20 @@
 #!/bin/bash
-IMAGE=/tmp/screen_locked.png
 
-# take a screenshot and blur the image
-grim $IMAGE
-convert -blur 10x10 $IMAGE $IMAGE
+images=()
+swaylock_args=()
 
-killall -SIGUSR1 dunst # pause notification demon
-physlock -l # prevent tty switching
+swaylock_args+=(-e)
 
-# lock screen with swaylock
-# -n --no-fork
-# -e --no-empty-passwords
-# -f --failed-attempts
-# Do not use image until a seperate screenshot for each output is created
-swaylock -n -e
+for output in $(swaymsg -t get_outputs | jq -r '.[] .name'); do
+  image=$(mktemp --suffix=.png)
+  images+=($image)
+  swaylock_args+=(-i $output:$image)
+  grim -o $output $image
+done
 
-physlock -L # reenable tty switching
-killall -SIGUSR2 dunst # resume notification demon
+printf '%s\n' "${images[@]}" | xargs -P 0 -I{} convert -blur 0x8 {} {}
+
+physlock -l  prevent tty switching
+swaylock ${swaylock_args[@]} -s center
+physlock -L  reenable tty switching
+rm ${images[@]}
