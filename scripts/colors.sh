@@ -6,31 +6,31 @@
 color0="#282a36"
 color8="#4d4f68"
 color7="#e9e9f4"
-color15="#f7f7fb"
+color15="#f8f8f2"
 
 # Red
-color1="#ea51b2"
-color9="#ea51b2"
+color1="#ff5555"
+color9="#ff6e67"
 
 # Green
-color2="#00f769"
-color10="#00f769"
+color2="#50fa7b"
+color10="#5af78e"
 
 # Yellow
-color3="#ebff87"
-color11="#ebff87"
+color3="#f1fa8c"
+color11="#f4f99d"
 
 # Blue
-color4="#62d6e8"
-color12="#62d6e8"
+color4="#bd93f9"
+color12="#caa9fa"
 
 # Purple
-color5="#b45bcf"
-color13="#b45bcf"
+color5="#ff79c6"
+color13="#ff92d0"
 
 # Teal
-color6="#a1efe4"
-color14="#a1efe4"
+color6="#8be9fd"
+color14="#9aedfe"
 
 # Extra colors
 color16="#b45bcf"
