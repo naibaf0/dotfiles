@@ -14,17 +14,17 @@ set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_run
 # Give the workspaces names, or rather symbols
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
-#  
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+#             
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
