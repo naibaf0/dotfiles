@@ -402,7 +402,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula-master'
   gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.2'
-  #gsettings set $gnome-schema cursor-theme 'elementary'
+  gsettings set $gnome-schema cursor-theme 'Adwaita'
 }
 
 include ~/.config/sway/`hostname`
