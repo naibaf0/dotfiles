@@ -10,21 +10,21 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term termite
+set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_run
 # Give the workspaces names, or rather symbols
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
-#  
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+#             
 
 # The name of the default home monitor
 set $monitor_base "LVDS1"
@@ -343,6 +343,9 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym XF86AudioPause exec mpc toggle
 #bindsym XF86AudioNext exec mpc next
 #bindsym XF86AudioPrev exec mpc previous
+# brightness
+bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # call indicator in i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
