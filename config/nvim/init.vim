@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Git integration
 Plug 'airblade/vim-gitgutter' "show git-diff in sign-column (gutter)
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', {'tag': '*'}
 " Undotree
 Plug 'mbbill/undotree'
 " integrate fzf
