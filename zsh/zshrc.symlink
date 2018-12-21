@@ -48,10 +48,6 @@ fi
 [ -f /opt/google-cloud-sdk/path.zsh.inc ] && source /opt/google-cloud-sdk/path.zsh.inc
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
 
-# kubectl autocompletion
-# ======================
-[ -n "$(which kubectl 2>/dev/null)" ] && eval "$(kubectl completion zsh)"
-
 # direnv hook
 # ===========
 [ -n "$(which direnv 2>/dev/null)" ] && eval "$(direnv hook zsh)"
