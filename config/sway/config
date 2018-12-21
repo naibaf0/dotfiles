@@ -14,6 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
+#set $term KITTY_ENABLE_WAYLAND=1 kitty
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -37,36 +38,18 @@ set $ws10 10
 # Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
 output * bg $HOME/Pictures/Wallpapers/wallhaven-170258.jpg fill
 
-output DP-2 {
-  scale 1.5
-  resolution 3480x2160
-  position 0,0
-}
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle \
     timeout 300 '~/.config/sway/lock.sh' \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
     before-sleep '~/.config/sway/lock.sh'
-
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 600 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# lock screen after 300 seconds of inactivity
+# turn off displays after another 600 seconds
+# turn screens back on when resumed
+# also lock screen before computer goes to sleep
 
 ### Input configuration
-#
-# Example configuration:
-#
 input * {
     xkb_layout de,us
     xkb_variant nodeadkeys
@@ -75,12 +58,6 @@ input * {
     xkb_numlock enabled
 }
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
-   dwt enabled
-   tap enabled
-   natural_scroll enabled
-   middle_emulation enabled
-}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -90,6 +67,7 @@ font pango:Fantasque Sans Mono 11
 new_window pixel 3
 default_border pixel
 hide_edge_borders smart
+titlebar_padding 2 2
 
 # gaps
 gaps inner 10
@@ -302,8 +280,6 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
-font Overpass 11
-
 #
 # Status Bar:
 #
@@ -348,26 +324,22 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [instance="update_installer"] floating enable
 
-
-
-for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="keepassxc"] floating enable
-for_window [class="Galculator"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="VirtualBox"] floating enable
 
 # Native Wayland
+for_window [app_id="galculator"] floating enable
+for_window [app_id="keepassxc"] floating enable
+for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="xarchiver"] floating enable
 
 # workspace assignments
-assign [class="Slack"] $ws2
-assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="Cantata"] $ws4
 assign [window_role="browser"] $ws10
-assign [class="^.*qutebrowser"] $ws10
+assign [app_id="qutebrowser"] $ws10
 
 # screenshots
 bindsym --release $mod+p exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
@@ -401,7 +373,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula-master'
-  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.2'
+  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.8'
   gsettings set $gnome-schema cursor-theme 'Adwaita'
 }
 

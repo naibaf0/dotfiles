@@ -24,16 +24,14 @@
     //     }
     // },
     "sway/mode": {
-        "format": "{}"
-    },
-    "sway/window": {
-        "max-length": 50
+        "format": "<span style=\"italic\">{}</span>"
     },
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+        "interval": 5,
+        "format": "{:%a %d %b <b>%H:%M</b>}",
     },
     "cpu": {
-        "format": "{}% "
+        "format": "{usage}% "
     },
     "memory": {
         "format": "{}% "
@@ -59,7 +57,7 @@
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
-        "scroll-step": 10,
+        //"scroll-step": 1,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
