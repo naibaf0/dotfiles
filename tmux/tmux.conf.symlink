@@ -1,50 +1,198 @@
-set -g default-command {$SHELL}
-set -g default-terminal "screen-256color"
+#set -g default-command {$SHELL}
+#set -g default-terminal "screen-256color"
 
-#set -g mode-mouse on
-#set-option -g mouse-select-pane on
-#set-option -g mouse-select-window on
+##set -g mode-mouse on
+##set-option -g mouse-select-pane on
+##set-option -g mouse-select-window on
 
-unbind r
-bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
+#unbind r
+#bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
 
-set -g set-titles on
-set -g set-titles-string "#W@#H"
+#set -g set-titles on
+#set -g set-titles-string "#W@#H"
 
-#setw -g mode-keys vi
+##setw -g mode-keys vi
 
-#### COLOUR (base16)
+##### COLOUR (base16)
 
-# default statusbar colors
-set-option -g status-bg colour18 #base2
-set-option -g status-fg yellow #yellow
-set-option -g status-attr default
+## default statusbar colors
+#set-option -g status-bg default #base2
+#set-option -g status-fg yellow #yellow
+#set-option -g status-attr default
 
-# default window title colors
-set-window-option -g window-status-fg colour20 #base00
+## default window title colors
+#set-window-option -g window-status-fg colour20 #base00
+#set-window-option -g window-status-bg default
+##set-window-option -g window-status-attr dim
+
+## active window title colors
+#set-window-option -g window-status-current-fg colour16 #orange
+#set-window-option -g window-status-current-bg default
+##set-window-option -g window-status-current-attr bright
+
+## pane border
+#set-option -g pane-border-fg colour18 #base2
+#set-option -g pane-active-border-fg colour19 #base1
+
+## message text
+#set-option -g message-bg colour18 #base2
+#set-option -g message-fg colour16 #orange
+
+## pane number display
+#set-option -g display-panes-active-colour blue #blue
+#set-option -g display-panes-colour colour16 #orange
+
+## clock
+#set-window-option -g clock-mode-colour green #green
+
+## bell
+#set-window-option -g window-status-bell-fg colour18 #base2
+#set-window-option -g window-status-bell-bg red #red
+
+
+# Set that stupid Esc-Wait off, so VI works again
+set-option -sg  escape-time 0
+
+# Set the prefix to Ctrl+a
+set-option -g   prefix C-a
+unbind C-b
+bind-key C-a    send-prefix
+
+# All kind of nice options
+set-option -g   bell-action any
+set-option -g   default-terminal "screen-256color"
+set-option -g   history-limit 100000
+set-option -g   repeat-time 500
+set-option -g   visual-activity off
+set-option -g   visual-bell off
+set-option -g   set-titles on
+set-option -g   set-titles-string ' #I-#W '
+set-option -g   terminal-overrides 'xterm*:smcup@:rmcup@'
+set-option -g   base-index 1
+set-option -g   update-environment -r
+
+# Window options
+set-window-option -g monitor-activity on
+set-window-option -g xterm-keys on
+set-window-option -g automatic-rename on
+set-window-option -g aggressive-resize off
+set-window-option -g pane-base-index 1
+
+# Remap keys to my settings
+unbind-key d        ; bind-key d        detach-client
+# unbind-key Tab      ; bind-key Tab      choose-window
+unbind-key t        ; bind-key t        new-window
+unbind-key `        ; bind-key `        last-window
+unbind-key n        ; bind-key n        next-window
+unbind-key p        ; bind-key p        previous-window
+
+# Window selection
+unbind-key 1        ; bind-key 1        select-window -t 1
+unbind-key 2        ; bind-key 2        select-window -t 2
+unbind-key 3        ; bind-key 3        select-window -t 3
+unbind-key 4        ; bind-key 4        select-window -t 4
+unbind-key 5        ; bind-key 5        select-window -t 5
+unbind-key 6        ; bind-key 6        select-window -t 6
+unbind-key 7        ; bind-key 7        select-window -t 7
+unbind-key 8        ; bind-key 8        select-window -t 8
+unbind-key 9        ; bind-key 9        select-window -t 9
+unbind-key 0        ; bind-key 0        select-window -t 10
+
+unbind-key M-1      ; bind-key -n M-1   select-window -t 1
+unbind-key M-2      ; bind-key -n M-2   select-window -t 2
+unbind-key M-3      ; bind-key -n M-3   select-window -t 3
+unbind-key M-4      ; bind-key -n M-4   select-window -t 4
+unbind-key M-5      ; bind-key -n M-5   select-window -t 5
+unbind-key M-6      ; bind-key -n M-6   select-window -t 6
+unbind-key M-7      ; bind-key -n M-7   select-window -t 7
+unbind-key M-8      ; bind-key -n M-8   select-window -t 8
+unbind-key M-9      ; bind-key -n M-9   select-window -t 9
+unbind-key M-0      ; bind-key -n M-0   select-window -t 10
+
+bind -n M-H resize-pane -L 5
+bind -n M-J resize-pane -D 5
+bind -n M-K resize-pane -U 5
+bind -n M-L resize-pane -R 5
+
+bind -n M-h select-pane -L
+bind -n M-l select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
+# Hack to get pbcopy to work
+# See: http://superuser.com/questions/231130/unable-to-use-pbcopy-while-in-tmux-session
+# set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+
+# Zoom tmux pane with '+' key
+# bind + resize-pane -Z
+
+# move status to top
+# set-option -g status-position top
+
+# clipboard fix
+set -g default-shell $SHELL
+
+# Color key (Dracula Theme):
+#   #282a36 Background
+#   #44475a Current Line
+#   #44475a Selection
+#   #f8f8f2 Foreground
+#   #6272a4 Comment
+#   #ff5555 Red
+#   #ffb86c Orange
+#   #f1fa8c Yellow
+#   #50fa7b Green
+#   #8be9fd Cyan
+#   #81a2be Blue
+#   #bd93f9 Purple
+
+## set status bar
+set -g status-bg default
+setw -g window-status-current-bg "#44475a"
+setw -g window-status-current-fg "#81a2be"
+
+## pane border and colors
+set -g pane-active-border-bg default
+set -g pane-active-border-fg "#44475a"
+set -g pane-border-bg default
+set -g pane-border-fg "#44475a"
+
+set -g clock-mode-colour "#81a2be"
+set -g clock-mode-style 12
+
+set -g message-bg "#8be9fd"
+set -g message-fg "#000000"
+
+set -g message-command-bg "#8be9fd"
+set -g message-command-fg "#000000"
+
+# message bar or "prompt"
+set -g message-bg "#2d2d2d"
+set -g message-fg "#cc99cc"
+
+set -g mode-bg "#282a36"
+set -g mode-fg "#ffb86c"
+
+
+# empty left side of status bar
+set-option -g   status-left ''
+
+# right side of status bar holds "Battery (date time) Whoami"
+set -g status-right-length 100
+set -g status-right-fg black
+set -g status-right-attr bold
+set -g status-right "#[fg=#6699cc,bg=#2d2d2d] Battery: #(pmset -g batt | grep InternalBattery | awk '{print $3}' | sed 's/;/ /g') #[fg=#f99157]| %a %m/%d/%Y %H:%M |#[fg=#dddddd] #S "
+
+# make background window look like white tab
 set-window-option -g window-status-bg default
-#set-window-option -g window-status-attr dim
+set-window-option -g window-status-fg white
+set-window-option -g window-status-attr none
+set-window-option -g window-status-format '#[fg=#6699cc,bg=colour235] #I #[fg=#999999,bg=#2d2d2d] #W #[default]'
 
-# active window title colors
-set-window-option -g window-status-current-fg colour16 #orange
-set-window-option -g window-status-current-bg default
-#set-window-option -g window-status-current-attr bright
+# make foreground window look like bold yellow foreground tab
+set-window-option -g window-status-current-attr none
+set-window-option -g window-status-current-format '#[fg=#f99157,bg=#2d2d2d] #I #[fg=#cccccc,bg=#393939] #W #[default]'
 
-# pane border
-set-option -g pane-border-fg colour18 #base2
-set-option -g pane-active-border-fg colour19 #base1
-
-# message text
-set-option -g message-bg colour18 #base2
-set-option -g message-fg colour16 #orange
-
-# pane number display
-set-option -g display-panes-active-colour blue #blue
-set-option -g display-panes-colour colour16 #orange
-
-# clock
-set-window-option -g clock-mode-colour green #green
-
-# bell
-set-window-option -g window-status-bell-fg colour18 #base2
-set-window-option -g window-status-bell-bg red #red
+# active terminal yellow border, non-active white
+# set -g pane-border-bg default
+# set -g pane-border-fg "#999999"
+# set -g pane-active-border-fg "#f99157"
