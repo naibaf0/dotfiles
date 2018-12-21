@@ -1,1 +1,1 @@
-setlocal conceallevel=2 concealcursor=nv
+"setlocal conceallevel=2 concealcursor=nv
