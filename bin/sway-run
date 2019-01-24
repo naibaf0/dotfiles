@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 
 export TERMINAL="termite"
 export BROWSER="firefox-nightly"

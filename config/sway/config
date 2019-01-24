@@ -366,7 +366,7 @@ bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
 exec --no-startup-id dropbox-cli start
-exec --no-startup-id mako
+exec --no-startup-id dunst
 exec --no-startup-id redshift -c ~/.config/redshift.conf
 exec --no-startup-id pcmanfm -d
 
