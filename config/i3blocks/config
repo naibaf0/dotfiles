@@ -44,6 +44,11 @@ instance=mpv
 interval=5
 signal=10
 
+[bandwidth]
+#instance=wifi0
+#command=$HOME/.dotfiles/scripts/wireless.sh
+interval=2
+
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
@@ -52,6 +57,12 @@ signal=10
 label=
 instance=wifi0
 command=$HOME/.dotfiles/scripts/wireless.sh
+interval=2
+
+[iface]
+#label=
+#instance=net0
+#command=$HOME/.dotfiles/scripts/wireless.sh
 interval=2
 
 # Temperature

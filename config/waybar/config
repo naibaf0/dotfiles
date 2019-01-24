@@ -28,7 +28,7 @@
     },
     "clock": {
         "interval": 5,
-        "format": "{:%a %d %b <b>%H:%M</b>}",
+        "format": "{:%a %d %b <b>%H:%M</b>}"
     },
     "cpu": {
         "format": "{usage}% "
