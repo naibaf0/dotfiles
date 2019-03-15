@@ -2,11 +2,11 @@
 # User configuration sourced by interactive shells
 #
 
-# Change default zim location
+# Define Zim location
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
-# Start zim
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+# Start Zim
+[[ -s ${ZIM_HOME}/zimfw.zsh ]] && source ${ZIM_HOME}/zimfw.zsh
 
 # Source fzf
 # ==========
