@@ -60,16 +60,6 @@ input * {
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-# thin borders
-new_window pixel 3
-default_border pixel
-hide_edge_borders smart
-titlebar_padding 2 2
-
-# gaps
-gaps inner 10
-smart_gaps on
-
 ### Key bindings
 #
 # Basics:
@@ -276,6 +266,17 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
+font pango:Fantasque Sans Mono
+
+# thin borders
+new_window pixel 3
+default_border pixel
+hide_edge_borders --i3 smart
+titlebar_padding 2 2
+
+# gaps
+gaps inner 10
+smart_gaps on
 
 #
 # Status Bar:
@@ -284,6 +285,7 @@ client.background       #F8F8F2
 bar {
   position top
   status_command i3blocks
+  tray_output none
   strip_workspace_numbers yes
 
   font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
