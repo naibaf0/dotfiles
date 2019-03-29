@@ -18,7 +18,7 @@ set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu rofi -show drun
+set $menu rofi -show drun | xargs swaymsg exec
 
 # Give the workspaces names, or rather symbols
 set $ws1 1
@@ -31,7 +31,6 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
-#             
 
 ### Output configuration
 output * bg $HOME/Pictures/4k Wallpapers/wallhaven-170258.jpg fill
@@ -73,10 +72,8 @@ input * {
     # kill focused window
     bindsym $mod+Shift+q kill
 
-    # start rofi (a program launcher)
-    bindsym $mod+d exec rofi -show drun
     # start your launcher
-    #bindsym $mod+d exec $menu
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -87,9 +84,6 @@ input * {
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
-
-    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-    bindsym $mod+Shift+r restart
 
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -155,8 +149,6 @@ input * {
     bindsym $mod+Shift+8 move container to workspace $ws8
     bindsym $mod+Shift+9 move container to workspace $ws9
     bindsym $mod+Shift+0 move container to workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 #
 # Layout stuff:
 #
@@ -233,33 +225,32 @@ mode "$mode_power" {
 }
 bindsym Mod1+Control+l mode "$mode_power"
 
-set $base00 #282a36
-set $base01 #3a3c4e
-set $base02 #626483
-set $base03 #4d4f68
-set $base04 #62d6e8
-set $base05 #e9e9f4
-set $base06 #f1f2f8
-set $base07 #f7f7fb
-set $base08 #ea51b2
-set $base09 #b45bcf
-set $base0A #ebff87
-set $base0B #00f769
-set $base0C #a1efe4
-set $base0D #62d6e8
-set $base0E #b45bcf
-set $base0F #00f769
+#define DRACULA_FG             #F8F8F2
+#define DRACULA_BG             #282A36
+#define DRACULA_BG_DARK        #21222C
+#define DRACULA_SELECTION      #44475A
+#define DRACULA_COMMENT        #6272A4
+#define DRACULA_ORANGE         #FFB86C
 
-# Basic color configuration using the Base16 variables for windows and borders.
+#define DRACULA_BLACK          #21222C
+#define DRACULA_BRIGHT_BLACK   #6272A4
+#define DRACULA_RED            #FF5555
+#define DRACULA_BRIGHT_RED     #FF6E6E
+#define DRACULA_GREEN          #50FA7B
+#define DRACULA_BRIGHT_GREEN   #69FF94
+#define DRACULA_YELLOW         #F1FA8C
+#define DRACULA_BRIGHT_YELLOW  #FFFFA5
+#define DRACULA_BLUE           #BD93F9
+#define DRACULA_BRIGHT_BLUE    #D6ACFF
+#define DRACULA_MAGENTA        #FF79C6
+#define DRACULA_BRIGHT_MAGENTA #FF92DF
+#define DRACULA_CYAN           #8BE9FD
+#define DRACULA_BRIGHT_CYAN    #A4FFFF
+#define DRACULA_WHITE          #F8F8F2
+#define DRACULA_BRIGHT_WHITE   #FFFFFF
+
 # Property Name         Border  BG      Text    Indicator Child Border
-#client.focused          $base05 $base0D $base00 $base0D $base0D
-#client.focused_inactive $base01 $base01 $base05 $base03 $base01
-#client.unfocused        $base01 $base00 $base05 $base01 $base01
-#client.urgent           $base08 $base08 $base00 $base08 $base08
-#client.placeholder      $base00 $base00 $base05 $base00 $base00
-#client.background $base07
-
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused          #6272A4 #44475A #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
@@ -291,21 +282,11 @@ bar {
   font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
 
   colors {
-    #background $base00
-    #separator  $base01
-    #statusline $base04
-
-    # State             Border  BG      Text
-    #focused_workspace   $base05 $base0D $base00
-    #active_workspace    $base05 $base03 $base00
-    #inactive_workspace  $base03 $base01 $base05
-    #urgent_workspace    $base08 $base08 $base00
-    #binding_mode        $base00 $base0A $base00
-
     background #282A36
     statusline #F8F8F2
     separator  #44475A
 
+    # State             Border  BG      Text
     focused_workspace  #44475A #44475A #F8F8F2
     active_workspace   #282A36 #44475A #F8F8F2
     inactive_workspace #282A36 #282A36 #BFBFBF
@@ -323,8 +304,6 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [instance="update_installer"] floating enable
 
-for_window [class="Lxappearance"] floating enable
-for_window [class="mpv"] floating enable
 for_window [class="VirtualBox"] floating enable
 
 # Native Wayland
@@ -336,6 +315,8 @@ for_window [app_id="xarchiver"] floating enable
 for_window [app_id="keepassxc"] floating enable
 
 # workspace assignments
+assign [class="Slack"] $ws2
+assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="Cantata"] $ws4
@@ -366,8 +347,9 @@ bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
 exec --no-startup-id dropbox-cli start
-exec --no-startup-id mako
-exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id dunst
+#exec --no-startup-id mako
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id pcmanfm -d
 
 set $gnome-schema org.gnome.desktop.interface
