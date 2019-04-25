@@ -262,10 +262,11 @@ client.background       #F8F8F2
 font pango:Fantasque Sans Mono
 
 # thin borders
-new_window pixel 3
-default_border pixel
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders --i3 smart
-titlebar_padding 2 2
+titlebar_padding 6 3
+titlebar_border_thickness 2
 
 # gaps
 gaps inner 10

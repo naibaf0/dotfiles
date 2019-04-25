@@ -64,6 +64,14 @@ smart_gaps on
 =======
 >>>>>>> master
 
+# The name of the default home monitor
+set $monitor_base "LVDS1"
+
+workspace $ws1 output $monitor_base
+workspace $ws2 output $monitor_base
+workspace $ws3 output $monitor_base
+workspace $ws4 output $monitor_base
+
 ### Key bindings
 #
 # Basics:
@@ -281,8 +289,8 @@ client.background       #F8F8F2
 font pango:Fantasque Sans Mono
 
 # thin borders
-new_window pixel 3
-default_border pixel
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders smart
 
 # gaps

@@ -723,6 +723,8 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
       \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
 \ .')'
 
+au FileType tex nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
+
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
 let g:vimtex_syntax_minted = [
