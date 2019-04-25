@@ -1,3 +1,5 @@
+exec --no-startup-id dropbox-cli start
+
 output 'Goldstar Company Ltd LG Ultra HD 0x0000D748' {
   position 0,0
   resolution 3840x2160
