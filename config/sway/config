@@ -32,9 +32,6 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-### Output configuration
-output * bg $HOME/Pictures/4k Wallpapers/wallhaven-170258.jpg fill
-
 ### Idle configuration
 exec swayidle \
     timeout 300 '~/.config/sway/lock.sh' \
@@ -355,7 +352,7 @@ exec --no-startup-id pcmanfm -d
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'Ant-Dracula-master'
+  gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
   gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.8'
   gsettings set $gnome-schema cursor-theme 'Adwaita'
 }
