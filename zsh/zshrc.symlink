@@ -43,6 +43,15 @@ if type fzf > /dev/null; then
   __gen_fzf_default_opts
 fi
 
+# gcloud sdk path and autocompletion
+# ==================================
+[ -f /opt/google-cloud-sdk/path.zsh.inc ] && source /opt/google-cloud-sdk/path.zsh.inc
+[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
+
+# direnv hook
+# ===========
+[ -n "$(which direnv 2>/dev/null)" ] && eval "$(direnv hook zsh)"
+
 setopt ignoreeof # ignore ctrl+d
 
 # Uncomment the following line if you want to change the command execution time
@@ -102,3 +111,6 @@ alias zathura='zathura --fork > /dev/null 2>&1'
 alias z='zathura'
 
 alias lsblk='lsblk -o SIZE,NAME,VENDOR,MODEL,LABEL,FSTYPE,RO,TYPE,MOUNTPOINT,UUID'
+
+# Kubernetes
+alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
