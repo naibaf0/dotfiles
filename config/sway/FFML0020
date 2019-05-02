@@ -1,0 +1,20 @@
+output * bg $HOME/Pictures/Wallpapers/wallhaven-170258.jpg fill
+
+output "Goldstar Company Ltd LG Ultra HD 0x0000D748" {
+  resolution 1920x1080
+  position 0,0
+}
+
+output "Dell Inc. DELL P2414H 36WJX5A80L7B" {
+  resolution 1920x1080
+  position 1366,0
+}
+
+workspace 1 output LVDS-1
+workspace 2 output LVDS-1
+workspace 3 output LVDS-1
+
+workspace 3
+workspace 2
+workspace 1
+
