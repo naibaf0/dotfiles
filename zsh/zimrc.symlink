@@ -7,7 +7,7 @@
 
 # Select what modules you would like enabled. Modules are sourced in the order given.
 zstyle ':zim' modules \
-    directory environment git git-info history input utility archive ssh pacman \
+    directory environment git git-info history input utility archive ssh \
     lean \
     zsh-completions completion \
     zsh-autosuggestions zsh-syntax-highlighting history-substring-search
