@@ -50,7 +50,9 @@ fi
 
 # direnv hook
 # ===========
-[ -n "$(which direnv 2>/dev/null)" ] && eval "$(direnv hook zsh)"
+if which direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
 setopt ignoreeof # ignore ctrl+d
 
