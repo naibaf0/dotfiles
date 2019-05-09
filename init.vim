@@ -17,25 +17,25 @@ Plug 'junegunn/fzf.vim'
 " Multiple Cursors (like sublime)
 Plug 'terryma/vim-multiple-cursors'
 " Autocompletion engine
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neopairs.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/context_filetype.vim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'fgrsnau/ncm2-aspell'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'ncm2/ncm2-neosnippet' | Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
+Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
-" Golang support
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
-Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
-" Python support
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-" C/C++ support
-Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
-" Javascript support
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
-" LaTeX support
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoUpdateBinaries' }
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-pyclang'
+Plug 'ncm2/ncm2-html-subscope'
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " Text Filtering/Alignment | Markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -90,8 +90,8 @@ set noshowmode
 
 " Show line numbers on the side, switch between relative and absolute number
 set number
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
+au InsertEnter * :set norelativenumber
+au InsertLeave * :set relativenumber
 set relativenumber
 
 " Set whether a line that doesn't fit into a window is wrapped around
@@ -486,8 +486,8 @@ function! s:goyo_leave()
   set ei=
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+au! User GoyoEnter nested call <SID>goyo_enter()
+au! User GoyoLeave nested call <SID>goyo_leave()
 " {{{2 fzf
 """"""""""
 " This is the default extra key bindings
@@ -533,7 +533,7 @@ set wildignore+=*.swp,*.zip,*.bak,*.backup "files
 " {{{2 NERDTree
 """""""""""""""
 " close neovim when the only window left open is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " {{{2 nerdtree-git-plugin
 """"""""""""""""""""""""""
@@ -599,49 +599,132 @@ endif
 " {{{2 Multiple Cursors
 """""""""""""""""""""""
 " disable autocomplete when using multiple cursors
-function g:Multiple_cursors_before()
- let g:deoplete#disable_auto_complete = 1
-endfunction
-function g:Multiple_cursors_after()
- let g:deoplete#disable_auto_complete = 0
+function! Multiple_cursors_before()
+    call ncm2#lock('vim-multiple-cursors')
 endfunction
 
-" {{{2 deoplete
-"""""""""""""""
-" neocomplete like
-set completeopt+=noinsert
-" deoplete.nvim recommend
-set completeopt+=noselect
+function! Multiple_cursors_after()
+    call ncm2#unlock('vim-multiple-cursors')
+  endfunction
+
+" {{{2 ncm2
+""""""""""""
+" enable ncm2 for all buffers
+augroup my_cm_setup
+  au!
+  au BufEnter * call ncm2#enable_for_buffer()
+  au Filetype tex call ncm2#register_source({
+          \ 'name' : 'vimtex-cmds',
+          \ 'priority': 8, 
+          \ 'complete_length': -1,
+          \ 'scope': ['tex'],
+          \ 'matcher': {'name': 'prefix', 'key': 'word'},
+          \ 'word_pattern': '\w+',
+          \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+          \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+          \ })
+  au Filetype tex call ncm2#register_source({
+          \ 'name' : 'vimtex-labels',
+          \ 'priority': 8, 
+          \ 'complete_length': -1,
+          \ 'scope': ['tex'],
+          \ 'matcher': {'name': 'combine',
+          \             'matchers': [
+          \               {'name': 'substr', 'key': 'word'},
+          \               {'name': 'substr', 'key': 'menu'},
+          \             ]},
+          \ 'word_pattern': '\w+',
+          \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+          \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+          \ })
+  au Filetype tex call ncm2#register_source({
+          \ 'name' : 'vimtex-files',
+          \ 'priority': 8, 
+          \ 'complete_length': -1,
+          \ 'scope': ['tex'],
+          \ 'matcher': {'name': 'combine',
+          \             'matchers': [
+          \               {'name': 'abbrfuzzy', 'key': 'word'},
+          \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+          \             ]},
+          \ 'word_pattern': '\w+',
+          \ 'complete_pattern': g:vimtex#re#ncm2#files,
+          \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+          \ })
+  au Filetype tex call ncm2#register_source({
+          \ 'name' : 'bibtex',
+          \ 'priority': 8, 
+          \ 'complete_length': -1,
+          \ 'scope': ['tex'],
+          \ 'matcher': {'name': 'combine',
+          \             'matchers': [
+          \               {'name': 'prefix', 'key': 'word'},
+          \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+          \               {'name': 'abbrfuzzy', 'key': 'menu'},
+          \             ]},
+          \ 'word_pattern': '\w+',
+          \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+          \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+          \ })
+  au User Ncm2Plugin call ncm2#register_source({
+          \ 'name' : 'css',
+          \ 'priority': 9,
+          \ 'subscope_enable': 1,
+          \ 'scope': ['css','scss'],
+          \ 'mark': 'css',
+          \ 'word_pattern': '[\w\-]+',
+          \ 'complete_pattern': ':\s*',
+          \ 'on_complete': ['ncm2#on_complete#delay', 180,
+                           \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+          \ })
+augroup END
+
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 " restrict height of completion popup
 set pumheight=20
-" enable deoplete
-let g:deoplete#enable_at_startup = 1
-" Use smartcase.
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_completion_start_length = 3
 
-let g:deoplete#sources = {}
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#functions = {}
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
 
-call deoplete#custom#source('_', 'converters',
-  \ ['converter_auto_paren', 'converter_remove_overlap', 'converter_truncate_abbr', 'converter_truncate_menu'])
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
 
-" Recommended key-mappings.
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-inoremap <expr><C-g> deoplete#undo_completion()
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
-" close preview window after completion
-autocmd CompleteDone * pclose!
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" {{{2 LanguageClient-neovim
+""""""""""""""""""""""""""""
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Always draw the signcolumn.
+set signcolumn=yes
+
+" {{{2 echodoc
+""""""""""""""
+set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
 
 " {{{2 neosnippet
 """""""""""""""""
@@ -666,17 +749,12 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-" {{{2 neopairs
-"""""""""""""""
-let g:neopairs#enable = 1
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+"inoremap <silent> <expr> <CR> ncm2_neosnippet#expand_or("\<CR>", 'n')
 
 " {{{2 Go
 """""""""
-" deoplete-go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#package_dot = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources['go'] = ['neosnippet', 'go', 'buffer', 'syntax', 'file']
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -699,34 +777,12 @@ au FileType go nmap <localleader>rt <Plug>(go-run-tab)
 
 " {{{2 C/C++
 """"""""""""
-" deoplete-clang
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
-
-" {{{2 Javascript
-"""""""""""""""""
-let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-
-let g:deoplete#sources['javascript.jsx'] = ['file', 'neosnippet', 'ternjs', 'buffer', 'syntax']
-
+" ncm2-pyclang
+let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
+au FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
 
 " {{{2 LaTeX
 " """"""""""
-let g:deoplete#omni#input_patterns.tex = '\\(?:'
-      \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-      \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-      \ . '|hyperref\s*\[[^]]*'
-      \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-      \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
-      \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-      \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
-      \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
-\ .')'
-
 au FileType tex nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 
 let g:tex_flavor='latex'
