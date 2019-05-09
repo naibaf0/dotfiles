@@ -3,7 +3,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 " A color scheme
 Plug 'dracula/vim', { 'as': 'dracula' }
-" Stylish statusline and themes
+" Stylish statusline
 Plug 'vim-airline/vim-airline'
 " Distraction-free writing mode
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
@@ -16,7 +16,7 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf.vim'
 " Multiple Cursors (like sublime)
 Plug 'terryma/vim-multiple-cursors'
-" Autocompletion engine
+" Autocompletion
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
@@ -27,14 +27,12 @@ Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 Plug 'ncm2/ncm2-neosnippet' | Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets' | Plug 'honza/vim-snippets'
 Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'Shougo/echodoc.vim'
-
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-pyclang'
 Plug 'ncm2/ncm2-html-subscope'
 Plug 'lervag/vimtex', { 'for': 'tex'}
 " Text Filtering/Alignment | Markdown
@@ -709,13 +707,33 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType cpp,c call SetLSPShortcuts()
+augroup END
 
 " Always draw the signcolumn.
 set signcolumn=yes
@@ -774,12 +792,6 @@ au FileType go nmap <localleader>c <Plug>(go-coverage)
 au FileType go nmap <localleader>ds <Plug>(go-def-split)
 au FileType go nmap <localleader>e <Plug>(go-rename)
 au FileType go nmap <localleader>rt <Plug>(go-run-tab)
-
-" {{{2 C/C++
-""""""""""""
-" ncm2-pyclang
-let g:ncm2_pyclang#library_path = '/usr/lib/libclang.so'
-au FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
 
 " {{{2 LaTeX
 " """"""""""
