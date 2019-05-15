@@ -13,43 +13,6 @@
 
 ##setw -g mode-keys vi
 
-##### COLOUR (base16)
-
-## default statusbar colors
-#set-option -g status-bg default #base2
-#set-option -g status-fg yellow #yellow
-#set-option -g status-attr default
-
-## default window title colors
-#set-window-option -g window-status-fg colour20 #base00
-#set-window-option -g window-status-bg default
-##set-window-option -g window-status-attr dim
-
-## active window title colors
-#set-window-option -g window-status-current-fg colour16 #orange
-#set-window-option -g window-status-current-bg default
-##set-window-option -g window-status-current-attr bright
-
-## pane border
-#set-option -g pane-border-fg colour18 #base2
-#set-option -g pane-active-border-fg colour19 #base1
-
-## message text
-#set-option -g message-bg colour18 #base2
-#set-option -g message-fg colour16 #orange
-
-## pane number display
-#set-option -g display-panes-active-colour blue #blue
-#set-option -g display-panes-colour colour16 #orange
-
-## clock
-#set-window-option -g clock-mode-colour green #green
-
-## bell
-#set-window-option -g window-status-bell-fg colour18 #base2
-#set-window-option -g window-status-bell-bg red #red
-
-
 # Set that stupid Esc-Wait off, so VI works again
 set-option -sg  escape-time 0
 
@@ -147,52 +110,42 @@ set -g default-shell $SHELL
 
 ## set status bar
 set -g status-bg default
-setw -g window-status-current-bg "#44475a"
-setw -g window-status-current-fg "#81a2be"
+setw -g window-status-current-style bg="#44475a",fg="#81a2be"
 
 ## pane border and colors
-set -g pane-active-border-bg default
-set -g pane-active-border-fg "#44475a"
-set -g pane-border-bg default
-set -g pane-border-fg "#44475a"
+set -g pane-active-border-style bg=default,fg="#44475a"
+set -g pane-border-style bg=default,fg="#44475a"
 
 set -g clock-mode-colour "#81a2be"
 set -g clock-mode-style 12
 
-set -g message-bg "#8be9fd"
-set -g message-fg "#000000"
-
-set -g message-command-bg "#8be9fd"
-set -g message-command-fg "#000000"
+set -g message-command-style bg="#8be9fd",fg="#000000"
 
 # message bar or "prompt"
-set -g message-bg "#2d2d2d"
-set -g message-fg "#cc99cc"
+set -g message-style bg="#2d2d2d",fg="#cc99cc"
 
-set -g mode-bg "#282a36"
-set -g mode-fg "#ffb86c"
+set -g mode-style bg="#282a36",fg="#ffb86c"
 
 
 # empty left side of status bar
 set-option -g   status-left ''
 
 # right side of status bar holds "Battery (date time) Whoami"
-set -g status-right-length 100
-set -g status-right-fg black
-set -g status-right-attr bold
+set -g status-right length=100
+set -g status-right fg=black
+set -g status-right bold
 set -g status-right "#[fg=#6699cc,bg=#2d2d2d] Battery: #(pmset -g batt | grep InternalBattery | awk '{print $3}' | sed 's/;/ /g') #[fg=#f99157]| %a %m/%d/%Y %H:%M |#[fg=#dddddd] #S "
 
 # make background window look like white tab
-set-window-option -g window-status-bg default
-set-window-option -g window-status-fg white
-set-window-option -g window-status-attr none
+#set-window-option -g window-status-style bg=default,fg=white
+#set-window-option -g window-status-style none
 set-window-option -g window-status-format '#[fg=#6699cc,bg=colour235] #I #[fg=#999999,bg=#2d2d2d] #W #[default]'
 
 # make foreground window look like bold yellow foreground tab
-set-window-option -g window-status-current-attr none
+#set-window-option -g window-status-current-style none
 set-window-option -g window-status-current-format '#[fg=#f99157,bg=#2d2d2d] #I #[fg=#cccccc,bg=#393939] #W #[default]'
 
 # active terminal yellow border, non-active white
-# set -g pane-border-bg default
-# set -g pane-border-fg "#999999"
-# set -g pane-active-border-fg "#f99157"
+# set -g pane-border-style bg default
+# set -g pane-border-style fg "#999999"
+# set -g pane-active-border-style fg "#f99157"
