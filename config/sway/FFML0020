@@ -8,7 +8,6 @@ output "Goldstar Company Ltd LG Ultra HD 0x0000D748" {
 output "Seiko Epson Corporation 0x5441 0x00000000" {
   resolution 1366x768
   position 1920,0
-#  disable
 }
 
 output "Dell Inc. DELL P2417H CW6Y785715EB" {
