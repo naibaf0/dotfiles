@@ -253,8 +253,8 @@ client.background       #F8F8F2
 font pango:Fantasque Sans Mono
 
 # thin borders
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders smart
 
 # gaps
