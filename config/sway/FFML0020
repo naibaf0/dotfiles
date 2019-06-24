@@ -1,26 +1,5 @@
 output * bg $HOME/Pictures/Wallpapers/wallhaven-170258.jpg fill
 
-output "Goldstar Company Ltd LG Ultra HD 0x0000D748" {
-  resolution 1920x1080
-  position 0,0
-}
-
-output "Seiko Epson Corporation 0x5441 0x00000000" {
-  resolution 1366x768
-  position 1920,0
-}
-
-output "Dell Inc. DELL P2417H CW6Y785715EB" {
-  resolution 1920x1080
-  position 4366,0
-}
-
-output "Dell Inc. DELL P2414H 36WJX5A80L7B" {
-  transform 270
-  resolution 1920x1080
-  position 3286,0
-}
-
 workspace 1 output LVDS-1
 workspace 2 output LVDS-1
 workspace 3 output LVDS-1

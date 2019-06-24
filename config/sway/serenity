@@ -3,13 +3,6 @@ exec --no-startup-id dropbox-cli start
 # set wallpaper
 output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 
-# configure monitors
-output 'Goldstar Company Ltd LG Ultra HD 0x0000D748' {
-  position 0,0
-  resolution 3840x2160
-  scale 1.5
-}
-
 # configure input devices
 input "2:7:SynPS/2_Synaptics_TouchPad" {
    dwt enabled
