@@ -45,7 +45,7 @@ exec swayidle \
 
 ### Input configuration
 input "*" {
-    xkb_layout de,us
+    xkb_layout de
     xkb_variant nodeadkeys
     xkb_options "caps:escape"
     xkb_options grp:alt_shift_toggle
@@ -262,7 +262,7 @@ font pango:Fantasque Sans Mono
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders --i3 smart
-titlebar_padding 6 3
+titlebar_padding 4 2
 titlebar_border_thickness 1
 
 # gaps
