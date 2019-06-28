@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="firefox-nightly"
 
 export _JAVA_AWT_WM_NONREPARENTING=1

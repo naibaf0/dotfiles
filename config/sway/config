@@ -321,6 +321,7 @@ assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="Cantata"] $ws4
 assign [window_role="browser"] $ws10
+assign [window_role="firefox"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
 # screenshots
