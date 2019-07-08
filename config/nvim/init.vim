@@ -13,6 +13,9 @@ Plug 'tpope/vim-fugitive', {'tag': '*'}
 " Undotree
 Plug 'mbbill/undotree'
 " integrate fzf
+if has('mac')
+  Plug '/usr/local/opt/fzf'
+endif
 Plug 'junegunn/fzf.vim'
 " Multiple Cursors (like sublime)
 Plug 'terryma/vim-multiple-cursors'
@@ -581,18 +584,18 @@ let g:tagbar_type_go = {
 
 " {{{2 Neomake
 """"""""""""""
-function! MyOnBattery()
-  if (hostname() == "FFML0020")
-    return readfile('/sys/class/power_supply/AC/online') == ['0']
-  else
-    return readfile('/sys/class/power_supply/ACAD/online') == ['0']
-  endif
-endfunction
+if has('unix')
+  function! MyOnBattery()
+    if (filereadable('/sys/class/power_supply/ACAD/online'))
+      return readfile('/sys/class/power_supply/ACAD/online') == ['0']
+    endif
+  endfunction
 
-if MyOnBattery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 1000)
+  if MyOnBattery()
+    call neomake#configure#automake('w')
+  else
+    call neomake#configure#automake('nw', 1000)
+  endif
 endif
 
 " {{{2 Multiple Cursors
