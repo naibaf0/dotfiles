@@ -5,6 +5,7 @@
 # Initialize Zim
 zimfw login-init -q &!
 
+
 # Paths
 # =====
 
@@ -21,6 +22,10 @@ path=(
 
 export GOPATH=${HOME}/projects/go
 export PATH=${GOPATH}/bin:${PATH}
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+fi
 
 # Less
 # ====
