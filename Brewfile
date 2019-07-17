@@ -7,30 +7,32 @@ brew  'zsh'
 brew 'neovim'
 
 brew 'python'
-brew 'python@2'
-
 brew 'go'
+brew 'node'
 
 brew 'coreutils'
+brew 'htop'
 brew 'pstree'
 brew 'socat'
 brew 'tmux'
-brew 'node'
 brew 'jq'
 brew 'ctags'
-brew 'ag'
 brew 'ffmpeg'
 brew 'imagemagick'
 brew 'tree'
-brew 'hg'
 brew 'wget'
 brew 'direnv'
+brew 'ag'
 brew 'fzf'
 
+cask 'docker'
+brew 'docker-completion'
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
+brew 'helmfile'
 
 brew 'terraform'
+cask 'google-cloud-sdk'
 
 tap 'homebrew/cask-fonts'
 
@@ -38,9 +40,6 @@ cask 'font-fantasque-sans-mono'
 cask 'font-overpass'
 
 cask 'kitty'
-
-cask 'google-cloud-sdk'
+cask 'launchbar'
 
 cask 'wireshark'
-cask 'java'
-cask 'aerial'
