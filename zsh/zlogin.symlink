@@ -25,6 +25,7 @@ export PATH=${GOPATH}/bin:${PATH}
 
 if [ "$(uname -s)" = "Darwin" ]; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+  export PATH="$(brew --prefix python)/libexec/bin:${PATH}"
 fi
 
 # Less
