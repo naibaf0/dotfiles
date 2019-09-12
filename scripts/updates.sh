@@ -5,7 +5,7 @@
 source `dirname $0`/colors.sh
 
 if [ "$BLOCK_BUTTON" = "3" ]; then
-  $TERMINAL --name="update_installer" -e "yay -Syu"
+  $TERMINAL --name="update_installer" -e "yay"
 fi
 
 pac=$(checkupdates | wc -l)
