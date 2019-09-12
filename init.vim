@@ -54,7 +54,7 @@ Plug 'tpope/vim-surround'
 " Autoclose stuff like brackets etc
 Plug 'Townk/vim-autoclose'
 " Filetree inside vim | git plugin for the filetree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle', 'tag': '*' } | Plug 'Xuyuanp/nerdtree-git-plugin'
 " JSON support
 Plug 'elzr/vim-json', { 'for': 'json' }
 call plug#end()
