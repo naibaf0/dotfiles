@@ -58,6 +58,8 @@ Universal
 * Ant-Dracula GTK Theme
 * Plane Dark Magenta Icon Theme: https://github.com/wfpaisa/plane-icon-theme/tree/master/build/zip-variants
 
+**Image Viewer?**
+
 Wayland/Sway migration
 ======================
 
