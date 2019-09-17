@@ -1,0 +1,45 @@
+#!/bin/bash
+
+USBC=$(xrandr | grep -c "DP-2 connected")
+HDMI=$(xrandr | grep -c "HDMI-1 connected")
+VGA=$(xrandr | grep -c "DP-1 connected")
+
+#case "$1" in
+  #usbc)
+    #USBC=$(xrandr -q | grep -c "DP-2 connected")
+    
+    #;;
+  #hdmi)
+
+    #;;
+  #vga)
+
+    #;;
+  #*)
+    #echo "<|1|> Didn't match anything"
+#esac
+
+if [ $USBC = "1" ]; then
+  DPI=144
+  export GDK_SCALE=1.5
+  
+  xrandr --output DP-2 --auto --primary --output eDP-1 --off
+  feh --bg-fill --recursive ~/Pictures/4k\ Wallpapers/wallhaven-170258.jpg
+  notify-send 
+else 
+  DPI=96
+
+  xrandr --output eDP-1 --auto --primary
+  xrandr --screen 0 --size 1920x1080
+  if [ $HDMI = "1" ]; then
+    xrandr --output HDMI-1 --auto --right-of eDP-1
+  fi
+  if [ $VGA = "1" ]; then
+    xrandr --output DP-1 --auto --right-of eDP-1
+  fi
+  feh --bg-fill --recursive ~/Pictures/4k\ Wallpapers/wallhaven-170258.jpg
+fi
+
+echo "Xft.dpi: $DPI" |  xrdb -merge ; xrandr --dpi $DPI
+
+i3-msg reload
