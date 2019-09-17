@@ -357,7 +357,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
-  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.8'
+  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.9'
   gsettings set $gnome-schema cursor-theme 'Adwaita'
 }
 
