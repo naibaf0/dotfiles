@@ -64,4 +64,6 @@ Wayland/Sway migration
 Waiting for:
 * Pipewire (screencapture, better audio/video)
 * Scaling with XWayland without blur
+* Gaming? 1st Person / wine...
+* Virtual Box (correct mouse/keyboard capturing)
 
