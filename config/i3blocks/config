@@ -53,7 +53,6 @@ interval=2
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [wireless]
-label=
 instance=wifi0
 command=$HOME/.dotfiles/scripts/wireless.sh
 interval=2

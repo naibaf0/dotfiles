@@ -10,8 +10,8 @@ INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 ESSID=$(iwgetid -r)
 QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
-full_text="$ESSID ($QUALITY%)"
-short_text="$ESSID"
+full_text=" $ESSID ($QUALITY%)"
+short_text=" $ESSID"
 
 echo $full_text
 echo $short_text
