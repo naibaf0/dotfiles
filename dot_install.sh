@@ -115,7 +115,7 @@ setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
-if ./zsh/install-zim.sh & ./vim/install-vim_plug.sh; then
+if ./zsh/install-zim.sh & ./config/nvim/install-neovim.sh; then
   success "dependencies installed"
 else
   fail "error installing dependencies"
