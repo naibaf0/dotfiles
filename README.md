@@ -23,6 +23,7 @@ Xorg
 * dunst-git
 * lxrandr
 * xrandr
+* xclip
 
 Wayland
 -------
@@ -33,10 +34,12 @@ Wayland
 * swaylock
 * slurp
 * grim
+* kanshi
 * wdisplays-git
 * waybar-git
 * mako-git
 * xorg-server-xwayland
+* wl-clipboard
 
 
 Universal
@@ -50,14 +53,27 @@ Universal
 * neovim
 * python-pynvim
 * git
-* pcmanfm
+* pcmanfm-gtk3, gvfs
 * dropbox & dropbox-cli
 * lxappearance
 * xarchiver
+* the_silver_searcher
+* fzf
+* pulseaudio, pulseaudio-bluetooth, pulseaudio-alsa, pulseaudio-ctl
+* pavucontrol
+* libnotify
+* ctags
+
+* otf-overpass
+* ttf-fantasque-sans-mono
+* otf-font-awesome
 
 * Ant-Dracula GTK Theme
 * Plane Dark Magenta Icon Theme: https://github.com/wfpaisa/plane-icon-theme/tree/master/build/zip-variants
 
+* imv
+* gpicview
+* xviewer
 **Image Viewer?**
 
 Wayland/Sway migration
