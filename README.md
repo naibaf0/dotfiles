@@ -63,18 +63,20 @@ Universal
 * pavucontrol
 * libnotify
 * ctags
+* acpi
+* shellcheck
 
 * otf-overpass
 * ttf-fantasque-sans-mono
 * otf-font-awesome
 
-* Ant-Dracula GTK Theme
+* ant-dracula-gtk-theme
+
 * Plane Dark Magenta Icon Theme: https://github.com/wfpaisa/plane-icon-theme/tree/master/build/zip-variants
 
 * imv
-* gpicview
+* gpicview-gtk3
 * xviewer
-**Image Viewer?**
 
 Wayland/Sway migration
 ======================
