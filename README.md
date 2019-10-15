@@ -65,6 +65,7 @@ Universal
 * ctags
 * acpi
 * shellcheck
+* inxi
 
 * otf-overpass
 * ttf-fantasque-sans-mono
