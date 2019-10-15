@@ -42,6 +42,6 @@ cask 'font-fantasque-sans-mono'
 cask 'font-overpass'
 
 cask 'kitty'
-cask 'launchbar'
+cask 'maccy'
 
 cask 'wireshark'
