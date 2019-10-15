@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DPI=144
+export GDK_SCALE=1.5
+
+echo "Xft.dpi: $DPI" |  xrdb -merge ; xrandr --dpi $DPI
