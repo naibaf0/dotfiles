@@ -18,5 +18,6 @@ i3lock -n -e -f -i $IMAGE
 
 physlock -L # reenable tty switching
 killall -SIGUSR2 dunst # resume notification demon
+rm $IMAGE
 
 xset b on
