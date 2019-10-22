@@ -66,6 +66,10 @@ Universal
 * acpi
 * shellcheck
 * inxi
+* pass
+* rofi-pass
+* physlock
+
 
 * otf-overpass
 * ttf-fantasque-sans-mono
