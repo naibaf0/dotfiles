@@ -61,6 +61,7 @@ Universal
 * fzf
 * pulseaudio, pulseaudio-bluetooth, pulseaudio-alsa, pulseaudio-ctl
 * pavucontrol
+* pulseeffects
 * libnotify
 * ctags
 * acpi
