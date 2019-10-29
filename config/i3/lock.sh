@@ -1,23 +1,18 @@
 #!/bin/bash
-IMAGE=/tmp/screen_locked.png
 
-xset b off
+i3lock_args=()
+i3lock_args+=(-n -e -f)
 
-# take a screenshot and blur the image
-scrot $IMAGE
-convert -blur 10x10 $IMAGE $IMAGE
+image=$(mktemp --suffix=.png)
+i3lock_args+=(-i "$image")
+scrot -o "$image"
+
+printf '%s\n' "${image}" | xargs -P 0 -I{} convert -blur 10x10 {} {}
 
 killall -SIGUSR1 dunst # pause notification demon
 physlock -l # prevent tty switching
-
-# lock screen with i3lock
-# -n --no-fork
-# -e --no-empty-passwords
-# -f --failed-attempts
-i3lock -n -e -f -i $IMAGE 
-
+i3lock "${i3lock_args[@]}"
 physlock -L # reenable tty switching
 killall -SIGUSR2 dunst # resume notification demon
-rm $IMAGE
+rm "$image"
 
-xset b on
