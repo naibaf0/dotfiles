@@ -70,6 +70,7 @@ Universal
 * pass
 * rofi-pass
 * physlock
+* arch-audit
 
 
 * otf-overpass
@@ -83,6 +84,13 @@ Universal
 * imv
 * gpicview-gtk3
 * xviewer
+
+Pacman hooks
+------------
+* informant
+* pacman-cleanup-hook
+* pug
+* overdue 
 
 Wayland/Sway migration
 ======================
