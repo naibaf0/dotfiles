@@ -288,6 +288,14 @@ command! Untab2 :%s/\t/  /g
 " Substitute all tabs by four whitespaces
 command! Untab4 :%s/\t/  /g
 
+" Save session and quit
+command! Q call SaveAndQuit()
+
+function! SaveAndQuit()
+  exe "mksession! .session.vim"
+  exe "wqa"
+endfunction
+
 " Switches between absolute and relative line numbers
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -296,6 +304,16 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+
+function! ToggleParagraph()
+  if &formatoptions =~ "a"
+    setlocal formatoptions-=a
+    echo "Paragraphs: Off"
+  else
+    setlocal formatoptions+=a
+    echo "Paragraphs: On"
+  endif
+endfunction
 
 function! SelectionSearch(direction) range
   let l:saved_reg = @"
@@ -381,6 +399,9 @@ endfunction
 " Use ',' as <leader>
 let mapleader = "\,"
 let maplocalleader = "\<space>"
+
+nmap <silent> <leader>l :exe "source .session.vim"<CR>
+nmap <silent> <leader>p :call ToggleParagraph()<CR>
 
 " escape from terminal :)
 tnoremap <leader><Esc> <C-\><C-n>
@@ -531,6 +552,14 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " exclude files directories
 set wildignore+=*/tmp/*,*/.git/*,*/.svn/*,*/.hg/* "directories
 set wildignore+=*.swp,*.zip,*.bak,*.backup "files
+
+
+" {{{2 Gitgutter
+""""""""""""""""
+let g:gitgutter_max_signs = 50
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
 
 " {{{2 NERDTree
 """""""""""""""
