@@ -16,11 +16,6 @@
 # Set that stupid Esc-Wait off, so VI works again
 set-option -sg  escape-time 0
 
-# Set the prefix to Ctrl+a
-set-option -g   prefix C-a
-unbind C-b
-bind-key C-a    send-prefix
-
 # All kind of nice options
 set-option -g   bell-action any
 set-option -g   default-terminal "screen-256color"
