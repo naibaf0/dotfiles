@@ -77,6 +77,33 @@ weather() {
   curl -4 -k https://wttr.in/$1
 }
 
+# You can place all your kube configs in your local home under
+# $HOME/.kube/configs. This functions collects all these config copies them
+# into a temporary folder and makes them accessible via a KUBECONFIG.
+# This enables you:
+#   - have a common view across all contexts
+#   - switch context scoped by the current tmux session
+export_kubeconfigs () {
+  KUBECONF_DIR=""
+  # unset current context on new sessions; otherwise simply the first context will be used
+  UNSET_CTX=1
+  if [ -n "$TMUX_PANE" ]; then
+    session_name=$(tmux list-panes -t "$TMUX_PANE" -F '#S' | head -n1)
+    export KUBECONF_DIR="/tmp/kubeconfig-tmux-${session_name}"
+    [ -d $KUBECONF_DIR ] && UNSET_CTX=0
+    mkdir -p $KUBECONF_DIR 
+  else
+    export KUBECONF_DIR="$(mktemp -d /tmp/kubeconfig-shell-XXXXXXXX)"
+  fi
+  cp -n $HOME/.kube/config $KUBECONF_DIR/
+  export KUBECONFIG="$(ls -1 $KUBECONF_DIR/* | tr '\n' ':')"
+  if [ $UNSET_CTX -eq 1 ]; then
+    which kubectl 2>&1 >/dev/null && kubectl config current-context >/dev/null 2>&1 && kubectl config unset current-context >/dev/null
+  fi
+}
+
+which kubectl 2>&1 >/dev/null && export_kubeconfigs
+
 # Useful enter-key
 # ================
 __magic-enter () {
