@@ -3,13 +3,13 @@
 CMPFILE=${CMPFILE:-/tmp/${USER}/cmpFile}
 
 if [ -e $CMPFILE ]; then
-    compton -b &
+    picom -b &
     sleep 1
-    notify-send "Compton" "<i>enabled</i>"
+    notify-send "picom" "<i>enabled</i>"
     rm $CMPFILE
 else
     echo $ "dummytext" >> $CMPFILE
-    pgrep -f "compton -b" | xargs kill
+    pgrep -f "picom -b" | xargs kill
     sleep 1
-    notify-send "Compton" "<i>disabled</i>"
+    notify-send "picom" "<i>disabled</i>"
 fi

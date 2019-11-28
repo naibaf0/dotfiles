@@ -13,6 +13,6 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap -option caps:escape
 
 redshift -c ~/.config/redshift.conf &
-compton -b
+picom -b
 
 xsetroot -cursor_name left_ptr
