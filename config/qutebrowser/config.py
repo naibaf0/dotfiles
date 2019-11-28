@@ -1078,7 +1078,34 @@ c.spellcheck.languages = ['de-DE','en-GB','en-US']
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {
+        'DEFAULT': 'https://duckduckgo.com/?q={}',
+        'ddg':     'https://duckduckgo.com/?q={}&ia=web',
+        'eco':      'https://www.ecosia.org/search?q={}',
+        'gg':       'https://www.google.de/search?q={}',
+        'map':      'https://www.google.com/maps/place/{}',
+        'arch':     'https://wiki.archlinux.org/index.php?search={}',
+        'clang':    'https://duckduckgo.com/?q=\\site:clang.llvm.org/doxygen+{}',
+        'llvm':     'https://duckduckgo.com/?q=\\site:llvm.org/doxygen+{}',
+        'aio':      'http://www.aiosearch.com/search/4/Torrents/{}/',
+        'we':       'https://en.wikipedia.org/wiki/{}',
+        'wd':       'https://de.wikipedia.org/wiki/{}',
+        'cpp':      'http://en.cppreference.com/mwiki/index.php?search={}',
+        'amazon':   'https://smile.amazon.de/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
+        'dblp':     'https://dblp.uni-trier.de/search?q={}',
+        'acm':      'https://dl.acm.org/results.cfm?query={}',
+        'gs':       'https://scholar.google.de/scholar?q={}',
+        'steamdb':  'https://steamdb.info/search/?a=app&q={}',
+        'dict':     'https://www.dict.cc/?s={}',
+        'leo':      'https://dict.leo.org/german-english/{}',
+        'ling':     'https://www.linguee.com/english-german/search?source=auto&query={}',
+        'yt':       'https://www.youtube.com/results?search_query={}',
+        'wolfram':  'https://www.wolframalpha.com/input/?i={}',
+        'py':       'https://docs.python.org/3/search.html?q={}&check_keywords=yes',
+        'nzb':      'https://www.binsearch.info/?q={}&max=250&adv_age=1100&server=',
+        'ghub':     'https://github.com/search?q={}',
+        'hy':       'https://www.hyphenation24.com/word/{}/',
+        }
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
