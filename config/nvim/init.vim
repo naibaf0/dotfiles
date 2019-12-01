@@ -401,7 +401,7 @@ let mapleader = "\,"
 let maplocalleader = "\<space>"
 
 nmap <silent> <leader>l :exe "source .session.vim"<CR>
-nmap <silent> <leader>p :call ToggleParagraph()<CR>
+nmap <silent> <localleader>p :call ToggleParagraph()<CR>
 
 " escape from terminal :)
 tnoremap <leader><Esc> <C-\><C-n>
