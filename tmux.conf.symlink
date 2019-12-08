@@ -84,7 +84,7 @@ bind -n M-j select-pane -D
 # set-option -g status-position top
 
 # clipboard fix
-#set -g default-shell $SHELL
+set -g default-shell $SHELL
 
 # Color key (Dracula Theme):
 #   #282a36 Background
