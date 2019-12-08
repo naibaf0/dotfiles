@@ -12,29 +12,6 @@ zimfw login-init -q &!
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-# Set the list of directories that Zsh searches for programs.
-path=(
-  ~/.bin
-  ~/.local/{bin,sbin}
-  /usr/local/{bin,sbin}
-  $path
-)
-
-export GOPATH=${HOME}/projects/go
-
-path=(
-  ${GOPATH}/bin
-  $path
-)
-
-if [ "$(uname -s)" = "Darwin" ]; then
-  path=(
-    $(brew --prefix coreutils)/libexec/gnubin
-    $(brew --prefix python)/libexec/bin
-    $path
-  )
-fi
-
 # Less
 # ====
 
