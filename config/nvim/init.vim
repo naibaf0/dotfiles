@@ -68,6 +68,7 @@ filetype plugin indent on
 syntax enable
 
 " Set colorscheme
+let g:dracula_colorterm=0
 colorscheme dracula
 " Force GUI colors in terminals
 set termguicolors
