@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
