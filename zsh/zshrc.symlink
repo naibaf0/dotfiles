@@ -120,8 +120,11 @@ bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# Source fzf
-# ==========
+
+# -----------------
+# FZF configuration
+# -----------------
+
 if type fzf > /dev/null; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
@@ -156,8 +159,11 @@ if type fzf > /dev/null; then
   __gen_fzf_default_opts
 fi
 
-# gcloud sdk path and autocompletion
-# ==================================
+
+# ------------------------
+# GCloud SDK configuration
+# ------------------------
+
 [ -f /opt/google-cloud-sdk/path.zsh.inc ] && source /opt/google-cloud-sdk/path.zsh.inc
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
 [ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
@@ -183,11 +189,30 @@ HIST_STAMPS="yyyy-mm-dd"
 cdpath+=(~)
 cdpath+=(~/projects)
 
+# Kubernetes
+# ==========
+
+if which kubectl 2>&1 >/dev/null; then
+  export_kubeconfigs
+  alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
+fi
+
+
+# ---------
+# Functions
+# ---------
+
+#
 # weather forecast
-# ================
+# 
+
 weather() {
   curl -4 -k https://wttr.in/$1
 }
+
+#
+# export_kubeconfig
+#
 
 # You can place all your kube configs in your local home under
 # $HOME/.kube/configs. This functions collects all these config copies them
@@ -214,10 +239,10 @@ export_kubeconfigs () {
   fi
 }
 
-which kubectl 2>&1 >/dev/null && export_kubeconfigs
-
+#
 # Useful enter-key
-# ================
+#
+
 __magic-enter () {
   if [[ -z $BUFFER ]]; then
     echo ""
@@ -232,33 +257,50 @@ __magic-enter () {
 zle -N __magic-enter
 bindkey "^M" __magic-enter
 
-# send notification when program terminates
+#
+# Program termination notice
+#
+
 function notify() {
   $*; notify-send --urgency=critical "Task completed." "Executed '$*'.\nreturn code: $?"
 }
 
+
+# -------
 # Aliases
-# =======
+# -------
+
+#
 # Neovim
+#
+
 alias view='nvim -R'
 alias nvsu='sudo -E nvim'
+alias vim = 'nvim'
+alias vimdiff='nvim -d'
+
+#
 # Files
+#
+
 alias grep='nocorrect grep --color=always -d skip'
 alias cp='nocorrect cp -i' # confirm before overwriting something
 alias df='df -h' # human-readable sizes
 alias du='du -h'
 alias free='free -m' # show sizes in MB
 alias ls='ls -FXh --group-directories-first --color=always --time-style=+"%Y-%m-%d %H:%M"'
+alias lsblk='lsblk -o SIZE,NAME,VENDOR,MODEL,LABEL,FSTYPE,RO,TYPE,MOUNTPOINT,UUID'
 
+#
 # Zathura
+#
+
 alias zathura='zathura --fork > /dev/null 2>&1'
 alias z='zathura'
 
-alias lsblk='lsblk -o SIZE,NAME,VENDOR,MODEL,LABEL,FSTYPE,RO,TYPE,MOUNTPOINT,UUID'
-
-# Kubernetes
-alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
-
+# -------------
+# Powerlevel10k
+# -------------
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
