@@ -13,6 +13,12 @@
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
+
+
 #
 # Input/output
 #
@@ -177,11 +183,6 @@ fi
 
 setopt ignoreeof # ignore ctrl+d
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-
 # cdpath
 # ======
 
@@ -276,7 +277,7 @@ function notify() {
 
 alias view='nvim -R'
 alias nvsu='sudo -E nvim'
-alias vim = 'nvim'
+alias vim='nvim'
 alias vimdiff='nvim -d'
 
 #
