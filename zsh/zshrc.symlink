@@ -193,28 +193,6 @@ cdpath+=(~/projects)
 # Kubernetes
 # ==========
 
-if which kubectl 2>&1 >/dev/null; then
-  export_kubeconfigs
-  alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
-fi
-
-
-# ---------
-# Functions
-# ---------
-
-#
-# weather forecast
-# 
-
-weather() {
-  curl -4 -k https://wttr.in/$1
-}
-
-#
-# export_kubeconfig
-#
-
 # You can place all your kube configs in your local home under
 # $HOME/.kube/configs. This functions collects all these config copies them
 # into a temporary folder and makes them accessible via a KUBECONFIG.
@@ -238,6 +216,24 @@ export_kubeconfigs () {
   if [ $UNSET_CTX -eq 1 ]; then
     which kubectl 2>&1 >/dev/null && kubectl config current-context >/dev/null 2>&1 && kubectl config unset current-context >/dev/null
   fi
+}
+
+if which kubectl 2>&1 >/dev/null; then
+  export_kubeconfigs
+  alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
+fi
+
+
+# ---------
+# Functions
+# ---------
+
+#
+# weather forecast
+# 
+
+weather() {
+  curl -4 -k https://wttr.in/$1
 }
 
 #
