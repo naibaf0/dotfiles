@@ -2,6 +2,9 @@
 # Defines environment variables.
 #
 
+# Zim 
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
 # User specific XDG directories
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
