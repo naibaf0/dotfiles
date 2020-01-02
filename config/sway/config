@@ -300,13 +300,13 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
+
 for_window [window_type="dialog"] floating enable
+for_window [window_type="popup_menu"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [instance="update_installer"] floating enable
 
 for_window [class="VirtualBox"] floating enable
 
-# Native Wayland
 for_window [app_id="galculator"] floating enable
 for_window [app_id="keepassxc"] floating enable
 for_window [app_id="mpv"] floating enable
@@ -314,14 +314,15 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="xarchiver"] floating enable
 for_window [app_id="keepassxc"] floating enable
 
+for_window [instance="update_installer"] floating enable
+
 # workspace assignments
-assign [class="Slack"] $ws2
-assign [class="Rocket.Chat+"] $ws2
-assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
-assign [class="Cantata"] $ws4
+
+assign [app_id="thunderbird"] $ws3
+assign [app_id="cantata"] $ws4
 assign [window_role="browser"] $ws10
-assign [window_role="firefox"] $ws10
+assign [app_id="firefox"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
 # screenshots
