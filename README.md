@@ -79,8 +79,7 @@ Universal
 * otf-font-awesome
 
 * ant-dracula-gtk-theme
-
-* Plane Dark Magenta Icon Theme: https://github.com/wfpaisa/plane-icon-theme/tree/master/build/zip-variants
+* faba-icon-theme
 
 * imv
 * gpicview-gtk3
@@ -100,5 +99,4 @@ Waiting for:
 * Pipewire (screencapture, better audio/video)
 * Scaling with XWayland without blur
 * Gaming? 1st Person / wine...
-* Virtual Box (correct mouse/keyboard capturing)
 
