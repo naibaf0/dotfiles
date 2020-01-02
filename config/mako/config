@@ -5,6 +5,7 @@ margin=4
 border-size=2
 border-color=#bd93f9
 default-timeout=5000
+icon-path=/usr/share/icons/Faba/
 
 # Only for desktop, ignored when no such output exists
 #output=DP-1
