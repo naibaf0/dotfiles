@@ -1,4 +1,9 @@
 width=600
-height=400
+height=300
 mode=drun
 filter_rate=100
+matching=contains
+insensitive=true
+term=alacritty
+allow_images=true
+allow_markup=true
