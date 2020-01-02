@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 case "$1" in
-    lock)
-        xset s activate
-        ;;
     suspend)
         systemctl suspend
         ;;
@@ -14,7 +11,7 @@ case "$1" in
         systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 [lock|suspend|reboot|shutdown]"
+        echo "Usage: $0 [suspend|reboot|shutdown]"
         exit 2
 esac
 
