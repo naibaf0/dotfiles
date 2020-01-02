@@ -20,7 +20,7 @@ Software Base
 Xorg
 ----
 * i3
-* dunst-git
+* dunst
 * lxrandr
 * xrandr
 * xclip
@@ -36,10 +36,11 @@ Wayland
 * grim
 * kanshi
 * wdisplays-git
-* waybar-git
-* mako-git
+* waybar
+* mako
 * xorg-server-xwayland
 * wl-clipboard
+* wofi
 
 
 Universal
