@@ -4,13 +4,6 @@
 }
 
 {
-  output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 1920x1080
-  output "Seiko Epson Corporation 0x5441 0x00000000" disable
-
+  output eDP-1 enable
 }
 
-{
-  output "Seiko Epson Corporation 0x5441 0x00000000" mode 1366x768 position 0,0
-  output "Dell Inc. DELL P2414H 36WJX5A80L7B" transform 270 mode 1920x1080 position 1366,0
-  output "Dell Inc. DELL P2417H CW6Y785715EB" mode 1920x1080 position 2446,0
-}
