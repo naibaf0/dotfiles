@@ -273,27 +273,27 @@ smart_gaps on
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-  position top
-  status_command i3blocks
-  tray_output none
-  strip_workspace_numbers yes
+#bar {
+  #position top
+  #status_command i3blocks
+  #tray_output none
+  #strip_workspace_numbers yes
 
-  font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
+  #font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
 
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
+  #colors {
+    #background #282A36
+    #statusline #F8F8F2
+    #separator  #44475A
 
-    # State             Border  BG      Text
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-}
+    ## State             Border  BG      Text
+    #focused_workspace  #44475A #44475A #F8F8F2
+    #active_workspace   #282A36 #44475A #F8F8F2
+    #inactive_workspace #282A36 #282A36 #BFBFBF
+    #urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    #binding_mode       #FF5555 #FF5555 #F8F8F2
+  #}
+#}
 
 # default floating
 for_window [window_role="pop-up"] floating enable
@@ -348,17 +348,20 @@ bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
+exec --no-startup-id dropbox-cli start
 exec --no-startup-id kanshi
 #exec --no-startup-id dunst
 exec --no-startup-id mako
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id pcmanfm -d
 
+exec_always ~/.config/waybar/waybar.sh
+
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
-  gsettings set $gnome-schema icon-theme 'PlaneDarkGnomedarkMagentadark-1.9'
+  gsettings set $gnome-schema icon-theme 'Faba'
   gsettings set $gnome-schema cursor-theme 'Adwaita'
 }
 
