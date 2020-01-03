@@ -326,8 +326,8 @@ assign [app_id="firefox"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
 # screenshots
-bindsym --release $mod+p exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
-bindsym --release $mod+shift+p exec --no-startup-id slurp | grim -g - ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+bindsym --release shift+Print exec --no-startup-id slurp | grim -g - ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
 # lock screen
 bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/config/sway/lock.sh
 # volume

@@ -310,8 +310,8 @@ assign [window_role="browser"] $ws10
 assign [class="^.*qutebrowser"] $ws10
 
 # screenshots
-bindsym --release $mod+p exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release $mod+shift+p exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Print exec --no-startup-id  scrot '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release shift+Print exec --no-startup-id  scrot -s '%Y%m%d_%s_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 # lock screen
 bindsym $mod+Escape exec xset s activate
 # volume
