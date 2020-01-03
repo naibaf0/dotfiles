@@ -4,7 +4,7 @@ set -e
 
 timeout=30
 monitor="$(swaymsg -t get_outputs | jq '[.[].focused] | index(true)')"
-alias mywofi="wofi --dmenu --matching fuzzy -i" 
+alias mywofi="wofi --dmenu --matching contains -i" 
 
 select_command() {
   local contents="$(pass show "$1")"
