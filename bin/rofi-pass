@@ -1,0 +1,71 @@
+#!/usr/bin/zsh
+
+set -e
+
+timeout=30
+monitor="$(swaymsg -t get_outputs | jq '[.[].focused] | index(true)')"
+alias myrofi="rofi -dmenu -matching fuzzy -i -sort -sorting-method fzf -monitor $monitor"
+
+select_command() {
+  local contents="$(pass show "$1")"
+  local first_line="$(head -1 <<< "$contents")"
+  local the_password
+  local the_username
+  local the_url
+  typeset -A options
+  typeset -a options_order
+  if [[ ! "${first_line}" =~ ": " ]]; then
+    options[Copy\ password]="wl-copy ${(q)first_line}"
+    options_order+="Copy password"
+    the_password="$first_line"
+  fi
+  grep -P '^[^:]+(?=: .)' <<< "$contents" | while read line; do
+    field="${line%%: *}"
+    value="${line#*: }"
+    if [[ "$field" == "url" ]]; then
+      options[Open\ URL]="xdg-open ${(q)value}"
+      options_order+="Open URL"
+      the_url="$value"
+    else
+      options[Copy\ $field]="wl-copy ${(q)value}"
+      options_order+="Copy $field"
+      [[ "$field" == "username" ]] && the_username="$value"
+    fi
+  done
+  options[Show]="zenity --info --title=${(q)1} --icon-name=password --text=${(q)contents} --width=400"
+  options_order+="Show"
+  if [[ -n "$the_username" ]] && [[ -n "$the_password" ]]; then
+    options[Copy\ username\ \&\ password]="wl-copy ${(q)the_username} && wl-copy ${(q)the_password} -p"
+    options_order=("Copy username & password" "${options_order[@]}")
+    if [[ -n "$the_url" ]]; then
+      options[Copy\ username\ \&\ password,\ open\ URL]="xdg-open ${(q)the_url} && wl-copy ${(q)the_username} && wl-copy ${(q)the_password} -p"
+      options_order=("Copy username & password, open URL" "${options_order[@]}")
+    fi
+  fi
+  local selection="$(print -l ${options_order} | myrofi -p "$1")"
+  if [[ -n "$selection" ]]; then
+    eval "$options[${(q)selection}]"
+  else
+    exit 2
+  fi
+}
+
+select_password() {
+  find "$dir" -not -path '*/.git/*' -type f |
+    grep '\.gpg$' |
+    sed "s:$dir\(.*\)\.gpg$:\1:" |
+    myrofi -p 'password' -filter "$1"
+}
+
+main() {
+  local dir="${PASSWORD_STORE_DIR:-$HOME/.password-store/}"
+  local password_selection="$(select_password "$1")"
+  if [[ -n "$password_selection" ]]; then
+    select_command "$password_selection" "$1"
+    sleep $timeout && eval "wl-copy -c && wl-copy -cp"
+  else
+    exit 1
+  fi
+}
+
+main "$@"
