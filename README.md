@@ -98,7 +98,10 @@ Wayland/Sway migration
 Waiting for:
 * Pipewire (screencapture, better audio/video)
 * Scaling with XWayland without blur
+
+Todo:
 * Pass has implemented wl-clipboard support. waiting for version bump to update and simplify pass scripts (1.7.3 -> ?)
+* startusing clipman clipboard manager
 
 Getting rid of Python2
 ======================
