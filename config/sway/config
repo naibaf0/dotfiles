@@ -47,9 +47,8 @@ exec swayidle \
 input "*" {
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options "caps:escape"
-    xkb_options grp:alt_shift_toggle
-    xkb_numlock enabled
+    xkb_options caps:escape,grp:alt_shift_toggle
+    xkb_numlock enable
 }
 
 seat * xcursor_theme Adwaita 24
@@ -349,14 +348,16 @@ bindsym --locked XF86AudioPrev exec mpc previous
 bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
+bindsym $mod+Shift+d exec makoctl dismiss
+
 # startup
 exec --no-startup-id dropbox-cli start
-exec --no-startup-id kanshi
-#exec --no-startup-id dunst
 exec --no-startup-id mako
 exec --no-startup-id redshift -c $HOME/.config/redshift/redshift.conf
 exec --no-startup-id pcmanfm -d
+exec kanshi
 
+#exec_always pkill kanshi; exec kanshi #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
 exec_always ~/.config/waybar/waybar.sh
 
 set $gnome-schema org.gnome.desktop.interface
