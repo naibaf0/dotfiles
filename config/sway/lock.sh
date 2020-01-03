@@ -15,6 +15,6 @@ done
 printf '%s\n' "${images[@]}" | xargs -P 0 -I{} convert -blur 0x8 {} {}
 
 physlock -l #prevent tty switching
-swaylock "${swaylock_args[@]}" -s center
+swaylock "${swaylock_args[@]}" -s fit
 physlock -L # reenable tty switching
 rm "${images[@]}"
