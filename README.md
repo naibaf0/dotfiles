@@ -98,5 +98,11 @@ Wayland/Sway migration
 Waiting for:
 * Pipewire (screencapture, better audio/video)
 * Scaling with XWayland without blur
-* Gaming? 1st Person / wine...
 
+Getting rid of Python2
+======================
+* [x] minecraft-launcher (gconf dropped to aur, now working with python3)
+* [ ] GIMP (pygtk)
+* [ ] Inkscape
+* [ ] Mercurial
+* [ ] GQRX/gnuradio
