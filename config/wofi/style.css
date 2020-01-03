@@ -4,6 +4,7 @@ window {
 margin: 5px;
 border: 2px solid #3a3c4e;
 background-color: #3a3c4e;
+opacity: 0.9;
 }
 
 #outer-box {
