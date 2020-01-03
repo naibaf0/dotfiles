@@ -1,9 +1,8 @@
-{
-  output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 3840x2160 scale 1.5
+home {
   output eDP-1 disable
+  output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 3840x2160 scale 1.5
 }
 
-{
+mobile {
   output eDP-1 enable
 }
-
