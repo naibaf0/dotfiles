@@ -180,12 +180,12 @@ bindsym $mod+r mode "resize"
 ## Manual management of external displays
 set $mode_display Ext Screen: (v|x) VGA [ON|OFF], (h|y) HDMI [ON|OFF], (w|m) WORKSTATION [ON|OFF], (c) Picom
 mode "$mode_display" {
-    bindsym v mode "default", exec --no-startup-id xrandr --output DP-1 --auto --left-of eDP-1 & ~/.fehbg
-    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1 & ~/.fehbg
-    bindsym w mode "default", exec --no-startup-id xrandr --output DP-2 --auto --primary --output eDP-1 --off & ~/.fehbg
-    bindsym x mode "default", exec --no-startup-id xrandr --output DP-1 --auto --off
-    bindsym y mode "default", exec --no-startup-id xrandr --output HDMI-1 --auto --off
-    bindsym m mode "default", exec --no-startup-id xrandr --output DP-2 --off --output eDP-1 --auto --primary & ~/.fehbg
+    bindsym v mode "default", exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1 & ~/.fehbg
+    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1 & ~/.fehbg
+    bindsym w mode "default", exec --no-startup-id xrandr --output DP2 --auto --primary --output eDP1 --off & ~/.fehbg
+    bindsym x mode "default", exec --no-startup-id xrandr --output DP1 --auto --off
+    bindsym y mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --off
+    bindsym m mode "default", exec --no-startup-id xrandr --output DP2 --off --output eDP1 --auto --primary & ~/.fehbg
     bindsym c mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/picom_toggle.sh
 
     # back to normal: Enter or Escape
@@ -293,8 +293,6 @@ for_window [class="mpv"] floating enable
 #for_window [class="VirtualBox"] floating enable
 
 # workspace assignments
-assign [class="Slack"] $ws2
-assign [class="Rocket.Chat+"] $ws2
 assign [class="Thunderbird"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="Cantata"] $ws4
@@ -324,6 +322,7 @@ bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
 # startup
+exec --no-startup-id autorandr
 exec --no-startup-id ./.fehbg
 exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
 exec --no-startup-id dropbox-cli start
