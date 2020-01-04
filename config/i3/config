@@ -26,14 +26,6 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-# The name of the default home monitor
-set $monitor_base "LVDS1"
-
-workspace $ws1 output $monitor_base
-workspace $ws2 output $monitor_base
-workspace $ws3 output $monitor_base
-workspace $ws4 output $monitor_base
-
 ### Key bindings
 #
 # Basics:
