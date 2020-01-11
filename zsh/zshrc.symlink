@@ -197,8 +197,9 @@ cdpath+=(~/projects)
 # $HOME/.kube/configs. This functions collects all these config copies them
 # into a temporary folder and makes them accessible via a KUBECONFIG.
 # This enables you:
-#   - have a common view across all contexts
-#   - switch context scoped by the current tmux session
+#   - join all configs and provide a common view across all kube contexts
+#   - each shell session got their own dedicated configs
+#   - share configs between tmux windows and their login shells
 export_kubeconfigs () {
   KUBECONF_DIR=""
   # unset current context on new sessions; otherwise simply the first context will be used
@@ -214,7 +215,13 @@ export_kubeconfigs () {
   cp -n $HOME/.kube/config $KUBECONF_DIR/
   export KUBECONFIG="$(ls -1 $KUBECONF_DIR/* | tr '\n' ':')"
   if [ $UNSET_CTX -eq 1 ]; then
-    which kubectl 2>&1 >/dev/null && kubectl config current-context >/dev/null 2>&1 && kubectl config unset current-context >/dev/null
+    if which kubectl 2>&1 >/dev/null && kubectl config current-context >/dev/null 2>&1; then
+      # Since we are joining several configs, the default context might
+      # be set several times as well
+      while [ -n "$(kubectl config current-context 2>/dev/null)" ]; do
+          kubectl config unset current-context >/dev/null
+      done
+    fi
   fi
 }
 
