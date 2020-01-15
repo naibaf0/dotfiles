@@ -25,6 +25,7 @@ brew 'direnv'
 brew 'ag'
 brew 'fzf'
 brew 'neofetch'
+brew 'weechat'
 
 cask 'docker'
 brew 'docker-completion'
@@ -41,7 +42,7 @@ tap 'homebrew/cask-fonts'
 cask 'font-fantasque-sans-mono'
 cask 'font-overpass'
 
-cask 'kitty'
+cask 'alacritty'
 cask 'maccy'
 
 cask 'wireshark'
