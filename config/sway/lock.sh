@@ -5,7 +5,7 @@ swaylock_args=()
 
 swaylock_args+=(-e)
 
-for output in $(swaymsg -t get_outputs | jq -r '.[] .name'); do
+for output in $(swaymsg -t get_outputs | jq -c -r '.[] | select(.active == true) | .name'); do
   image=$(mktemp --suffix=.png)
   images+=("$image")
   swaylock_args+=(-i "$output":"$image")
