@@ -7,3 +7,4 @@ insensitive=true
 term=alacritty
 allow_images=true
 allow_markup=true
+dmenu-parse_action=true
