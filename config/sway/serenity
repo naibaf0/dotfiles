@@ -3,9 +3,13 @@ output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 
 # configure input devices
 input "2:7:SynPS/2_Synaptics_TouchPad" {
+   accel_profile adaptive
+   pointer_accel -0.1
    dwt enabled
    tap enabled
+   tap_button_map lmr
+   drag_lock enabled
    natural_scroll enabled
    middle_emulation enabled
-   scroll_factor 0.5
+   scroll_factor 0.4
 }
