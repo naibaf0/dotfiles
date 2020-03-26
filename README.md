@@ -85,6 +85,8 @@ Universal
 * gpicview-gtk3
 * xviewer
 
+* blueberry
+
 Pacman hooks
 ------------
 * informant
@@ -92,21 +94,41 @@ Pacman hooks
 * pug
 * overdue 
 
+Extra Groups
+------------
+`sudo usermod -a -G $GROUP $USER`
+* `video` (backlight, udev rule provided by light)
+* `informant` (to read informant hook messages without sudo)
+* `rfkill` (bluetooth, more precisely blueberry)
+
+Use XWayland
+------------
+To force XWayland with these apps copy their `.desktop` file from 
+`/usr/share/applications/$APP` to `~/.local/share/applications` and add
+`env GDK_BACKEND=x11` or `env QT_QPA_PLATFORM=xcb` depending if it is an GTK or
+QT application to the `Exec=` line.
+After the edit run `update-desktop-database` command.
+* Virtualbox
+* Zoom
+
 Wayland/Sway migration
 ======================
 
-Waiting for:
+Soon:
+------------
 * Pipewire (screencapture, better audio/video)
-* Scaling with XWayland without blur
+* [Firefox Hardware accelerated video playback](https://bugzilla.mozilla.org/show_bug.cgi?id=1610199)
 
 Todo:
+=====
+* switch to sway stable with version 1.5 again
 * Pass has implemented wl-clipboard support. waiting for version bump to update and simplify pass scripts (1.7.3 -> ?)
-* startusing clipman clipboard manager
+* Use clipman clipboard manager
+* Switch to versioned deoplete after python-msgpack 1.0 is out of testing repo
+* Pick image viewer
 
 Getting rid of Python2
 ======================
-* [x] minecraft-launcher (gconf dropped to aur, now working with python3)
-* [ ] GIMP (pygtk)
-* [ ] Inkscape
-* [ ] Mercurial
-* [ ] GQRX/gnuradio
+* [x] ~minecraft-launcher (gconf dropped to aur, now working with python3)~
+* [x] ~GIMP (Arch removed the pygtk support, provided in gimp-python2 if needed)~
+* [ ] Inkscape (Still waiting for version 1.0, beta has been out for a while)
