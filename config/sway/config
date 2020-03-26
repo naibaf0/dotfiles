@@ -307,6 +307,7 @@ for_window [window_type="menu"] floating enable
 
 for_window [class="VirtualBox"] floating enable
 
+for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="galculator"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="pavucontrol"] floating enable
