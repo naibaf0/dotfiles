@@ -178,7 +178,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ## Manual management of external displays
-set $mode_display Ext Screen: (v|x) VGA [ON|OFF], (h|y) HDMI [ON|OFF], (w|m) WORKSTATION [ON|OFF], (c) Picom
+set $mode_display Ext Screen: (v|x) VGA [ON|OFF], (h|y) HDMI [ON|OFF], (w|m) WORKSTATION [ON|OFF]
 mode "$mode_display" {
     bindsym v mode "default", exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1 & ~/.fehbg
     bindsym h mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1 & ~/.fehbg
@@ -186,7 +186,6 @@ mode "$mode_display" {
     bindsym x mode "default", exec --no-startup-id xrandr --output DP1 --auto --off
     bindsym y mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --off
     bindsym m mode "default", exec --no-startup-id xrandr --output DP2 --off --output eDP1 --auto --primary & ~/.fehbg
-    bindsym c mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/picom_toggle.sh
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

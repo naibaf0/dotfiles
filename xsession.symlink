@@ -12,7 +12,4 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap -option caps:escape
 
-redshift -c ~/.config/redshift.conf &
-picom -b
-
 xsetroot -cursor_name left_ptr
