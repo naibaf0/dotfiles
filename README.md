@@ -17,16 +17,21 @@ git clone https://github.com/naibaf0/dotfiles .dotfiles
 Software Base
 =============
 
-Xorg
-----
+Xorg Desktop (i3)
+-----------------
 * i3
+* i3blocks
 * dunst
 * lxrandr
 * xrandr
 * xclip
+* rofi
+* feh
+* scrot
 
-Wayland
--------
+
+Wayland Desktop (sway)
+----------------------
 * sway
 * wlroots
 * swaybg
@@ -45,34 +50,18 @@ Wayland
 
 Universal
 ---------
-* i3blocks
-* rofi
-* dmenu
-* neofetch
-* kitty
-* zsh
-* neovim
-* python-pynvim
-* git
 * pcmanfm-gtk3, gvfs
 * dropbox & dropbox-cli
 * lxappearance
 * xarchiver
-* the_silver_searcher
-* fzf
 * pulseaudio, pulseaudio-bluetooth, pulseaudio-alsa, pulseaudio-ctl
 * pavucontrol
 * pulseeffects
 * libnotify
-* ctags
 * acpi
-* shellcheck
-* inxi
 * pass
-* rofi-pass
 * physlock
 * arch-audit
-
 
 * otf-overpass
 * ttf-fantasque-sans-mono
@@ -87,12 +76,33 @@ Universal
 
 * blueberry
 
+Terminal & Shell
+----------------
+* neofetch
+* inxi
+* alacritty
+* zsh
+* the_silver_searcher
+* fzf
+
+Development
+-----------
+* neovim
+* python-pynvim
+* git
+
+* ctags
+* shellcheck
+
+
+
 Pacman hooks
 ------------
 * informant
 * pacman-cleanup-hook
 * pug
 * overdue 
+* arch-audit
 
 Extra Groups
 ------------
@@ -115,9 +125,13 @@ Wayland/Sway migration
 ======================
 
 Soon:
-------------
+-----
 * Pipewire (screencapture, better audio/video)
 * [Firefox Hardware accelerated video playback](https://bugzilla.mozilla.org/show_bug.cgi?id=1610199)
+
+"Blockers:"
+-----------
+* Eclipse on mixed-DPI is wonky
 
 Todo:
 =====
@@ -126,9 +140,11 @@ Todo:
 * Use clipman clipboard manager
 * Switch to versioned deoplete after python-msgpack 1.0 is out of testing repo
 * Pick image viewer
+* Wait for [wdisplays](https://github.com/cyclopsian/wdisplays) to cut a
+  release, switch to a versioned version in AUR and integrate better in setup
 
 Getting rid of Python2
-======================
+----------------------
 * [x] ~minecraft-launcher (gconf dropped to aur, now working with python3)~
 * [x] ~GIMP (Arch removed the pygtk support, provided in gimp-python2 if needed)~
 * [ ] Inkscape (Still waiting for version 1.0, beta has been out for a while)
