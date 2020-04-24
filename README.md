@@ -138,7 +138,6 @@ Todo:
 * switch to sway stable with version 1.5 again
 * Pass has implemented wl-clipboard support. waiting for version bump to update and simplify pass scripts (1.7.3 -> ?)
 * Use clipman clipboard manager
-* Switch to versioned deoplete after python-msgpack 1.0 is out of testing repo
 * Pick image viewer
 * Wait for [wdisplays](https://github.com/cyclopsian/wdisplays) to cut a
   release, switch to a versioned version in AUR and integrate better in setup
