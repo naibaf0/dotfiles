@@ -142,8 +142,3 @@ Todo:
 * Wait for [wdisplays](https://github.com/cyclopsian/wdisplays) to cut a
   release, switch to a versioned version in AUR and integrate better in setup
 
-Getting rid of Python2
-----------------------
-* [x] ~minecraft-launcher (gconf dropped to aur, now working with python3)~
-* [x] ~GIMP (Arch removed the pygtk support, provided in gimp-python2 if needed)~
-* [ ] Inkscape (Still waiting for version 1.0, beta has been out for a while)
