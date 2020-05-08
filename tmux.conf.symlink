@@ -21,7 +21,7 @@ set-option -g   repeat-time 500
 set-option -g   visual-activity off
 set-option -g   visual-bell off
 set-option -g   set-titles on
-set-option -g   set-titles-string ' #I-#W '
+set-option -g   set-titles-string ' #S[#I] - #T '
 set-option -g   terminal-overrides 'xterm*:smcup@:rmcup@'
 set-option -g   base-index 1
 set-option -g   update-environment -r
