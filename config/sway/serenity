@@ -10,5 +10,5 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
    tap_button_map lmr
    natural_scroll enabled
    middle_emulation enabled
-   scroll_factor 0.4
+   scroll_factor 0.2
 }
