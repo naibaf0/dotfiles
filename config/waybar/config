@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/updates", "mpd", "idle_inhibitor", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "battery", "clock"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
