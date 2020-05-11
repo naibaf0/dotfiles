@@ -2,13 +2,13 @@
     border: none;
     border-radius: 0;
     font-family: Overpass Mono, Fantasque Sans Mono, FontAwesome5Free Solid;
-    font-size: 12px;
+    font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
     background-color: rgba(40, 42, 54, 0.6);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #F8F8F2;
     transition-property: background-color;
     transition-duration: .5s;
@@ -42,12 +42,12 @@ window#waybar.alacritty {
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
     box-shadow: inherit;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 #workspaces button.focused {
     background-color: #44475A;
-    border-bottom: 3px solid #44475A;
+    border-bottom: 1px solid #44475A;
 }
 
 #workspaces button.urgent {
@@ -56,7 +56,7 @@ window#waybar.alacritty {
 
 #mode {
     background-color: #FF5555;
-    border-bottom: 3px solid #FF5555;
+    border-bottom: 1px solid #FF5555;
 }
 
 #clock,
