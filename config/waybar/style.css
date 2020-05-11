@@ -34,7 +34,7 @@ window#waybar.alacritty {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #F8F8F2;
     border-bottom: 3px solid transparent;
 }
 
@@ -42,7 +42,7 @@ window#waybar.alacritty {
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
     box-shadow: inherit;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #f8f8f2;
 }
 
 #workspaces button.focused {
