@@ -28,18 +28,18 @@ select_command() {
       the_url="$value"
     else
       options[Copy\ $field]="wl-copy ${(q)value}"
-      options_order+="Copy $field"
-      [[ "$field" == "username" ]] && the_username="$value"
+      options_order+="Copy $field";
+      [[ "$field" == "username" || "$field" == "user" ]] && the_username="$value"
     fi
   done
   options[Show]="zenity --info --title=${(q)1} --icon-name=password --text=${(q)contents} --width=400"
   options_order+="Show"
   if [[ -n "$the_username" ]] && [[ -n "$the_password" ]]; then
     options[Copy\ username\ \&\ password]="wl-copy ${(q)the_username} && wl-copy ${(q)the_password} -p"
-    options_order=("Copy username & password" "${options_order[@]}")
+    options_order=("Copy username &amp; password" "${options_order[@]}")
     if [[ -n "$the_url" ]]; then
       options[Copy\ username\ \&\ password,\ open\ URL]="xdg-open ${(q)the_url} && wl-copy ${(q)the_username} && wl-copy ${(q)the_password} -p"
-      options_order=("Copy username & password, open URL" "${options_order[@]}")
+      options_order=("Copy username &amp; password, open URL" "${options_order[@]}")
     fi
   fi
   local selection="$(print -l ${options_order} | mywofi -k /dev/null -p "$1")"
