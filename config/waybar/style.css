@@ -80,6 +80,7 @@ window#waybar.alacritty {
 
 #clock {
     /*background-color: #64727D;*/
+    border-left: 1px solid #44475A;
 }
 
 #battery {
