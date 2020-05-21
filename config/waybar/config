@@ -85,8 +85,8 @@
         "format-icons": ["", "", "", "", ""],
         "tooltip": false
     },
-    "battery#bat0": {
-        "bat": "BAT0"
+    "battery#bat1": {
+        "bat": "BAT1"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
