@@ -29,7 +29,7 @@ select_command() {
     else
       options[Copy\ $field]="wl-copy ${(q)value}"
       options_order+="Copy $field"
-      [[ "$field" == "username" ]] && the_username="$value"
+      [[ "$field" == "username" || "$field" == "user" ]] && the_username="$value"
     fi
   done
   options[Show]="zenity --info --title=${(q)1} --icon-name=password --text=${(q)contents} --width=400"
