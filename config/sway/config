@@ -184,6 +184,12 @@ seat * xcursor_theme Adwaita 24
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 #
+# Mark Container:
+#
+    # Mark Container and toggle a switch with "acute" accent
+    bindsym $mod+dead_acute [con_mark="marked-container"] focus
+    bindsym $mod+Shift+dead_acute mark --toggle marked-container
+#
 # Resizing containers:
 #
 mode "resize" {
@@ -207,8 +213,9 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-## Power options
+#
+# Power options:
+#
 set $mode_power Power: (l) lock, (s) suspend, (r) reboot, (p) shutdown
 mode "$mode_power" {
     bindsym l mode "default", exec --no-startup-id $HOME/.config/sway/lock.sh
@@ -222,32 +229,9 @@ mode "$mode_power" {
 }
 bindsym Mod1+Control+l mode "$mode_power"
 
-bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/redshift_toggle.sh
+### Looks
 
-#define DRACULA_FG             #F8F8F2
-#define DRACULA_BG             #282A36
-#define DRACULA_BG_DARK        #21222C
-#define DRACULA_SELECTION      #44475A
-#define DRACULA_COMMENT        #6272A4
-#define DRACULA_ORANGE         #FFB86C
-
-#define DRACULA_BLACK          #21222C
-#define DRACULA_BRIGHT_BLACK   #6272A4
-#define DRACULA_RED            #FF5555
-#define DRACULA_BRIGHT_RED     #FF6E6E
-#define DRACULA_GREEN          #50FA7B
-#define DRACULA_BRIGHT_GREEN   #69FF94
-#define DRACULA_YELLOW         #F1FA8C
-#define DRACULA_BRIGHT_YELLOW  #FFFFA5
-#define DRACULA_BLUE           #BD93F9
-#define DRACULA_BRIGHT_BLUE    #D6ACFF
-#define DRACULA_MAGENTA        #FF79C6
-#define DRACULA_BRIGHT_MAGENTA #FF92DF
-#define DRACULA_CYAN           #8BE9FD
-#define DRACULA_BRIGHT_CYAN    #A4FFFF
-#define DRACULA_WHITE          #F8F8F2
-#define DRACULA_BRIGHT_WHITE   #FFFFFF
-
+# colors
 # Property Name         Border  BG      Text    Indicator Child Border
 client.focused          #6272A4 #44475A #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
@@ -256,12 +240,16 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
+
+# font
 font pango:Fantasque Sans Mono
 
-# thin borders
+# borders
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders --i3 smart
+
+# titlebar
 titlebar_padding 4 2
 titlebar_border_thickness 1
 
@@ -269,46 +257,20 @@ titlebar_border_thickness 1
 gaps inner 10
 smart_gaps on
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-  #position top
-  #status_command i3blocks
-  #tray_output none
-  #strip_workspace_numbers yes
-
-  #font pango:Fantasque Sans Mono, FontAwesome5Free Solid, FontAwesome5Brands 11
-
-  #colors {
-    #background #282A36
-    #statusline #F8F8F2
-    #separator  #44475A
-
-    ## State             Border  BG      Text
-    #focused_workspace  #44475A #44475A #F8F8F2
-    #active_workspace   #282A36 #44475A #F8F8F2
-    #inactive_workspace #282A36 #282A36 #BFBFBF
-    #urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    #binding_mode       #FF5555 #FF5555 #F8F8F2
-  #}
-#}
+### App Defaults
 
 # default floating
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
-
 for_window [window_type="dialog"] floating enable
 for_window [window_type="popup_menu"] floating enable
 for_window [window_type="menu"] floating enable
-
 for_window [class="VirtualBox"] floating enable
 
 for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="galculator"] floating enable
+for_window [app_id="qalculate-gtk"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="xarchiver"] floating enable
@@ -321,19 +283,24 @@ assign [class="Spotify"] $ws4
 
 assign [app_id="thunderbird"] $ws3
 assign [app_id="cantata"] $ws4
-assign [window_role="browser"] $ws10
 assign [app_id="firefox"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
 # screenshots
 bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
 bindsym --release shift+Print exec --no-startup-id slurp | grim -g - ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+
 # lock screen
 bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/config/sway/lock.sh
+
+# redshift toggling
+bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/redshift_toggle.sh
+
 # volume
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id amixer -q sset 'Master' 5%+ & pkill -SIGRTMIN+10 i3blocks
 bindsym --locked XF86AudioLowerVolume exec --no-startup-id amixer -q sset 'Master' 5%- & pkill -SIGRTMIN+10 i3blocks
 bindsym --locked XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
+
 # audio player control
 #bindsym --locked XF86AudioPlay exec playerctl play-pause
 #bindsym --locked XF86AudioPause exec playerctl play-pause
@@ -343,13 +310,27 @@ bindsym --locked XF86AudioPlay exec mpc toggle
 bindsym --locked XF86AudioPause exec mpc toggle
 bindsym --locked XF86AudioNext exec mpc next
 bindsym --locked XF86AudioPrev exec mpc previous
+
 # brightness
 bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
 
-bindsym $mod+Shift+d exec makoctl dismiss
+# notifications
+bindsym $mod+m exec makoctl dismiss
+bindsym $mod+Shift+m exec makoctl dismiss --all
 
-# startup
+# passwords
+bindsym $mod+x exec wofi-pass
+
+# search
+bindsym $mod+Shift+s exec wofi-websearch
+
+# calculator & conversions
+#bindsym $mod+o exec ~/scripts/launcher.sh "qalc" $launcher_window_title
+bindsym $mod+o exec qalculate-gtk
+
+### Startup
+
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
 exec --no-startup-id redshift -c $HOME/.config/redshift/redshift.conf
