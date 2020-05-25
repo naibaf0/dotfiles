@@ -50,29 +50,29 @@ Wayland Desktop (sway)
 
 Universal
 ---------
-* pcmanfm-gtk3, gvfs
+* thunar, thunar-volman, gvfs
 * dropbox & dropbox-cli
 * lxappearance
 * xarchiver
 * pulseaudio, pulseaudio-bluetooth, pulseaudio-alsa, pulseaudio-ctl
 * pavucontrol
-* pulseeffects
 * libnotify
 * acpi
 * pass
 * physlock
 * arch-audit
+* qalculate-gtk
 
 * otf-overpass
 * ttf-fantasque-sans-mono
 * otf-font-awesome
 
 * ant-dracula-gtk-theme
-* faba-icon-theme
+* breeze-icons
+* capitaine-cursors
 
 * imv
 * gpicview-gtk3
-* xviewer
 
 * blueberry
 
@@ -93,8 +93,6 @@ Development
 
 * ctags
 * shellcheck
-
-
 
 Pacman hooks
 ------------
@@ -118,6 +116,7 @@ To force XWayland with these apps copy their `.desktop` file from
 `env GDK_BACKEND=x11` or `env QT_QPA_PLATFORM=xcb` depending if it is an GTK or
 QT application to the `Exec=` line.
 After the edit run `update-desktop-database` command.
+
 * Virtualbox
 * Zoom
 
@@ -136,9 +135,4 @@ Soon:
 Todo:
 =====
 * switch to sway stable with version 1.5 again
-* Pass has implemented wl-clipboard support. waiting for version bump to update and simplify pass scripts (1.7.3 -> ?)
-* Use clipman clipboard manager
-* Pick image viewer
-* Wait for [wdisplays](https://github.com/cyclopsian/wdisplays) to cut a
-  release, switch to a versioned version in AUR and integrate better in setup
-
+* Pass has implemented wl-clipboard support. waiting for version bump, currently using development version (1.7.3 -> ?)

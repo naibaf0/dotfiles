@@ -50,7 +50,7 @@ input "*" {
     xkb_numlock enable
 }
 
-seat * xcursor_theme Adwaita 24
+seat * xcursor_theme capitaine-cursors 24
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -64,7 +64,7 @@ seat * xcursor_theme Adwaita 24
     bindsym $mod+Return exec $term
 
     # start a file browser
-    bindsym $mod+n exec pcmanfm
+    bindsym $mod+n exec thunar
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -273,6 +273,7 @@ for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="qalculate-gtk"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="wdisplays"] floating enable
 for_window [app_id="xarchiver"] floating enable
 for_window [app_id="zenity"] floating enable
 
@@ -334,7 +335,7 @@ bindsym $mod+o exec qalculate-gtk
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
 exec --no-startup-id redshift -c $HOME/.config/redshift/redshift.conf
-exec --no-startup-id pcmanfm -d
+exec --no-startup-id thunar --daemon
 
 exec_always pkill kanshi; exec kanshi #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
 #exec_always pkill waybar; exec waybar #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
@@ -344,8 +345,8 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
-  gsettings set $gnome-schema icon-theme 'Faba'
-  gsettings set $gnome-schema cursor-theme 'Adwaita'
+  gsettings set $gnome-schema icon-theme 'breeze-dark'
+  gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
 
 include ~/.config/sway/`hostname`

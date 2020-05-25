@@ -29,7 +29,7 @@
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 100
-    icon_path = ~/.local/share/icons/PlaneDarkGnomedarkMagentadark-1.9/status/scalable/:~/.local/share/icons/PlaneDarkGnomedarkMagentadark-1.9/devices/scalable/:~/.local/share/icons/PlaneDarkGnomedarkMagentadark-1.9/actions/scalable/
+    icon_path = /usr/share/icons/breeze-dark/
 
 [shortcuts]
     close = ctrl+space
