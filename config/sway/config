@@ -285,6 +285,7 @@ assign [class="Spotify"] $ws4
 assign [app_id="thunderbird"] $ws3
 assign [app_id="cantata"] $ws4
 assign [app_id="firefox"] $ws10
+assign [app_id="Firefox Beta"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
 # screenshots
