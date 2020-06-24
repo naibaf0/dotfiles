@@ -34,7 +34,7 @@ set $ws10 10
     bindsym $mod+Return exec $term
 
     # start a file browser
-    bindsym $mod+n exec pcmanfm
+    bindsym $mod+n exec Thunar
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -176,22 +176,6 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-## Manual management of external displays
-set $mode_display Ext Screen: (v|x) VGA [ON|OFF], (h|y) HDMI [ON|OFF], (w|m) WORKSTATION [ON|OFF]
-mode "$mode_display" {
-    bindsym v mode "default", exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1 & ~/.fehbg
-    bindsym h mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --left-of eDP1 & ~/.fehbg
-    bindsym w mode "default", exec --no-startup-id xrandr --output DP2 --auto --primary --output eDP1 --off & ~/.fehbg
-    bindsym x mode "default", exec --no-startup-id xrandr --output DP1 --auto --off
-    bindsym y mode "default", exec --no-startup-id xrandr --output HDMI1 --auto --off
-    bindsym m mode "default", exec --no-startup-id xrandr --output DP2 --off --output eDP1 --auto --primary & ~/.fehbg
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+x mode "$mode_display"
 
 ## Power options
 set $mode_power Power: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
@@ -336,4 +320,4 @@ exec --no-startup-id ./.fehbg
 exec --no-startup-id xss-lock -- ~/.dotfiles/config/i3/lock.sh
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst
-exec --no-startup-id pcmanfm -d
+exec --no-startup-id thunar --daemon
