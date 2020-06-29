@@ -4,7 +4,7 @@ set -e
 
 timeout=30
 monitor="$(swaymsg -t get_outputs | jq '[.[].focused] | index(true)')"
-alias mywofi="wofi --dmenu --matching contains -i"
+alias mywofi="wofi --dmenu --matching contains -i -k /dev/null"
 
 select_command() {
   local contents="$(pass show "$1")"
@@ -42,7 +42,7 @@ select_command() {
       options_order=("Copy username &amp; password, open URL" "${options_order[@]}")
     fi
   fi
-  local selection="$(print -l ${options_order} | mywofi -p "$1 > " -k /dev/null)"
+  local selection="$(print -l ${options_order} | mywofi -p "$1 > ")"
   if [[ -n "$selection" ]]; then
     eval "$options[${(q)selection}]"
   else
@@ -54,7 +54,7 @@ select_password() {
   find "$dir" -not -path '*/.git/*' -type f |
     grep '\.gpg$' |
     sed "s:$dir\(.*\)\.gpg$:\1:" |
-    mywofi -p 'Password > ' -k ~/.cache/wofi-pass "$1"
+    mywofi -p 'Password > ' "$1"
     #mywofi -p 'password' -filter "$1"
 }
 
