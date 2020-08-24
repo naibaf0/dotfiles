@@ -27,6 +27,7 @@ brew 'fzf'
 brew 'neofetch'
 brew 'weechat'
 brew 'nmap'
+brew 'iproute2mac'
 
 cask 'docker'
 brew 'docker-completion'
@@ -43,7 +44,7 @@ tap 'homebrew/cask-fonts'
 cask 'font-fantasque-sans-mono'
 cask 'font-overpass'
 
-cask 'forticlient'
+brew 'openfortivpn'
 cask 'linphone'
 
 cask 'alacritty'
