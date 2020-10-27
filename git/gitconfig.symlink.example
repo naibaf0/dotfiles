@@ -28,6 +28,8 @@
     autocrlf          = input
     whitespace        = trailing-space,space-before-tab
     precomposeunicode = true
+[pull]
+    rebase  = true
 [push]
     default = simple
 [apply]
