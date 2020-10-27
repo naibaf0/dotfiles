@@ -28,6 +28,7 @@ brew 'neofetch'
 brew 'weechat'
 brew 'nmap'
 brew 'iproute2mac'
+brew 'wireguard-tools'
 
 cask 'docker'
 brew 'docker-completion'
@@ -35,9 +36,11 @@ brew 'kubernetes-cli'
 brew 'kubernetes-helm'
 brew 'helmfile'
 brew 'kubectx'
+brew 'rancher-cli'
 
 brew 'terraform'
 cask 'google-cloud-sdk'
+
 
 tap 'homebrew/cask-fonts'
 
@@ -46,6 +49,8 @@ cask 'font-overpass'
 
 brew 'openfortivpn'
 cask 'linphone'
+
+cask 'drawio'
 
 cask 'alacritty'
 cask 'maccy'
