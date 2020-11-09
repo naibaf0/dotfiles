@@ -12,3 +12,6 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
    middle_emulation enabled
    scroll_factor 0.2
 }
+
+#currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
+exec_always pkill kanshi; exec kanshi
