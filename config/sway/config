@@ -338,8 +338,7 @@ exec --no-startup-id mako
 exec --no-startup-id redshift -c $HOME/.config/redshift/redshift.conf
 exec --no-startup-id thunar --daemon
 
-exec_always pkill kanshi; exec kanshi #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
-#exec_always pkill waybar; exec waybar #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
+#exec_always pkill waybar; exec waybar
 exec_always ~/.config/waybar/waybar.sh
 
 set $gnome-schema org.gnome.desktop.interface
