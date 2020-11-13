@@ -8,3 +8,7 @@ term=alacritty
 allow_images=true
 allow_markup=true
 dmenu-parse_action=true
+drun-display_generic=true
+key_down=Tab
+key_expand=Right
+key_forward=Down
