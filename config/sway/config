@@ -349,5 +349,5 @@ exec_always {
   gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
 
-include ~/.dotfiles/config/sway/Sunnydale
+include ~/.dotfiles/config/sway/`hostname`
 include /etc/sway/config.d/*
