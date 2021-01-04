@@ -324,6 +324,9 @@ bindsym $mod+Shift+m exec makoctl dismiss --all
 # passwords
 bindsym $mod+x exec wofi-pass
 
+# nmcli
+bindsym $mod+i exec wofi-nmcli
+
 # search
 bindsym $mod+Shift+s exec wofi-websearch
 
