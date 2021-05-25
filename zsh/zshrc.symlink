@@ -219,7 +219,7 @@ export_kubeconfigs () {
   else
     export KUBECONF_DIR="$(mktemp -d /tmp/kubeconfig-shell-XXXXXXXX)"
   fi
-  cp -n $HOME/.kube/config $KUBECONF_DIR/
+  cp -n $HOME/.kube/configs/* $KUBECONF_DIR/
   export KUBECONFIG="$(ls -1 $KUBECONF_DIR/* | tr '\n' ':')"
   if [ $UNSET_CTX -eq 1 ]; then
     if which kubectl 2>&1 >/dev/null && kubectl config current-context >/dev/null 2>&1; then
