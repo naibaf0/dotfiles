@@ -6,22 +6,27 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "custom/weather", "clock"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/window": {
-        "max-length": 80,
-        "tooltip": false
+        "max-length": 80
     },
     "custom/updates": {
         "format": "{}",
         "interval": 60,
         "signal": 8,
-        "on-click": "$TERMINAL --class='update_installer' -e 'yay'; pkill -SIGRTMIN+8 waybar",
-        "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null",
-        "tooltip": false
+        "on-click": "$TERMINAL --class='update_installer' -e 'paru'; pkill -SIGRTMIN+8 waybar",
+        "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "$HOME/.config/waybar/modules/waybar-wttr.py",
+        "return-type": "json"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
@@ -45,30 +50,34 @@
         "state-icons": {
             "paused": "",
             "playing": ""
-        },
-        "tooltip": false
+        }
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
-        },
-        "tooltip": false
+        }
     },
     "clock": {
         "tooltip-format": "{:%Y-%m-%d | %H:%M}",
         "interval": 5,
-        "format": "{:%a %d %b <b>%H:%M</b>}",
-        "tooltip": false
+        "format": "{:%a %d %b <b>%H:%M</b>}"
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% ",
-        "tooltip": false
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp3_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
     },
     "battery": {
         "states": {
@@ -82,8 +91,7 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": false
+        "format-icons": ["", "", "", "", ""]
     },
     "battery#bat1": {
         "bat": "BAT1"
@@ -94,8 +102,7 @@
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "tooltip": false
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
@@ -106,16 +113,15 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
+            "headphone": "",
+            "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol",
-        "tooltip": false
+        "on-click": "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {}",
