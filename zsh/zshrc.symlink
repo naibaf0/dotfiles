@@ -76,7 +76,7 @@ zstyle ':zim:termtitle' format '%n@%m: %1~'
 #
 
 # Load these ssh identities with the ssh module.
-zstyle ':zim:ssh' ids 'id_rsa'
+zstyle ':zim:ssh' ids 'id_rsa' 'id_ecdsa'
 
 #
 # zsh-autosuggestions
