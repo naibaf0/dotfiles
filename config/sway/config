@@ -314,8 +314,8 @@ bindsym --locked XF86AudioNext exec mpc next
 bindsym --locked XF86AudioPrev exec mpc previous
 
 # brightness
-bindsym XF86MonBrightnessUp exec sh ~/.dotfiles/scripts/brightness.sh up
-bindsym XF86MonBrightnessDown exec sh ~/.dotfiles/scripts/brightness.sh down
+bindsym XF86MonBrightnessUp exec zsh ~/.dotfiles/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec zsh ~/.dotfiles/scripts/brightness.sh down
 
 # notifications
 bindsym $mod+m exec makoctl dismiss
