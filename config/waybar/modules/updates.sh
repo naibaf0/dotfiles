@@ -7,7 +7,7 @@ aur=$(paru -Qmu | wc -l)
 
 updates=$((pac+aur))
 if [ "$updates" -gt 0 ]; then
-  echo "$updates "
+  echo "$updates "
 else
   echo ""
 fi

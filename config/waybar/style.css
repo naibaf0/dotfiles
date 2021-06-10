@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Overpass Mono, Fantasque Sans Mono, FontAwesome5Free Solid;
+    font-family: Overpass Mono, Fantasque Sans Mono, Symbols Nerd Font;
     font-size: 13px;
     min-height: 0;
 }
@@ -60,6 +60,7 @@ window#waybar.alacritty {
 }
 
 #clock,
+#custom-weather,
 #battery,
 #cpu,
 #memory,
@@ -80,6 +81,13 @@ window#waybar.alacritty {
 
 #clock {
     /*background-color: #64727D;*/
+    border-left: 1px solid #44475A;
+}
+
+#custom-weather {
+    /*background-color: #64727D;*/
+    padding: 0 5px;
+    margin: 0 0px;
     border-left: 1px solid #44475A;
 }
 
