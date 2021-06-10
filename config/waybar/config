@@ -86,7 +86,7 @@
             "critical": 10
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}",
         "format-plugged": "{capacity}% ﮣ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
