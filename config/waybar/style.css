@@ -74,7 +74,7 @@ window#waybar.alacritty {
 #idle_inhibitor,
 #mpd,
 #custom-updates {
-    padding: 0 5px;
+    padding: 5px 5px;
     margin: 0 4px;
     color: #f8f8f2;
 }
