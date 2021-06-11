@@ -3,23 +3,23 @@ width=320
 padding=8
 margin=4
 border-size=2
-border-color=#bd93f9
 default-timeout=5000
 icon-path=/usr/share/icons/breeze-dark
 
 # Only for desktop, ignored when no such output exists
 #output=DP-1
 
-[urgency=low]
 background-color=#282a36
+border-color=#bd93f9
+
+[urgency=low]
 text-color=#bfbfbf
 
 [urgency=normal]
-background-color=#282a36
 text-color=#f8f8f2
 
 [urgency=high]
-background-color=#282a36
 text-color=#ff5555
+border-color=#ff5555
 default-timeout=0
 ignore-timeout=1
