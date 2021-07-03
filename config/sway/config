@@ -338,7 +338,7 @@ bindsym $mod+o exec qalculate-gtk
 
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
-exec --no-startup-id redshift -c $HOME/.config/redshift/redshift.conf
+exec --no-startup-id gammastep
 exec --no-startup-id thunar --daemon
 
 #exec_always pkill waybar; exec waybar
