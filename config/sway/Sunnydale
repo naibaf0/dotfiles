@@ -1,4 +1,5 @@
 # set wallpaper
 output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 
-output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 3840x2160@59.997002Hz scale 1.5 adaptive_sync on
+output "Goldstar Company Ltd LG ULTRAGEAR 102MANJHM175" mode 2560x1440@143.973Hz adaptive_sync off
+#output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 3840x2160@59.997002Hz scale 1.5 adaptive_sync on
