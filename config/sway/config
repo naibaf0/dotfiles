@@ -295,7 +295,7 @@ bindsym --release ctrl+Print exec --no-startup-id grim -g "$(swaymsg -t get_tree
 bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/config/sway/lock.sh
 
 # redshift toggling
-bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/redshift_toggle.sh
+#bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
 
 # volume
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh up
@@ -338,7 +338,7 @@ bindsym $mod+o exec qalculate-gtk
 
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
-exec --no-startup-id gammastep
+#exec --no-startup-id gammastep #thanks to blaufilter glasses
 exec --no-startup-id thunar --daemon
 
 #exec_always pkill waybar; exec waybar
