@@ -29,6 +29,7 @@ brew 'weechat'
 brew 'nmap'
 brew 'iproute2mac'
 brew 'wireguard-tools'
+brew 'p7zip'
 
 cask 'docker'
 brew 'docker-completion'
