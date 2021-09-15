@@ -1,4 +1,0 @@
-#!/bin/bash
-
-feh --bg-fill --recursive ~/Pictures/4k\ Wallpapers/wallhaven-170258.jpg
-i3-msg reload
