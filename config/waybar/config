@@ -6,7 +6,8 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "custom/weather", "clock"],
+    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
+    //"modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -71,9 +72,15 @@
     "memory": {
         "format": " {}%"
     },
-    "temperature": {
-        // "thermal-zone": 2,
+    "temperature#sunnydale": {
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp3_input",
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "temperature#serenity": {
+        "thermal-zone": 2,
         "critical-threshold": 80,
         // "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
@@ -95,9 +102,6 @@
           "default": ["","","","","","","","","","",""],
           "charging": ["","","",""]
         }
-    },
-    "battery#bat1": {
-        "bat": "BAT1"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
