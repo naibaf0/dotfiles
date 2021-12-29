@@ -34,10 +34,10 @@ set $ws10 10
 
 ### Idle configuration
 exec swayidle \
-    timeout 300 '~/.config/sway/lock.sh' \
+    timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
-    before-sleep '~/.config/sway/lock.sh'
+    before-sleep '~/.dotfiles/scripts/sway-lock.sh'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -218,10 +218,10 @@ bindsym $mod+r mode "resize"
 #
 set $mode_power Power: (l) lock, (s) suspend, (r) reboot, (p) shutdown
 mode "$mode_power" {
-    bindsym l mode "default", exec --no-startup-id $HOME/.config/sway/lock.sh
-    bindsym s mode "default", exec --no-startup-id $HOME/.config/sway/swayexit suspend
-    bindsym r mode "default", exec --no-startup-id $HOME/.config/sway/swayexit reboot
-    bindsym p mode "default", exec --no-startup-id $HOME/.config/sway/swayexit shutdown
+    bindsym l mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-lock.sh
+    bindsym s mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh suspend
+    bindsym r mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh reboot
+    bindsym p mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh shutdown
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -352,5 +352,5 @@ exec_always {
   gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
 
-include ~/.dotfiles/config/sway/$HOST
+include ~/.config/sway/host
 include /etc/sway/config.d/*
