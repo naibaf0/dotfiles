@@ -15,5 +15,12 @@ elif [ "$1" = "mute"  ]; then
   else
     notify-send --hint=string:synchronous:volume -i audio-volume-medium "Unmuted" ""
 	fi
+elif [ "$1" = "mic-mute"  ]; then
+ 	  pamixer -t --default-source
+  if [ $(pamixer --default-source --get-mute) = true ]; then
+    notify-send --hint=string:synchronous:volume -i mic-off "Muted" ""
+  else
+    notify-send --hint=string:synchronous:volume -i mic-on "Unmuted" ""
+	fi
 fi
 
