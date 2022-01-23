@@ -27,7 +27,7 @@ window#waybar.solo {
 }
 */
 
-window#waybar.alacritty {
+window#waybar.kitty {
     background-color: #3F3F3F;
 }
 
@@ -199,4 +199,8 @@ label:focus {
 #custom-updates {
     color: #ff5555;
 }
-
+#custom-osname {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 1px 10px;
+}
