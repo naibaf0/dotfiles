@@ -117,6 +117,7 @@ TERM xterm-256color-italic
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
+TERM xterm-kitty
 TERM xterm-termite
 
 # EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
@@ -407,6 +408,7 @@ EXEC 01;31  # Unix
 .z    1;35
 .Z    1;35
 .zip  1;35
+.zst  1;35
 
 # For testing
 .ANSI-30-black 30
@@ -455,7 +457,7 @@ EXEC 01;31  # Unix
 #.ORIG 01;36
 #.swp 01;36
 #.swo 01;36
-#*,v 01;36
+#*.v 01;36
 .bak 01;33
 .BAK 01;33
 .old 01;33
@@ -469,7 +471,7 @@ EXEC 01;31  # Unix
 .ORIG 01;33
 .swp 01;33
 .swo 01;33
-*,v 01;33
+*.v 01;33
 
 # The brightmagenta (Solarized: purple) color is free for you to use for your
 # custom file type
