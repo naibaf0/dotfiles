@@ -53,7 +53,7 @@ cask 'linphone'
 
 cask 'drawio'
 
-cask 'alacritty'
+cask 'kitty'
 cask 'maccy'
 
 cask 'slack'
