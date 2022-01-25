@@ -17,19 +17,6 @@ git clone https://github.com/naibaf0/dotfiles .dotfiles
 Software Base
 =============
 
-Xorg Desktop (i3)
------------------
-* i3
-* i3blocks
-* dunst
-* lxrandr
-* xrandr
-* xclip
-* rofi
-* feh
-* scrot
-
-
 Wayland Desktop (sway)
 ----------------------
 * sway
@@ -80,7 +67,7 @@ Terminal & Shell
 ----------------
 * neofetch
 * inxi
-* alacritty
+* kitty
 * zsh
 * the_silver_searcher
 * fzf
@@ -120,19 +107,3 @@ After the edit run `update-desktop-database` command.
 * Virtualbox
 * Zoom
 
-Wayland/Sway migration
-======================
-
-Soon:
------
-* Pipewire (screencapture, better audio/video)
-* [Firefox Hardware accelerated video playback](https://bugzilla.mozilla.org/show_bug.cgi?id=1610199)
-
-"Blockers:"
------------
-* Eclipse on mixed-DPI is wonky
-
-Todo:
-=====
-* switch to sway stable with version 1.5 again
-* Pass has implemented wl-clipboard support. waiting for version bump, currently using development version (1.7.3 -> ?)
