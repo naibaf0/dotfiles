@@ -6,8 +6,8 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
-    //"modules-right": ["custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"],
+    "modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
+    //"modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -15,9 +15,18 @@
     "sway/window": {
         "max-length": 80
     },
+    "custom/scratchpad": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "~/.config/waybar/modules/scratchpad-indicator.sh 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
     "custom/updates": {
         "format": "{}",
-        "interval": 60,
+        "interval": 600,
         "signal": 8,
         "on-click": "$TERMINAL --class='update_installer' -e 'paru'; pkill -SIGRTMIN+8 waybar",
         "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null"
