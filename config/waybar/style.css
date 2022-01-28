@@ -73,7 +73,8 @@ window#waybar.kitty {
 #mode,
 #idle_inhibitor,
 #mpd,
-#custom-updates {
+#custom-updates,
+#custom-scratchpad {
     padding: 0 5px;
     margin: 0 4px;
     color: #f8f8f2;
