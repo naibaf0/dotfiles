@@ -299,17 +299,17 @@ bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/scripts/sway-lock.sh
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh up
 bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh down
 bindsym --locked XF86AudioMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh mute
-bindsym --locked shift+XF86AudioMute exec --no-startup-id pulseaudio-ctl mute-input
+bindsym --locked XF86AudioMicMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic-mute
 
 # audio player control
-#bindsym --locked XF86AudioPlay exec playerctl play-pause
-#bindsym --locked XF86AudioPause exec playerctl play-pause
-#bindsym --locked XF86AudioNext exec playerctl next
-#bindsym --locked XF86AudioPrev exec playerctl previous
-bindsym --locked XF86AudioPlay exec mpc toggle
-bindsym --locked XF86AudioPause exec mpc toggle
-bindsym --locked XF86AudioNext exec mpc next
-bindsym --locked XF86AudioPrev exec mpc previous
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+#bindsym --locked XF86AudioPlay exec mpc toggle
+#bindsym --locked XF86AudioPause exec mpc toggle
+#bindsym --locked XF86AudioNext exec mpc next
+#bindsym --locked XF86AudioPrev exec mpc previous
 
 # brightness
 bindsym XF86MonBrightnessUp exec zsh ~/.dotfiles/scripts/brightness.sh up
@@ -345,7 +345,7 @@ exec_always ~/.config/waybar/waybar.sh
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
+  gsettings set $gnome-schema gtk-theme 'Dracula'
   gsettings set $gnome-schema icon-theme 'breeze-dark'
   gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
