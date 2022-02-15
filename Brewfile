@@ -58,3 +58,5 @@ cask 'maccy'
 cask 'slack'
 
 cask 'wireshark'
+
+cask 'microsoft-remote-desktop'
