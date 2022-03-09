@@ -13,7 +13,8 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/window": {
-        "max-length": 80
+        "max-length": 80,
+        "icon": false
     },
     "custom/scratchpad": {
         "format-text": "{}",
