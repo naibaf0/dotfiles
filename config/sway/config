@@ -328,9 +328,7 @@ bindsym $mod+i exec wofi-nmcli
 # search
 bindsym $mod+Shift+s exec wofi-websearch
 
-# calculator & conversions
-#bindsym $mod+o exec ~/scripts/launcher.sh "qalc" $launcher_window_title
-#bindsym $mod+o exec qalculate-gtk
+
 bindsym --no-repeat $mod+o exec "echo 1 > /tmp/sovpipe"
 bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
