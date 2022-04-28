@@ -32,13 +32,6 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-### Idle configuration
-exec swayidle \
-    timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
-    timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
-    before-sleep '~/.dotfiles/scripts/sway-lock.sh'
-
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -302,9 +295,6 @@ bindsym --release ctrl+Print exec --no-startup-id grim -g "$(swaymsg -t get_tree
 # lock screen
 bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/scripts/sway-lock.sh
 
-# redshift toggling
-#bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
-
 # volume
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh up
 bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh down
@@ -348,12 +338,8 @@ bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
-#exec --no-startup-id gammastep #thanks to blaufilter glasses
 exec --no-startup-id thunar --daemon
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
-
-#exec_always pkill waybar; exec waybar
-exec_always ~/.config/waybar/waybar.sh
 
 set $gnome-schema org.gnome.desktop.interface
 

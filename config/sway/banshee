@@ -1,0 +1,51 @@
+# set wallpaper
+#set $wallpapers_path $HOME/Pictures/Wallpapers
+#output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+exec "cd $HOME/Pictures && $HOME/.dotfiles/scripts/wallpaper.sh"
+
+### Idle configuration
+exec swayidle \
+    timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
+    timeout 330 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+    before-sleep '~/.dotfiles/scripts/sway-lock.sh'
+
+# configure input devices
+input "1267:12596:ASUE140A:00_04F3:3134_Touchpad" {
+   accel_profile adaptive
+   #pointer_accel -0.1
+   dwt enabled
+   tap enabled
+   tap_button_map lmr
+   natural_scroll enabled
+   middle_emulation enabled
+   scroll_factor 0.4
+}
+
+bar {
+    swaybar_command waybar
+    position top
+    hidden_state hide
+    mode hide
+    modifier $mod
+}
+
+# gammastep toggling
+bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
+
+exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini #thanks to blaufilter glasses
+exec --no-startup-id ydotool -d
+
+#input "1267:12596:ASUE140A:00_04F3:3134_Mouse" {
+   #accel_profile adaptive
+   #pointer_accel -0.1
+   #dwt enabled
+   #tap enabled
+   #tap_button_map lmr
+   #natural_scroll disabled
+   #middle_emulation enabled
+   #scroll_factor 0.2
+#}
+
+#currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
+#exec_always pkill kanshi; exec kanshi

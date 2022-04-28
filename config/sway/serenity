@@ -1,6 +1,13 @@
 # set wallpaper
 output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 
+### Idle configuration
+exec swayidle \
+    timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
+    timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+    before-sleep '~/.dotfiles/scripts/sway-lock.sh'
+
 # configure input devices
 input "2:7:SynPS/2_Synaptics_TouchPad" {
    accel_profile adaptive
@@ -12,6 +19,15 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
    middle_emulation enabled
    scroll_factor 0.2
 }
+
+bar {
+    swaybar_command waybar
+    position top
+    #hidden_state hide
+    #mode hide
+    #modifier $mod
+}
+
 
 #currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
 exec_always pkill kanshi; exec kanshi
