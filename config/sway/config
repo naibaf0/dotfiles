@@ -123,16 +123,26 @@ seat * xcursor_theme capitaine-cursors 24
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
+    bindsym --no-repeat $mod+1 workspace $ws1; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+2 workspace $ws2; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+3 workspace $ws3; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+4 workspace $ws4; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+5 workspace $ws5; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+6 workspace $ws6; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+7 workspace $ws7; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+8 workspace $ws8; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+9 workspace $ws9; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+0 workspace $ws10; exec "echo 1 > /tmp/sovpipe"
+    bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
     # cycle through workspaces
     bindsym $mod+Tab workspace back_and_forth
     # move focused container to workspace
@@ -330,7 +340,9 @@ bindsym $mod+Shift+s exec wofi-websearch
 
 # calculator & conversions
 #bindsym $mod+o exec ~/scripts/launcher.sh "qalc" $launcher_window_title
-bindsym $mod+o exec qalculate-gtk
+#bindsym $mod+o exec qalculate-gtk
+bindsym --no-repeat $mod+o exec "echo 1 > /tmp/sovpipe"
+bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
 ### Startup
 
@@ -338,6 +350,7 @@ exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
 #exec --no-startup-id gammastep #thanks to blaufilter glasses
 exec --no-startup-id thunar --daemon
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 
 #exec_always pkill waybar; exec waybar
 exec_always ~/.config/waybar/waybar.sh
