@@ -35,6 +35,7 @@ bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
 
 exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini #thanks to blaufilter glasses
 exec --no-startup-id ydotool -d
+exec --no-startup-id libinput-gestures
 
 #input "1267:12596:ASUE140A:00_04F3:3134_Mouse" {
    #accel_profile adaptive
