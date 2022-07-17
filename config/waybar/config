@@ -1,4 +1,6 @@
 {
+    "bar_id": "bar-0",
+    "ipc": true,
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24, // Waybar height (to be removed for auto height)
@@ -8,6 +10,7 @@
     "modules-center": ["sway/window"],
     "modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
     //"modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"],
+    //"modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#banshee", "battery", "custom/weather", "clock"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -91,6 +94,13 @@
     },
     "temperature#serenity": {
         "thermal-zone": 2,
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "temperature#banshee": {
+        /*"thermal-zone": 2,*/
         "critical-threshold": 80,
         // "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
