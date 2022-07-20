@@ -306,10 +306,6 @@ bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPause exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
-#bindsym --locked XF86AudioPlay exec mpc toggle
-#bindsym --locked XF86AudioPause exec mpc toggle
-#bindsym --locked XF86AudioNext exec mpc next
-#bindsym --locked XF86AudioPrev exec mpc previous
 
 # brightness
 bindsym XF86MonBrightnessUp exec zsh ~/.dotfiles/scripts/brightness.sh up
@@ -337,6 +333,8 @@ bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
 exec --no-startup-id thunar --daemon
+exec --no-startup-id playerctld daemon
+exec --no-startup-id mpdris2
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 
 set $gnome-schema org.gnome.desktop.interface
