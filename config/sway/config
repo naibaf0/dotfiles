@@ -230,7 +230,7 @@ mode "$mode_power" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym Mod1+Control+l mode "$mode_power"
+bindsym Mod1+Control+q mode "$mode_power"
 
 ### Looks
 
