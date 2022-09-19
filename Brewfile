@@ -49,7 +49,7 @@ cask 'google-cloud-sdk'
 
 tap 'homebrew/cask-fonts'
 
-cask 'font-fantasque-sans-mono'
+cask 'font-fantasque-sans-mono-nerd-font'
 cask 'font-overpass'
 
 brew 'openfortivpn'
