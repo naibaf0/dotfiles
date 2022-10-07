@@ -33,6 +33,7 @@
         "interval": 600,
         "signal": 8,
         "on-click": "$TERMINAL --class='update_installer' -e 'paru'; pkill -SIGRTMIN+8 waybar",
+        "tooltip": false,
         "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null"
     },
     "custom/weather": {
@@ -67,6 +68,7 @@
         }
     },
     "idle_inhibitor": {
+        "tooltip": false,
         "format": "{icon}",
         "format-icons": {
             "activated": "",
@@ -84,8 +86,10 @@
     },
     "memory": {
         "format": " {}%"
+        "tooltip": false,
     },
     "temperature#sunnydale": {
+        "tooltip": false,
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp3_input",
         "critical-threshold": 80,
         // "format-critical": "{icon} {temperatureC}°C",
@@ -94,6 +98,7 @@
     },
     "temperature#serenity": {
         "thermal-zone": 2,
+        "tooltip": false,
         "critical-threshold": 80,
         // "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
@@ -101,6 +106,7 @@
     },
     "temperature#banshee": {
         /*"thermal-zone": 2,*/
+        "tooltip": false,
         "critical-threshold": 80,
         // "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
@@ -125,6 +131,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "tooltip": false,
         "format-wifi": "直 {essid} ({signalStrength}%)",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-linked": " {ifname} (No IP)",
