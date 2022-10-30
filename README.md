@@ -69,8 +69,9 @@ Terminal & Shell
 * inxi
 * kitty
 * zsh
-* the_silver_searcher
 * fzf
+* ripgrep
+* fd
 
 Development
 -----------
