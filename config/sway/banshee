@@ -21,6 +21,16 @@ input "1267:12596:ASUE140A:00_04F3:3134_Touchpad" {
    middle_emulation enabled
    scroll_factor 0.4
 }
+#input "1267:12596:ASUE140A:00_04F3:3134_Mouse" {
+   #accel_profile adaptive
+   #pointer_accel -0.1
+   #dwt enabled
+   #tap enabled
+   #tap_button_map lmr
+   #natural_scroll disabled
+   #middle_emulation enabled
+   #scroll_factor 0.2
+#}
 
 bar {
     swaybar_command waybar
@@ -37,16 +47,5 @@ exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini #thanks to 
 exec --no-startup-id ydotool -d
 exec --no-startup-id libinput-gestures
 
-#input "1267:12596:ASUE140A:00_04F3:3134_Mouse" {
-   #accel_profile adaptive
-   #pointer_accel -0.1
-   #dwt enabled
-   #tap enabled
-   #tap_button_map lmr
-   #natural_scroll disabled
-   #middle_emulation enabled
-   #scroll_factor 0.2
-#}
+exec_always pkill kanshi; exec kanshi
 
-#currently broken, wait for https://github.com/swaywm/wlroots/pull/1765
-#exec_always pkill kanshi; exec kanshi
