@@ -8,9 +8,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
-    //"modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"],
-    //"modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#banshee", "battery", "custom/weather", "clock"],
+    "include": ["$HOME/.config/waybar/host"],
     // Modules configuration
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"

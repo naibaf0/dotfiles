@@ -1,0 +1,3 @@
+{
+    "modules-right": ["custom/scratchpad", "custom/updates", "idle_inhibitor", "pulseaudio", "network", "temperature#serenity", "battery", "custom/weather", "clock"]
+}
