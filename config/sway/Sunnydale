@@ -19,4 +19,3 @@ bar {
     #modifier $mod
 }
 
-bindsym --locked $mod+c exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic mute

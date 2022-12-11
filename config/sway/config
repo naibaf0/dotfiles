@@ -299,6 +299,7 @@ bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/scripts/sway-lock.sh
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol up
 bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol down
 bindsym --locked XF86AudioMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol mute
+bindsym --locked $mod+c exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic mute
 
 # audio player control
 bindsym --locked XF86AudioPlay exec playerctl play-pause
