@@ -296,10 +296,10 @@ bindsym --release ctrl+Print exec --no-startup-id grim -g "$(swaymsg -t get_tree
 bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/scripts/sway-lock.sh
 
 # volume
-bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh up
-bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh down
-bindsym --locked XF86AudioMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh mute
-bindsym --locked XF86AudioMicMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic-mute
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol up
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol down
+bindsym --locked XF86AudioMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol mute
+bindsym --locked XF86AudioMicMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic mute
 
 # audio player control
 bindsym --locked XF86AudioPlay exec playerctl play-pause
