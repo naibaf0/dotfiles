@@ -23,3 +23,7 @@ text-color=#ff5555
 border-color=#ff5555
 default-timeout=0
 ignore-timeout=1
+
+[category=volume]
+format= <b>%s</b>\n%b
+group-by=category
