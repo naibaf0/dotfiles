@@ -19,6 +19,7 @@ set $term kitty
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $menu wofi -i --show drun | xargs swaymsg exec
+set $dmenu wofi -i --dmenu
 
 # Give the workspaces names, or rather symbols
 set $ws1 1
@@ -288,6 +289,11 @@ assign [app_id="firefox"] $ws10
 assign [app_id="Firefox Beta"] $ws10
 assign [app_id="qutebrowser"] $ws10
 
+# clipboard manager
+set $clipboard cliphist list | $dmenu --no-exec -p "copy" | cliphist decode | wl-copy
+set $clipboard-del cliphist list | $dmenu --no-exec -p "delete" | cliphist delete && pkill -RTMIN+9 waybar
+set $clipboard-del-all "rm -f ~/.cache/cliphist/db; pkill -RTMIN+9 waybar
+
 # screenshots
 bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
 bindsym --release shift+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
@@ -335,6 +341,7 @@ exec --no-startup-id mako
 exec --no-startup-id thunar --daemon
 exec --no-startup-id playerctld daemon
 exec --no-startup-id mpdris2
+exec --no-startup-id wl-paste --watch cliphist store
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 
 set $gnome-schema org.gnome.desktop.interface

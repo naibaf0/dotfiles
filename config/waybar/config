@@ -15,6 +15,7 @@
     },
     "sway/window": {
         "max-length": 80,
+        "tooltip": false,
         "icon": false
     },
     "custom/scratchpad": {
@@ -33,6 +34,18 @@
         "on-click": "$TERMINAL --class='update_installer' -e 'paru'; pkill -SIGRTMIN+8 waybar",
         "tooltip": false,
         "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": " ",
+        "hide-not-running": true,
+        "use-icon": false,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 4,
+        "icon-size": 20,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
     },
     "custom/weather": {
         "format": "{}",
@@ -124,8 +137,18 @@
         // "format-full": "",
         "format-icons": {
           "default": ["","","","","","","","","","",""],
-          "charging": ["","","",""]
+          "charging": [" "," "," "," "]
         }
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -154,6 +177,16 @@
             "default": ["奔", "墳"]
         },
         "on-click": "pavucontrol"
+    },
+     "custom/clipboard": {
+        "format": " ",
+        "interval": "once",
+        "return-type": "json",
+        "on-click": "swaymsg -q exec '$clipboard'; pkill -RTMIN+9 waybar",
+        "on-click-right": "swaymsg -q exec '$clipboard-del'; pkill -RTMIN+9 waybar",
+        "on-click-middle": "swaymsg -q exec '$clipboard-del-all'",
+        "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)",
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]", "signal": 9
     },
     "custom/media": {
         "format": "{icon} {}",

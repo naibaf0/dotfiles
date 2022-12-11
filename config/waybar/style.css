@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Symbols Nerd Font, Overpass Mono, Fantasque Sans Mono;
-    font-size: 13px;
+    font-family: Symbols Nerd Font, Overpass Mono;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -67,16 +67,19 @@ window#waybar.kitty {
 #temperature,
 #backlight,
 #network,
+#bluetooth,
 #pulseaudio,
 #custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
+#gamemode,
 #mpd,
 #custom-updates,
+#custom-clipboard,
 #custom-scratchpad {
-    padding: 0 5px;
-    margin: 0 4px;
+    padding: 0 2px;
+    margin: 3 2px;
     color: #f8f8f2;
 }
 
@@ -132,6 +135,9 @@ label:focus {
 #cpu {
     /*background-color: #2ecc71;*/
     /*color: #000000;*/
+    padding: 0 9px;
+    margin: 0 0px;
+    border-left: 1px solid #44475A;
 }
 
 #memory {
