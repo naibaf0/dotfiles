@@ -12,15 +12,19 @@ if [ "$1" = "vol" ]; then
     fi
 
     VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}')
-    print $VOL
+    VOL_STRING="${VOL}%"
     if [ "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')" = "[MUTED]" ]; then
-        notify-send --hint=string:synchronous:volume -i audio-volume-muted "Muted" ""
+        if [ "$2" = "mute"  ]; then
+            notify-send --category=volume --hint=string:synchronous:volume -i audio-volume-muted "MUTED" ""
+        else
+            notify-send --category=volume --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-muted "MUTED" ""
+        fi
     elif [[ $VOL < 34 ]]; then
-        notify-send --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-low "${VOL}%" ""
+        notify-send --category=volume --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-low "${VOL_STRING}" ""
     elif [[ $VOL < 67 ]]; then
-        notify-send --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-medium "${VOL}%" ""
+        notify-send --category=volume --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-medium "${VOL_STRING}" ""
     else
-        notify-send --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-high "${VOL}%" ""
+        notify-send --category=volume --hint=int:transient:1 --hint=int:value:$VOL --hint=string:synchronous:volume -i audio-volume-high "${VOL_STRING}" ""
     fi
 
 elif [ "$1" = "mic" ]; then
