@@ -24,6 +24,13 @@ if [ "$1" = "vol" ]; then
     fi
 
 elif [ "$1" = "mic" ]; then
-        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+    MIC_VOL=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2*100}')
+    if [ "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3}')" = "[MUTED]" ]; then
+        notify-send --category=volume --hint=string:synchronous:volume -i mic-off "MIC OFF" ""
+    else
+        notify-send --category=volume --hint=int:transient:1 --hint=int:value:$MIC_VOL --hint=string:synchronous:volume -i mic-on "MIC ON" ""
+    fi
 fi
 
