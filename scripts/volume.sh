@@ -3,12 +3,14 @@
 # Configure Volume with notification
 
 if [ "$1" = "vol" ]; then
-    if [ "$2" = "up" ]; then
-        wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-    elif [ "$2" = "down" ]; then
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    elif [ "$2" = "mute"  ]; then
+    if [ "$2" = "mute"  ]; then
         wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    elif [ "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')" != "[MUTED]" ]; then
+        if [ "$2" = "up" ]; then
+            wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+        elif [ "$2" = "down" ]; then
+          wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        fi
     fi
 
     VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}')
