@@ -131,19 +131,22 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": "{icon} {capacity}%",
-        "format-plugged": "  {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": {
           "default": ["","","","","","","","","","",""],
-          "charging": [" "," "," "," "]
+          "charging": ["","","",""]
         }
     },
     "bluetooth": {
         "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "format-on": " ",
+        "format-off": " ",
+        "format-disabled": " ",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
         // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -153,7 +156,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "tooltip": false,
-        "format-wifi": "直 {essid} ({signalStrength}%)",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": " Disconnected ",
@@ -161,20 +164,20 @@
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-muted": "婢 {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "婢{icon} {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " ",
+        "format": "{icon}{volume}% {format_source}",
+        "format-muted": " {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-source": "{volume}%",
+        "format-source-muted": " ",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["奔", "墳"]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
         },
         "on-click": "pavucontrol"
     },
