@@ -131,7 +131,7 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": "{icon} {capacity}%",
-        "format-plugged": "ﳥ {capacity}%",
+        "format-plugged": "  {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
