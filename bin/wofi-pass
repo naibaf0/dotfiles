@@ -15,7 +15,7 @@ select_command() {
   typeset -A options
   typeset -a options_order
   if [[ ! "${first_line}" =~ ": " ]]; then
-    options[Copy\ password]="wl-copy ${(q)first_line}"
+    options[Copy\ password]="wl-copy ${(q)first_line} ; cliphist list | awk 'FNR == 1' | cliphist delete"
     options_order+="Copy password"
     the_password="$first_line"
   fi
