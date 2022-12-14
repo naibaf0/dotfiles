@@ -27,3 +27,7 @@ ignore-timeout=1
 [category=volume]
 format= <b>%s</b>\n%b
 group-by=category
+
+[category=brightness]
+format= <b>%s</b>\n%b
+group-by=category
