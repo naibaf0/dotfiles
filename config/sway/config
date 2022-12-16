@@ -294,6 +294,8 @@ set $clipboard cliphist list | $dmenu --no-exec -p "copy" | cliphist decode | wl
 set $clipboard-del cliphist list | $dmenu --no-exec -p "delete" | cliphist delete && pkill -RTMIN+9 waybar
 set $clipboard-del-all "rm -f ~/.cache/cliphist/db; pkill -RTMIN+9 waybar
 
+bindsym --release $mod+v exec $clipboard 
+
 # screenshots
 bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
 bindsym --release shift+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
@@ -331,6 +333,7 @@ bindsym $mod+i exec wofi-nmcli
 bindsym $mod+Shift+s exec wofi-websearch
 
 
+# window/workspace overview sov
 bindsym --no-repeat $mod+o exec "echo 1 > /tmp/sovpipe"
 bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
