@@ -1,16 +1,17 @@
-font=Overpass Mono 11
+background-color=#282a36
 width=320
+height=110
 padding=8
-margin=4
+margin=6,12,6
 border-size=2
-default-timeout=5000
+border-color=#bd93f9
+border-radius=12
 icon-path=/usr/share/icons/breeze-dark
+default-timeout=5000
+font=Overpass Mono 11
 
 # Only for desktop, ignored when no such output exists
 #output=DP-1
-
-background-color=#282a36
-border-color=#bd93f9
 
 [urgency=low]
 text-color=#bfbfbf
@@ -19,15 +20,18 @@ text-color=#bfbfbf
 text-color=#f8f8f2
 
 [urgency=high]
+layer=overlay
 text-color=#ff5555
 border-color=#ff5555
 default-timeout=0
 ignore-timeout=1
 
 [category=volume]
+layer=overlay
 format= <b>%s</b>\n%b
 group-by=category
 
 [category=brightness]
+layer=overlay
 format= <b>%s</b>\n%b
 group-by=category
