@@ -41,7 +41,6 @@ set $ws10 10
 input "*" {
     xkb_layout de
     xkb_options caps:escape
-    xkb_numlock enable
 }
 
 seat * xcursor_theme capitaine-cursors 24
