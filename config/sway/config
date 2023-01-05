@@ -292,11 +292,11 @@ for_window [app_id="zoom" title="Zoom Meeting(.*)?"] workspace next_on_output --
 # Firefox Picture-in-Picture mode
 for_window [title="^Picture-in-Picture$"] {
   floating enable
-  resize set height 280
-  resize set width  500
+  resize set height 30ppt
+  resize set width  30ppt
   border none
   sticky toggle
-  move position 2040 1120
+  move position 69ppt 69ppt
   opacity 0.7
 }
 
