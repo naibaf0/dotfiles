@@ -21,16 +21,6 @@ input "1267:12596:ASUE140A:00_04F3:3134_Touchpad" {
    middle_emulation enabled
    scroll_factor 0.4
 }
-#input "1267:12596:ASUE140A:00_04F3:3134_Mouse" {
-   #accel_profile adaptive
-   #pointer_accel -0.1
-   #dwt enabled
-   #tap enabled
-   #tap_button_map lmr
-   #natural_scroll disabled
-   #middle_emulation enabled
-   #scroll_factor 0.2
-#}
 
 bar {
     swaybar_command waybar
@@ -44,11 +34,18 @@ bar {
 bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
 
 # Gesture Binding
+#
+# Switch workspaces
+bindgesture swipe:4:right workspace prev
+bindgesture swipe:4:left workspace next
 
+# Browser go back
+bindgesture swipe:3:right exec ydotool key 56:1 105:1 105:0 56:0
+# Browser go forward 
+bindgesture swipe:3:left exec ydotool key 56:1 106:1 106:0 56:0
 
 exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini #thanks to blaufilter glasses
 exec --no-startup-id ydotool -d
-exec --no-startup-id libinput-gestures
 
 exec_always pkill kanshi; exec kanshi
 
