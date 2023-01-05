@@ -280,8 +280,29 @@ for_window [app_id="zenity"] floating enable
 
 for_window [instance="update_installer"] floating enable
 
+# Zoom Meeting App
+
+# For pop up notification windows that don't use notifications api
+for_window [app_id="zoom" title="^zoom$"] border none, floating enable
+# For specific Zoom windows
+for_window [app_id="zoom" title="^(Zoom|About)$"] border pixel, floating enable
+for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
+# Open Zoom Meeting windows on a new workspace (a bit hacky)
+for_window [app_id="zoom" title="Zoom Meeting(.*)?"] workspace next_on_output --create, move container to workspace current, floating disable, inhibit_idle open
+
+# Firefox Picture-in-Picture mode
+for_window [title="^Picture-in-Picture$"] {
+  floating enable
+  resize set height 280
+  resize set width  500
+  border none
+  sticky toggle
+  move position 2040 1120
+  opacity 0.7
+}
+
 # workspace assignments
-assign [class="Spotify"] $ws4
+assign [title="Spotify"] $ws4
 
 assign [app_id="thunderbird"] $ws3
 assign [app_id="cantata"] $ws4
