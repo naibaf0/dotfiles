@@ -4,8 +4,8 @@ output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 ### Idle configuration
 exec swayidle \
     timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
-    timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
+    timeout 600 'swaymsg "output * power off"' \
+       resume 'swaymsg "output * power on"' \
     before-sleep '~/.dotfiles/scripts/sway-lock.sh'
 
 output "Goldstar Company Ltd LG ULTRAGEAR 102MANJHM175" mode 2560x1440@143.973Hz adaptive_sync off

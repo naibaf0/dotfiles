@@ -6,8 +6,8 @@ exec "cd $HOME/Pictures && $HOME/.dotfiles/scripts/wallpaper.sh"
 ### Idle configuration
 exec swayidle \
     timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
-    timeout 330 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
+    timeout 330 'swaymsg "output * power off"' \
+       resume 'swaymsg "output * power on"' \
     before-sleep '~/.dotfiles/scripts/sway-lock.sh'
 
 # configure input devices
@@ -42,6 +42,9 @@ bar {
 
 # gammastep toggling
 bindsym $mod+Shift+r exec $HOME/.dotfiles/scripts/gammastep_toggle.sh
+
+# Gesture Binding
+
 
 exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini #thanks to blaufilter glasses
 exec --no-startup-id ydotool -d
