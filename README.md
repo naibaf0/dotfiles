@@ -33,6 +33,7 @@ Wayland Desktop (sway)
 * xorg-server-xwayland
 * wl-clipboard
 * wofi
+* vulkan-validation-layers
 
 
 Universal
