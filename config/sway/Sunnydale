@@ -3,7 +3,7 @@ output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
 
 ### Idle configuration
 exec swayidle \
-    timeout 300 '~/.dotfiles/scripts/sway-lock.sh' \
+    timeout 300 '~/.dotfiles/scripts/sway-lock.sh soon' \
     timeout 600 'swaymsg "output * power off"' \
        resume 'swaymsg "output * power on"' \
     before-sleep '~/.dotfiles/scripts/sway-lock.sh'

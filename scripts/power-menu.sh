@@ -5,7 +5,7 @@ MENU="  Logout
   Reboot
   Shutdown"
 
-CHOICE=$(echo "$MENU" | wofi -i --dmenu -L 5 )
+CHOICE=$(echo "$MENU" | wofi -i --dmenu -L 5 -W 15%)
 
 case $CHOICE in
   "  Logout")
