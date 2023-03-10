@@ -1,5 +1,6 @@
-width=600
-height=300
+width=33%
+/* height=300 */
+lines=6
 mode=drun
 filter_rate=100
 matching=contains
