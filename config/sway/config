@@ -295,6 +295,16 @@ for_window [title="^Picture-in-Picture$"] {
   move position 69ppt 69ppt
   opacity 0.7
 }
+# Chromium Picture-in-Picture mode
+for_window [title="^Picture in picture$"] {
+  floating enable
+  resize set height 30ppt
+  resize set width  30ppt
+  border none
+  sticky toggle
+  move position 69ppt 69ppt
+  opacity 0.7
+}
 
 # workspace assignments
 assign [title="Spotify"] $ws4
