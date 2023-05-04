@@ -3,7 +3,7 @@
     "ipc": true,
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
+    "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
@@ -82,8 +82,8 @@
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󰈈 ",
+            "deactivated": "󰈉 "
         }
     },
     "clock": {
@@ -131,22 +131,24 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": "{icon} {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format-plugged": "󱟢 {capacity}%",
+        "format-alt": "{icon} {capacity}% ({time})",
+        "format-critical": "{icon} {capacity}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": {
-          "default": ["","","","","","","","","","",""],
-          "charging": ["","","",""]
+          "default": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+          "critical": ["󱃍 "],
+          "charging": ["󰢟 ","󰢜 ","󰂆 ","󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
         }
     },
     "bluetooth": {
-        "format": " {status}",
-        "format-on": " ",
-        "format-off": " ",
-        "format-disabled": " ",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "format": "󰂯 {status}",
+        "format-on": "󰂯 ",
+        "format-off": "󰂲 ",
+        "format-disabled": "󰂲 ",
+        "format-connected": "󰂱 {device_alias}",
+        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
         // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -157,27 +159,27 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "tooltip": false,
         "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": " Disconnected ",
+        "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰲛 Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon}{volume}% {format_source}",
-        "format-muted": " {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "{icon} {format_source}",
-        "format-source": "{volume}%",
-        "format-source-muted": " ",
+        "format-muted": "󰖁 {format_source}",
+        "format-bluetooth": "{icon}󰂯 {volume}% {format_source}",
+        "format-bluetooth-muted": "󰖁{icon}󰂯 {format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
         "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
+            "headphone": "󰋋 ",
+            "hands-free": "󰋎 ",
+            "headset": "󰋎 ",
             "phone": " ",
             "portable": " ",
             "car": " ",
-            "default": [" ", " "]
+            "default": ["󰕿 ", "󰖀 ", "󰕾 "]
         },
         "on-click": "pavucontrol"
     },
