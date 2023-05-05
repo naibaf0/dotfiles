@@ -38,7 +38,7 @@
     "gamemode": {
         "format": "{glyph}",
         "format-alt": "{glyph} {count}",
-        "glyph": " ",
+        "glyph": " ",
         "hide-not-running": true,
         "use-icon": false,
         "icon-name": "input-gaming-symbolic",
@@ -184,7 +184,7 @@
         "on-click": "pavucontrol"
     },
      "custom/clipboard": {
-        "format": " ",
+        "format": "󰆏",
         "interval": "once",
         "return-type": "json",
         "on-click": "swaymsg -q exec '$clipboard'; pkill -RTMIN+9 waybar",
