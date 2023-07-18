@@ -256,11 +256,11 @@ set $mantle    #1e2030
 set $crust     #181926
 
 # class                  border     bground     text        indicator   child_border
-client.focused           $lavender  $crust      $text       $rosewater  $lavender
+client.focused           $lavender  $surface0      $text       $rosewater  $lavender
 client.focused_inactive  $mauve     $mantle     $text       $rosewater  $mauve
 client.focused_tab_title $mauve     $mantle     $text
-client.unfocused         $mantle    $base       $subtext1   $rosewater  $mauve
-client.urgent            $peach     $mantle     $peach      $overlay0   $peach
+client.unfocused         $crust    $mantle       $subtext1   $rosewater  $crust
+client.urgent            $peach     $surface0     $peach      $overlay0   $peach
 
 # font
 font pango:Fantasque Sans Mono 12
