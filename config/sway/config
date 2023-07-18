@@ -39,7 +39,7 @@ input "*" {
     xkb_options caps:escape
 }
 
-seat * xcursor_theme capitaine-cursors 24
+seat * xcursor_theme Catppuccin-Macchiato-Dark-Cursors 24
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -256,7 +256,7 @@ set $mantle    #1e2030
 set $crust     #181926
 
 # class                  border     bground     text        indicator   child_border
-client.focused           $pink      $crust      $text       $rosewater  $pink
+client.focused           $lavender  $crust      $text       $rosewater  $lavender
 client.focused_inactive  $mauve     $mantle     $text       $rosewater  $mauve
 client.focused_tab_title $mauve     $mantle     $text
 client.unfocused         $mantle    $base       $subtext1   $rosewater  $mauve
@@ -400,9 +400,9 @@ exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'Dracula'
+  gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-dark'
   gsettings set $gnome-schema icon-theme 'breeze-dark'
-  gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
+  gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Dark-Cursors'
 }
 
 include ~/.config/sway/host
