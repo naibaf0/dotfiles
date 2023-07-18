@@ -229,13 +229,38 @@ mode "$mode_power" {
 bindsym Mod1+Control+q mode "$mode_power"
 
 ### Looks
+set $rosewater #f4dbd6
+set $flamingo  #f0c6c6
+set $pink      #f5bde6
+set $mauve     #c6a0f6
+set $red       #ed8796
+set $maroon    #ee99a0
+set $peach     #f5a97f
+set $green     #a6da95
+set $teal      #8bd5ca
+set $sky       #91d7e3
+set $sapphire  #7dc4e4
+set $blue      #8aadf4
+set $lavender  #b7bdf8
+set $text      #cad3f5
+set $subtext1  #b8c0e0
+set $subtext0  #a5adcb
+set $overlay2  #939ab7
+set $overlay1  #8087a2
+set $overlay0  #6e738d
+set $surface2  #5b6078
+set $surface1  #494d64
+set $surface0  #363a4f
+set $base      #24273a
+set $mantle    #1e2030
+set $crust     #181926
 
-# class                  border  bground text    indicator child_border
-client.focused           #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive  #44475A #44475A #F8F8F2 #44475A   #44475A
-client.focused_tab_title #44475A #44475A #F8F8F2
-client.unfocused         #44475A #282A36 #BFBFBF #282A36   #282A36
-client.urgent            #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# class                  border     bground     text        indicator   child_border
+client.focused           $pink      $crust      $text       $rosewater  $pink
+client.focused_inactive  $mauve     $mantle     $text       $rosewater  $mauve
+client.focused_tab_title $mauve     $mantle     $text
+client.unfocused         $mantle    $base       $subtext1   $rosewater  $mauve
+client.urgent            $peach     $mantle     $peach      $overlay0   $peach
 
 # font
 font pango:Fantasque Sans Mono 12
@@ -263,7 +288,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="popup_menu"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [class="VirtualBox"] floating enable
+# for_window [class="VirtualBox"] floating enable
 
 for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="qalculate-gtk"] floating enable
@@ -365,7 +390,6 @@ bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
 ### Startup
 
-exec --no-startup-id dropbox-cli start
 exec --no-startup-id mako
 exec --no-startup-id thunar --daemon
 exec --no-startup-id playerctld daemon

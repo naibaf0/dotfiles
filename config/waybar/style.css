@@ -1,15 +1,54 @@
 * {
-    border: none;
-    border-radius: 0;
     font-family: Symbols Nerd Font, Overpass Mono;
     font-size: 14px;
     min-height: 0;
 }
 
+/*
+*
+* Catppuccin Macchiato palette
+* Maintainer: rubyowo
+*
+*/
+
+@define-color base   #24273a;
+@define-color mantle #1e2030;
+@define-color crust  #181926;
+
+@define-color text     #cad3f5;
+@define-color subtext0 #a5adcb;
+@define-color subtext1 #b8c0e0;
+
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color surface2 #5b6078;
+
+@define-color overlay0 #6e738d;
+@define-color overlay1 #8087a2;
+@define-color overlay2 #939ab7;
+
+@define-color blue      #8aadf4;
+@define-color lavender  #b7bdf8;
+@define-color sapphire  #7dc4e4;
+@define-color sky       #91d7e3;
+@define-color teal      #8bd5ca;
+@define-color green     #a6da95;
+@define-color yellow    #eed49f;
+@define-color peach     #f5a97f;
+@define-color maroon    #ee99a0;
+@define-color red       #ed8796;
+@define-color mauve     #c6a0f6;
+@define-color pink      #f5bde6;
+@define-color flamingo  #f0c6c6;
+@define-color rosewater #f4dbd6;
+
 window#waybar {
-    background-color: rgba(40, 42, 54, 0.6);
-    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-    color: #F8F8F2;
+    background-color: alpha(@mantle, 0.9);
+    /* border: 1px solid #b45bcf; */
+    /* border-radius: 12px; */
+    /* border: 2px solid rgba(100, 114, 125, 0.5); */
+    border: 2px solid alpha(@crust, 0.3);
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -28,35 +67,34 @@ window#waybar.solo {
 */
 
 window#waybar.kitty {
-    background-color: #3F3F3F;
+    background-color: @mantle;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #F8F8F2;
-    border-bottom: 3px solid transparent;
+    /* border-bottom: 3px solid transparent; */
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
     box-shadow: inherit;
-    border-bottom: 1px solid #f8f8f2;
+    /* border-bottom: 1px solid #f8f8f2; */
 }
 
 #workspaces button.focused {
-    background-color: #44475A;
-    border-bottom: 1px solid #44475A;
+    background-color: @surface0;
+    /* border-bottom: 1px solid #44475A; */
 }
 
 #workspaces button.urgent {
-    background-color: #FF5555;
+    background-color: @peach;
 }
 
 #mode {
-    background-color: #FF5555;
-    border-bottom: 1px solid #FF5555;
+    background-color: @peach;
+    /* border-bottom: 1px solid #FF5555; */
 }
 
 #clock,
@@ -80,20 +118,19 @@ window#waybar.kitty {
 #custom-scratchpad {
     padding: 0 2px;
     margin: 3 2px;
-    color: #f8f8f2;
 }
 
 #clock {
     /*background-color: #64727D;*/
     padding: 0 9px;
     margin: 0 0px;
-    border-left: 1px solid #44475A;
+    border-left: 1px solid @surface0;
 }
 
 #custom-weather {
     padding: 0 9px;
     margin: 0 0px;
-    border-left: 1px solid #44475A;
+    border-left: 1px solid @surface0;
 }
 
 #battery {
@@ -103,24 +140,24 @@ window#waybar.kitty {
 
 #battery.charging {
     /*background-color: #26A65B;*/
-    color: #50fa7b;
+    color: @green;
 }
 
 #battery.warning:not(.charging) {
     /*background-color: #;*/
-    color: #b45bcf;
+    color: @peach;
 }
 
 @keyframes blink {
     to {
-        background-color: #ff5555;
-        color: #282a36;
+        background-color: @red;
+        color: @crust;
     }
 }
 
 #battery.critical:not(.charging) {
     /*background-color: #;*/
-    color: #ff5555;
+    color: @red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -137,7 +174,7 @@ label:focus {
     /*color: #000000;*/
     padding: 0 9px;
     margin: 0 0px;
-    border-left: 1px solid #44475A;
+    border-left: 1px solid @surface0;
 }
 
 #memory {
@@ -181,8 +218,7 @@ label:focus {
 }
 
 #idle_inhibitor.activated {
-    background-color: #b45bcf;
-    color: #f8f8f2;
+    background-color: @surface1;
 }
 
 #mpd {
@@ -204,7 +240,7 @@ label:focus {
     /*background-color: #283a26;*/
 }
 #custom-updates {
-    color: #ff5555;
+    color: @peach;
 }
 #custom-osname {
     font-weight: bold;
