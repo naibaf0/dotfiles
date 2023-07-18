@@ -154,6 +154,7 @@ label:focus {
 }
 
 #pulseaudio {
+    min-width: 100px;
     /*background-color: #f1c40f;*/
     /*color: #000000;*/
 }
