@@ -4,6 +4,9 @@ case "$1" in
     suspend)
         systemctl suspend
         ;;
+    hibernate)
+        systemctl hibernate
+        ;;
     reboot)
         systemctl reboot
         ;;
@@ -11,7 +14,7 @@ case "$1" in
         systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 [suspend|reboot|shutdown]"
+        echo "Usage: $0 [suspend|hibernate|reboot|shutdown]"
         exit 2
 esac
 

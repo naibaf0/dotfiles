@@ -215,10 +215,11 @@ bindsym $mod+r mode "resize"
 #
 # Power options:
 #
-set $mode_power Power: (l) lock, (s) suspend, (r) reboot, (p) shutdown
+set $mode_power Power: (l) lock, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_power" {
     bindsym l mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-lock.sh
     bindsym s mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh suspend
+    bindsym h mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh hibernate
     bindsym r mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh reboot
     bindsym p mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh shutdown
 
