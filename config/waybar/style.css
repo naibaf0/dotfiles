@@ -11,7 +11,7 @@ window#waybar {
     /* border: 1px solid #b45bcf; */
     /* border-radius: 12px; */
     /* border: 2px solid rgba(100, 114, 125, 0.5); */
-    border: 2px solid alpha(@crust, 0.3);
+    border: 3px solid shade(@lavender, 0.4);
     color: @text;
     transition-property: background-color;
     transition-duration: .5s;
@@ -80,26 +80,32 @@ window#waybar.kitty {
 #custom-updates,
 #custom-clipboard,
 #custom-scratchpad {
-    padding: 0 2px;
-    margin: 3 2px;
+    padding: 10 5 7 5px;
+    margin: 0 0px;
+}
+
+#custom-weather,
+#battery,
+#cpu,
+#bluetooth,
+#pulseaudio {
+    padding: 10 5 7 10px;
+    margin: 0 0 0 5px;
+    border-left: 1px solid @surface0;
 }
 
 #clock {
-    /*background-color: #64727D;*/
-    padding: 0 9px;
-    margin: 0 0px;
+    /* background-color: #64727D; */
+    /* min-width: 250px; */
+    padding: 10 10 7 10px;
+    margin: 0 0 0 5px;
     border-left: 1px solid @surface0;
 }
 
 #custom-weather {
-    padding: 0 9px;
-    margin: 0 0px;
-    border-left: 1px solid @surface0;
 }
 
 #battery {
-    /*background-color: #ffffff;*/
-    /*color: #000000;*/
 }
 
 #battery.charging {
@@ -136,13 +142,15 @@ label:focus {
 #cpu {
     /*background-color: #2ecc71;*/
     /*color: #000000;*/
-    padding: 0 9px;
-    margin: 0 0px;
     border-left: 1px solid @surface0;
 }
 
 #memory {
     /*background-color: #9b59b6;*/
+}
+
+#temperature {
+
 }
 
 #network {
@@ -154,9 +162,9 @@ label:focus {
 }
 
 #pulseaudio {
-    min-width: 100px;
-    /*background-color: #f1c40f;*/
-    /*color: #000000;*/
+    /* min-width: 110px; */
+    /* background-color: #f1c40f; */
+    /* color: #000000; */
 }
 
 #pulseaudio.muted {
@@ -179,11 +187,12 @@ label:focus {
 }
 
 #idle_inhibitor {
-    /*background-color: #2d3436;*/
+    margin: 7 0 7 0px;
+    padding: 3 5 0 5px;
 }
 
 #idle_inhibitor.activated {
-    background-color: @surface1;
+    background-color: shade(@mantle, 1.5);
 }
 
 #mpd {
@@ -206,9 +215,4 @@ label:focus {
 }
 #custom-updates {
     color: @peach;
-}
-#custom-osname {
-    font-weight: bold;
-    font-size: 20px;
-    padding: 1px 10px;
 }
