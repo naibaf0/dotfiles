@@ -39,7 +39,7 @@ input "*" {
     xkb_options caps:escape
 }
 
-seat * xcursor_theme Catppuccin-Macchiato-Dark-Cursors 24
+seat * xcursor_theme Catppuccin-Macchiato-Lavender-Cursors 24
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -402,7 +402,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
   gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-dark'
   gsettings set $gnome-schema icon-theme 'breeze-dark'
-  gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Dark-Cursors'
+  gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Lavender-Cursors'
 }
 
 include ~/.config/sway/host
