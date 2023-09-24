@@ -45,7 +45,7 @@ bindgesture swipe:3:right exec ydotool key 56:1 105:1 105:0 56:0
 bindgesture swipe:3:left exec ydotool key 56:1 106:1 106:0 56:0
 
 exec --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini
-exec --no-startup-id ydotool -d
+exec --no-startup-id ydotoold
 
 exec_always pkill kanshi; exec kanshi
 
