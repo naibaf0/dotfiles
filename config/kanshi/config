@@ -1,9 +1,14 @@
 profile burgstrasse {
-  output eDP-1 enable
-  output "Goldstar Company Ltd LG Ultra HD 0x0000D748" mode 2560x1440@59.951Hz position 0,0
+  output "LG Electronics LG Ultra HD 0x0000D748" enable mode 2560x1440@59.951Hz position 0,0
+  output eDP-1 enable position 320,1440
 }
 
+profile mobile+hdmi {
+  output HDMI-A-1 enable position 0,0
+  output eDP-1 enable position 0,1080
+}
+
+
 profile mobile {
-  output eDP-1 enable
-  output eDP-1 position 320,1440
+  output eDP-1 enable position 0,0
 }
