@@ -14,4 +14,4 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 export GDK_BACKEND=wayland
 
-sway -d 2>sway.log
+sway
