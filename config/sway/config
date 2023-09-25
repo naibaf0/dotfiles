@@ -228,6 +228,7 @@ mode "$mode_power" {
     bindsym Escape mode "default"
 }
 bindsym Mod1+Control+q mode "$mode_power"
+# bindsym Mod1+Control+q exec $HOME/.dotfiles/scripts/power-menu.sh 
 
 ### Looks
 set $rosewater #f4dbd6
@@ -322,7 +323,7 @@ for_window [title="^Picture-in-Picture$"] {
   opacity 0.7
 }
 # Chromium Picture-in-Picture mode
-for_window [title="^Picture in picture$"] {
+for_window [title="about:blank"] {
   floating enable
   resize set height 30ppt
   resize set width  30ppt
@@ -401,7 +402,7 @@ exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-dark'
+  gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-Dark'
   gsettings set $gnome-schema icon-theme 'breeze-dark'
   gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Lavender-Cursors'
 }
