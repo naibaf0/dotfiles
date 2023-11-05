@@ -86,9 +86,9 @@ Development
 Pacman hooks
 ------------
 * informant
-* pacman-cleanup-hook
+* paccache-hook
 * pug
-* overdue 
+* longoverdue 
 * arch-audit
 
 Extra Groups
@@ -96,7 +96,7 @@ Extra Groups
 `sudo usermod -a -G $GROUP $USER`
 * `video` (backlight, udev rule provided by light)
 * `informant` (to read informant hook messages without sudo)
-* `rfkill` (bluetooth, more precisely blueberry)
+* `input` (for ydotool?)
 
 Use XWayland
 ------------
@@ -106,6 +106,4 @@ To force XWayland with these apps copy their `.desktop` file from
 QT application to the `Exec=` line.
 After the edit run `update-desktop-database` command.
 
-* Virtualbox
-* Zoom
-
+* mendeley-reference-manager.desktop
