@@ -1,7 +1,9 @@
 #main {
     border-radius: 10px;
-    background-color: #282a3644;
+    background-color: @red;
 }
+
+@import "/home/naibafo/.dotfiles/themes/catppuccin-macchiato.css";
 
 #base {
     margin: 10px;
@@ -25,7 +27,7 @@
 .workspace {
     margin: 10px;
     border-radius: 8px;
-    background-color: #44475aFF;
+    background-color: @blue;
     border-width: 1px;
     border-color: #555555FF;
 }
@@ -56,7 +58,7 @@
     margin-right: 4px;
     color: #FFFFFFFF;
     font-size: 14px;
-    font-family: "Overpass Mono:style=Bold";
+    font-family: "Terminus (TTF):style=Bold";
 }
 
 .content {
@@ -67,7 +69,7 @@
     color: #999999FF;
     vertical-align: top;
     font-size: 12px;
-    font-family: "Overpass Mono:style=Regular";
+    font-family: "Terminus (TTF):style=Bold";
     word-wrap: break-word;
     line-height: 12px;
 }
@@ -79,5 +81,5 @@
     top: -9px;
     color: #FFFFFFFF;
     font-size: 18px;
-    font-family: "Overpass Mono:style=Bold";
+    font-family: "Terminus (TTF):style=Bold";
 }
