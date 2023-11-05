@@ -69,7 +69,7 @@ seat * xcursor_theme Catppuccin-Macchiato-Lavender-Cursors 24
     floating_modifier $mod normal
 
     # reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Alt+c reload
 
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -345,9 +345,9 @@ assign [app_id="qutebrowser"] $ws10
 # clipboard manager
 set $clipboard cliphist list | $dmenu --no-exec -p "copy" | cliphist decode | wl-copy
 set $clipboard-del cliphist list | $dmenu --no-exec -p "delete" | cliphist delete && pkill -RTMIN+9 waybar
-set $clipboard-del-all "rm -f ~/.cache/cliphist/db; pkill -RTMIN+9 waybar
 
-bindsym --release $mod+v exec $clipboard 
+bindsym --release $mod+c exec $clipboard 
+bindsym --release $mod+Shift+c exec cliphist wipe && pkill -RTMIN+9 waybar
 
 # screenshots
 bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
@@ -360,7 +360,7 @@ bindsym $mod+Escape exec --no-startup-id ~/.dotfiles/scripts/sway-lock.sh
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol up
 bindsym --locked XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol down
 bindsym --locked XF86AudioMute exec --no-startup-id ~/.dotfiles/scripts/volume.sh vol mute
-bindsym --locked $mod+c exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic mute
+bindsym --locked $mod+m exec --no-startup-id ~/.dotfiles/scripts/volume.sh mic mute
 
 # audio player control
 bindsym --locked XF86AudioPlay exec playerctl play-pause
@@ -373,8 +373,8 @@ bindsym XF86MonBrightnessUp exec zsh ~/.dotfiles/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec zsh ~/.dotfiles/scripts/brightness.sh down
 
 # notifications
-bindsym $mod+m exec makoctl dismiss
-bindsym $mod+Shift+m exec makoctl dismiss --all
+bindsym $mod+period exec makoctl dismiss
+bindsym $mod+Shift+period exec makoctl dismiss --all
 
 # passwords
 bindsym $mod+x exec wofi-pass
@@ -396,7 +396,7 @@ exec --no-startup-id mako
 exec --no-startup-id thunar --daemon
 exec --no-startup-id playerctld daemon
 exec --no-startup-id mpdris2
-exec --no-startup-id wl-paste --watch cliphist store
+exec --no-startup-id wl-paste --watch cliphist -max-items 120 store
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 
 set $gnome-schema org.gnome.desktop.interface
