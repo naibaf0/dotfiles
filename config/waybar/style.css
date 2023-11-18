@@ -34,6 +34,16 @@ window#waybar.kitty {
     /* background-color: @mantle; */
 }
 
+
+    /* #workspaces */
+    /* #workspaces button */
+    /* #workspaces button.active */
+    /* #workspaces button.empty */
+    /* #workspaces button.persistent */
+    /* #workspaces button.special */
+    /* #workspaces button.visible */
+
+
 #workspaces button {
     padding: 3 0 0 0px;
     margin: 5 0 5 5px;
@@ -48,7 +58,7 @@ window#waybar.kitty {
     /* border-bottom: 1px solid #f8f8f2; */
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     background-color: @surface0;
     /* border-bottom: 1px solid #44475A; */
 }
@@ -57,9 +67,9 @@ window#waybar.kitty {
     background-color: @peach;
 }
 
-#mode {
+#submap {
     background-color: @peach;
-    /* border-bottom: 1px solid #FF5555; */
+     /* border-bottom: 1px solid #FF5555; */
 }
 
 #window,

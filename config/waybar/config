@@ -8,17 +8,26 @@
     //"margin": "10, 10, 0",
     "padding": 2,
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
     "include": ["$HOME/.config/waybar/host"],
     // Modules configuration
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
+        "tooltip": true
+    },
+    "hyprland/window": {
+        "max-length": 80,
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Thunderbird": "  $1",
+            "(.*) — Mozilla Firefox": "󰈹  $1",
+            "(.*) - zsh": "> [$1]"
+        }, 
+        "separate-outputs": true
     },
     "sway/window": {
         "max-length": 80,
-        "tooltip": false,
-        "icon": false
+        "format": "{}"
     },
     "custom/scratchpad": {
         "format-text": "{}",
