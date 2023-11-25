@@ -19,9 +19,11 @@
         "max-length": 80,
         "format": "{}",
         "rewrite": {
-            "(.*) — Mozilla Thunderbird": "  $1",
+            "(.*) - Mozilla Thunderbird": " $1",
+            "(.*) - Thunderbird": "  $1",
             "(.*) — Mozilla Firefox": "󰈹  $1",
-            "(.*) - zsh": "> [$1]"
+            "(.*) - NVIM": " $1",
+            "(.*) - zsh": " [$1]"
         }, 
         "separate-outputs": true
     },

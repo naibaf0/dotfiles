@@ -62,7 +62,7 @@ WORDCHARS=${WORDCHARS//[\/]}
 # Set a custom terminal title format. Use prompt expansion strings for dynamic data.
 # See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 # For example, '%n@%m: %~' corresponds to 'username@host: /current/directory'.
-zstyle ':zim:termtitle' format '%n@%m: %1~'
+zstyle ':zim:termtitle' format '%n@%m: %1~ - zsh'
 
 #
 # input
