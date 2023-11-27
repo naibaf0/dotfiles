@@ -48,8 +48,8 @@ window#waybar.kitty {
 
 
 #workspaces button {
-    padding: 3 0 0 0px;
-    margin: 5 0 5 5px;
+    /* padding: 3 0 0 0px; */
+    /* margin: 5 0 5 5px; */
     background-color: transparent;
     /* border-bottom: 3px solid transparent; */
 }
@@ -62,7 +62,7 @@ window#waybar.kitty {
 }
 
 #workspaces button.active {
-    background-color: @surface0;
+    background-color: @surface1;
     /* border-bottom: 1px solid #44475A; */
 }
 
