@@ -7,6 +7,7 @@ matching=contains
 insensitive=true
 term=kitty
 allow_images=true
+parse_search=true
 allow_markup=true
 dmenu-parse_action=true
 drun-display_generic=true

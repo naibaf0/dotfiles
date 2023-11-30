@@ -4,12 +4,14 @@ window {
 margin: 5px;
 background-color: @crust;
 opacity: 0.9;
+border-radius: 10;
 }
 
 #outer-box {
 margin: 5px;
 /* border: 2px solid @maroon; */
 background-color: @mantle;
+border-radius: 10;
 }
 
 #input {
@@ -31,6 +33,7 @@ border: 2px solid @pink;
 background-color: @base;
 font-size: 16px;
 color: #f8f8f2;
+border-radius: 10;
 }
 
 #scroll label {
@@ -38,7 +41,6 @@ margin: 2px 0px;
 }
 
 #entry {
-margin: 5px;
 background-color: @base;
 }
 #entry:selected {
