@@ -1,6 +1,7 @@
 #!/bin/bash
 
-MENU="img:/usr/share/icons/breeze-dark/actions/32/system-log-out.svg:text:Logout\nimg:/usr/share/icons/breeze-dark/actions/32/system-suspend.svg:text:Suspend\nimg:/usr/share/icons/breeze-dark/actions/32/system-reboot.svg:text:Reboot\nimg:/usr/share/icons/breeze-dark/actions/32/system-shutdown.svg:text:Shutdown:"
+ICONS="/usr/share/icons/breeze-dark/actions/32"
+MENU="img:$ICONS/system-log-out.svg:text:Logout\nimg:$ICONS/system-suspend.svg:text:Suspend\nimg:$ICONS/system-reboot.svg:text:Reboot\nimg:$ICONS/system-shutdown.svg:text:Shutdown"
 
 CHOICE=$(echo -e "$MENU" | wofi --dmenu -L 5 -W 15% --cache-file /dev/null | awk '{print tolower($1)}')
 
