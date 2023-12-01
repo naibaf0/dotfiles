@@ -34,6 +34,7 @@ Wayland Desktop (sway)
 * wl-clipboard
 * wofi
 * vulkan-validation-layers
+* libinput-gestures
 
 
 Universal
