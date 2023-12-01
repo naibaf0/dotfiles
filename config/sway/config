@@ -346,9 +346,10 @@ assign [app_id="qutebrowser"] $ws10
 # clipboard manager
 set $clipboard cliphist list | $dmenu --no-exec -p "copy" | cliphist decode | wl-copy
 set $clipboard-del cliphist list | $dmenu --no-exec -p "delete" | cliphist delete && pkill -RTMIN+9 waybar
+set $clipboard-del-all cliphist wipe && pkill -RTMIN+9 waybar
 
 bindsym $mod+c exec $clipboard 
-bindsym $mod+Shift+c exec cliphist wipe && pkill -RTMIN+9 waybar
+bindsym $mod+Shift+c exec $clipboard-del-all
 
 # screenshots
 bindsym --release Print exec --no-startup-id grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
