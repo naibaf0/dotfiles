@@ -72,7 +72,7 @@ function menu () {
 
 function rofi_cmd () {
   # don't repeat lines with uniq -u
-  echo -e "$1" | uniq -u | wofi --show dmenu --insensitive -p "Network connection" --style "$DIR/wofi-font.css" --cache /dev/null
+  echo -e "$1" | uniq -u | wofi --show dmenu --insensitive -p "Network connection" --cache /dev/null
 }
 
 function rofi_menu () {

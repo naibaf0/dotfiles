@@ -20,6 +20,7 @@ set $term kitty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $menu wofi -i --show drun | xargs swaymsg exec
 set $dmenu wofi -i --dmenu
+set $wofis "$HOME/.dotfiles/scripts/wofi"
 
 # Give the workspaces names, or rather symbols
 set $ws1 1
@@ -377,13 +378,13 @@ bindsym $mod+period exec makoctl dismiss
 bindsym $mod+Shift+period exec makoctl dismiss --all
 
 # passwords
-bindsym $mod+x exec wofi-pass
+bindsym $mod+x exec $wofis/wofi-pass
 
 # nmcli
-bindsym $mod+i exec wofi-nmcli
+bindsym $mod+i exec $wofis/wofi-nmcli
 
 # search
-bindsym $mod+Shift+s exec wofi-websearch
+bindsym $mod+Shift+s exec $wofis/wofi-websearch
 
 
 # window/workspace overview sov
