@@ -1,0 +1,18 @@
+[pyprland]
+plugins = [
+  # "scratchpads",
+  "lost_windows",
+  # "monitors",
+  "shift_monitors",
+  "toggle_dpms",
+  "magnify",
+  "expose",
+  "shift_monitors",
+  "workspaces_follow_focus",
+]
+
+[workspaces_follow_focus]
+max_workspaces = 9
+
+[expose]
+include_special = false
