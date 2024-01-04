@@ -1,5 +1,7 @@
 {
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "layer": "overlay", // Waybar at top layer
+    "mode": "hide",
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "custom/weather", "clock"]
 }

@@ -1,4 +1,5 @@
 {
+    "layer": "top", // Waybar at top layer
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["gamemode", "custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"]

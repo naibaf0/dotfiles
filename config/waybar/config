@@ -1,12 +1,12 @@
 {
     "bar_id": "bar-0",
     "ipc": true,
-    "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     //"height": 35, // Waybar height (to be removed for auto )
     // "width": 1280, // Waybar width
     "margin": "10, 10, 0",
     "padding": 0,
+    //"spacing": 10,
     // Choose the order of the modules
     "include": ["$HOME/.config/waybar/host"],
     // Modules configuration
@@ -26,10 +26,6 @@
             "(.*) - zsh": " [$1]"
         }, 
         "separate-outputs": true
-    },
-    "sway/window": {
-        "max-length": 80,
-        "format": "{}"
     },
     "custom/scratchpad": {
         "format-text": "{}",
