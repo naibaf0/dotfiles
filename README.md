@@ -74,6 +74,7 @@ Terminal & Shell
 * fzf
 * ripgrep
 * fd
+* bottom
 
 Development
 -----------
