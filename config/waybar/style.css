@@ -6,13 +6,26 @@
 
 @import "/home/naibafo/.dotfiles/themes/catppuccin-macchiato.css";
 
-window#waybar {
+window#waybar.desktop {
     background: alpha(@theme_base_color, 0.9);
     /* border-bottom: 2px solid @unfocused_borders; */
     color: @theme_text_color;
     /* background-color: alpha(@mantle, 0.95); */
     /* border: 1px solid #b45bcf; */
     border-radius: 10px;
+    /* border: 2px solid rgba(100, 114, 125, 0.5); */
+    border: 2px solid shade(@lavender, 0.4);
+    /* color: @text; */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+window#waybar.mobile {
+    background: alpha(@theme_base_color, 0.95);
+    /* border-bottom: 2px solid @unfocused_borders; */
+    color: @theme_text_color;
+    /* background-color: alpha(@mantle, 0.95); */
+    /* border: 1px solid #b45bcf; */
+    /* border-radius: 10px; */
     /* border: 2px solid rgba(100, 114, 125, 0.5); */
     border: 2px solid shade(@lavender, 0.4);
     /* color: @text; */

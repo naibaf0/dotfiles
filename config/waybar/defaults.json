@@ -1,11 +1,4 @@
 {
-    "ipc": true,
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    //"height": 35, // Waybar height (to be removed for auto )
-    // "width": 1280, // Waybar width
-    "margin": "6, 6, 0",
-    "padding": 0,
-    //"spacing": 10,
     // Modules configuration
     "hyprland/submap": {
         "format": "✌️ {}",
