@@ -1,0 +1,216 @@
+{
+    "ipc": true,
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    //"height": 35, // Waybar height (to be removed for auto )
+    // "width": 1280, // Waybar width
+    "margin": "6, 6, 0",
+    "padding": 0,
+    //"spacing": 10,
+    // Modules configuration
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
+        "tooltip": true
+    },
+    "hyprland/window": {
+        "max-length": 80,
+        "format": "{}",
+        "rewrite": {
+            "(.*) - Mozilla Thunderbird": " $1",
+            "(.*) - Thunderbird": "  $1",
+            "(.*) — Mozilla Firefox": "󰈹  $1",
+            "(.*) - NVIM": " $1",
+            "(.*) - zsh": " [$1]"
+        }, 
+        "separate-outputs": true
+    },
+    "custom/scratchpad": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "~/.config/waybar/modules/scratchpad-indicator.sh 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
+    "custom/updates": {
+        "format": "{}",
+        "interval": 600,
+        "signal": 8,
+        "on-click": "$TERMINAL --class='update_installer' -e 'paru'; pkill -SIGRTMIN+8 waybar",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/modules/updates.sh 2> /dev/null"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": " ",
+        "hide-not-running": true,
+        "use-icon": false,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 4,
+        "icon-size": 20,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "$HOME/.config/waybar/modules/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "mpd": {
+        "format": " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "format-disconnected": " Disconnected",
+        "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        }
+    },
+    "idle_inhibitor": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰈈",
+            "deactivated": "󰈉"
+        }
+    },
+    "clock": {
+        //"tooltip-format": "{:%Y-%m-%d | %H:%M}",
+        "interval": 5,
+        "format": "{:%a %d %b <b>%H:%M</b>}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "tooltip": false,
+        "format": " {}%"
+    },
+    "temperature#sunnydale": {
+        "tooltip": false,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp3_input",
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "temperature#serenity": {
+        "thermal-zone": 2,
+        "tooltip": false,
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "temperature#banshee": {
+        /*"thermal-zone": 2,*/
+        "tooltip": false,
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon} {capacity}%",
+        "format-plugged": "󱟢 {capacity}%",
+        "format-alt": "{icon} {capacity}% ({time})",
+        "format-critical": "{icon} {capacity}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": {
+          "default": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+          "critical": ["󱃍 "],
+          "charging": ["󰢟 ","󰢜 ","󰂆 ","󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
+        }
+    },
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-on": "󰂯 ",
+        "format-off": "󰂲 ",
+        "format-disabled": "󰂲 ",
+        "format-connected": "󰂱 {device_alias}",
+        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 ",
+        "format-linked": "󰈀 (No IP)",
+        "format-disconnected": "󰲛 ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": true,
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}{volume}% {format_source}",
+        "format-muted": "󰖁 {format_source}",
+        "format-bluetooth": "{icon}󰂯 {volume}% {format_source}",
+        "format-bluetooth-muted": "󰖁{icon}󰂯 {format_source}",
+        "format-source": " 󰍬 {volume}%",
+        "format-source-muted": " 󰍭",
+        "format-icons": {
+            "headphone": "󰋋 ",
+            "hands-free": "󰋎 ",
+            "headset": "󰋎 ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+        },
+        "on-click": "pavucontrol"
+    },
+     "custom/clipboard": {
+        "format": "󰆏",
+        "interval": "once",
+        "return-type": "json",
+        "on-click": "cliphist list | wofi -dmenu --no-exec -p 'copy' | cliphist decode | wl-copy",
+        "on-click-right": "cliphist list | wofi -dmenu --no-exec -p 'delete' | cliphist delete && pkill -RTMIN+9 waybar",
+        "on-click-middle": "cliphist wipe && pkill -RTMIN+9 waybar",
+        "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)",
+        "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]", "signal": 9
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
