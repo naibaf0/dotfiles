@@ -1,11 +1,11 @@
 [pyprland]
 plugins = [
-  # "scratchpads",
+  "scratchpads",
   "lost_windows",
   # "monitors",
   "shift_monitors",
   "toggle_dpms",
-  "magnify",
+  # "magnify",
   "expose",
   "shift_monitors",
   "workspaces_follow_focus",
@@ -16,3 +16,17 @@ max_workspaces = 9
 
 [expose]
 include_special = false
+
+[scratchpads.term]
+    command = "kitty --title scratchpad"
+    margin = 50
+    unfocus = "hide"
+    animation = "fromTop"
+    lazy = true
+
+[scratchpads.btm]
+    command = "kitty --title scratchpad -e btm"
+    margin = 50
+    unfocus = "hide"
+    animation = "fromTop"
+    lazy = true
