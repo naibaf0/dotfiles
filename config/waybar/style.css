@@ -7,28 +7,24 @@
 @import "/home/naibafo/.dotfiles/themes/catppuccin-macchiato.css";
 
 window#waybar.desktop {
-    background: alpha(@theme_base_color, 0.9);
-    /* border-bottom: 2px solid @unfocused_borders; */
-    color: @theme_text_color;
+    background: alpha(@base, 0.9);
     /* background-color: alpha(@mantle, 0.95); */
     /* border: 1px solid #b45bcf; */
     border-radius: 10px;
     /* border: 2px solid rgba(100, 114, 125, 0.5); */
-    border: 2px solid shade(@lavender, 0.4);
-    /* color: @text; */
+    border: 2px solid shade(@lavender, 0.6);
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
 window#waybar.mobile {
-    background: alpha(@theme_base_color, 0.95);
-    /* border-bottom: 2px solid @unfocused_borders; */
-    color: @theme_text_color;
+    background: alpha(@base, 0.95);
     /* background-color: alpha(@mantle, 0.95); */
     /* border: 1px solid #b45bcf; */
     /* border-radius: 10px; */
     /* border: 2px solid rgba(100, 114, 125, 0.5); */
     border: 2px solid shade(@lavender, 0.4);
-    /* color: @text; */
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -48,6 +44,15 @@ window#waybar.solo {
 
 window#waybar.kitty {
     /* background-color: @mantle; */
+}
+
+tooltip {
+    background: alpha(@base, 0.9);
+  /* background: alpha(@overlay0, 0.8); */
+  border: 1px solid alpha(@mantle, 0.5);
+}
+tooltip label {
+  color: white;
 }
 
 
