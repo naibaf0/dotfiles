@@ -11,7 +11,7 @@
     //"spacing": 10,
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["gamemode", "custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "cpu", "memory", "temperature#sunnydale", "temperature#banshee", "custom/weather", "clock"],
+    "modules-right": ["gamemode", "custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
     "include": ["$HOME/.config/waybar/defaults.json", "$HOME/.config/waybar/host"]
 }, {
     "name": "mobile",
@@ -29,7 +29,7 @@
     //"spacing": 10,
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "custom/weather", "clock"],
+    "modules-right": ["custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "temperature#banshee", "battery", "custom/weather", "clock"],
     "include": ["$HOME/.config/waybar/defaults.json"]
 }
 
