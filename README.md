@@ -41,7 +41,7 @@ Universal
 ---------
 * thunar, thunar-volman, gvfs
 * dropbox & dropbox-cli
-* lxappearance
+* nwg-look
 * xarchiver
 * pulseaudio, pulseaudio-bluetooth, pulseaudio-alsa, pulseaudio-ctl
 * pavucontrol
