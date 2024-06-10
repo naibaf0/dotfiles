@@ -1,7 +1,8 @@
 # set wallpaper
 #set $wallpapers_path $HOME/Pictures/Wallpapers
 #output * bg `find $wallpapers_path -type f | shuf -n 1` fill
-exec "cd $HOME/Pictures && $HOME/.dotfiles/scripts/wallpaper.sh"
+# exec "cd $HOME/Pictures && $HOME/.dotfiles/scripts/wallpaper.sh"
+output * bg $HOME/Pictures/Surfergirl2.jpg fill
 
 ### Idle configuration
 exec swayidle \

@@ -9,8 +9,10 @@
     // "width": 1280, // Waybar width
     "padding": 0,
     //"spacing": 10,
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
+    //"modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    //"modules-center": ["hyprland/window"],
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
     "modules-right": ["gamemode", "custom/scratchpad", "custom/updates", "custom/clipboard", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "cpu", "memory", "temperature#sunnydale", "custom/weather", "clock"],
     "include": ["$HOME/.config/waybar/defaults.json", "$HOME/.config/waybar/host"]
 }, {

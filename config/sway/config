@@ -40,7 +40,7 @@ input "*" {
     xkb_options caps:escape
 }
 
-seat * xcursor_theme Catppuccin-Macchiato-Lavender-Cursors 24
+seat * xcursor_theme catppuccin-macchiato-lavender-cursors 24
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -213,23 +213,8 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-#
-# Power options:
-#
-set $mode_power Power: (l) lock, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
-mode "$mode_power" {
-    bindsym l mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-lock.sh
-    bindsym s mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh suspend
-    bindsym h mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh hibernate
-    bindsym r mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh reboot
-    bindsym p mode "default", exec --no-startup-id $HOME/.dotfiles/scripts/sway-exit.sh shutdown
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym Mod1+Control+q mode "$mode_power"
-# bindsym Mod1+Control+q exec $HOME/.dotfiles/scripts/power-menu.sh 
+bindsym Mod1+Control+q exec $HOME/.dotfiles/scripts/wofi/wofi-power
 
 ### Looks
 set $rosewater #f4dbd6
@@ -271,7 +256,7 @@ font pango:Fantasque Sans Mono 12
 # borders
 default_border pixel 1
 default_floating_border pixel 1
-hide_edge_borders --i3 smart
+hide_edge_borders --i3 smart_no_gaps
 
 # titlebar
 titlebar_padding 4 2
@@ -279,7 +264,8 @@ titlebar_border_thickness 1
 
 # gaps
 gaps inner 10
-smart_gaps on
+# gaps outer 5
+smart_gaps off
 
 ### App Defaults
 
@@ -394,6 +380,7 @@ bindsym --release $mod+o exec "echo 0 > /tmp/sovpipe"
 
 ### Startup
 
+exec --no-startup-id nwg-look -a
 exec --no-startup-id mako
 exec --no-startup-id thunar --daemon
 exec --no-startup-id playerctld daemon
@@ -401,13 +388,13 @@ exec --no-startup-id mpdris2
 exec --no-startup-id wl-paste --watch cliphist -max-items 120 store
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 
-set $gnome-schema org.gnome.desktop.interface
+# set $gnome-schema org.gnome.desktop.interface
 
-exec_always {
-  gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-Dark'
-  gsettings set $gnome-schema icon-theme 'breeze-dark'
-  gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Lavender-Cursors'
-}
+# exec_always {
+#   gsettings set $gnome-schema gtk-theme 'Catppuccin-Macchiato-Standard-Lavender-Dark'
+#   gsettings set $gnome-schema icon-theme 'breeze-dark'
+#   gsettings set $gnome-schema cursor-theme 'Catppuccin-Macchiato-Lavender-Cursors'
+# }
 
 include ~/.config/sway/host
 include /etc/sway/config.d/*

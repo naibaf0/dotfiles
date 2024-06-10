@@ -3,7 +3,7 @@
 set -e
 
 timeout=30
-monitor="$(hyprctl monitors -j | jq '[.[].focused] | index(true)')"
+monitor="$(swaymsg -t get_outputs | jq '[.[].focused] | index(true)')"
 alias mywofi="wofi --dmenu --matching contains -i -k /dev/null"
 
 select_command() {

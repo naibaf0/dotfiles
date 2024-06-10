@@ -1,5 +1,5 @@
 # set wallpaper
-output * bg $HOME/Pictures/4k\ Wallpapers/wallhaven-170258.jpg fill
+output * bg $HOME/Pictures/Surfergirl2.jpg fill
 
 ### Idle configuration
 exec swayidle \
