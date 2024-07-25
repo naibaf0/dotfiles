@@ -1,6 +1,8 @@
 cask_args appdir: '/Applications'
 
 tap 'Homebrew/bundle'
+tap 'hashicorp/terraform'
+tap 'homebrew/cask-fonts'
 
 brew  'zsh'
 
@@ -42,17 +44,17 @@ brew 'kubernetes-helm'
 brew 'helmfile'
 brew 'kubectx'
 brew 'rancher-cli'
+brew 'derailed/k9s/k9s'
+brew 'logcli'
 
-brew 'terraform'
+brew 'hashicorp/tap/terraform'
 cask 'google-cloud-sdk'
 
 
-tap 'homebrew/cask-fonts'
 
 cask 'font-fantasque-sans-mono-nerd-font'
 cask 'font-overpass'
 
-brew 'openfortivpn'
 cask 'linphone'
 
 cask 'drawio'
