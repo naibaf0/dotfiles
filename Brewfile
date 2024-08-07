@@ -1,8 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'Homebrew/bundle'
-tap 'hashicorp/terraform'
-tap 'homebrew/cask-fonts'
+tap 'hashicorp/tap'
 
 brew  'zsh'
 
@@ -40,7 +39,7 @@ brew 'rename'
 
 brew 'podman'
 brew 'kubernetes-cli'
-brew 'kubernetes-helm'
+brew 'helm'
 brew 'helmfile'
 brew 'kubectx'
 brew 'rancher-cli'
@@ -48,6 +47,7 @@ brew 'derailed/k9s/k9s'
 brew 'logcli'
 
 brew 'hashicorp/tap/terraform'
+
 cask 'google-cloud-sdk'
 
 
@@ -65,5 +65,3 @@ cask 'maccy'
 cask 'slack'
 
 cask 'wireshark'
-
-cask 'microsoft-remote-desktop'
