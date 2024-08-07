@@ -5,10 +5,9 @@ path=(
   $path
 )
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Set the list of directories that Zsh searches for programs.
 if [ "$(uname -s)" = "Darwin" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   path=(
     $(brew --prefix coreutils)/libexec/gnubin
     $(brew --prefix python)/libexec/bin
