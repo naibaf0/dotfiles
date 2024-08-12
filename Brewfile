@@ -36,6 +36,11 @@ brew 'iproute2mac'
 brew 'wireguard-tools'
 brew 'p7zip'
 brew 'rename'
+brew 'ansible'
+
+brew 'sleepwatcher'
+brew 'blueutil'
+
 
 brew 'podman'
 brew 'kubernetes-cli'
@@ -49,8 +54,6 @@ brew 'logcli'
 brew 'hashicorp/tap/terraform'
 
 cask 'google-cloud-sdk'
-
-
 
 cask 'font-fantasque-sans-mono-nerd-font'
 cask 'font-overpass'
