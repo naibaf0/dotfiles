@@ -6,8 +6,11 @@ path=(
 )
 
 # Set the list of directories that Zsh searches for programs.
-if [ "$(uname -s)" = "Darwin" ]; then
+if [ -f /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
   path=(
     $(brew --prefix coreutils)/libexec/gnubin
     $(brew --prefix python)/libexec/bin
