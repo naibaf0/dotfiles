@@ -8,7 +8,7 @@ bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "se
 #unbind r
 #bind r source-file ~/.tmux.conf\; display "tmux reloaded!"
 
-##setw -g mode-keys vi
+setw -g mode-keys vi
 
 # Set that stupid Esc-Wait off, so VI works again
 set-option -sg  escape-time 0
