@@ -176,6 +176,9 @@ cdpath+=(~/projects)
 # Kubernetes
 # ==========
 
+alias kubectl=kubecolor
+compdef kubecolor=kubectl
+
 # You can place all your kube configs in your local home under
 # $HOME/.kube/configs. This functions collects all these config copies them
 # into a temporary folder and makes them accessible via a KUBECONFIG.
