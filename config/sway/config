@@ -37,7 +37,6 @@ set $ws10 10
 ### Input configuration
 input "*" {
     xkb_layout de
-    xkb_options caps:escape
 }
 
 seat * xcursor_theme catppuccin-macchiato-lavender-cursors 24
@@ -288,6 +287,7 @@ for_window [app_id="xarchiver"] floating enable
 for_window [app_id="zenity"] floating enable
 
 for_window [instance="update_installer"] floating enable
+for_window [app_id="thunderbird" title="^\d+\sReminders?$"] floating enable
 
 # Zoom Meeting App
 
