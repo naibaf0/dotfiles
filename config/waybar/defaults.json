@@ -12,6 +12,10 @@
         }, 
         "separate-outputs": true
     },
+    "custom/power": {
+        "format": "󰐦 ",
+        "on-click": "bash ~/.dotfiles/scripts/wofi/wofi-power"
+    },
     "custom/scratchpad": {
         "format-text": "{}",
         "return-type": "json",
