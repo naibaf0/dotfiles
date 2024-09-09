@@ -15,7 +15,7 @@ border-radius: 10;
 }
 
 #input {
-margin: 5px;
+margin: 2px;
 border: 2px solid @lavender;
 background-color: @surface0;
 color: #f8f8f2;
@@ -23,12 +23,12 @@ font-size: 18px;
 }
 
 #inner-box {
-margin: 5px;
+/* margin: 5px; */
 background-color: @base;
 }
 
 #scroll {
-margin: 5px;
+margin: 2px;
 border: 2px solid @pink;
 background-color: @base;
 font-size: 16px;
@@ -41,11 +41,13 @@ margin: 2px 0px;
 }
 
 #entry {
+margin: 0px 2px;
 background-color: @base;
+border: 2px;
 }
 #entry:selected {
 background-color: @surface1;
-border: 2px solid @mauve;
+/* border: 2px solid @mauve; */
 }
 
 #img {

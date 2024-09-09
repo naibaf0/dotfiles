@@ -3,7 +3,7 @@
 ICONS="/usr/share/icons/breeze-dark/actions/32"
 MENU="img:$ICONS/system-log-out.svg:text:Logout\nimg:$ICONS/system-suspend.svg:text:Suspend\nimg:$ICONS/system-hibernate.svg:text:Hibernate\nimg:$ICONS/system-reboot.svg:text:Reboot\nimg:$ICONS/system-shutdown.svg:text:Poweroff"
 
-CHOICE=$(echo -e "$MENU" | wofi --dmenu -L 6 -W 15% --cache-file /dev/null | awk '{print tolower($1)}')
+CHOICE=$(echo -e "$MENU" | wofi --dmenu -L 6 -W 1% --cache-file /dev/null -p "Power Menu" | awk '{print tolower($1)}')
 
 case $CHOICE in
   "logout")
