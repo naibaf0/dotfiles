@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'Homebrew/bundle'
 tap 'hashicorp/tap'
+tap robusta-dev/homebrew-krr
 
 brew  'zsh'
 
@@ -51,6 +52,7 @@ brew 'kubecolor'
 brew 'rancher-cli'
 brew 'derailed/k9s/k9s'
 brew 'logcli'
+brew 'krr'
 
 brew 'hashicorp/tap/terraform'
 
