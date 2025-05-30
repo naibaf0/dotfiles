@@ -1,12 +1,6 @@
 {
     // Modules configuration
-    "hyprland/submap": {
-        "format": "✌️ {}",
-        "max-length": 8,
-        "tooltip": true
-    },
-    "hyprland/window": {
-    //"sway/window": {
+    "sway/window": {
         "max-length": 80,
         "format": "{}",
         "rewrite": {
