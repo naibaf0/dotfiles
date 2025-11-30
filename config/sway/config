@@ -287,7 +287,7 @@ for_window [app_id="xarchiver"] floating enable
 for_window [app_id="zenity"] floating enable
 
 for_window [instance="update_installer"] floating enable
-for_window [app_id="thunderbird" title="^\d+\sReminders?$"] floating enable
+for_window [app_id="org.mozilla.Thunderbird" title="^\d+\sReminders?$"] floating enable
 
 # Zoom Meeting App
 
@@ -323,7 +323,7 @@ for_window [title="about:blank"] {
 # workspace assignments
 assign [title="Spotify"] $ws4
 
-assign [app_id="thunderbird"] $ws3
+assign [app_id="org.mozilla.Thunderbird"] $ws3
 assign [app_id="cantata"] $ws4
 assign [app_id="firefox"] $ws10
 assign [app_id="Firefox Beta"] $ws10
@@ -387,6 +387,7 @@ exec --no-startup-id playerctld daemon
 exec --no-startup-id mpdris2
 exec --no-startup-id wl-paste --watch cliphist -max-items 120 store
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
+exec --no-startup-id /usr/lib/hyprpolkitagent/hyprpolkitagent
 
 # set $gnome-schema org.gnome.desktop.interface
 
