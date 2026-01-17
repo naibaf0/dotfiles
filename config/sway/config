@@ -322,6 +322,7 @@ for_window [title="about:blank"] {
 
 # workspace assignments
 assign [title="Spotify"] $ws4
+assign [title="deezer-desktop"] $ws4
 
 assign [app_id="org.mozilla.Thunderbird"] $ws3
 assign [app_id="cantata"] $ws4
