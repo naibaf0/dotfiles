@@ -35,6 +35,7 @@ Wayland Desktop (sway)
 * wofi
 * vulkan-validation-layers
 * libinput-gestures
+* hyprpolkit
 
 
 Universal
