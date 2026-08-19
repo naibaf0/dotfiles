@@ -56,6 +56,9 @@ brew 'krr'
 
 brew 'hashicorp/tap/terraform'
 
+brew 'anomalyco/tap/opencode'
+cask 'opencode-desktop'
+
 cask 'google-cloud-sdk'
 
 cask 'font-fantasque-sans-mono-nerd-font'
