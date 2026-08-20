@@ -4,6 +4,8 @@
 [user]
     name    = AUTHORNAME
     email   = AUTHOREMAIL
+[init]
+    defaultBranch = main
 [alias]
     co                  = checkout
     count               = shortlog -sn
@@ -28,24 +30,35 @@
     autocrlf          = input
     whitespace        = trailing-space,space-before-tab
     precomposeunicode = true
+[fetch]
+    prune = true
 [pull]
     rebase  = true
+[rebase]
+    autoStash = true
 [push]
     default = simple
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
 [apply]
     whitespace = nowarn
 [help]
     autocorrect = 1
 [merge]
-  tool = vimdiff
-  conflictstyle =diff3
+    tool = vimdiff
+    conflictstyle = zdiff3
+[rerere]
+    enabled = true
 [mergetool]
-  prompt = false
+    prompt = false
 [mergetool "vimdiff"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff]
-  tool = vimdiff
+    tool = vimdiff
+    algorithm = histogram
 [difftool]
-  prompt = false
+    prompt = false
 [difftool "vimdiff"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
